@@ -18,6 +18,13 @@
 // Move to moveToWorkoutDaysViewController
 - (void)moveToWorkoutDaysViewController;
 
+@property (strong, nonatomic) Database *m_database;
+@property (strong, nonatomic) WorkOutDaysViewController *m_workoutDaysViewController;
+@property (strong, nonatomic) ViewFactory *m_controllerViews;
+@property (strong, nonatomic) ViewTransitions *m_transition;
+@property (strong, nonatomic) NSMutableArray  *exerciseLevelImages;
+@property (strong, nonatomic) NSMutableArray  *exerciseLevelSelectedImages;
+
 @end
 
 @implementation ExerciseLevelViewController
@@ -47,18 +54,7 @@ NSString *const m_beginner_iPhone5_selected             =   @"beginner_iphone5_s
 // Intermediate level selected image for iPhone5
 NSString *const m_intermediate_iPhone5_selected         =   @"intermediate_iphone5_selected.png";
 
-// WorkoutDaysViewController class object
-WorkOutDaysViewController *m_workoutDaysViewController;
-// Database class object
-Database *m_database;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransitions class object
-ViewTransitions *m_transition;
-// All exercise level images - images are the cell background
-NSMutableArray  *exerciseLevelImages;
-// All exercise level selected images - images are the cell background
-NSMutableArray  *exerciseLevelSelectedImages;
+
 
 @synthesize messageButton;
 @synthesize theTableView;
@@ -81,10 +77,10 @@ NSMutableArray  *exerciseLevelSelectedImages;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                = [[ViewTransitions alloc] init];
+    if (!self.m_transition) {
+        self.m_transition                = [[ViewTransitions alloc] init];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 }
 
@@ -93,11 +89,11 @@ NSMutableArray  *exerciseLevelSelectedImages;
  */
 - (void)moveToWorkoutDaysViewController
 {
-    if (!m_workoutDaysViewController) {
-        m_workoutDaysViewController       = [WorkOutDaysViewController sharedInstance];
+    if (!self.m_workoutDaysViewController) {
+        self.m_workoutDaysViewController       = [WorkOutDaysViewController sharedInstance];
     }
-    id instanceObject               = m_workoutDaysViewController;
-    [self moveToView:m_workoutDaysViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_workoutDaysViewController;
+    [self moveToView:self.m_workoutDaysViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -111,10 +107,10 @@ NSMutableArray  *exerciseLevelSelectedImages;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -124,19 +120,19 @@ NSMutableArray  *exerciseLevelSelectedImages;
  */
 - (void)loadExerciseImages
 {
-    exerciseLevelImages                     = [NSMutableArray mutableArrayObject];
+    self.exerciseLevelImages                     = [NSMutableArray mutableArrayObject];
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         // Exercise level images for iPhone5
-        [exerciseLevelImages addObject:m_beginner_iPhone5];
-        [exerciseLevelImages addObject:m_intermediate_iPhone5];
-        [exerciseLevelImages addObject:m_advanced_iPhone5];
+        [self.exerciseLevelImages addObject:m_beginner_iPhone5];
+        [self.exerciseLevelImages addObject:m_intermediate_iPhone5];
+        [self.exerciseLevelImages addObject:m_advanced_iPhone5];
     }
     else {
         // Exercise level images
-        [exerciseLevelImages addObject:m_beginner];
-        [exerciseLevelImages addObject:m_intermediate];
-        [exerciseLevelImages addObject:m_advanced];
+        [self.exerciseLevelImages addObject:m_beginner];
+        [self.exerciseLevelImages addObject:m_intermediate];
+        [self.exerciseLevelImages addObject:m_advanced];
     }
 }
 
@@ -145,19 +141,19 @@ NSMutableArray  *exerciseLevelSelectedImages;
  */
 - (void)loadExerciseSelectedImages
 {
-    exerciseLevelSelectedImages                     = [NSMutableArray mutableArrayObject];
+    self.exerciseLevelSelectedImages                     = [NSMutableArray mutableArrayObject];
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         // Exercise level selected images for iPhone5
-        [exerciseLevelSelectedImages addObject:m_beginner_iPhone5_selected];
-        [exerciseLevelSelectedImages addObject:m_intermediate_iPhone5_selected];
-        [exerciseLevelSelectedImages addObject:m_advanced_iPhone5_selected];
+        [self.exerciseLevelSelectedImages addObject:m_beginner_iPhone5_selected];
+        [self.exerciseLevelSelectedImages addObject:m_intermediate_iPhone5_selected];
+        [self.exerciseLevelSelectedImages addObject:m_advanced_iPhone5_selected];
     }
     else {
         // Exercise level selected images
-        [exerciseLevelSelectedImages addObject:m_beginner_selected];
-        [exerciseLevelSelectedImages addObject:m_intermediate_selected];
-        [exerciseLevelSelectedImages addObject:m_advanced_selected];
+        [self.exerciseLevelSelectedImages addObject:m_beginner_selected];
+        [self.exerciseLevelSelectedImages addObject:m_intermediate_selected];
+        [self.exerciseLevelSelectedImages addObject:m_advanced_selected];
     }
 }
 
@@ -219,7 +215,7 @@ NSMutableArray  *exerciseLevelSelectedImages;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [exerciseLevelImages count];
+    return [self.exerciseLevelImages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -232,7 +228,7 @@ NSMutableArray  *exerciseLevelSelectedImages;
     cell.textLabel.font             = [UIFont customFontWithSize:10];
     
     // Configure the cell.
-    UIImageView *imageview          = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[exerciseLevelImages objectAtIndex:indexPath.row]]];
+    UIImageView *imageview          = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self.exerciseLevelImages objectAtIndex:indexPath.row]]];
     cell.accessoryType              = UITableViewCellAccessoryDisclosureIndicator;
     cell.backgroundView             = imageview;
     imageview.tag               	= 1;
@@ -275,7 +271,7 @@ NSMutableArray  *exerciseLevelSelectedImages;
     // Update the background image to selected
     UITableViewCell *cell          = [theTableView cellForRowAtIndexPath:indexPath];
     UIImageView *imageview         = (UIImageView *)[cell viewWithTag:1];
-    imageview.image                = [UIImage imageNamed:[exerciseLevelSelectedImages objectAtIndex:indexPath.row]];
+    imageview.image                = [UIImage imageNamed:[self.exerciseLevelSelectedImages objectAtIndex:indexPath.row]];
     cell.backgroundView            = imageview;
 
 
@@ -293,10 +289,10 @@ NSMutableArray  *exerciseLevelSelectedImages;
     }
     
     if (([exerciseLevel length] != 0) && (exerciseLevel != NULL)) {
-        if (!m_database) {
-            m_database      = [Database alloc];
+        if (!self.m_database) {
+            self.m_database      = [Database alloc];
         }
-        exerciseLevelStatus      = [m_database insertIntoExerciseLevelEmail_Id:[NSString getUserEmail] Date:date Level:exerciseLevel];
+        exerciseLevelStatus      = [self.m_database insertIntoExerciseLevelEmail_Id:[NSString getUserEmail] Date:date Level:exerciseLevel];
         if ([exerciseLevelStatus isEqualToString:@"updated"]) { // If the insert is successful
             [self moveToWorkoutDaysViewController];
         }

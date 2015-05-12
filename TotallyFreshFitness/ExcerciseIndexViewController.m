@@ -21,6 +21,19 @@
 // Each section has its own images, key and value arrays
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath onTableView:tableView;
 
+@property (strong, nonatomic)Database *m_database;
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+@property (strong, nonatomic)ViewTransitions *m_transition;
+@property (strong, nonatomic)ExerciseListViewController *m_exerciseListViewController;
+@property (strong, nonatomic)NSMutableArray *m_exerciseIndexArray;
+@property (strong, nonatomic)NSMutableArray *m_imagesForExerciseIndexArray;
+@property (strong, nonatomic)NSString *m_workoutOrExerciseIndexTable;
+@property (strong, nonatomic)NSString *m_userEmail;
+@property (strong, nonatomic)NSString *m_goal;
+@property (strong, nonatomic)NSString *m_gender;
+@property (strong, nonatomic)NSMutableArray *m_sportsListExerciseView;
+@property (strong, nonatomic)NSMutableArray *m_sportsListImages;
+
 @end
 
 @implementation ExcerciseIndexViewController
@@ -43,32 +56,6 @@ static const NSString *m_shoulders_Female_Image_Name            = @"tfn_exercise
 static const NSString *m_cardio_Female_Image_Name               = @"cardio_female_thumb.png";
 static const NSString *m_sports_Female_Image_Name               = @"sports_female_thumb.png";
 
-// Database class object
-Database *m_database;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransitions class object
-ViewTransitions *m_transition;
-// ExerciseListViewController class object
-ExerciseListViewController *m_exerciseListViewController;
-
-// Exercise index array;
-NSMutableArray *m_exerciseIndexArray;
-// Image array for Exercise Index
-NSMutableArray *m_imagesForExerciseIndexArray;
-// WorkoutOrExerciseIndex Table
-NSString *m_workoutOrExerciseIndexTable;
-// User email from database
-NSString *m_userEmail;
-// User exercise goal from database
-NSString *m_goal;
-// Gender of user
-NSString *m_gender;
-//Sports Activities
-NSMutableArray *m_sportsListExerciseView;
-// Sports List Images
-NSMutableArray *m_sportsListImages;
-// Sports or Other Exercises
 
 /*
  Singleton ExerciseViewController object
@@ -88,49 +75,49 @@ NSMutableArray *m_sportsListImages;
 - (void)getExerciseIndex
 {
     // clean the arrays first
-    m_imagesForExerciseIndexArray         = nil;
+    self.m_imagesForExerciseIndexArray         = nil;
     
-    if (!m_exerciseIndexArray) {
-        m_exerciseIndexArray              = [NSMutableArray mutableArrayObject];
-        [m_exerciseIndexArray addObject:@"Abdomimals"];
-        [m_exerciseIndexArray addObject:@"Arms"];
-        [m_exerciseIndexArray addObject:@"Back"];
-        [m_exerciseIndexArray addObject:@"Chest"];
-        [m_exerciseIndexArray addObject:@"Legs"];
-        [m_exerciseIndexArray addObject:@"Shoulders"];
-        [m_exerciseIndexArray addObject:@"Cardio"];
-        [m_exerciseIndexArray addObject:@"Sports"];
-    }
-    
-    if (!m_imagesForExerciseIndexArray) {
-        m_imagesForExerciseIndexArray     = [NSMutableArray mutableArrayObject];
-    }
-    if (!m_database) {
-        m_database                        = [Database alloc];
-    }
-    if (!m_userEmail) {
-        m_userEmail                       = [NSString getUserEmail];
+    if (!self.m_exerciseIndexArray) {
+        self.m_exerciseIndexArray              = [NSMutableArray mutableArrayObject];
+        [self.m_exerciseIndexArray addObject:@"Abdomimals"];
+        [self.m_exerciseIndexArray addObject:@"Arms"];
+        [self.m_exerciseIndexArray addObject:@"Back"];
+        [self.m_exerciseIndexArray addObject:@"Chest"];
+        [self.m_exerciseIndexArray addObject:@"Legs"];
+        [self.m_exerciseIndexArray addObject:@"Shoulders"];
+        [self.m_exerciseIndexArray addObject:@"Cardio"];
+        [self.m_exerciseIndexArray addObject:@"Sports"];
     }
     
-    if ([[m_database getGender:m_userEmail] isEqualToString:@"Male"]) {
-        [m_imagesForExerciseIndexArray addObject:m_abs_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_arms_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_back_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_chest_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_legs_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_shoulders_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_cardio_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_sports_Male_Image_Name];
+    if (!self.m_imagesForExerciseIndexArray) {
+        self.m_imagesForExerciseIndexArray     = [NSMutableArray mutableArrayObject];
     }
-    else if ([[m_database getGender:m_userEmail] isEqualToString:@"Female"]) {
-        [m_imagesForExerciseIndexArray addObject:m_abs_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_arms_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_back_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_chest_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_legs_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_shoulders_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_cardio_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_sports_Female_Image_Name];
+    if (!self.m_database) {
+        self.m_database                        = [Database alloc];
+    }
+    if (!self.m_userEmail) {
+        self.m_userEmail                       = [NSString getUserEmail];
+    }
+    
+    if ([[self.m_database getGender:self.m_userEmail] isEqualToString:@"Male"]) {
+        [self.m_imagesForExerciseIndexArray addObject:m_abs_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_arms_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_back_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_chest_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_legs_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_shoulders_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_cardio_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_sports_Male_Image_Name];
+    }
+    else if ([[self.m_database getGender:self.m_userEmail] isEqualToString:@"Female"]) {
+        [self.m_imagesForExerciseIndexArray addObject:m_abs_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_arms_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_back_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_chest_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_legs_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_shoulders_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_cardio_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_sports_Female_Image_Name];
     }
 }
 
@@ -139,11 +126,11 @@ NSMutableArray *m_sportsListImages;
  */
 - (void)moveToExerciseListViewController:(id)sender
 {
-    if (!m_exerciseListViewController) {
-        m_exerciseListViewController    = [ExerciseListViewController sharedInstance];
+    if (!self.m_exerciseListViewController) {
+        self.m_exerciseListViewController    = [ExerciseListViewController sharedInstance];
     }
-    id instanceObject               = m_exerciseListViewController;
-    [self moveToView:m_exerciseListViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_exerciseListViewController;
+    [self moveToView:self.m_exerciseListViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 -(void)planSelection{
@@ -153,11 +140,11 @@ NSMutableArray *m_sportsListImages;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    if (!m_database) {
-        m_database                          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                          = [Database alloc];
     }
-    m_userEmail                             = [NSString getUserEmail];
-    m_gender                                = [m_database getGender:m_userEmail];
+    self.m_userEmail                             = [NSString getUserEmail];
+    self.m_gender                                = [self.m_database getGender:self.m_userEmail];
     [self getExerciseIndex];
     [self.exerciseIndexTableView reloadData];
 }
@@ -185,7 +172,7 @@ NSMutableArray *m_sportsListImages;
     NSInteger numberOfRowsInSection = 0;
     
     if(self.exerciseIndexTableView){
-        return numberOfRowsInSection = [m_exerciseIndexArray count];
+        return numberOfRowsInSection = [self.m_exerciseIndexArray count];
     }
     return numberOfRowsInSection;
 }
@@ -218,7 +205,7 @@ NSMutableArray *m_sportsListImages;
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath onTableView:(id)tableView{
     
-    [self cellContents:cell atIndexPath:indexPath WithImageArray:m_imagesForExerciseIndexArray AndKeyArray:m_exerciseIndexArray AndValueArray:nil];
+    [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_imagesForExerciseIndexArray AndKeyArray:self.m_exerciseIndexArray AndValueArray:nil];
 }
 
 -(void)cellContents:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath WithImageArray:(NSMutableArray *)imageArray AndKeyArray:(NSMutableArray *)keyArray AndValueArray:(NSMutableArray *)valueArray{
@@ -258,12 +245,12 @@ NSMutableArray *m_sportsListImages;
         self.selectedImage = nil;
     }
     
-    self.selectedImage = [m_exerciseIndexArray objectAtIndex:indexPath.row];
+    self.selectedImage = [self.m_exerciseIndexArray objectAtIndex:indexPath.row];
     if(([self.selectedImage length] != 0) && (self.selectedImage != NULL)){
-        if(!m_exerciseListViewController){
-            m_exerciseListViewController = [ExerciseListViewController alloc];
+        if(!self.m_exerciseListViewController){
+            self.m_exerciseListViewController = [ExerciseListViewController alloc];
         }
-        m_exerciseListViewController.selectedImage = self.selectedImage;
+        self.m_exerciseListViewController.selectedImage = self.selectedImage;
         [self moveToExerciseListViewController:indexPath];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -312,10 +299,10 @@ NSMutableArray *m_sportsListImages;
 
 - (IBAction)previousViewController:(id)sender {
     
-    if(!m_transition){
-        m_transition = [ViewTransitions sharedInstance];
+    if(!self.m_transition){
+        self.m_transition = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 }
 @end

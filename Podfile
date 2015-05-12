@@ -12,7 +12,7 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit' 
 pod 'MBProgressHUD'
 pod 'ChimpKit'
-
+pod 'CorePlot'
 end
 
 

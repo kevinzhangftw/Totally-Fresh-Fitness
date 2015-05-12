@@ -573,14 +573,14 @@ Hide sign in view
     if (!m_appDelegate) {
         m_appDelegate       = [[UIApplication sharedApplication] delegate];
     }
-    
-    //  Log in when the button is clicked.
-    if (!FBSession.activeSession.isOpen) {
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
-        [m_appDelegate openSessionWithAllowLoginUI:YES];
-    }
-    
+    //DEBUG
+//    //  Log in when the button is clicked.
+//    if (!FBSession.activeSession.isOpen) {
+//        // The user has initiated a login, so call the openSession method
+//        // and show the login UX if necessary.
+//        [m_appDelegate openSessionWithAllowLoginUI:YES];
+//    }
+  
     // Register or Login User using facebook email id and dateofBirth
     /*userStatus                                  = [self registerUserEmailId:self.userFacebookEmailID Password:self.userFacebookBirthday];
     if ((userStatus != NULL && [userStatus length] != 0) { // Move to Root or Profile View Controller
@@ -1341,8 +1341,9 @@ Hide sign in view
     [self setUpSlides];
     
 	// Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(sessionStateChanged:) name:FBSessionStateChangedNotification object:nil];
-    
+  //DEBUG
+//    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(sessionStateChanged:) name:FBSessionStateChangedNotification object:nil];
+//    
     GPPSignIn *signIn                   = [GPPSignIn sharedInstance];
     signIn.shouldFetchGooglePlusUser    = YES;
     signIn.shouldFetchGoogleUserEmail   = YES;
@@ -1413,47 +1414,48 @@ Hide sign in view
 #pragma mark Facebook Delegate Methods
 
 - (void)sessionStateChanged:(NSNotification*)notification {
-    if (FBSession.activeSession.isOpen) {
-        // We have a valid session
-        [FBRequestConnection
-         startForMeWithCompletionHandler:^(FBRequestConnection *connection,
-                                           id<FBGraphUser> user,
-                                           NSError *error) {
-             if (!error) {
-                 // Example: typed access (email)
-                 // - no special permissions required
-                 self.userFacebookEmailID          = [NSString stringWithString:[user objectForKey:@"email"]];
-                 // Example: typed access, (birthday)
-                 // - requires user_birthday permission
-                 self.userFacebookBirthday         = [NSString stringWithString:user.birthday];
-                 // When facebook data is retrieved, login using facebook
-                 [self loginUsingFacebook];
-             }
-         }];
-        
-        if (!m_database) {
-            m_database                  = [Database alloc];
-        }
-        if ([[m_database checkUserLogInStatus:userFacebookEmailID] isEqualToString:@"in"]) { // Make sure registration is complete
-            if (!m_userEmailID) {
-                m_userEmailID   = [NSString getUserEmail];
-            }
-            if ([m_database checkEmailIDInBMR:m_userEmailID]) { // Make sure that user has created a BMR detail first
-                // Present the home page
-                if (!m_rootViewControllerAlreadyCalled) { // it has already been called, don't call the method again
-                    [self rootViewController:self];
-                }
-            }
-            else {
-                // Present the profile page
-                if (!m_profileViewControllerAlreadyCalled) { // it has already been called, don't call the method again
-                    [self profileViewController:self];
-                }
-            }
-        }
-    } else {
-        [self displayMessage:@"You are logged out."];
-    }
+  //DEBUG
+//    if (FBSession.activeSession.isOpen) {
+//        // We have a valid session
+//        [FBRequestConnection
+//         startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+//                                           id<FBGraphUser> user,
+//                                           NSError *error) {
+//             if (!error) {
+//                 // Example: typed access (email)
+//                 // - no special permissions required
+//                 self.userFacebookEmailID          = [NSString stringWithString:[user objectForKey:@"email"]];
+//                 // Example: typed access, (birthday)
+//                 // - requires user_birthday permission
+//                 self.userFacebookBirthday         = [NSString stringWithString:user.birthday];
+//                 // When facebook data is retrieved, login using facebook
+//                 [self loginUsingFacebook];
+//             }
+//         }];
+//        
+//        if (!m_database) {
+//            m_database                  = [Database alloc];
+//        }
+//        if ([[m_database checkUserLogInStatus:userFacebookEmailID] isEqualToString:@"in"]) { // Make sure registration is complete
+//            if (!m_userEmailID) {
+//                m_userEmailID   = [NSString getUserEmail];
+//            }
+//            if ([m_database checkEmailIDInBMR:m_userEmailID]) { // Make sure that user has created a BMR detail first
+//                // Present the home page
+//                if (!m_rootViewControllerAlreadyCalled) { // it has already been called, don't call the method again
+//                    [self rootViewController:self];
+//                }
+//            }
+//            else {
+//                // Present the profile page
+//                if (!m_profileViewControllerAlreadyCalled) { // it has already been called, don't call the method again
+//                    [self profileViewController:self];
+//                }
+//            }
+//        }
+//    } else {
+//        [self displayMessage:@"You are logged out."];
+//    }
 }
 
 #pragma mark -

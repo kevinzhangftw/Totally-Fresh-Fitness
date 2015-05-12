@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0FAF82199C23CEB05FE68C15 /* libPods-TotallyFreshFitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */; };
+		34618F711B01B75200338F3B /* TestMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3461B01B4780079457F /* TestMutableArray.m */; };
+		34618F721B01B75700338F3B /* TestMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3461B01B4780079457F /* TestMutableArray.m */; };
+		34618F741B01B8B100338F3B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34618F731B01B8B100338F3B /* CoreData.framework */; };
 		34D1D17B1B01A8DD0079457F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17A1B01A8DD0079457F /* main.m */; };
 		34D1D17E1B01A8DD0079457F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17D1B01A8DD0079457F /* AppDelegate.m */; };
 		34D1D1811B01A8DD0079457F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1801B01A8DD0079457F /* ViewController.m */; };
@@ -156,7 +159,6 @@
 		34D1D3421B01B4460079457F /* SecondSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3391B01B4460079457F /* SecondSnackPlanManager.m */; };
 		34D1D3431B01B4460079457F /* DinnerPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D33B1B01B4460079457F /* DinnerPlanManager.m */; };
 		34D1D3441B01B4460079457F /* ThirdSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D33D1B01B4460079457F /* ThirdSnackPlanManager.m */; };
-		34D1D3471B01B4780079457F /* TestMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3461B01B4780079457F /* TestMutableArray.m */; };
 		34D1D34A1B01B47F0079457F /* Total_Fitness_and_NutritionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */; };
 		34D1D34D1B01B49C0079457F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D34C1B01B49C0079457F /* HomeViewController.m */; };
 		34D1D34F1B01B4AC0079457F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D34E1B01B4AC0079457F /* HomeViewController.xib */; };
@@ -176,6 +178,7 @@
 
 /* Begin PBXFileReference section */
 		27820FA0F54FA95D0AACC67C /* Pods-TotallyFreshFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotallyFreshFitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TotallyFreshFitness/Pods-TotallyFreshFitness.debug.xcconfig"; sourceTree = "<group>"; };
+		34618F731B01B8B100338F3B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		34D1D1751B01A8DD0079457F /* TotallyFreshFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotallyFreshFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D1D1791B01A8DD0079457F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D1D17A1B01A8DD0079457F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -469,6 +472,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34618F741B01B8B100338F3B /* CoreData.framework in Frameworks */,
 				0FAF82199C23CEB05FE68C15 /* libPods-TotallyFreshFitness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -875,6 +879,7 @@
 		F083652A185B22F02053A9DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34618F731B01B8B100338F3B /* CoreData.framework */,
 				3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */,
 			);
 			name = Frameworks;
@@ -1111,6 +1116,7 @@
 				34D1D1EA1B01ADD30079457F /* ProgressViewController.m in Sources */,
 				34D1D2721B01AF950079457F /* NSMutableArray+MotivationalQuote.m in Sources */,
 				34D1D2EA1B01B3F70079457F /* Exercise_Report.m in Sources */,
+				34618F711B01B75200338F3B /* TestMutableArray.m in Sources */,
 				34D1D2851B01AFB40079457F /* TFNGateway.m in Sources */,
 				34D1D27A1B01AF950079457F /* NSString+FoodToSwitch.m in Sources */,
 				34D1D3051B01B3F70079457F /* SupplementBeforeBed.m in Sources */,
@@ -1170,8 +1176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D1D3471B01B4780079457F /* TestMutableArray.m in Sources */,
 				34D1D34A1B01B47F0079457F /* Total_Fitness_and_NutritionTests.m in Sources */,
+				34618F721B01B75700338F3B /* TestMutableArray.m in Sources */,
 				34D1D1951B01A8DD0079457F /* TotallyFreshFitnessTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1236,7 +1242,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1275,7 +1281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

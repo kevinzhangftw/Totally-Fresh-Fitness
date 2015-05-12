@@ -27,6 +27,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.1.5)
   - ChimpKit (3.1.1)
+  - CorePlot (1.6)
   - FBSDKCoreKit (4.1.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc (= 4.1.0)
@@ -49,6 +50,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - ChimpKit
+  - CorePlot
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -61,6 +63,7 @@ SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   ChimpKit: d020126089544daa349397a91f1489a3f271b791
+  CorePlot: 820901f6c147f2d84549ffa1f0902869f980d74d
   FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
   FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
   FBSDKShareKit: 8002faf0c564ff3625eadd16e506b0b0fbf3adef
@@ -69,4 +72,4 @@ SPEC CHECKSUMS:
   Parse: 6187586a80eb7b4960d755f85e1353148a611f87
   STTwitter: 4fda61d0a96c707f94df85677b1a4aedbcec6fcd
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.37.1

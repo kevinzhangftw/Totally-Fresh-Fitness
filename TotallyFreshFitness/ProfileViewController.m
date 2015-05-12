@@ -319,9 +319,10 @@ CGRect afterThirdHeightLabelFrame;
 -(void)logOutFromFacebook
 {
     // If the user is logged into facebook, logout the user from facebook.
-    if (FBSession.activeSession.isOpen) {
-        [FBSession.activeSession closeAndClearTokenInformation];
-    }
+  //DEBUG
+//    if (FBSession.activeSession.isOpen) {
+//        [FBSession.activeSession closeAndClearTokenInformation];
+//    }
 }
 
 /*

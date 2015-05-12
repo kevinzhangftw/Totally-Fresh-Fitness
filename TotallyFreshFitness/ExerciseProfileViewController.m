@@ -109,152 +109,94 @@
 // Check if exercise is one of those that has only time
 - (bool)checkIfExerciseIsWithOnlyTime:(NSString *)exercise;
 
+
+@property (strong, nonatomic) Database *m_database;
+@property (strong, nonatomic) ProfileViewController *m_profileViewController;
+@property (strong, nonatomic) ExerciseViewController *m_exerciseViewController;
+@property (strong, nonatomic) MealViewController *m_mealViewController;
+@property (strong, nonatomic) CalenderViewController *m_calenderViewController;
+@property (strong, nonatomic) MusicTracksViewController *m_musicTracksViewController;
+@property (strong, nonatomic) SupplementPlanViewController *m_supplementPlanViewController;
+@property (strong, nonatomic) ExerciseListViewController *m_exerciseListViewController;
+@property (strong, nonatomic) WorkoutSelection *m_workoutSelection;
+@property (strong, nonatomic) ViewFactory *m_controllerViews;
+@property (strong, nonatomic) ViewTransitions *m_transition;
+@property (strong, nonatomic) NSMutableDictionary *m_workoutDescriptionDictionary;
+@property (strong, nonatomic) NSString *m_exerciseDescriptionPlist;
+@property (strong, nonatomic) NSString *m_exerciseImageNameString; //HAX = @"";
+@property (strong, nonatomic) NSString *m_checkWhichExerciseButtonWasClicked; //HAX
+@property (strong, nonatomic) NSMutableArray *m_weightArray;
+@property (strong, nonatomic) NSMutableArray *m_repArray;
+@property (nonatomic) int m_numberOfImages;
+@property (nonatomic) int m_decrementWeek;
+@property (strong, nonatomic) NSMutableArray *m_weeklyReportData;
+@property (strong, nonatomic) NSDate *m_weekEndDate;
+@property (strong, nonatomic) NSDate *m_weekStartDate;
+@property (nonatomic) int m_totalNumberOfItemsInDataForGraph;
+//@property (strong, nonatomic) NSString *m_exerciseImageNameString;
+@property (strong, nonatomic) NSString *m_secondExerciseImageNameString;
+@property (strong, nonatomic) NSString *m_thirdExerciseImageNameString;
+@property (strong, nonatomic) NSString *m_bigExerciseImageNameString;
+@property (nonatomic) int m_imageNumberOfSelectedImage;
+@property (nonatomic) BOOL isBigImageVisible;
+@property (nonatomic) CGRect m_beforeFirstFrame;
+@property (nonatomic) CGRect m_firstFrame;
+@property (nonatomic) CGRect m_secondFrame;
+@property (nonatomic) CGRect m_thirdFrame;
+@property (nonatomic) CGRect m_afterThirdFrame;
+@property (nonatomic) CGRect m_beforeFirstDifficultyRepFrame;
+@property (nonatomic) CGRect m_firstDifficultyRepFrame;
+@property (nonatomic) CGRect m_secondDifficultyRepFrame;
+@property (nonatomic) CGRect m_thirdDifficultyRepFrame;
+@property (nonatomic) CGRect m_afterThirdDifficultyRepFrame;
+@property (strong, nonatomic) UILabel *firstTimeWeightLabel;
+@property (strong, nonatomic) UILabel *secondTimeWeightLabel;
+@property (strong, nonatomic) UILabel *thirdTimeWeightLabel;
+@property (strong, nonatomic) UILabel *afterThirdTimeWeightLabel;
+@property (strong, nonatomic) UILabel *beforeFirstDifficultyRepLabel;
+@property (strong, nonatomic) UILabel *firstDifficultyRepLabel;
+@property (strong, nonatomic) UILabel *secondDifficultyRepLabel;
+@property (strong, nonatomic) UILabel *thirdDifficultyRepLabel;
+@property (strong, nonatomic) UILabel *afterThirdDifficultyRepLabel;
+@property (strong, nonatomic) UILabel *setNameLabel;
+@property (strong, nonatomic) UILabel *setNumberLabel;
+@property (strong, nonatomic) UILabel *setMaxNumberLabel;
+@property (strong, nonatomic) UIButton *saveReportButton;
+@property (strong, nonatomic) UIButton *beforeFirstTimeWeightLabel;
+@property (nonatomic) int m_selectedWeightTimeRepitition;
+@property (nonatomic) int m_selectedDifficultyRep;
+@property (nonatomic) int m_setNumber;
+@property (strong, nonatomic) NSString *m_weightOrTimeOrRepititionImage;
+@property (nonatomic) int m_beforeFirstWeightLabel;
+@property (nonatomic) int m_beforeFirstDifficultyRepLabel;
+@property (strong, nonatomic) NSString *m_previousExerciseName;
+@property (strong, nonatomic) NSString *m_gender;
+@property (strong, nonatomic) NSCalendar *m_calendar;
+@property (strong, nonatomic) NSDate *m_today;
+@property (strong, nonatomic) NSDateComponents *m_components;
+@property (strong, nonatomic) NSDateComponents *m_dayComponent;
+@property (strong, nonatomic) NSCalendar *m_theCalendar;
+@property (strong, nonatomic) NSMutableArray *m_exercisesWithoutReportOrProgress;
+@property (strong, nonatomic) NSMutableArray *m_exercisesWithOnlyRepititions;
+@property (strong, nonatomic) NSMutableArray *m_exercisesWithOnlyTime;
+@property (strong, nonatomic) NSString *m_exerciseNameDisplayed;
+@property (strong, nonatomic) UIButton *workoutDescriptionButton;
+@property (strong, nonatomic) UIButton *reportButton;
+@property (strong, nonatomic) UIButton *progressButton;
+@property (strong, nonatomic) UIImageView *reportTimeWeightRepImageView;
+@property (strong, nonatomic) UIButton *m_minusTimeWeightRepButton;
+@property (strong, nonatomic) UIButton *m_plusTimeWeightRepButton;
+@property (strong, nonatomic) UIImageView *reportTimeWeightImageViewMask;
+@property (strong, nonatomic) UIImageView *reportDifficultyRepImageViewMask;
+@property (strong, nonatomic) UIButton *reportWeightRepNextDoneButton;
+@property (strong, nonatomic) UIButton *reportTimeNextDoneButton;
+@property (strong, nonatomic) UIButton *reportRepNextDoneButton;
+
 @end
 
 @implementation ExerciseProfileViewController
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewContrioller class object
-MealViewController *m_mealViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// ExerciseListViewController class object
-ExerciseListViewController *m_exerciseListViewController;
-// MealPlanSelectin class object
-WorkoutSelection *m_workoutSelection;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// Database class object
-Database *m_database;
-// NutritionSelection array
-NSMutableDictionary *m_workoutDescriptionDictionary;
-// Food name derived from image name, for getting food description and adding to the grocery list
-NSString *m_exerciseDescriptionPlist;
-// The workout profile image
-NSString *m_exerciseImageNameString                 = @"";
-// To avoid redisplaying an active section, initial value is exerciseDescription
-// as our default exerciseDescription view default, so we don't need to click on
-// exerciseDescriptionButton button
-NSString *m_checkWhichExerciseButtonWasClicked      = @"exerciseDescription";
-// Weight data
-NSMutableArray *m_weightArray;
-// Rep data
-NSMutableArray *m_repArray;
-// Number of images to display
-int m_numberOfImages;
-// Week decrementor
-int m_decrementWeek;
-// Report data
-NSMutableArray *m_weeklyReportData;
-// End date for weekly work report
-NSDate *m_weekEndDate;
-// Start date for weekly work report
-NSDate *m_weekStartDate;
-// Total number of items in work report
-int m_totalNumberOfItemsInDataForGraph;
-// The first image name
-NSString *m_exerciseImageNameString;
-// The second image name
-NSString *m_secondExerciseImageNameString;
-// The third image name
-NSString *m_thirdExerciseImageNameString;
-// The selected image for the big view
-NSString *m_bigExerciseImageNameString;
-//  Image number of the selected image
-int m_imageNumberOfSelectedImage;
-// Big Exercise Image View
-bool isBigImageVisible;
-// Before the first label TimeWeight
-CGRect m_beforeFirstFrame;
-// First Label TimeWeight
-CGRect m_firstFrame;
-// Second Label TimeWeight
-CGRect m_secondFrame;
-// Third Label TimeWeight
-CGRect m_thirdFrame;
-// After the Third Label TimeWeight
-CGRect m_afterThirdFrame;
-// Before the first label DifficultyRep
-CGRect m_beforeFirstDifficultyRepFrame;
-// First Label DifficultyRep
-CGRect m_firstDifficultyRepFrame;
-// Second Label DifficultyRep
-CGRect m_secondDifficultyRepFrame;
-// Third Label DifficultyRep
-CGRect m_thirdDifficultyRepFrame;
-// After the Third Label DifficultyRep
-CGRect m_afterThirdDifficultyRepFrame;
 
-UILabel *beforeFirstTimeWeightLabel;
-UILabel *firstTimeWeightLabel;
-UILabel *secondTimeWeightLabel;
-UILabel *thirdTimeWeightLabel;
-UILabel *afterThirdTimeWeightLabel;
-UILabel *beforeFirstDifficultyRepLabel;
-UILabel *firstDifficultyRepLabel;
-UILabel *secondDifficultyRepLabel;
-UILabel *thirdDifficultyRepLabel;
-UILabel *afterThirdDifficultyRepLabel;
-UILabel *setNameLabel;
-UILabel *setNumberLabel;
-UILabel *setMaxNumberLabel;
-UIButton *saveReportButton;
-
-// Weight Time selection
-int m_selectedWeightTimeRepitition;
-// Rep Difficulty selection
-int m_selectedDifficultyRep;
-// Set number
-int m_setNumber;
-// Weight or Time Images
-NSString *m_weightOrTimeOrRepititionImage;
-// Check if weight before first Label value is less zero
-int m_beforeFirstWeightLabel;
-// Check if Difficulty rep first label value is less than zero
-int m_beforeFirstDifficultyRepLabel;
-// Previous exercise's report state save
-NSString *m_previousExerciseName;
-// Gender of the user
-NSString *m_gender;
-// Calender
-NSCalendar *m_calendar;
-// Today
-NSDate *m_today;
-// NSDate Componenets
-NSDateComponents *m_components;
-// For getting the increment on each week
-NSDateComponents *m_dayComponent;
-NSCalendar *m_theCalendar;
-// List of exercise for only description
-NSMutableArray *m_exercisesWithoutReportOrProgress;
-// List of exercise for only repititions
-NSMutableArray *m_exercisesWithOnlyRepititions;
-// List of exercise for only time
-NSMutableArray *m_exercisesWithOnlyTime;
-// Eexercise name displayed
-NSString *m_exerciseNameDisplayed;
-// Buttons
-UIButton *workoutDescriptionButton;
-UIButton *reportButton;
-UIButton *progressButton;
-UIImageView *reportTimeWeightRepImageView;
-UIButton *m_minusTimeWeightRepButton;
-UIButton *m_plusTimeWeightRepButton;
-UIImageView *reportTimeWeightImageViewMask;
-UIImageView *reportDifficultyRepImageViewMask;
-UIButton *reportWeightRepNextDoneButton;
-UIButton *reportTimeNextDoneButton;
-UIButton *reportRepNextDoneButton;
-UITextView *contentsTextView;
 
 @synthesize exerciseNameLabel;
 @synthesize bigExerciseBackgroundView;
@@ -299,10 +241,10 @@ UITextView *contentsTextView;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
     // Google Analytics Button click
 
@@ -313,13 +255,13 @@ UITextView *contentsTextView;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController alloc];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController alloc];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     // Clean up the, if the big exercise is opened
-    if (isBigImageVisible) {
+    if (self.isBigImageVisible) {
         [self showOtherViewsAfterHidingBigImage];
     }
 }
@@ -329,13 +271,13 @@ UITextView *contentsTextView;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     // Clean up the, if the big exercise is opened
-    if (isBigImageVisible) {
+    if (self.isBigImageVisible) {
         [self showOtherViewsAfterHidingBigImage];
     }
     
@@ -346,15 +288,15 @@ UITextView *contentsTextView;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
+    id instanceObject                   = self.m_exerciseViewController;
     
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     // Clean up the, if the big exercise is opened
-    if (isBigImageVisible) {
+    if (self.isBigImageVisible) {
         [self showOtherViewsAfterHidingBigImage];
     }
 
@@ -365,13 +307,13 @@ UITextView *contentsTextView;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     // Clean up the, if the big exercise is opened
-    if (isBigImageVisible) {
+    if (self.isBigImageVisible) {
         [self showOtherViewsAfterHidingBigImage];
     }
 }
@@ -381,13 +323,13 @@ UITextView *contentsTextView;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
     
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
     
 }
@@ -411,10 +353,10 @@ UITextView *contentsTextView;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition                        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                        = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -424,11 +366,11 @@ UITextView *contentsTextView;
  */
 - (void)hideRepDetails
 {
-    beforeFirstDifficultyRepLabel.hidden           = YES;
-    firstDifficultyRepLabel.hidden                 = YES;
-    secondDifficultyRepLabel.hidden                = YES;
-    thirdDifficultyRepLabel.hidden                 = YES;
-    afterThirdDifficultyRepLabel.hidden            = YES;
+    self.beforeFirstDifficultyRepLabel.hidden           = YES;
+    self.firstDifficultyRepLabel.hidden                 = YES;
+    self.secondDifficultyRepLabel.hidden                = YES;
+    self.thirdDifficultyRepLabel.hidden                 = YES;
+    self.afterThirdDifficultyRepLabel.hidden            = YES;
 }
 
 /*
@@ -436,38 +378,38 @@ UITextView *contentsTextView;
  */
 -(void)hideExerciseReportDetails
 {
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionDisappear:reportTimeWeightRepImageView];
-    [m_transition performTransitionDisappear:reportTimeWeightImageViewMask];
-    [m_transition performTransitionDisappear:reportDifficultyRepImageViewMask];
-    [m_transition performTransitionDisappear:reportWeightRepNextDoneButton];
-    [m_transition performTransitionDisappear:saveReportButton];
-    [m_transition performTransitionDisappear:reportTimeNextDoneButton];
-    [m_transition performTransitionDisappear:reportRepNextDoneButton];
+    [self.m_transition performTransitionDisappear:self.reportTimeWeightRepImageView];
+    [self.m_transition performTransitionDisappear:self.reportTimeWeightImageViewMask];
+    [self.m_transition performTransitionDisappear:self.reportDifficultyRepImageViewMask];
+    [self.m_transition performTransitionDisappear:self.reportWeightRepNextDoneButton];
+    [self.m_transition performTransitionDisappear:self.saveReportButton];
+    [self.m_transition performTransitionDisappear:self.reportTimeNextDoneButton];
+    [self.m_transition performTransitionDisappear:self.reportRepNextDoneButton];
     
-    reportTimeWeightRepImageView.hidden          = YES;
-    reportTimeWeightImageViewMask.hidden         = YES;
-    reportDifficultyRepImageViewMask.hidden      = YES;
-    reportWeightRepNextDoneButton.hidden         = YES;
-    reportTimeNextDoneButton.hidden              = YES;
-    reportRepNextDoneButton.hidden               = YES;
-    saveReportButton.hidden                      = YES;
-    beforeFirstTimeWeightLabel.hidden            = YES;
-    firstTimeWeightLabel.hidden                  = YES;
-    secondTimeWeightLabel.hidden                 = YES;
-    thirdTimeWeightLabel.hidden                  = YES;
-    afterThirdTimeWeightLabel.hidden             = YES;
-    m_plusTimeWeightRepButton.hidden             = YES;
-    m_minusTimeWeightRepButton.hidden            = YES;
+    self.reportTimeWeightRepImageView.hidden          = YES;
+    self.reportTimeWeightImageViewMask.hidden         = YES;
+    self.reportDifficultyRepImageViewMask.hidden      = YES;
+    self.reportWeightRepNextDoneButton.hidden         = YES;
+    self.reportTimeNextDoneButton.hidden              = YES;
+    self.reportRepNextDoneButton.hidden               = YES;
+    self.saveReportButton.hidden                      = YES;
+    self.beforeFirstTimeWeightLabel.hidden            = YES;
+    self.firstTimeWeightLabel.hidden                  = YES;
+    self.secondTimeWeightLabel.hidden                 = YES;
+    self.thirdTimeWeightLabel.hidden                  = YES;
+    self.afterThirdTimeWeightLabel.hidden             = YES;
+    self.m_plusTimeWeightRepButton.hidden             = YES;
+    self.m_minusTimeWeightRepButton.hidden            = YES;
     
     [self hideRepDetails];
-    if (![m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
-        reportWeightRepNextDoneButton.hidden     = YES;
-        setNameLabel.hidden                      = YES;
-        setNumberLabel.hidden                    = YES;
-        setMaxNumberLabel.hidden                 = YES;
+    if (![self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+        self.reportWeightRepNextDoneButton.hidden     = YES;
+        self.setNameLabel.hidden                      = YES;
+        self.setNumberLabel.hidden                    = YES;
+        self.setMaxNumberLabel.hidden                 = YES;
     }
 }
 
@@ -476,23 +418,23 @@ UITextView *contentsTextView;
  */
 - (void)showRepDetails:(UILabel *)label
 {
-    if (label.frame.origin.x == m_afterThirdDifficultyRepFrame.origin.x) {
+    if (label.frame.origin.x == self.m_afterThirdDifficultyRepFrame.origin.x) {
         label.hidden           = YES;
         label.textColor        = [UIColor darkGrayColor];
     }
-    else if(label.frame.origin.x == m_beforeFirstDifficultyRepFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_beforeFirstDifficultyRepFrame.origin.x) {
         label.hidden           = YES;
         label.textColor        = [UIColor darkGrayColor];
     }
-    else if(label.frame.origin.x == m_firstDifficultyRepFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_firstDifficultyRepFrame.origin.x) {
         label.hidden           = NO;
         label.textColor        = [UIColor darkGrayColor];
     }
-    else if(label.frame.origin.x == m_secondDifficultyRepFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_secondDifficultyRepFrame.origin.x) {
         label.hidden           = NO;
         label.textColor        = [UIColor redColor];
     }
-    else if(label.frame.origin.x == m_thirdDifficultyRepFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_thirdDifficultyRepFrame.origin.x) {
         label.hidden           = NO;
         label.textColor        = [UIColor darkGrayColor];
     }
@@ -503,23 +445,23 @@ UITextView *contentsTextView;
  */
 - (void)showWeightTimeRepDetails:(UILabel *)label
 {
-    if (label.frame.origin.x == m_afterThirdFrame.origin.x) {
+    if (label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
         label.hidden           = YES;
         label.textColor        = [UIColor darkGrayColor];
     }
-    else if(label.frame.origin.x == m_beforeFirstFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
         label.hidden           = YES;
         label.textColor        = [UIColor darkGrayColor];
     }
-    else if(label.frame.origin.x == m_firstFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
         label.hidden           = NO;
         label.textColor        = [UIColor darkGrayColor];
     }
-    else if(label.frame.origin.x == m_secondFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
         label.hidden           = NO;
         label.textColor        = [UIColor redColor];
     }
-    else if(label.frame.origin.x == m_thirdFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
         label.hidden           = NO;
         label.textColor        = [UIColor darkGrayColor];
     }
@@ -533,33 +475,33 @@ UITextView *contentsTextView;
 {
     [self hideRepDetails];
     
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionAppear:reportTimeWeightRepImageView];
+    [self.m_transition performTransitionAppear:self.reportTimeWeightRepImageView];
     
-    if (![m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
-        reportWeightRepNextDoneButton.hidden     = YES;
-        setNameLabel.hidden                      = YES;
-        setNumberLabel.hidden                    = YES;
-        setMaxNumberLabel.hidden                 = YES;
-        reportTimeNextDoneButton.hidden          = NO;
-        m_plusTimeWeightRepButton.hidden           = YES;
-        m_minusTimeWeightRepButton.hidden          = YES;
+    if (![self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+        self.reportWeightRepNextDoneButton.hidden     = YES;
+        self.setNameLabel.hidden                      = YES;
+        self.setNumberLabel.hidden                    = YES;
+        self.setMaxNumberLabel.hidden                 = YES;
+        self.reportTimeNextDoneButton.hidden          = NO;
+        self.m_plusTimeWeightRepButton.hidden           = YES;
+        self.m_minusTimeWeightRepButton.hidden          = YES;
     }
     
-    reportTimeWeightRepImageView.hidden            = NO;
-    reportTimeWeightImageViewMask.hidden           = NO;
-    if (([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"])) {
-        reportDifficultyRepImageViewMask.hidden    = YES;
-        reportRepNextDoneButton.hidden             = NO;
-        reportTimeNextDoneButton.hidden            = YES;
-        reportWeightRepNextDoneButton.hidden       = YES;
-        setNameLabel.hidden                        = YES;
-        setNumberLabel.hidden                      = YES;
-        setMaxNumberLabel.hidden                   = YES;
-        m_plusTimeWeightRepButton.hidden             = NO;
-        m_minusTimeWeightRepButton.hidden            = NO;
+    self.reportTimeWeightRepImageView.hidden            = NO;
+    self.reportTimeWeightImageViewMask.hidden           = NO;
+    if (([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"])) {
+        self.reportDifficultyRepImageViewMask.hidden    = YES;
+        self.reportRepNextDoneButton.hidden             = NO;
+        self.reportTimeNextDoneButton.hidden            = YES;
+        self.reportWeightRepNextDoneButton.hidden       = YES;
+        self.setNameLabel.hidden                        = YES;
+        self.setNumberLabel.hidden                      = YES;
+        self.setMaxNumberLabel.hidden                   = YES;
+        self.m_plusTimeWeightRepButton.hidden             = NO;
+        self.m_minusTimeWeightRepButton.hidden            = NO;
     }
     else if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
         reportDifficultyRepImageViewMask.hidden    = YES;
