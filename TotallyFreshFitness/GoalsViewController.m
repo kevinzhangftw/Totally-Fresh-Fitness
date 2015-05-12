@@ -22,6 +22,15 @@
 // Move to moveToExerciseLevelViewController
 - (void)moveToExerciseLevelViewController:(id)sender;
 
+@property (strong, nonatomic) Database *m_database;
+@property (strong, nonatomic) ExerciseLevelViewController *m_exerciseLevelViewController;
+@property (strong, nonatomic) SupplementPlanManager *m_supplementPlanManager;
+@property (strong, nonatomic) NSString *m_userEmailID;
+@property (strong, nonatomic) SupplementPlanSelection *m_supplementPlanSelection;
+@property (strong, nonatomic) ViewFactory *m_controllerViews;
+@property (strong, nonatomic) ViewTransitions *m_transition;
+@property (strong, nonatomic) NSMutableArray  *m_goalsImages;
+@property (strong, nonatomic) NSString *goal; //= @"";
 @end
 
 @implementation GoalsViewController
@@ -35,24 +44,7 @@ NSString *const m_tfnMuscleIsolation                     =   @"tfn-iso_active.pn
 // Build shred fact image
 NSString *const m_tfnShredFat                            =   @"tfn-shredfat_active.png";
 
-// ExerciseLevelViewController class object
-ExerciseLevelViewController *m_exerciseLevelViewController;
-// SupplementPlanManager class object
-SupplementPlanManager *m_supplementPlanManager;
-// SupplementPlanSelection class object
-SupplementPlanSelection *m_supplementPlanSelection;
-// Database class object
-Database *m_database;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransitions class object
-ViewTransitions *m_transition;
-// All goals images - images are the cell background
-NSMutableArray  *m_goalsImages;
-// User email id from database
-NSString *m_userEmailID;
 
-NSString *goal              = @"";
 
 @synthesize messageButton;
 @synthesize shredFatButton;
@@ -77,10 +69,10 @@ NSString *goal              = @"";
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -96,10 +88,10 @@ NSString *goal              = @"";
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -109,14 +101,14 @@ NSString *goal              = @"";
  */
 - (void)loadGoalsImages
 {
-    if (!m_goalsImages) {
-        m_goalsImages                 = [NSMutableArray mutableArrayObject];
+    if (!self.m_goalsImages) {
+        self.m_goalsImages                 = [NSMutableArray mutableArrayObject];
     }
     // Goals images
-    [m_goalsImages addObject:m_tfnShredFat];
-    [m_goalsImages addObject:m_tfnGetToned];
-    [m_goalsImages addObject:m_tfnBuildMuscle];
-    [m_goalsImages addObject:m_tfnMuscleIsolation];
+    [self.m_goalsImages addObject:m_tfnShredFat];
+    [self.m_goalsImages addObject:m_tfnGetToned];
+    [self.m_goalsImages addObject:m_tfnBuildMuscle];
+    [self.m_goalsImages addObject:m_tfnMuscleIsolation];
 }
 
 /*
@@ -124,11 +116,11 @@ NSString *goal              = @"";
  */
 - (void)moveToExerciseLevelViewController:(id)sender
 {
-    if (!m_exerciseLevelViewController) {
-        m_exerciseLevelViewController           = [ExerciseLevelViewController sharedInstance];
+    if (!self.m_exerciseLevelViewController) {
+        self.m_exerciseLevelViewController           = [ExerciseLevelViewController sharedInstance];
     }
-    id instanceObject               = m_exerciseLevelViewController;
-    [self moveToView:m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_exerciseLevelViewController;
+    [self moveToView:self.m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -140,13 +132,13 @@ NSString *goal              = @"";
     
     NSDate *date          = [NSDate date];
 
-    if (!m_database) {
-        m_database      = [Database alloc];
+    if (!self.m_database) {
+        self.m_database      = [Database alloc];
     }
-    if (!m_userEmailID) {
-        m_userEmailID   = [NSString getUserEmail];
+    if (!self.m_userEmailID) {
+        self.m_userEmailID   = [NSString getUserEmail];
     }
-    goalStatus      = [m_database insertIntoGoalsEmail_Id:m_userEmailID Date:date Goal:goal];
+    goalStatus      = [self.m_database insertIntoGoalsEmail_Id:self.m_userEmailID Date:date Goal:goal];
 
     if ([goalStatus isEqualToString:@"updated"]) { // If the insert is successful
         [self moveToExerciseLevelViewController:self];
@@ -157,8 +149,8 @@ NSString *goal              = @"";
 }
 - (IBAction)nextView:(id)sender {
     
-    if(![goal isEqualToString:@""]){
-        [self insertGoalIntoDatabase:goal];
+    if(![self.goal isEqualToString:@""]){
+        [self insertGoalIntoDatabase:self.goal];
     }
 }
 
@@ -179,13 +171,13 @@ NSString *goal              = @"";
             self.buildMuscleMassButton.tag        = 0;
             self.buildMuscleIsolationButton.tag   = 0;
             // set light intensity image
-            [self.shredFatButton setBackgroundImage:[UIImage imageNamed:[m_goalsImages objectAtIndex:0]] forState:UIControlStateNormal];
+            [self.shredFatButton setBackgroundImage:[UIImage imageNamed:[self.m_goalsImages objectAtIndex:0]] forState:UIControlStateNormal];
             [self.getTonedButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             [self.buildMuscleMassButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             [self.buildMuscleIsolationButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            goal                                  = @"SHRED FAT";
+            self.goal                                  = @"SHRED FAT";
             
-            [self insertGoalIntoDatabase:goal];
+            [self insertGoalIntoDatabase:self.goal];
             
 
 
@@ -206,13 +198,13 @@ NSString *goal              = @"";
             self.buildMuscleIsolationButton.tag   = 0;
             // set light intensity image
             [self.shredFatButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            [self.getTonedButton setBackgroundImage:[UIImage imageNamed:[m_goalsImages objectAtIndex:1]] forState:UIControlStateNormal];
+            [self.getTonedButton setBackgroundImage:[UIImage imageNamed:[self.m_goalsImages objectAtIndex:1]] forState:UIControlStateNormal];
             [self.buildMuscleMassButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             [self.buildMuscleIsolationButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             
-            goal                                  = @"GET TONED";
+            self.goal                                  = @"GET TONED";
             
-            [self insertGoalIntoDatabase:goal];
+            [self insertGoalIntoDatabase:self.goal];
 
         }
         else {
@@ -232,12 +224,12 @@ NSString *goal              = @"";
             // set light intensity image
             [self.shredFatButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             [self.getTonedButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            [self.buildMuscleMassButton setBackgroundImage:[UIImage imageNamed:[m_goalsImages objectAtIndex:2]] forState:UIControlStateNormal];
+            [self.buildMuscleMassButton setBackgroundImage:[UIImage imageNamed:[self.m_goalsImages objectAtIndex:2]] forState:UIControlStateNormal];
             [self.buildMuscleIsolationButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             
-            goal                                  = @"BUILD MUSCLE MASS";
+            self.goal                                  = @"BUILD MUSCLE MASS";
             
-            [self insertGoalIntoDatabase:goal];
+            [self insertGoalIntoDatabase:self.goal];
         }
         else {
             // assign the mode
@@ -257,11 +249,11 @@ NSString *goal              = @"";
             [self.shredFatButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             [self.getTonedButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
             [self.buildMuscleMassButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            [self.buildMuscleIsolationButton setBackgroundImage:[UIImage imageNamed:[m_goalsImages objectAtIndex:3]] forState:UIControlStateNormal];
+            [self.buildMuscleIsolationButton setBackgroundImage:[UIImage imageNamed:[self.m_goalsImages objectAtIndex:3]] forState:UIControlStateNormal];
             
-            goal                                  = @"MUSCLE ISOLATION";
+            self.goal                                  = @"MUSCLE ISOLATION";
             
-            [self insertGoalIntoDatabase:goal];
+            [self insertGoalIntoDatabase:self.goal];
 
         }
         else {
@@ -272,7 +264,7 @@ NSString *goal              = @"";
         }
     }
     // save supplement plan
-    [self saveSupplementPlanForGoal:goal];
+    [self saveSupplementPlanForGoal:self.goal];
 }
 
 /*
@@ -283,21 +275,21 @@ NSString *goal              = @"";
 //    if (!m_supplementPlanManager) {
 //        m_supplementPlanManager       = [SupplementPlanManager sharedInstance];
 //    }
-    if (!m_supplementPlanSelection) {
-        m_supplementPlanSelection     = [SupplementPlanSelection sharedInstance];
+    if (!self.m_supplementPlanSelection) {
+        self.m_supplementPlanSelection     = [SupplementPlanSelection sharedInstance];
     }
 //    [m_supplementPlanManager saveSupplementPlanInDatabase:[m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal]];
     BreakFastSupplementPlanManager  *m_breakfastSupplementPlanManager         = [BreakFastSupplementPlanManager sharedInstance];
-    [m_breakfastSupplementPlanManager saveBreakFastSupplementPlanInDatabase:[[m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:0]];
+    [m_breakfastSupplementPlanManager saveBreakFastSupplementPlanInDatabase:[[self.m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:0]];
     
     PreWorkoutSupplementPlanManager  *m_preWorkoutSupplementPlanManager       = [PreWorkoutSupplementPlanManager sharedInstance];
-    [m_preWorkoutSupplementPlanManager savePreWorkoutSupplementPlanInDatabase:[[m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:1]];
+    [m_preWorkoutSupplementPlanManager savePreWorkoutSupplementPlanInDatabase:[[self.m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:1]];
     
     PostWorkoutSupplementPlanManager  *m_postWorkoutSupplementPlanManager     = [PostWorkoutSupplementPlanManager sharedInstance];
-    [m_postWorkoutSupplementPlanManager savePostWorkoutSupplementPlanInDatabase:[[m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:2]];
+    [m_postWorkoutSupplementPlanManager savePostWorkoutSupplementPlanInDatabase:[[self.m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:2]];
 
     BeforeBedSupplementPlanManager  *m_beforeBedSupplementPlanManager         = [BeforeBedSupplementPlanManager sharedInstance];
-    [m_beforeBedSupplementPlanManager saveBeforeBedSupplementPlanInDatabase:[[m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:3]];
+    [m_beforeBedSupplementPlanManager saveBeforeBedSupplementPlanInDatabase:[[self.m_supplementPlanSelection selectSupplementPlistBasedonGoal:goal] objectAtIndex:3]];
 }
 
 /*

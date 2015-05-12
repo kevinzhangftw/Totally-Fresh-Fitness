@@ -23,6 +23,43 @@
 
 @interface ExerciseViewController ()
 
+@property (strong, nonatomic) Database *m_database;
+@property (strong, nonatomic) ProfileViewController *m_profileViewController;
+@property (strong, nonatomic) CalenderViewController *m_calenderViewController;
+@property (strong, nonatomic)FoodProfileViewController *m_foodProfileViewController;
+@property (strong, nonatomic)ExerciseProfileViewController *m_exerciseProfileViewController;
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+@property (strong, nonatomic)ExerciseListViewController *m_exerciseListViewController;
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+@property (strong, nonatomic)SwitchPlanItemViewController *m_switchPlanItemViewController;
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+@property (strong, nonatomic)WorkoutSelection *m_workoutSelection;
+@property (strong, nonatomic)ViewTransitions *m_transition;
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+@property (strong, nonatomic)ExcerciseIndexViewController *m_ExcerciseIndexViewController;
+@property (strong, nonatomic)NSMutableDictionary *m_currentDictionary;
+@property (strong, nonatomic)NSMutableArray *m_workoutImagesArray;
+@property (strong, nonatomic)NSMutableArray *m_workoutKeyArray;
+@property (strong, nonatomic)NSMutableArray *m_workoutValueArray;
+@property (strong, nonatomic)NSMutableArray *m_exerciseIndexArray;
+@property (strong, nonatomic)NSMutableArray *m_imagesForExerciseIndexArray;
+@property (strong, nonatomic)NSString *m_workoutOrExerciseIndexTable;
+@property (strong, nonatomic)NSMutableArray *m_workoutPlanArrayExerciseView;
+@property (strong, nonatomic)NSString *m_userEmail;
+@property (strong, nonatomic)NSString *m_goal;
+@property (strong, nonatomic)NSString *m_gender;
+@property (nonatomic)NSInteger m_numberOfSections;
+@property (strong, nonatomic)NSMutableArray *m_sportsListExerciseView;
+@property (strong, nonatomic)NSMutableArray *m_sportsListImages;
+@property (strong, nonatomic)NSString *m_sportsOrOtherExercisesExerciseView;
+@property (nonatomic)BOOL isSportsActivityViewIsOpened;
+@property (nonatomic)BOOL isDisclosure;
+@property (strong, nonatomic)UIButton *m_helpPopUpButtonViewInExerciseView;
+@property (strong, nonatomic)NSUserDefaults *userDefaults;
+
+
+
 // Move to previous View
 - (IBAction)moveToPreviousView:(id)sender;
 // Move to CalenderViewController
@@ -82,75 +119,7 @@ static const NSString *m_shoulders_Female_Image_Name            = @"tfn_exercise
 static const NSString *m_cardio_Female_Image_Name               = @"cardio_female_thumb.png";
 static const NSString *m_sports_Female_Image_Name               = @"sports_female_thumb.png";
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// FoodViewController class object
-FoodProfileViewController *m_foodProfileViewController;
-// ExerciseProfileViewController class object
-ExerciseProfileViewController *m_exerciseProfileViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// ExerciseListViewController class object
-ExerciseListViewController *m_exerciseListViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SwitchPlanItemViewController class object
-SwitchPlanItemViewController *m_switchPlanItemViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// Database class object
-Database *m_database;
-// WorkoutSelection class object
-WorkoutSelection *m_workoutSelection;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-//ExerciseIndex View Controller
-ExcerciseIndexViewController *m_ExcerciseIndexViewController;
-// Section Dictionary
-NSMutableDictionary *m_currentDictionary;
-// Workout Mutable images array
-NSMutableArray *m_workoutImagesArray;
-// Key Mutable array
-NSMutableArray *m_workoutKeyArray;
-// Value Mutable array
-NSMutableArray *m_workoutValueArray;
-// Exercise index array;
-NSMutableArray *m_exerciseIndexArray;
-// Image array for Exercise Index
-NSMutableArray *m_imagesForExerciseIndexArray;
-// WorkoutOrExerciseIndex Table
-NSString *m_workoutOrExerciseIndexTable;
-// workout plan array
-NSMutableArray *m_workoutPlanArrayExerciseView;
-// User email from database
-NSString *m_userEmail;
-// User exercise goal from database
-NSString *m_goal;
-// Gender of user
-NSString *m_gender;
-// numberofSection
-NSInteger m_numberOfSections;
-// Sports Activities list
-NSMutableArray *m_sportsListExerciseView;
-// Sports List Images
-NSMutableArray *m_sportsListImages;
-// Sports or Other Exercises
-NSString *m_sportsOrOtherExercisesExerciseView;
-// if sports activity is opened when coming back from previous view
-bool isSportsActivityViewIsOpened;
-// If switch or disclosure
-bool isDisclosure;
 
-// Help pop up button
-UIButton *m_helpPopUpButtonViewInExerciseView;
-// NSUserDefault
-NSUserDefaults *userDefaults;
 
 @synthesize controlsImageView;
 @synthesize workoutPlanSectionButton;
@@ -186,25 +155,25 @@ NSUserDefaults *userDefaults;
 - (IBAction)moveToPreviousView:(id)sender
 {
     
-    if (!m_transition) {
-        m_transition                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                = [ViewTransitions sharedInstance];
     }
     
-    if(!isSportsActivityViewIsOpened) { // Sports list view is not opened
+    if(!self.isSportsActivityViewIsOpened) { // Sports list view is not opened
         
         // go to previous view
-        [m_transition performTransitionFromLeft:self.view.superview];
+        [self.m_transition performTransitionFromLeft:self.view.superview];
         [self.view removeFromSuperview];
     }
-    else if(isSportsActivityViewIsOpened) { // Or reload the data for workout exercises
+    else if(self.isSportsActivityViewIsOpened) { // Or reload the data for workout exercises
         
         // make it empty, so that it is not "Sports Activity"
-        m_sportsOrOtherExercisesExerciseView               =  @"";
+        self.m_sportsOrOtherExercisesExerciseView               =  @"";
         
         // Load up all the workouts
         [self loadUpWorkoutPlanExerciseView];
         
-        [m_transition performTransitionFromLeft:self.workoutTableView];
+        [self.m_transition performTransitionFromLeft:self.workoutTableView];
         
         [self.workoutTableView reloadData];
     }
@@ -216,12 +185,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
     
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -230,11 +199,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToFoodProfileViewController:(id)sender
 {
-    if (!m_foodProfileViewController) {
-        m_foodProfileViewController     = [FoodProfileViewController sharedInstance];
+    if (!self.m_foodProfileViewController) {
+        self.m_foodProfileViewController     = [FoodProfileViewController sharedInstance];
     }
-    id instanceObject               = m_foodProfileViewController;
-    [self moveToView:m_foodProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_foodProfileViewController;
+    [self moveToView:self.m_foodProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -242,13 +211,13 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToExerciseProfileViewController:(id)sender
 {
-    if (!m_exerciseProfileViewController) {
-        m_exerciseProfileViewController        = [ExerciseProfileViewController sharedInstance];
+    if (!self.m_exerciseProfileViewController) {
+        self.m_exerciseProfileViewController        = [ExerciseProfileViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseProfileViewController;
+    id instanceObject                   = self.m_exerciseProfileViewController;
     
-    [self moveToView:m_exerciseProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -256,11 +225,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -269,13 +238,13 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -285,11 +254,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToExerciseListViewController:(id)sender
 {
-    if (!m_exerciseListViewController) {
-        m_exerciseListViewController    = [ExerciseListViewController sharedInstance];
+    if (!self.m_exerciseListViewController) {
+        self.m_exerciseListViewController    = [ExerciseListViewController sharedInstance];
     }
-    id instanceObject               = m_exerciseListViewController;
-    [self moveToView:m_exerciseListViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_exerciseListViewController;
+    [self moveToView:self.m_exerciseListViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -297,20 +266,20 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
 -(void)moveToExerciseIndexViewController:(id)sender{
-    if(!m_ExcerciseIndexViewController){
-        m_ExcerciseIndexViewController = [ExcerciseIndexViewController sharedInstance];
+    if(!self.m_ExcerciseIndexViewController){
+        self.m_ExcerciseIndexViewController = [ExcerciseIndexViewController sharedInstance];
     }
-    id instanceObject = m_ExcerciseIndexViewController;
-    [self moveToView:m_ExcerciseIndexViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject = self.m_ExcerciseIndexViewController;
+    [self moveToView:self.m_ExcerciseIndexViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 
@@ -324,12 +293,12 @@ NSUserDefaults *userDefaults;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController                = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                = [RootViewController sharedInstance];
     }
     
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -346,12 +315,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)movetoSwitchPlanItemViewController:(id)sender
 {
-    if (!m_switchPlanItemViewController) {
-        m_switchPlanItemViewController      = [SwitchPlanItemViewController sharedInstance];
+    if (!self.m_switchPlanItemViewController) {
+        self.m_switchPlanItemViewController      = [SwitchPlanItemViewController sharedInstance];
     }
-    id instanceObject                       = m_switchPlanItemViewController;
-    m_switchPlanItemViewController.view.tag = 2;
-    [self moveToView:m_switchPlanItemViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_switchPlanItemViewController;
+    self.m_switchPlanItemViewController.view.tag = 2;
+    [self moveToView:self.m_switchPlanItemViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -360,49 +329,49 @@ NSUserDefaults *userDefaults;
 - (void)getExerciseIndex
 {
     // clean the arrays first
-    m_imagesForExerciseIndexArray         = nil;
+    self.m_imagesForExerciseIndexArray         = nil;
     
-    if (!m_exerciseIndexArray) {
-        m_exerciseIndexArray              = [NSMutableArray mutableArrayObject];
-        [m_exerciseIndexArray addObject:@"Abdomimals"];
-        [m_exerciseIndexArray addObject:@"Arms"];
-        [m_exerciseIndexArray addObject:@"Back"];
-        [m_exerciseIndexArray addObject:@"Chest"];
-        [m_exerciseIndexArray addObject:@"Legs"];
-        [m_exerciseIndexArray addObject:@"Shoulders"];
-        [m_exerciseIndexArray addObject:@"Cardio"];
-        [m_exerciseIndexArray addObject:@"Sports"];
-    }
-    
-    if (!m_imagesForExerciseIndexArray) {
-        m_imagesForExerciseIndexArray     = [NSMutableArray mutableArrayObject];
-    }
-    if (!m_database) {
-        m_database                        = [Database alloc];
-    }
-    if (!m_userEmail) {
-        m_userEmail                       = [NSString getUserEmail];
+    if (!self.m_exerciseIndexArray) {
+        self.m_exerciseIndexArray              = [NSMutableArray mutableArrayObject];
+        [self.m_exerciseIndexArray addObject:@"Abdomimals"];
+        [self.m_exerciseIndexArray addObject:@"Arms"];
+        [self.m_exerciseIndexArray addObject:@"Back"];
+        [self.m_exerciseIndexArray addObject:@"Chest"];
+        [self.m_exerciseIndexArray addObject:@"Legs"];
+        [self.m_exerciseIndexArray addObject:@"Shoulders"];
+        [self.m_exerciseIndexArray addObject:@"Cardio"];
+        [self.m_exerciseIndexArray addObject:@"Sports"];
     }
     
-    if ([[m_database getGender:m_userEmail] isEqualToString:@"Male"]) {
-        [m_imagesForExerciseIndexArray addObject:m_abs_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_arms_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_back_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_chest_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_legs_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_shoulders_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_cardio_Male_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_sports_Male_Image_Name];
+    if (!self.m_imagesForExerciseIndexArray) {
+        self.m_imagesForExerciseIndexArray     = [NSMutableArray mutableArrayObject];
     }
-    else if ([[m_database getGender:m_userEmail] isEqualToString:@"Female"]) {
-        [m_imagesForExerciseIndexArray addObject:m_abs_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_arms_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_back_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_chest_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_legs_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_shoulders_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_cardio_Female_Image_Name];
-        [m_imagesForExerciseIndexArray addObject:m_sports_Female_Image_Name];
+    if (!self.m_database) {
+        self.m_database                        = [Database alloc];
+    }
+    if (!self.m_userEmail) {
+        self.m_userEmail                       = [NSString getUserEmail];
+    }
+    
+    if ([[self.m_database getGender:self.m_userEmail] isEqualToString:@"Male"]) {
+        [self.m_imagesForExerciseIndexArray addObject:m_abs_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_arms_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_back_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_chest_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_legs_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_shoulders_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_cardio_Male_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_sports_Male_Image_Name];
+    }
+    else if ([[self.m_database getGender:self.m_userEmail] isEqualToString:@"Female"]) {
+        [self.m_imagesForExerciseIndexArray addObject:m_abs_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_arms_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_back_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_chest_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_legs_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_shoulders_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_cardio_Female_Image_Name];
+        [self.m_imagesForExerciseIndexArray addObject:m_sports_Female_Image_Name];
     }
 }
 
@@ -413,12 +382,12 @@ NSUserDefaults *userDefaults;
 {
 
     
-    if (!m_transition) {
-        m_transition            = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition            = [ViewTransitions sharedInstance];
     }
-    if ((sender == self.workoutPlanSectionButton) && ([m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"])) {
+    if ((sender == self.workoutPlanSectionButton) && ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"])) {
         self.controlsImageView.image                    = [UIImage imageNamed:@"tfn_workout_active.png"];
-        m_workoutOrExerciseIndexTable                   = @"Workout";
+        self.m_workoutOrExerciseIndexTable                   = @"Workout";
         // Hide exercise tableview
         self.exerciseIndexTableView.hidden              = YES;
         
@@ -426,7 +395,7 @@ NSUserDefaults *userDefaults;
         //        if ([userDefaults boolForKey:@"CustomTrainingProgram"]) { // Workout plan is purchased
         // Load up all the workouts
         [self loadUpWorkoutPlanExerciseView];
-        [m_transition performTransitionFromLeft:self.workoutTableView];
+        [self.m_transition performTransitionFromLeft:self.workoutTableView];
         // Show workout table view
         self.workoutTableView.hidden                    = NO;
         // Reload the workout data
@@ -441,13 +410,13 @@ NSUserDefaults *userDefaults;
         
 
     }
-    else if((sender == self.exerciseIndexSectionButton)  && ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"])) {
+    else if((sender == self.exerciseIndexSectionButton)  && ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"])) {
         // Get exercise index list
         [self getExerciseIndex];
         
         self.controlsImageView.image                    = [UIImage imageNamed:@"tfn_exercises_active.png"];
-        m_workoutOrExerciseIndexTable                   = @"Exercise Index";
-        [m_transition performTransitionFromRight:self.exerciseIndexTableView];
+        self.m_workoutOrExerciseIndexTable                   = @"Exercise Index";
+        [self.m_transition performTransitionFromRight:self.exerciseIndexTableView];
         // Hide workout tableview
         self.workoutTableView.hidden                    = YES;
         // Hide exercise tableview
@@ -487,8 +456,8 @@ NSUserDefaults *userDefaults;
  */
 - (void) loadUpWorkoutPlanExerciseView
 {
-    m_workoutPlanArrayExerciseView     = [NSMutableArray loadUpWorkoutPlan];
-    m_numberOfSections                 = [m_workoutPlanArrayExerciseView count];
+    self.m_workoutPlanArrayExerciseView     = [NSMutableArray loadUpWorkoutPlan];
+    self.m_numberOfSections                 = [self.m_workoutPlanArrayExerciseView count];
     
     // Stop the indicatorview when cells are to be loaded
     [self.indicatorView stopAnimating];
@@ -550,16 +519,16 @@ NSUserDefaults *userDefaults;
  */
 - (void)sportsListArray
 {
-    m_sportsListExerciseView         = [NSMutableArray sportsList];
+    self.m_sportsListExerciseView         = [NSMutableArray sportsList];
 }
 
 - (void)helpButtonClicked
 {
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:1 forKey:@"SwitchWorkoutPlanItem_Help"];
-    [userDefaults synchronize];
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults setInteger:1 forKey:@"SwitchWorkoutPlanItem_Help"];
+    [self.userDefaults synchronize];
     
-    [m_helpPopUpButtonViewInExerciseView removeFromSuperview];
+    [self.m_helpPopUpButtonViewInExerciseView removeFromSuperview];
 }
 
 - (void)createHelpPopUp
@@ -567,16 +536,16 @@ NSUserDefaults *userDefaults;
     CGRect helpPopUpButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         helpPopUpButtonFrame     =   CGRectMake(0.0f, 0.0f, 320.0f, 568.0f);
-        m_helpPopUpButtonViewInExerciseView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInExerciseView setBackgroundImage:[UIImage imageNamed:@"substitute_exercise_instruction_i5.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInExerciseView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInExerciseView setBackgroundImage:[UIImage imageNamed:@"substitute_exercise_instruction_i5.png"] forState:UIControlStateNormal];
     }
     else {
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-        m_helpPopUpButtonViewInExerciseView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInExerciseView setBackgroundImage:[UIImage imageNamed:@"substitute_exercise_instruction.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInExerciseView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInExerciseView setBackgroundImage:[UIImage imageNamed:@"substitute_exercise_instruction.png"] forState:UIControlStateNormal];
     }
-    [self.view addSubview:m_helpPopUpButtonViewInExerciseView];
-    [m_helpPopUpButtonViewInExerciseView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_helpPopUpButtonViewInExerciseView];
+    [self.m_helpPopUpButtonViewInExerciseView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -586,7 +555,7 @@ NSUserDefaults *userDefaults;
         // Custom initialization
         
         // initialize the sports list images
-        m_sportsListImages          = [NSMutableArray mutableArrayObject];
+        self.m_sportsListImages          = [NSMutableArray mutableArrayObject];
         
     }
     return self;
@@ -623,8 +592,8 @@ NSUserDefaults *userDefaults;
     // start indicator view on the tableview
     [self.indicatorView startAnimating];
     
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults integerForKey:@"SwitchWorkoutPlanItem_Help"]) {
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    if (![self.userDefaults integerForKey:@"SwitchWorkoutPlanItem_Help"]) {
         // Add Help Pop Up
         [self createHelpPopUp];
     }
@@ -634,17 +603,17 @@ NSUserDefaults *userDefaults;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (!m_database) {
-        m_database                          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                          = [Database alloc];
     }
-    m_userEmail                             = [NSString getUserEmail];
-    m_goal                                  = [m_database getLatestExerciseGoal:m_userEmail]; // Get the latest goal
-    m_gender                                = [m_database getGender:m_userEmail];
+    self.m_userEmail                             = [NSString getUserEmail];
+    self.m_goal                                  = [self.m_database getLatestExerciseGoal:self.m_userEmail]; // Get the latest goal
+    self.m_gender                                = [self.m_database getGender:self.m_userEmail];
     
-    m_workoutOrExerciseIndexTable       = @"Workout";
+    self.m_workoutOrExerciseIndexTable       = @"Workout";
     self.controlsImageView.image        = [UIImage imageNamed:@"tfn_workout_active.png"];
     
-    if ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
+    if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
         //self.exerciseIndexTableView.hidden          = YES;
         // Load up all the workouts
         [self loadUpWorkoutPlanExerciseView];
@@ -652,7 +621,7 @@ NSUserDefaults *userDefaults;
         // Refresh tableview
         
     }
-    else if ([m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) {
+    else if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) {
         // Get Exercise Index
         [self getExerciseIndex];
         //self.workoutTableView.hidden                = YES;
@@ -680,15 +649,15 @@ NSUserDefaults *userDefaults;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger numberOfSections    = 0;
-    if ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
-        if (![m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
-            numberOfSections    = m_numberOfSections;
+    if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
+        if (![self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+            numberOfSections    = self.m_numberOfSections;
         }
-        else if ([m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+        else if ([self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
             numberOfSections    = 1;
         }
     }
-    else if([m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) {
+    else if([self.m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) {
         numberOfSections    = 1;
     }
     return numberOfSections;
@@ -697,16 +666,16 @@ NSUserDefaults *userDefaults;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRowsInSection       = 0;
-    if ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // if the section is Workout Plan
-        if (![m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
-            return numberOfRowsInSection        = [[[m_workoutPlanArrayExerciseView objectAtIndex:section] objectAtIndex:0] count];
+    if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // if the section is Workout Plan
+        if (![self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+            return numberOfRowsInSection        = [[[self.m_workoutPlanArrayExerciseView objectAtIndex:section] objectAtIndex:0] count];
         }
-        else if([m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
-            return numberOfRowsInSection            = [m_sportsListExerciseView count];
+        else if([self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+            return numberOfRowsInSection            = [self.m_sportsListExerciseView count];
         }
     }
-    else if([m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) { // if the section is exercise index
-        return numberOfRowsInSection                = [m_exerciseIndexArray count];
+    else if([self.m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) { // if the section is exercise index
+        return numberOfRowsInSection                = [self.m_exerciseIndexArray count];
     }
     
     return numberOfRowsInSection;
@@ -742,7 +711,7 @@ NSUserDefaults *userDefaults;
         ((UILabel *)[cell viewWithTag:2]).text          = @"";
     }
     
-    if ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
+    if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
         if (![[valueArray objectAtIndex:indexPath.row] isEqualToString:@"Empty Space"]) {
             ((UILabel *)[cell viewWithTag:3]).text      = [valueArray objectAtIndex:indexPath.row];
         }
@@ -760,16 +729,16 @@ NSUserDefaults *userDefaults;
  */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath onTableView:tableView
 {
-    if([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // Each sections has its own arrays
-        if (![m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:[[m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:2]];
+    if([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // Each sections has its own arrays
+        if (![self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:[[self.m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[self.m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[self.m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:2]];
         }
-        else if ([m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:m_sportsListImages AndKeyArray:m_sportsListExerciseView AndValueArray:nil];
+        else if ([self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_sportsListImages AndKeyArray:self.m_sportsListExerciseView AndValueArray:nil];
         }
     }
-    else if([m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) { // Set the cell for Exercise Index
-        [self cellContents:cell atIndexPath:indexPath WithImageArray:m_imagesForExerciseIndexArray AndKeyArray:m_exerciseIndexArray AndValueArray:nil];
+    else if([self.m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) { // Set the cell for Exercise Index
+        [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_imagesForExerciseIndexArray AndKeyArray:self.m_exerciseIndexArray AndValueArray:nil];
     }
 }
 
@@ -842,7 +811,7 @@ NSUserDefaults *userDefaults;
 {
     float heightForHeaderSection;
     
-    if([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // If the view is Meal Plan
+    if([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // If the view is Meal Plan
         heightForHeaderSection  = 30.0f;
     }
     else { // If the exercise index
@@ -855,10 +824,10 @@ NSUserDefaults *userDefaults;
 {
     UIView *headerView      = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
     UILabel *label          = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
-    if ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // The table view is meal plan table view
-        if (![m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+    if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) { // The table view is meal plan table view
+        if (![self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
             if (section == 0) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 1                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -866,7 +835,7 @@ NSUserDefaults *userDefaults;
                 }
             }
             else if(section == 1) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 2                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -874,7 +843,7 @@ NSUserDefaults *userDefaults;
                 }
             }
             else if(section == 2) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 3                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -882,7 +851,7 @@ NSUserDefaults *userDefaults;
                 }
             }
             else if(section == 3) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 4                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -890,7 +859,7 @@ NSUserDefaults *userDefaults;
                 }
             }
             else if(section == 4) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 5                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -898,7 +867,7 @@ NSUserDefaults *userDefaults;
                 }
             }
             else if(section == 5) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 6                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -906,7 +875,7 @@ NSUserDefaults *userDefaults;
                 }
             }
             else if(section == 6) {
-                if (![m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
+                if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // IF NOT MUSCLE ISOLATION
                     label.text        = @"  Day 7                                                                     Sub";
                 }
                 else { // if MUSCLE ISOLATION
@@ -914,7 +883,7 @@ NSUserDefaults *userDefaults;
                 }
             }
         }
-        else if([m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+        else if([self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
             label.text              = @"    Sports";
         }
         
@@ -940,79 +909,79 @@ NSUserDefaults *userDefaults;
         self.selectedImage      = nil;
     }
     
-    if ([m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
+    if ([self.m_workoutOrExerciseIndexTable isEqualToString:@"Workout"]) {
         // assign image for the next view
-        if(![m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+        if(![self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
             if (indexPath.section == 0) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:0] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:0] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 1) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:1] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:1] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 2) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:2] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:2] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 3) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:3] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:3] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 4) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:4] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:4] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 5) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:5] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:5] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 6) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:6] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:6] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             if (indexPath.section == 7) {
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[m_workoutPlanArrayExerciseView objectAtIndex:7] objectAtIndex:0] objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[ [[self.m_workoutPlanArrayExerciseView objectAtIndex:7] objectAtIndex:0] objectAtIndex:indexPath.row]];
             }
             // Sport list view is not opened
-            isSportsActivityViewIsOpened       = NO;
+            self.isSportsActivityViewIsOpened       = NO;
         }
-        else if([m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
-            self.selectedImage                 = [[NSString alloc ] initWithFormat:@"%@",[m_sportsListImages  objectAtIndex:indexPath.row]];
+        else if([self.m_sportsOrOtherExercisesExerciseView isEqualToString:@"Sports Activity"]) {
+            self.selectedImage                 = [[NSString alloc ] initWithFormat:@"%@",[self.m_sportsListImages  objectAtIndex:indexPath.row]];
             // Sport list is opened
-            isSportsActivityViewIsOpened       = YES;
+            self.isSportsActivityViewIsOpened       = YES;
         }
         
         // Check if selected row is sports
         if ([self.selectedImage rangeOfString:@"sports_activity"].location == NSNotFound) {
             
-            if (!isSportsActivityViewIsOpened) { // if sports list view is not opened, it must be other exercises
-                m_sportsOrOtherExercisesExerciseView       = @"Non Sports Activity";
+            if (!self.isSportsActivityViewIsOpened) { // if sports list view is not opened, it must be other exercises
+                self.m_sportsOrOtherExercisesExerciseView       = @"Non Sports Activity";
             }
             // Move to ExerciseProfileViewController
             [self moveToExerciseProfileViewController:indexPath];
         } else { // selected row is sports activity
             
             // Sport list is opened
-            isSportsActivityViewIsOpened       = YES;
+            self.isSportsActivityViewIsOpened       = YES;
             
-            m_sportsOrOtherExercisesExerciseView           = @"Sports Activity";
+            self.m_sportsOrOtherExercisesExerciseView           = @"Sports Activity";
             
             // Load up the sports activity list
             [self sportsListArray];
 
             // load up sports list for gender
-            [self loadUpSportsListForGender:m_gender WithArray:m_sportsListExerciseView ForImagesArray:m_sportsListImages];
+            [self loadUpSportsListForGender:self.m_gender WithArray:self.m_sportsListExerciseView ForImagesArray:self.m_sportsListImages];
             
-            if (!m_transition) {
-                m_transition                    = [ViewTransitions sharedInstance];
+            if (!self.m_transition) {
+                self.m_transition                    = [ViewTransitions sharedInstance];
             }
-            [m_transition performTransitionFromLeft:self.workoutTableView];
+            [self.m_transition performTransitionFromLeft:self.workoutTableView];
             // Load up the sports list images
             [[self workoutTableView] reloadData];
         }
     }
-    else if([m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) {
+    else if([self.m_workoutOrExerciseIndexTable isEqualToString:@"Exercise Index"]) {
         // assign image from exercise images
-        self.selectedImage        = [m_exerciseIndexArray  objectAtIndex:indexPath.row];
+        self.selectedImage        = [self.m_exerciseIndexArray  objectAtIndex:indexPath.row];
         if (([self.selectedImage length] != 0) && (self.selectedImage != NULL)) {
-            if (!m_exerciseListViewController) {
-                m_exerciseListViewController            = [ExerciseListViewController alloc];
+            if (!self.m_exerciseListViewController) {
+                self.m_exerciseListViewController            = [ExerciseListViewController alloc];
             }
-            m_exerciseListViewController.selectedImage  = self.selectedImage;
+            self.m_exerciseListViewController.selectedImage  = self.selectedImage;
             [self moveToExerciseListViewController:indexPath];
         }
     }
@@ -1023,7 +992,7 @@ NSUserDefaults *userDefaults;
 - ( void ) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     // assign work item for the next view
-    self.workoutSelectedToEdit         = [[NSString alloc ] initWithFormat:@"%@",[[[m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row]];
+    self.workoutSelectedToEdit         = [[NSString alloc ] initWithFormat:@"%@",[[[self.m_workoutPlanArrayExerciseView objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row]];
 
     self.workoutSelectedToEdit      = [[[[self.workoutSelectedToEdit stringByReplacingOccurrencesOfString:@"_" withString:@" "] stringByReplacingOccurrencesOfString:@"thumb" withString:@""] stringByReplacingOccurrencesOfString:@" female " withString:@""] stringByReplacingOccurrencesOfString:@" male " withString:@""];
     

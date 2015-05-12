@@ -17,6 +17,41 @@
 
 @interface FoodProfileViewController ()
 
+@property (strong, nonatomic) Database *m_database;
+@property (strong, nonatomic) ProfileViewController *m_profileViewController;
+@property (strong, nonatomic) ExerciseViewController *m_exerciseViewController;
+@property (strong, nonatomic) CalenderViewController *m_calenderViewController;
+@property (strong, nonatomic) MealViewController *m_mealViewController;
+@property (strong, nonatomic) MusicTracksViewController *m_musicTracksViewController;
+@property (strong, nonatomic) SupplementPlanViewController *m_supplementPlanViewController;
+@property (strong, nonatomic) MealPlanSelection *m_mealPlanSelection;
+@property (strong, nonatomic) ViewFactory *m_controllerViews;
+@property (strong, nonatomic) ViewTransitions *m_transition;
+@property (strong, nonatomic) TFNGateway *m_serverConnection;
+@property (strong, nonatomic) MealGroceryList *m_mealGroceryList;
+@property (strong, nonatomic) NSMutableArray *m_nutritionBenefitsArray;
+@property (strong, nonatomic) NSString *nutritionBenefitsPlist;
+@property (strong, nonatomic) NSString *m_imageNameString; //= @"";
+@property (strong, nonatomic) NSString *m_checkWhichFoodButtonWasClicked; // = @"nutritionBenefits";
+@property (nonatomic) BOOL m_recipeDirectionTextViewMoved;
+@property (strong, nonatomic) UIImageView *foodImageView;
+@property (strong, nonatomic) UIButton *addToGroceryButton;
+@property (strong, nonatomic) UILabel *foodNameLabel;
+@property (strong, nonatomic) UILabel *addToGroceryListInfo;
+@property (strong, nonatomic) UIImageView *foodDescriptionImageView;
+@property (strong, nonatomic) UIButton *nutritionBenefitsButton;
+@property (strong, nonatomic) UIButton *nutritionFactsButton;
+@property (strong, nonatomic) UIButton *nutritionRecipesButton;
+@property (strong, nonatomic) UITextView *contentsTextView;
+@property (strong, nonatomic) UIImageView *nutritionFactsImageView;
+@property (strong, nonatomic) UIScrollView *nutritionFactsScrollView;
+@property (strong, nonatomic) UILabel *recipeTitleLabel;
+@property (strong, nonatomic) UITextView *recipeIngredientsTextView;
+@property (strong, nonatomic) UIImageView *recipeImageView;
+@property (strong, nonatomic) UILabel *recipeDirectionsLabel;
+@property (strong, nonatomic) UITextView *recipeDirectionsTextView;
+
+
 // Move to MealViewController
 - (void)moveToMealViewController:(id)sender;
 // Move to CalenderViewController
@@ -57,60 +92,6 @@
 
 @implementation FoodProfileViewController
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// MealPlanSelectin class object
-MealPlanSelection *m_mealPlanSelection;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// Database class object
-Database *m_database;
-// ServerGateway class object
-TFNGateway *m_serverConnection;
-// MealGroceryList class object
-MealGroceryList *m_mealGroceryList;
-// NutritionSelection array
-NSMutableArray *m_nutritionBenefitsArray;
-// Food name derived from image name, for getting food description and
-// adding to the grocery list
-NSString *nutritionBenefitsPlist;
-// The food profile image
-NSString *m_imageNameString                     = @"";
-// To avoid redisplaying an active section, initial value is nutritionBenefits
-// as our default nutrtionbenefits view default, so we don't need to click on
-// nutritionBenefits button
-NSString *m_checkWhichFoodButtonWasClicked      = @"nutritionBenefits";
-// If recipe direction text moved
-BOOL m_recipeDirectionTextViewMoved;
-
-UIImageView *foodImageView;
-UIButton *addToGroceryButton;
-UILabel *foodNameLabel;
-UILabel *addToGroceryListInfo;
-UIImageView *foodDescriptionImageView;
-UIButton *nutritionBenefitsButton;
-UIButton *nutritionFactsButton;
-UIButton *nutritionRecipesButton;
-UITextView *contentsTextView;
-UIImageView *nutritionFactsImageView;
-UIScrollView *nutritionFactsScrollView;
-UILabel *recipeTitleLabel;
-UITextView *recipeIngredientsTextView;
-UIImageView *recipeImageView;
-UILabel *recipeDirectionsLabel;
-UITextView *recipeDirectionsTextView;
 
 @synthesize recipesArray;
 @synthesize bottomBarButton;
@@ -136,13 +117,13 @@ UITextView *recipeDirectionsTextView;
 
 - (void) adjustTheRecipeDirectionsTextViewPosition
 {
-    CGRect frame = recipeDirectionsTextView.frame;
+    CGRect frame = self.recipeDirectionsTextView.frame;
     
-    if (m_recipeDirectionTextViewMoved) {
-        m_recipeDirectionTextViewMoved      = NO;
+    if (self.m_recipeDirectionTextViewMoved) {
+        self.m_recipeDirectionTextViewMoved      = NO;
         frame.origin.y += FOOD_DESCRIPTION_HEIGHT_ADUSTMENT; // new y coordinate
     }
-    recipeDirectionsTextView.frame     = frame;
+    self.recipeDirectionsTextView.frame     = frame;
 }
 
 /*
@@ -150,10 +131,10 @@ UITextView *recipeDirectionsTextView;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 }
 
@@ -164,11 +145,11 @@ UITextView *recipeDirectionsTextView;
 {
     [self adjustTheRecipeDirectionsTextViewPosition];
 
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
-    id instanceObject                   = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -180,11 +161,11 @@ UITextView *recipeDirectionsTextView;
 {
     [self adjustTheRecipeDirectionsTextViewPosition];
 
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -194,11 +175,11 @@ UITextView *recipeDirectionsTextView;
 {
     [self adjustTheRecipeDirectionsTextViewPosition];
 
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-   id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+   id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -208,11 +189,11 @@ UITextView *recipeDirectionsTextView;
 {
     [self adjustTheRecipeDirectionsTextViewPosition];
 
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -220,13 +201,13 @@ UITextView *recipeDirectionsTextView;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 
@@ -245,11 +226,11 @@ UITextView *recipeDirectionsTextView;
 - (void)nutritionFactsImageLoadUp
 {
     // Present image for the food imageView
-    NSString *imageNameString           = [m_imageNameString stringByReplacingOccurrencesOfString:@".png" withString:@""];
+    NSString *imageNameString           = [self.m_imageNameString stringByReplacingOccurrencesOfString:@".png" withString:@""];
     // Add the string to get nutrition facts image
     imageNameString                     = [NSString stringWithFormat:@"%@_nutrition_facts.png", imageNameString];
     UIImage *imageName                  = [UIImage imageNamed:imageNameString];
-    [nutritionFactsImageView setImage:imageName];
+    [self.nutritionFactsImageView setImage:imageName];
 }
 
 /*
@@ -258,22 +239,22 @@ UITextView *recipeDirectionsTextView;
 - (void)checkIfFoodAlreadyInTheGroceryList
 {
     BOOL  isInTheListOrNot;
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
-    if (!m_mealGroceryList) {
-        m_mealGroceryList           = [MealGroceryList sharedInstance];
+    if (!self.m_mealGroceryList) {
+        self.m_mealGroceryList           = [MealGroceryList sharedInstance];
     }
-    isInTheListOrNot                = [m_mealGroceryList checkIfMealAlreadyExistInGroceryList:nutritionBenefitsPlist];
+    isInTheListOrNot                = [self.m_mealGroceryList checkIfMealAlreadyExistInGroceryList:self.nutritionBenefitsPlist];
     if (isInTheListOrNot == YES) { // is there in the grocery list
-        [addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL_checked.png"] forState:UIControlStateNormal];
-        addToGroceryButton.userInteractionEnabled          = NO;
-        addToGroceryListInfo.text                          = @"Added to grocery list";
+        [self.addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL_checked.png"] forState:UIControlStateNormal];
+        self.addToGroceryButton.userInteractionEnabled          = NO;
+        self.addToGroceryListInfo.text                          = @"Added to grocery list";
     }
     else {
-        [addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL_ready.png"] forState:UIControlStateNormal];
-        addToGroceryButton.userInteractionEnabled         = YES;
-        addToGroceryListInfo.text                         = @"Add to grocery list";
+        [self.addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL_ready.png"] forState:UIControlStateNormal];
+        self.addToGroceryButton.userInteractionEnabled         = YES;
+        self.addToGroceryListInfo.text                         = @"Add to grocery list";
     }
 }
 
@@ -283,20 +264,20 @@ UITextView *recipeDirectionsTextView;
 - (IBAction)addToGroceryList:(id)sender
 {
     NSString *groceryUpdate         = @"";
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
-    if (([nutritionBenefitsPlist length] != 0) && (nutritionBenefitsPlist != NULL)) {
-        if (!m_mealGroceryList) {
-            m_mealGroceryList           = [MealGroceryList sharedInstance];
+    if (([self.nutritionBenefitsPlist length] != 0) && (self.nutritionBenefitsPlist != NULL)) {
+        if (!self.m_mealGroceryList) {
+            self.m_mealGroceryList           = [MealGroceryList sharedInstance];
         }
-        groceryUpdate               = [m_mealGroceryList addToGroceryList:nutritionBenefitsPlist];
+        groceryUpdate               = [self.m_mealGroceryList addToGroceryList:self.nutritionBenefitsPlist];
 //        groceryUpdate               = [m_database insertIntoGroceryEmail_Id:[NSString getUserEmail] Date:date food:nutritionBenefitsPlist];
     }
     if ([groceryUpdate isEqualToString:@"updated"]) { // if successed in grocery list update, update to check image
-        [addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL_checked.png"] forState:UIControlStateNormal];
-        addToGroceryButton.userInteractionEnabled      = NO;
-        addToGroceryListInfo.text                      = @"Added to grocery list";
+        [self.addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL_checked.png"] forState:UIControlStateNormal];
+        self.addToGroceryButton.userInteractionEnabled      = NO;
+        self.addToGroceryListInfo.text                      = @"Added to grocery list";
     }
 }
 
@@ -305,23 +286,23 @@ UITextView *recipeDirectionsTextView;
  */
 - (void)showNutritionBenefits
 {
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    [foodDescriptionImageView setImage:[UIImage imageNamed:@"tfn_NutritionalBenefits_active.png"]];
+    [self.foodDescriptionImageView setImage:[UIImage imageNamed:@"tfn_NutritionalBenefits_active.png"]];
     // Hide the textview
-    [m_transition performTransitionAppear:contentsTextView];
-    contentsTextView.hidden               = NO;
+    [self.m_transition performTransitionAppear:self.contentsTextView];
+    self.contentsTextView.hidden               = NO;
     
     // Hide nutrition facts details
-    nutritionFactsScrollView.hidden       = YES;
+    self.nutritionFactsScrollView.hidden       = YES;
     
     // Hide recipes the details
-    recipeTitleLabel.hidden               = YES;
-    recipeImageView.hidden                = YES;
-    recipeIngredientsTextView.hidden      = YES;
-    recipeDirectionsLabel.hidden          = YES;
-    recipeDirectionsTextView.hidden       = YES;
+    self.recipeTitleLabel.hidden               = YES;
+    self.recipeImageView.hidden                = YES;
+    self.recipeIngredientsTextView.hidden      = YES;
+    self.recipeDirectionsLabel.hidden          = YES;
+    self.recipeDirectionsTextView.hidden       = YES;
 }
 
 /*
@@ -332,32 +313,32 @@ UITextView *recipeDirectionsTextView;
     // load up the nutrition facts image
     [self nutritionFactsImageLoadUp];
     
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    if (recipeDirectionsLabel.hidden == NO) { // hide food recipes details
-        [m_transition performTransitionDisappear:recipeTitleLabel];
-        [m_transition performTransitionDisappear:recipeImageView];
-        [m_transition performTransitionDisappear:recipeIngredientsTextView];
-        [m_transition performTransitionDisappear:recipeDirectionsLabel];
-        [m_transition performTransitionDisappear:recipeDirectionsTextView];
+    if (self.recipeDirectionsLabel.hidden == NO) { // hide food recipes details
+        [self.m_transition performTransitionDisappear:self.recipeTitleLabel];
+        [self.m_transition performTransitionDisappear:self.recipeImageView];
+        [self.m_transition performTransitionDisappear:self.recipeIngredientsTextView];
+        [self.m_transition performTransitionDisappear:self.recipeDirectionsLabel];
+        [self.m_transition performTransitionDisappear:self.recipeDirectionsTextView];
         
         // Hide recipes the details
-        recipeTitleLabel.hidden               = YES;
-        recipeImageView.hidden                = YES;
-        recipeIngredientsTextView.hidden      = YES;
-        recipeDirectionsLabel.hidden          = YES;
-        recipeDirectionsTextView.hidden       = YES;
+        self.recipeTitleLabel.hidden               = YES;
+        self.recipeImageView.hidden                = YES;
+        self.recipeIngredientsTextView.hidden      = YES;
+        self.recipeDirectionsLabel.hidden          = YES;
+        self.recipeDirectionsTextView.hidden       = YES;
     }
     
-    [foodDescriptionImageView setImage:[UIImage imageNamed:@"tfn_NutritionalFacts_active.png"]];
+    [self.foodDescriptionImageView setImage:[UIImage imageNamed:@"tfn_NutritionalFacts_active.png"]];
     
     // Hide the textview
-    contentsTextView.hidden             = YES;
+    self.contentsTextView.hidden             = YES;
     
-    [m_transition performTransitionAppear:nutritionFactsScrollView];
-    nutritionFactsScrollView.hidden     = NO;
-    nutritionFactsImageView.hidden      = NO;
+    [self.m_transition performTransitionAppear:self.nutritionFactsScrollView];
+    self.nutritionFactsScrollView.hidden     = NO;
+    self.nutritionFactsImageView.hidden      = NO;
 }
 
 /*
@@ -366,21 +347,21 @@ UITextView *recipeDirectionsTextView;
 - (void)showRecipes
 {    
     // change the button
-    [foodDescriptionImageView setImage:[UIImage imageNamed:@"tfn_recipes_active.png"]];
+    [self.foodDescriptionImageView setImage:[UIImage imageNamed:@"tfn_recipes_active.png"]];
     
-    if (!m_transition) {
-        m_transition                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                = [ViewTransitions sharedInstance];
     }
     
-    [m_transition performTransitionDisappear:nutritionFactsScrollView];
-    [m_transition performTransitionDisappear:nutritionFactsImageView];
-    [m_transition performTransitionDisappear:contentsTextView];
+    [self.m_transition performTransitionDisappear:self.nutritionFactsScrollView];
+    [self.m_transition performTransitionDisappear:self.nutritionFactsImageView];
+    [self.m_transition performTransitionDisappear:self.contentsTextView];
     
     // Hide nutrition facts details
-    nutritionFactsScrollView.hidden        = YES;
-    nutritionFactsImageView.hidden         = YES;
+    self.nutritionFactsScrollView.hidden        = YES;
+    self.nutritionFactsImageView.hidden         = YES;
     // Hide the textview
-    contentsTextView.hidden                = YES;
+    self.contentsTextView.hidden                = YES;
     
     [self getRecipes];
 }
@@ -392,18 +373,18 @@ UITextView *recipeDirectionsTextView;
 {
 
 
-    if ((sender == nutritionBenefitsButton)  && (([m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionRecipes"]) || ([m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionFacts"]))) {
-        m_checkWhichFoodButtonWasClicked    = @"nutritionBenefits";
+    if ((sender == self.nutritionBenefitsButton)  && (([self.m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionRecipes"]) || ([self.m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionFacts"]))) {
+        self.m_checkWhichFoodButtonWasClicked    = @"nutritionBenefits";
         [self showNutritionBenefits];
 
     }
-    else if((sender == nutritionFactsButton) && (([m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionBenefits"]) || ([m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionRecipes"]))) {
-        m_checkWhichFoodButtonWasClicked    = @"nutritionFacts";
+    else if((sender == self.nutritionFactsButton) && (([self.m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionBenefits"]) || ([self.m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionRecipes"]))) {
+        self.m_checkWhichFoodButtonWasClicked    = @"nutritionFacts";
         [self showNutritionFacts];
 
     }
-    else if((sender == nutritionRecipesButton) && (([m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionBenefits"]) || ([m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionFacts"]))) {
-        m_checkWhichFoodButtonWasClicked    = @"nutritionRecipes";
+    else if((sender == self.nutritionRecipesButton) && (([self.m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionBenefits"]) || ([self.m_checkWhichFoodButtonWasClicked isEqualToString:@"nutritionFacts"]))) {
+        self.m_checkWhichFoodButtonWasClicked    = @"nutritionRecipes";
         [self showRecipes];
 
     }
@@ -415,20 +396,20 @@ UITextView *recipeDirectionsTextView;
 - (void)updateDisplayRecipes:(NSNotification *) notification
 {
     if ([notification.name isEqualToString:@"Food Recipes Notification"]) {
-        if (!m_database) {
-            m_database          = [Database alloc];
+        if (!self.m_database) {
+            self.m_database          = [Database alloc];
         }
-        if (([m_database getFoodRecipes] != NULL) && ([[m_database getFoodRecipes] count] > 0)) {
+        if (([self.m_database getFoodRecipes] != NULL) && ([[self.m_database getFoodRecipes] count] > 0)) {
             // Retreive food recipes store in core data
-            self.recipesArray       = [m_database getFoodRecipes];
+            self.recipesArray       = [self.m_database getFoodRecipes];
             if (self.recipesArray) {
                 // Delete food recipes from core data as soon as it is recieved in recipesArray
-                [m_database deleteFoodRecipes];
+                [self.m_database deleteFoodRecipes];
             }
         }
                 
         if ([self.recipesArray count] > 0) { // make sure the array received is not empty
-            recipeTitleLabel.text              = [[self recipesArray] objectAtIndex:0];
+            self.recipeTitleLabel.text              = [[self recipesArray] objectAtIndex:0];
     
             // weak self created to avoid strong hold to self by queue
             __weak FoodProfileViewController *weakSelf  = self;
@@ -438,9 +419,9 @@ UITextView *recipeDirectionsTextView;
                                                             [NSURL URLWithString: [[weakSelf recipesArray] objectAtIndex:1]]];
                 dispatch_async(dispatch_get_main_queue(), ^{ // When data is retrieved push it to the main thread
                     UIImage *recipeImage                        = [UIImage imageWithData:imageData];
-                    recipeImageView.image              = recipeImage;
-                    recipeIngredientsTextView.text     = [[weakSelf recipesArray] objectAtIndex:2];
-                    recipeDirectionsTextView.text      = [[weakSelf recipesArray] objectAtIndex:3];
+                    self.recipeImageView.image              = recipeImage;
+                    self.recipeIngredientsTextView.text     = [[weakSelf recipesArray] objectAtIndex:2];
+                    self.recipeDirectionsTextView.text      = [[weakSelf recipesArray] objectAtIndex:3];
 
                 });
             });
@@ -455,10 +436,10 @@ UITextView *recipeDirectionsTextView;
 - (void)getRecipes
 {
     // Cleanup the previous data
-    recipeTitleLabel.text                  = @"";
-    recipeImageView.image                  = nil;
-    recipeIngredientsTextView.text         = @"";
-    recipeDirectionsTextView.text          = @"";
+    self.recipeTitleLabel.text                  = @"";
+    self.recipeImageView.image                  = nil;
+    self.recipeIngredientsTextView.text         = @"";
+    self.recipeDirectionsTextView.text          = @"";
 
     // start the activity indicator
     [self.activityIndicator startAnimating];
@@ -470,31 +451,31 @@ UITextView *recipeDirectionsTextView;
     // initialize the recipesArray first
     self.recipesArray                          = [NSMutableArray mutableArrayObject];
     
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
 
-    [m_transition performTransitionAppear:recipeTitleLabel];
-    [m_transition performTransitionAppear:recipeImageView];
-    [m_transition performTransitionAppear:recipeIngredientsTextView];
-    [m_transition performTransitionAppear:recipeDirectionsLabel];
-    [m_transition performTransitionAppear:recipeDirectionsTextView];
+    [self.m_transition performTransitionAppear:self.recipeTitleLabel];
+    [self.m_transition performTransitionAppear:self.recipeImageView];
+    [self.m_transition performTransitionAppear:self.recipeIngredientsTextView];
+    [self.m_transition performTransitionAppear:self.recipeDirectionsLabel];
+    [self.m_transition performTransitionAppear:self.recipeDirectionsTextView];
     
     // Show the details
-    recipeTitleLabel.hidden               = NO;
-    recipeImageView.hidden                = NO;
-    recipeIngredientsTextView.hidden      = NO;
-    recipeDirectionsLabel.hidden          = NO;
-    recipeDirectionsTextView.hidden       = NO;
+    self.recipeTitleLabel.hidden               = NO;
+    self.recipeImageView.hidden                = NO;
+    self.recipeIngredientsTextView.hidden      = NO;
+    self.recipeDirectionsLabel.hidden          = NO;
+    self.recipeDirectionsTextView.hidden       = NO;
     
-    if (!m_serverConnection) {
-        m_serverConnection          = [TFNGateway sharedInstance];
+    if (!self.m_serverConnection) {
+        self.m_serverConnection          = [TFNGateway sharedInstance];
     }
-    if ([nutritionBenefitsPlist isEqualToString:@"dressing made with olive oil"]) {
-        nutritionBenefitsPlist            = @"olive oil";
+    if ([self.nutritionBenefitsPlist isEqualToString:@"dressing made with olive oil"]) {
+        self.nutritionBenefitsPlist            = @"olive oil";
     }
 
-    [m_serverConnection getFoodRecipesFromWebServer:[nutritionBenefitsPlist stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+    [self.m_serverConnection getFoodRecipesFromWebServer:[self.nutritionBenefitsPlist stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
 }
 
 /*
@@ -514,12 +495,12 @@ UITextView *recipeDirectionsTextView;
 - (void)addNutritionBenefitsDescriptions
 {
     NSMutableDictionary *nutritionBenefitsDictionary;
-    NSInteger numberOfItemsInArray                            = [m_nutritionBenefitsArray count];
+    NSInteger numberOfItemsInArray                            = [self.m_nutritionBenefitsArray count];
     NSString *nutritionBenefitsText                     = @"";
     
     if(numberOfItemsInArray != 0) {
         for (int i = 0; i < numberOfItemsInArray; i++) {
-            nutritionBenefitsDictionary         = [m_nutritionBenefitsArray  objectAtIndex:i];
+            nutritionBenefitsDictionary         = [self.m_nutritionBenefitsArray  objectAtIndex:i];
             NSArray *keys                       = [nutritionBenefitsDictionary allKeys];
             if (((![[keys objectAtIndex:0] isEqualToString:@"Introduction"]) || ([[keys objectAtIndex:0] length] != 0)) && ([keys objectAtIndex:0] != NULL)) {
                 nutritionBenefitsText           = [NSString stringWithFormat:@"%@ \n %@", nutritionBenefitsText,[keys objectAtIndex:0]];
@@ -529,9 +510,9 @@ UITextView *recipeDirectionsTextView;
     }
     nutritionBenefitsText                        = [self removeWhiteSpaceBeforeFirstWord:nutritionBenefitsText];
     if ([nutritionBenefitsText length] != 0) {
-        contentsTextView.text                          = nutritionBenefitsText;
+        self.contentsTextView.text                          = nutritionBenefitsText;
         // scroll to the top
-        [contentsTextView setContentOffset:CGPointMake(0, 0) animated:YES];
+        [self.contentsTextView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
     // Stop the activity indicator when text are loaded
     [self.activityIndicator stopAnimating];
@@ -559,47 +540,47 @@ UITextView *recipeDirectionsTextView;
  */
 - (void)imageNameUsedToLoadNutritionBenefits
 {
-    if (!m_nutritionBenefitsArray) {
-        m_nutritionBenefitsArray            = [NSMutableArray mutableArrayObject];
+    if (!self.m_nutritionBenefitsArray) {
+        self.m_nutritionBenefitsArray            = [NSMutableArray mutableArrayObject];
     }
-    if (!m_mealPlanSelection) {
-        m_mealPlanSelection                 = [MealPlanSelection  sharedInstance];
+    if (!self.m_mealPlanSelection) {
+        self.m_mealPlanSelection                 = [MealPlanSelection  sharedInstance];
     }
-    if (!m_calenderViewController) {
-        m_calenderViewController            = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController            = [CalenderViewController sharedInstance];
     }
-    if (!m_mealViewController) {
-        m_mealViewController                = [MealViewController alloc];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController                = [MealViewController alloc];
     }
 
     // Present image for the food imageView
-    if ([m_calenderViewController.selectedImage length] != 0) { // If coming from CalenderViewController's view
-        m_imageNameString                           = [NSString stringWithFormat:@"%@.png", m_calenderViewController.selectedImage];
+    if ([self.m_calenderViewController.selectedImage length] != 0) { // If coming from CalenderViewController's view
+        self.m_imageNameString                           = [NSString stringWithFormat:@"%@.png", self.m_calenderViewController.selectedImage];
         // Clean the selectedImage from the calenderviewcontroller to not confuse when coming from mealview controller
-        m_calenderViewController.selectedImage      = nil;
+        self.m_calenderViewController.selectedImage      = nil;
     }
-    else if([m_mealViewController.selectedImage length] != 0){ // If coming from MealViewController's view
-        m_imageNameString                           = [NSString stringWithFormat:@"%@.png", m_mealViewController.selectedImage];
-        m_mealViewController.selectedImage          = nil;
+    else if([self.m_mealViewController.selectedImage length] != 0){ // If coming from MealViewController's view
+        self.m_imageNameString                           = [NSString stringWithFormat:@"%@.png", self.m_mealViewController.selectedImage];
+        self.m_mealViewController.selectedImage          = nil;
     }
     
     // Display this image
-    UIImage *imageName                  = [UIImage imageNamed:m_imageNameString];
-    [foodImageView setImage:imageName];
+    UIImage *imageName                  = [UIImage imageNamed:self.m_imageNameString];
+    [self.foodImageView setImage:imageName];
 
     // We need to remove underscore from the image name
     NSString *underscore                = @"_";
     // Remove underscore from the image name
-    nutritionBenefitsPlist              = [m_imageNameString stringByReplacingOccurrencesOfString:underscore withString:@" "];
+    self.nutritionBenefitsPlist              = [self.m_imageNameString stringByReplacingOccurrencesOfString:underscore withString:@" "];
     // Then remove the .png image extensions, we get the name of the food
-    nutritionBenefitsPlist              = [nutritionBenefitsPlist stringByReplacingOccurrencesOfString:@".png" withString:@""];
+    self.nutritionBenefitsPlist              = [self.nutritionBenefitsPlist stringByReplacingOccurrencesOfString:@".png" withString:@""];
     
    
     // Display name of the food
-    foodNameLabel.text             = [self capatalizeFirstLetterOfWordsOfFoodName:nutritionBenefitsPlist];
+    self.foodNameLabel.text             = [self capatalizeFirstLetterOfWordsOfFoodName:self.nutritionBenefitsPlist];
     
     // Load array from the plist having same image name
-    m_nutritionBenefitsArray            = [m_mealPlanSelection loadUpPlist:[nutritionBenefitsPlist lowercaseString]];
+    self.m_nutritionBenefitsArray            = [self.m_mealPlanSelection loadUpPlist:[self.nutritionBenefitsPlist lowercaseString]];
     [self addNutritionBenefitsDescriptions];
 }
 
@@ -641,8 +622,8 @@ UITextView *recipeDirectionsTextView;
     else {
         foodImageViewFrame                               = CGRectMake(0.0f, 80.0f, 150.0f, 100.0f);
     }
-    foodImageView                                      = [[UIImageView alloc] initWithFrame:foodImageViewFrame];
-    [self.view addSubview:foodImageView];
+    self.foodImageView                                      = [[UIImageView alloc] initWithFrame:foodImageViewFrame];
+    [self.view addSubview:self.foodImageView];
     
     // Food Name Label
     CGRect foodNameLabelFrame;
@@ -652,12 +633,12 @@ UITextView *recipeDirectionsTextView;
     else {
         foodNameLabelFrame                               = CGRectMake(200.0f, 90.0f, 120.0f, 60.0f);
     }
-    foodNameLabel                                      = [[UILabel alloc] initWithFrame:foodNameLabelFrame];
-    foodNameLabel.font                                 = [UIFont customFontWithSize:15];
-    foodNameLabel.lineBreakMode                        = NSLineBreakByWordWrapping;
-    foodNameLabel.textAlignment                        = NSTextAlignmentLeft;
-    foodNameLabel.numberOfLines                        = 2;
-    [self.view addSubview:foodNameLabel];
+    self.foodNameLabel                                      = [[UILabel alloc] initWithFrame:foodNameLabelFrame];
+    self.foodNameLabel.font                                 = [UIFont customFontWithSize:15];
+    self.foodNameLabel.lineBreakMode                        = NSLineBreakByWordWrapping;
+    self.foodNameLabel.textAlignment                        = NSTextAlignmentLeft;
+    self.foodNameLabel.numberOfLines                        = 2;
+    [self.view addSubview:self.foodNameLabel];
     
     CGRect addToGroceryListInfoFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -666,10 +647,10 @@ UITextView *recipeDirectionsTextView;
     else {
         addToGroceryListInfoFrame                        = CGRectMake(150.0f, 180.0f, 140.0f, 25.0f);
     }
-    addToGroceryButton                                 = [[UIButton alloc] initWithFrame:addToGroceryListInfoFrame];
-    [addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL-ready.png"] forState:UIControlStateNormal];
-    [self.view addSubview:addToGroceryButton];
-    [addToGroceryButton addTarget:self action:@selector(addToGroceryList:) forControlEvents:UIControlEventTouchUpInside];
+    self.addToGroceryButton                                 = [[UIButton alloc] initWithFrame:addToGroceryListInfoFrame];
+    [self.addToGroceryButton setBackgroundImage:[UIImage imageNamed:@"tfn_addGL-ready.png"] forState:UIControlStateNormal];
+    [self.view addSubview:self.addToGroceryButton];
+    [self.addToGroceryButton addTarget:self action:@selector(addToGroceryList:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect foodDescriptionImageViewFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -678,9 +659,9 @@ UITextView *recipeDirectionsTextView;
     else {
          foodDescriptionImageViewFrame               = CGRectMake(0.0f, 210.0f, 320.0f, 75.0f);
     }
-    foodDescriptionImageView                           = [[UIImageView alloc] initWithFrame:foodDescriptionImageViewFrame];
-    [self.view addSubview:foodDescriptionImageView];
-    foodDescriptionImageView.image                     = [UIImage imageNamed:@"tfn_NutritionalBenefits_active.png"];
+    self.foodDescriptionImageView                           = [[UIImageView alloc] initWithFrame:foodDescriptionImageViewFrame];
+    [self.view addSubview:self.foodDescriptionImageView];
+    self.foodDescriptionImageView.image                     = [UIImage imageNamed:@"tfn_NutritionalBenefits_active.png"];
     
     // Sections buttons positions should be adjusted
     CGRect nutritionBenefitsButtonFrame;
@@ -690,9 +671,9 @@ UITextView *recipeDirectionsTextView;
     else {
         nutritionBenefitsButtonFrame                     = CGRectMake(0.0f, 213.0f, 105.0f, 75.0f);
     }
-    nutritionBenefitsButton                            = [[UIButton alloc] initWithFrame:nutritionBenefitsButtonFrame];
-    [self.view addSubview:nutritionBenefitsButton];
-    [nutritionBenefitsButton addTarget:self action:@selector(showNutritions:) forControlEvents:UIControlEventTouchUpInside];
+    self.nutritionBenefitsButton                            = [[UIButton alloc] initWithFrame:nutritionBenefitsButtonFrame];
+    [self.view addSubview:self.nutritionBenefitsButton];
+    [self.nutritionBenefitsButton addTarget:self action:@selector(showNutritions:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect nutritionFactsButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -701,9 +682,9 @@ UITextView *recipeDirectionsTextView;
     else{
         nutritionFactsButtonFrame                        = CGRectMake(106.0f, 213.0f, 106.0f, 75.0f);
     }
-    nutritionFactsButton                               = [[UIButton alloc] initWithFrame:nutritionFactsButtonFrame];
-    [self.view addSubview:nutritionFactsButton];
-    [nutritionFactsButton addTarget:self action:@selector(showNutritions:) forControlEvents:UIControlEventTouchUpInside];
+    self.nutritionFactsButton                               = [[UIButton alloc] initWithFrame:nutritionFactsButtonFrame];
+    [self.view addSubview:self.nutritionFactsButton];
+    [self.nutritionFactsButton addTarget:self action:@selector(showNutritions:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect nutritionRecipesButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -712,9 +693,9 @@ UITextView *recipeDirectionsTextView;
     else {
         nutritionRecipesButtonFrame                      = CGRectMake(213.0f, 213.0f, 106.0f, 75.0f);
     }
-    nutritionRecipesButton                             = [[UIButton alloc] initWithFrame:nutritionRecipesButtonFrame];
-    [self.view addSubview:nutritionRecipesButton];
-    [nutritionRecipesButton addTarget:self action:@selector(showNutritions:) forControlEvents:UIControlEventTouchUpInside];
+    self.nutritionRecipesButton                             = [[UIButton alloc] initWithFrame:nutritionRecipesButtonFrame];
+    [self.view addSubview:self.nutritionRecipesButton];
+    [self.nutritionRecipesButton addTarget:self action:@selector(showNutritions:) forControlEvents:UIControlEventTouchUpInside];
 
     // Nutrtion Facts ScrollView height adjusted
     CGRect nutritionFactsScrollViewFrame;
@@ -724,22 +705,22 @@ UITextView *recipeDirectionsTextView;
     else {
         nutritionFactsScrollViewFrame                    = CGRectMake(0.0f, 290.0f, 320.0f, 200.0f);
     }
-    nutritionFactsScrollView                           = [[UIScrollView alloc] initWithFrame:nutritionFactsScrollViewFrame];
-    nutritionFactsScrollView.backgroundColor           = [UIColor whiteColor];
-    nutritionFactsScrollView.scrollEnabled             = YES;
-    nutritionFactsScrollView.userInteractionEnabled    = YES;
-    [self.view addSubview:nutritionFactsScrollView];
-    nutritionFactsScrollView.hidden                    = YES;
+    self.nutritionFactsScrollView                           = [[UIScrollView alloc] initWithFrame:nutritionFactsScrollViewFrame];
+    self.nutritionFactsScrollView.backgroundColor           = [UIColor whiteColor];
+    self.nutritionFactsScrollView.scrollEnabled             = YES;
+    self.nutritionFactsScrollView.userInteractionEnabled    = YES;
+    [self.view addSubview:self.nutritionFactsScrollView];
+    self.nutritionFactsScrollView.hidden                    = YES;
 
     // Add nutrition facts imageview to the scroll view
     CGRect nutritionFactsImageViewFrame                     = CGRectMake(20.0f, 0.0f, 280.0f, 400.0f);
-    nutritionFactsImageView                            = [[UIImageView alloc] initWithFrame:nutritionFactsImageViewFrame];
-    [nutritionFactsScrollView addSubview:nutritionFactsImageView];
+    self.nutritionFactsImageView                            = [[UIImageView alloc] initWithFrame:nutritionFactsImageViewFrame];
+    [self.nutritionFactsScrollView addSubview:self.nutritionFactsImageView];
 
     // Setup scroll view
-    [nutritionFactsScrollView
-     setContentSize:CGSizeMake(nutritionFactsImageView.frame.size.width,
-                               nutritionFactsImageView.frame.size.height + 100.0f)];
+    [self.nutritionFactsScrollView
+     setContentSize:CGSizeMake(self.nutritionFactsImageView.frame.size.width,
+                               self.nutritionFactsImageView.frame.size.height + 100.0f)];
     
     // Content Text View height adjusted
 
@@ -750,13 +731,13 @@ UITextView *recipeDirectionsTextView;
     else {
         contentsTextViewFrame                            = CGRectMake(0.0f, 280.0f, 320.0f, 140.0f);
     }
-    contentsTextView                                   = [[UITextView alloc] initWithFrame:contentsTextViewFrame];
-    contentsTextView.backgroundColor                   = [UIColor whiteColor];
-    contentsTextView.textColor                         = [UIColor darkGrayColor];
-    contentsTextView.scrollEnabled                     = YES;
-    contentsTextView.editable                          = NO;
-    [contentsTextView setFont:[UIFont customFontWithSize:14]];
-    [self.view addSubview:contentsTextView];
+    self.contentsTextView                                   = [[UITextView alloc] initWithFrame:contentsTextViewFrame];
+    self.contentsTextView.backgroundColor                   = [UIColor whiteColor];
+    self.contentsTextView.textColor                         = [UIColor darkGrayColor];
+    self.contentsTextView.scrollEnabled                     = YES;
+    self.contentsTextView.editable                          = NO;
+    [self.contentsTextView setFont:[UIFont customFontWithSize:14]];
+    [self.view addSubview:self.contentsTextView];
 
     // Recipe Title Label
     CGRect recipeTitleLabelFrame;
@@ -766,13 +747,13 @@ UITextView *recipeDirectionsTextView;
     else {
         recipeTitleLabelFrame                            = CGRectMake(0.0f, 288.0f, 320.0f, 15.0f);
     }
-    recipeTitleLabel                                   = [[UILabel alloc] initWithFrame:recipeTitleLabelFrame];
-    recipeTitleLabel.backgroundColor                   = [UIColor whiteColor];
-    recipeTitleLabel.textColor                         = [UIColor darkGrayColor];
-    [recipeTitleLabel setFont:[UIFont customFontWithSize:11]];
-    [self.view addSubview:recipeTitleLabel];
-    recipeTitleLabel.hidden                            = YES;
-    recipeTitleLabel.textAlignment                     = NSTextAlignmentCenter;
+    self.recipeTitleLabel                                   = [[UILabel alloc] initWithFrame:recipeTitleLabelFrame];
+    self.recipeTitleLabel.backgroundColor                   = [UIColor whiteColor];
+    self.recipeTitleLabel.textColor                         = [UIColor darkGrayColor];
+    [self.recipeTitleLabel setFont:[UIFont customFontWithSize:11]];
+    [self.view addSubview:self.recipeTitleLabel];
+    self.recipeTitleLabel.hidden                            = YES;
+    self.recipeTitleLabel.textAlignment                     = NSTextAlignmentCenter;
 
     // Recipe Ingredients Text View height adjusted
     CGRect recipeIngredientsTextViewFrame;
@@ -782,15 +763,15 @@ UITextView *recipeDirectionsTextView;
     else {
         recipeIngredientsTextViewFrame                   = CGRectMake(150.0f, 305.0f, 168.0f, 80.0f);
     }
-    recipeIngredientsTextView                          = [[UITextView alloc] initWithFrame:recipeIngredientsTextViewFrame];
-    recipeIngredientsTextView.backgroundColor          = [UIColor whiteColor];
-    recipeIngredientsTextView.textColor                = [UIColor darkGrayColor];
-    recipeIngredientsTextView.scrollEnabled            = YES;
-    recipeIngredientsTextView.editable                 = NO;
-    recipeIngredientsTextView.userInteractionEnabled   = YES;
-    [recipeIngredientsTextView setFont:[UIFont customFontWithSize:11]];
-    [self.view addSubview:recipeIngredientsTextView];
-    recipeIngredientsTextView.hidden                   = YES;
+    self.recipeIngredientsTextView                          = [[UITextView alloc] initWithFrame:recipeIngredientsTextViewFrame];
+    self.recipeIngredientsTextView.backgroundColor          = [UIColor whiteColor];
+    self.recipeIngredientsTextView.textColor                = [UIColor darkGrayColor];
+    self.recipeIngredientsTextView.scrollEnabled            = YES;
+    self.recipeIngredientsTextView.editable                 = NO;
+    self.recipeIngredientsTextView.userInteractionEnabled   = YES;
+    [self.recipeIngredientsTextView setFont:[UIFont customFontWithSize:11]];
+    [self.view addSubview:self.recipeIngredientsTextView];
+    self.recipeIngredientsTextView.hidden                   = YES;
     
     // Recipe Image view position adjusted
     CGRect recipeImageViewFrame;
@@ -800,8 +781,8 @@ UITextView *recipeDirectionsTextView;
     else {
         recipeImageViewFrame                           = CGRectMake(12.0f, 305.0f, 135.0f, 80.0f);
     }
-    recipeImageView                                    = [[UIImageView alloc] initWithFrame:recipeImageViewFrame];
-    [self.view addSubview:recipeImageView];
+    self.recipeImageView                                    = [[UIImageView alloc] initWithFrame:recipeImageViewFrame];
+    [self.view addSubview:self.recipeImageView];
     
     // Recipe Directions Label
     CGRect recipeDirectionsLabelFrame;
@@ -811,13 +792,13 @@ UITextView *recipeDirectionsTextView;
     else {
         recipeDirectionsLabelFrame                     = CGRectMake(12.0f, 385.0f, 132.0f, 8.0f);
     }
-    recipeDirectionsLabel                              = [[UILabel alloc] initWithFrame:recipeDirectionsLabelFrame];
-    recipeDirectionsLabel.text                         = @"Directions:";
-    recipeDirectionsLabel.backgroundColor              = [UIColor whiteColor];
-    recipeDirectionsLabel.textColor                    = [UIColor darkGrayColor];
-    [recipeDirectionsLabel setFont:[UIFont customFontWithSize:11]];
-    [self.view addSubview:recipeDirectionsLabel];
-    recipeDirectionsLabel.hidden                       = YES;
+    self.recipeDirectionsLabel                              = [[UILabel alloc] initWithFrame:recipeDirectionsLabelFrame];
+    self.recipeDirectionsLabel.text                         = @"Directions:";
+    self.recipeDirectionsLabel.backgroundColor              = [UIColor whiteColor];
+   self.recipeDirectionsLabel.textColor                    = [UIColor darkGrayColor];
+    [self.recipeDirectionsLabel setFont:[UIFont customFontWithSize:11]];
+    [self.view addSubview:self.recipeDirectionsLabel];
+    self.recipeDirectionsLabel.hidden                       = YES;
 
     // Recipe Directions Text View height adjusted
     CGRect recipeDirectionsTextViewFrame;
@@ -827,15 +808,15 @@ UITextView *recipeDirectionsTextView;
     else {
         recipeDirectionsTextViewFrame                  = CGRectMake(12.0f, 395.0f, 300.0f, 130.0f);
     }
-    recipeDirectionsTextView                           = [[UITextView alloc] initWithFrame:recipeDirectionsTextViewFrame];
-    recipeDirectionsTextView.backgroundColor           = [UIColor whiteColor];
-    recipeDirectionsTextView.textColor                 = [UIColor darkGrayColor];
-    recipeDirectionsTextView.scrollEnabled             = YES;
-    recipeDirectionsTextView.editable                  = NO;
-    recipeDirectionsTextView.userInteractionEnabled    = YES;
-    [recipeDirectionsTextView setFont:[UIFont customFontWithSize:11]];
-    [self.view addSubview:recipeDirectionsTextView];
-    recipeDirectionsTextView.hidden                    = YES;
+    self.recipeDirectionsTextView                           = [[UITextView alloc] initWithFrame:recipeDirectionsTextViewFrame];
+    self.recipeDirectionsTextView.backgroundColor           = [UIColor whiteColor];
+    self.recipeDirectionsTextView.textColor                 = [UIColor darkGrayColor];
+    self.recipeDirectionsTextView.scrollEnabled             = YES;
+    self.recipeDirectionsTextView.editable                  = NO;
+    self.recipeDirectionsTextView.userInteractionEnabled    = YES;
+    [self.recipeDirectionsTextView setFont:[UIFont customFontWithSize:11]];
+    [self.view addSubview:self.recipeDirectionsTextView];
+    self.recipeDirectionsTextView.hidden                    = YES;
 
     self.activityIndicator                             = [self reAddActivityIndicatorforiPhone5:self.activityIndicator];
     [self.view addSubview:self.activityIndicator];
@@ -847,7 +828,7 @@ UITextView *recipeDirectionsTextView;
     if (self) {
         // Custom initialization
         // initialize this
-        nutritionBenefitsPlist      = [[NSString alloc] init];
+        self.nutritionBenefitsPlist      = [[NSString alloc] init];
     }
     return self;
 }
@@ -870,7 +851,7 @@ UITextView *recipeDirectionsTextView;
     // Add tap gesture
     UITapGestureRecognizer *recipeDirectionTap      = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapRecognized:)];
     recipeDirectionTap.numberOfTapsRequired         = 1;
-    [recipeDirectionsTextView addGestureRecognizer:recipeDirectionTap];
+    [self.recipeDirectionsTextView addGestureRecognizer:recipeDirectionTap];
 
     // start the activity indicator
     [self.activityIndicator startAnimating];
@@ -897,11 +878,11 @@ UITextView *recipeDirectionsTextView;
     [self checkIfFoodAlreadyInTheGroceryList];
 
     // Default view should be nutrition benefits
-    m_checkWhichFoodButtonWasClicked    = @"nutritionFacts";
+    self.m_checkWhichFoodButtonWasClicked    = @"nutritionFacts";
     [self showNutritionFacts];
     
     // Default is NO
-    m_recipeDirectionTextViewMoved                                    = NO;
+    self.m_recipeDirectionTextViewMoved                                    = NO;
 
     // Refresh the view
     [self.view setNeedsDisplay];
@@ -925,7 +906,7 @@ UITextView *recipeDirectionsTextView;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    if (m_recipeDirectionTextViewMoved) {
+    if (self.m_recipeDirectionTextViewMoved) {
         [self adjustTheRecipeDirectionsTextViewPosition];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -935,20 +916,20 @@ UITextView *recipeDirectionsTextView;
  Single Tap gesture
  */
 - (void)singleTapRecognized:(UIGestureRecognizer *)gestureRecognizer {
-    CGRect frame = recipeDirectionsTextView.frame;
+    CGRect frame = self.recipeDirectionsTextView.frame;
     
-    if (m_recipeDirectionTextViewMoved) {
-        m_recipeDirectionTextViewMoved    = NO;
+    if (self.m_recipeDirectionTextViewMoved) {
+        self.m_recipeDirectionTextViewMoved    = NO;
         frame.origin.y += FOOD_DESCRIPTION_HEIGHT_ADUSTMENT; // new y coordinate
     }
     else {
-        m_recipeDirectionTextViewMoved    = YES;
+        self.m_recipeDirectionTextViewMoved    = YES;
         frame.origin.y -= FOOD_DESCRIPTION_HEIGHT_ADUSTMENT;
     }
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration: 0.25];
-    recipeDirectionsTextView.frame = frame;
+    self.recipeDirectionsTextView.frame = frame;
     [UIView commitAnimations];
 }
 

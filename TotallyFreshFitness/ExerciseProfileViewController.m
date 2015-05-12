@@ -503,46 +503,46 @@
         self.m_plusTimeWeightRepButton.hidden             = NO;
         self.m_minusTimeWeightRepButton.hidden            = NO;
     }
-    else if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
-        reportDifficultyRepImageViewMask.hidden    = YES;
-        reportRepNextDoneButton.hidden             = YES;
-        reportTimeNextDoneButton.hidden            = NO;
-        reportWeightRepNextDoneButton.hidden       = YES;
-        setNameLabel.hidden                        = NO;
-        setNumberLabel.hidden                      = NO;
-        setMaxNumberLabel.hidden                   = NO;
-        m_plusTimeWeightRepButton.hidden           = YES;
-        m_minusTimeWeightRepButton.hidden          = YES;
+    else if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+        self.reportDifficultyRepImageViewMask.hidden    = YES;
+        self.reportRepNextDoneButton.hidden             = YES;
+        self.reportTimeNextDoneButton.hidden            = NO;
+        self.reportWeightRepNextDoneButton.hidden       = YES;
+        self.setNameLabel.hidden                        = NO;
+        self.setNumberLabel.hidden                      = NO;
+        self.setMaxNumberLabel.hidden                   = NO;
+        self.m_plusTimeWeightRepButton.hidden           = YES;
+        self.m_minusTimeWeightRepButton.hidden          = YES;
     }
     else {
-        reportDifficultyRepImageViewMask.hidden    = NO;
-        reportWeightRepNextDoneButton.hidden       = NO;
-        reportRepNextDoneButton.hidden             = YES;
-        reportTimeNextDoneButton.hidden            = YES;
-        reportWeightRepNextDoneButton.hidden       = NO;
-        setNameLabel.hidden                        = YES;
-        setNumberLabel.hidden                      = YES;
-        setMaxNumberLabel.hidden                   = YES;
-        m_plusTimeWeightRepButton.hidden           = YES;
-        m_minusTimeWeightRepButton.hidden          = YES;
+        self.reportDifficultyRepImageViewMask.hidden    = NO;
+        self.reportWeightRepNextDoneButton.hidden       = NO;
+        self.reportRepNextDoneButton.hidden             = YES;
+        self.reportTimeNextDoneButton.hidden            = YES;
+        self.reportWeightRepNextDoneButton.hidden       = NO;
+        self.setNameLabel.hidden                        = YES;
+        self.setNumberLabel.hidden                      = YES;
+        self.setMaxNumberLabel.hidden                   = YES;
+        self.m_plusTimeWeightRepButton.hidden           = YES;
+        self.m_minusTimeWeightRepButton.hidden          = YES;
     }
     
-    saveReportButton.hidden                        = NO;
-    if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) { // if the excerise has weight
-        [self showRepDetails:beforeFirstDifficultyRepLabel];
-        [self showRepDetails:firstDifficultyRepLabel];
-        [self showRepDetails:secondDifficultyRepLabel];
-        [self showRepDetails:thirdDifficultyRepLabel];
-        [self showRepDetails:afterThirdDifficultyRepLabel];
-        m_plusTimeWeightRepButton.hidden             = NO;
-        m_minusTimeWeightRepButton.hidden            = NO;
+    self.saveReportButton.hidden                        = NO;
+    if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) { // if the excerise has weight
+        [self showRepDetails:self.beforeFirstDifficultyRepLabel];
+        [self showRepDetails:self.firstDifficultyRepLabel];
+        [self showRepDetails:self.secondDifficultyRepLabel];
+        [self showRepDetails:self.thirdDifficultyRepLabel];
+        [self showRepDetails:self.afterThirdDifficultyRepLabel];
+        self.m_plusTimeWeightRepButton.hidden             = NO;
+        self.m_minusTimeWeightRepButton.hidden            = NO;
     }
     
-    [self showWeightTimeRepDetails:beforeFirstTimeWeightLabel];
-    [self showWeightTimeRepDetails:firstTimeWeightLabel];
-    [self showWeightTimeRepDetails:secondTimeWeightLabel];
-    [self showWeightTimeRepDetails:thirdTimeWeightLabel];
-    [self showWeightTimeRepDetails:afterThirdTimeWeightLabel];
+    [self showWeightTimeRepDetails:self.beforeFirstTimeWeightLabel];
+    [self showWeightTimeRepDetails:self.firstTimeWeightLabel];
+    [self showWeightTimeRepDetails:self.secondTimeWeightLabel];
+    [self showWeightTimeRepDetails:self.thirdTimeWeightLabel];
+    [self showWeightTimeRepDetails:self.afterThirdTimeWeightLabel];
 }
 
 /*
@@ -550,19 +550,19 @@
  */
 - (void)loadUpRightSmallRepititionValues:(UILabel *)label
 {
-    if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
+    if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
         label.text           = @"4";
     }
-    else if(label.frame.origin.x == m_firstFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
         label.text           = @"5";
     }
-    else if(label.frame.origin.x == m_secondFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
         label.text           = @"6";
     }
-    else if(label.frame.origin.x == m_thirdFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
         label.text           = @"7";
     }
-    else if(label.frame.origin.x == m_afterThirdFrame.origin.x) {
+    else if(label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
         label.text           = @"8";
     }
 }
@@ -573,21 +573,21 @@
 - (void)initialExerciseReportValues
 {
     // load up right images and values for weight or time, rep or difficulty
-    [self loadUpRightImagesAndValues:beforeFirstTimeWeightLabel];
-    [self loadUpRightImagesAndValues:firstTimeWeightLabel];
-    [self loadUpRightImagesAndValues:secondTimeWeightLabel];
-    [self loadUpRightImagesAndValues:thirdTimeWeightLabel];
-    [self loadUpRightImagesAndValues:afterThirdTimeWeightLabel];
+    [self loadUpRightImagesAndValues:self.beforeFirstTimeWeightLabel];
+    [self loadUpRightImagesAndValues:self.firstTimeWeightLabel];
+    [self loadUpRightImagesAndValues:self.secondTimeWeightLabel];
+    [self loadUpRightImagesAndValues:self.thirdTimeWeightLabel];
+    [self loadUpRightImagesAndValues:self.afterThirdTimeWeightLabel];
     
     // load up right values for small rep
-    [self loadUpRightSmallRepititionValues:beforeFirstDifficultyRepLabel];
-    [self loadUpRightSmallRepititionValues:firstDifficultyRepLabel];
-    [self loadUpRightSmallRepititionValues:secondDifficultyRepLabel];
-    [self loadUpRightSmallRepititionValues:thirdDifficultyRepLabel];
-    [self loadUpRightSmallRepititionValues:afterThirdDifficultyRepLabel];
+    [self loadUpRightSmallRepititionValues:self.beforeFirstDifficultyRepLabel];
+    [self loadUpRightSmallRepititionValues:self.firstDifficultyRepLabel];
+    [self loadUpRightSmallRepititionValues:self.secondDifficultyRepLabel];
+    [self loadUpRightSmallRepititionValues:self.thirdDifficultyRepLabel];
+    [self loadUpRightSmallRepititionValues:self.afterThirdDifficultyRepLabel];
     
     // update the set number to begin from 1
-    setNumberLabel.text                         = @"1";
+    self.setNumberLabel.text                         = @"1";
 }
 
 /*
@@ -595,14 +595,14 @@
  */
 - (void)hideProgress
 {
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionDisappear:self.graphView];
-    [m_transition performTransitionDisappear:self.weightBox];
-    [m_transition performTransitionDisappear:self.repBox];
-    [m_transition performTransitionDisappear:self.weightLabel];
-    [m_transition performTransitionDisappear:self.repLabel];
+    [self.m_transition performTransitionDisappear:self.graphView];
+    [self.m_transition performTransitionDisappear:self.weightBox];
+    [self.m_transition performTransitionDisappear:self.repBox];
+    [self.m_transition performTransitionDisappear:self.weightLabel];
+    [self.m_transition performTransitionDisappear:self.repLabel];
     // Hide the graphview
     self.graphView.hidden                           = YES;
     // Hide the weight box
@@ -622,10 +622,10 @@
 {
     [self.exerciseDetailsImageView setImage:[UIImage imageNamed:@"tfn_description_active.png"]];
     
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionAppear:self.contentsTextView];
+    [self.m_transition performTransitionAppear:self.contentsTextView];
     // Show the exercise description
     self.contentsTextView.hidden                    = NO;
     
@@ -641,11 +641,11 @@
  */
 - (void)showReport
 {
-    if (!m_transition) {
-        m_transition                                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                                = [ViewTransitions sharedInstance];
     }
     [self.exerciseDetailsImageView setImage:[UIImage imageNamed:@"tfn_report_active.png"]];
-    [m_transition performTransitionDisappear:self.contentsTextView];
+    [self.m_transition performTransitionDisappear:self.contentsTextView];
     // Hide the textview
     self.contentsTextView.hidden                    = YES;
     
@@ -655,10 +655,10 @@
     // Show the report details
     [self showExerciseReportDetails];
     
-    if ([m_previousExerciseName isEqualToString:m_exerciseImageNameString]) { // Retain the exercise state from before, so do nothing
+    if ([self.m_previousExerciseName isEqualToString:self.m_exerciseImageNameString]) { // Retain the exercise state from before, so do nothing
     }
     else { // if the previous view's exercise is not the same, update the m_previousExerciseName
-        m_previousExerciseName                          = m_exerciseImageNameString;
+        self.m_previousExerciseName                          = self.m_exerciseImageNameString;
         [self initialExerciseReportValues];
     }
 }
@@ -668,11 +668,11 @@
  */
 - (void)showProgress
 {
-    if (!m_transition) {
-        m_transition                                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                                = [ViewTransitions sharedInstance];
     }
     [self.exerciseDetailsImageView setImage:[UIImage imageNamed:@"tfn_progress_active.png"]];
-    [m_transition performTransitionDisappear:self.contentsTextView];
+    [self.m_transition performTransitionDisappear:self.contentsTextView];
     
     // Hide the textview
     self.contentsTextView.hidden                    = YES;
@@ -689,12 +689,12 @@
 -(void)showExerciseSections:(id)sender
 {
     
-    if ((sender == workoutDescriptionButton) && (([m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseReport"]) || ([m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseProgress"]))) {
-        m_checkWhichExerciseButtonWasClicked            = @"exerciseDescription";
+    if ((sender == self.workoutDescriptionButton) && (([self.m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseReport"]) || ([self.m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseProgress"]))) {
+        self.m_checkWhichExerciseButtonWasClicked            = @"exerciseDescription";
         [self showExerciseDescription];
     }
-    else if((sender == reportButton) && (([m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseDescription"]) || ([m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseProgress"]))) {
-        if ([self checkIfExerciseIsWithoutReportOrProgress:m_exerciseNameDisplayed]) {
+    else if((sender == self.reportButton) && (([self.m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseDescription"]) || ([self.m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseProgress"]))) {
+        if ([self checkIfExerciseIsWithoutReportOrProgress:self.m_exerciseNameDisplayed]) {
             // Hide exercise report details
             [self hideExerciseReportDetails];
             
@@ -703,12 +703,12 @@
             
         }
         else {
-            m_checkWhichExerciseButtonWasClicked            = @"exerciseReport";
+            self.m_checkWhichExerciseButtonWasClicked            = @"exerciseReport";
             [self showReport];
         }
     }
-    else if((sender == progressButton) && (([m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseDescription"]) || ([m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseReport"]))) {
-        if ([self checkIfExerciseIsWithoutReportOrProgress:m_exerciseNameDisplayed]) {
+    else if((sender == self.progressButton) && (([self.m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseDescription"]) || ([self.m_checkWhichExerciseButtonWasClicked isEqualToString:@"exerciseReport"]))) {
+        if ([self checkIfExerciseIsWithoutReportOrProgress:self.m_exerciseNameDisplayed]) {
             // Hide exercise report details
             [self hideExerciseReportDetails];
             
@@ -716,11 +716,11 @@
             [self hideProgress];
         }
         else {
-            m_checkWhichExerciseButtonWasClicked            = @"exerciseProgress";
+            self.m_checkWhichExerciseButtonWasClicked            = @"exerciseProgress";
             [self showProgress];
-            setNameLabel.hidden                             = YES;
-            setNumberLabel.hidden                           = YES;
-            setMaxNumberLabel.hidden                        = YES;
+            self.setNameLabel.hidden                             = YES;
+            self.setNumberLabel.hidden                           = YES;
+            self.setMaxNumberLabel.hidden                        = YES;
             
         }
     }
@@ -772,7 +772,7 @@
     NSString *exerciseReportStatus            = @"";
     NSDate *date                              = [NSDate date];
     
-    m_setNumber                               = [setNumberLabel.text intValue];
+    self.m_setNumber                               = [self.setNumberLabel.text intValue];
     
     // Convert int weight time value into nsnumber
     NSNumber *numberSetOneWeightField         = 0;
@@ -780,49 +780,49 @@
     NSNumber *numberSetOneTimeField           = 0;
     
     // Convert int difficulty rep value into nsnumber
-    NSNumber *numberSetOneRepField            = [NSNumber numberWithInt:m_selectedDifficultyRep];
+    NSNumber *numberSetOneRepField            = [NSNumber numberWithInt:self.m_selectedDifficultyRep];
     
     // Convert int set number into nsnumber
-    NSNumber *setNumber                       = [NSNumber numberWithInt:m_setNumber];
-    if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
-        numberSetOneTimeField                 = [NSNumber numberWithInt:m_selectedWeightTimeRepitition];
+    NSNumber *setNumber                       = [NSNumber numberWithInt:self.m_setNumber];
+    if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+        numberSetOneTimeField                 = [NSNumber numberWithInt:self.m_selectedWeightTimeRepitition];
         numberSetOneRepField                  = 0;
     }
-    else if([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]){
-        numberSetOneWeightField               = [NSNumber numberWithInt:m_selectedWeightTimeRepitition];
+    else if([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]){
+        numberSetOneWeightField               = [NSNumber numberWithInt:self.m_selectedWeightTimeRepitition];
     }
-    else if([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]){ // If it is repitition, it has big repitition image
-        numberSetOneRepField                  = [NSNumber numberWithInt:m_selectedWeightTimeRepitition];
+    else if([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]){ // If it is repitition, it has big repitition image
+        numberSetOneRepField                  = [NSNumber numberWithInt:self.m_selectedWeightTimeRepitition];
     }
     
     if ((numberSetOneWeightField != NULL) || (numberSetOneRepField != NULL) || (numberSetOneTimeField != NULL)) { // Make there is no null in the numbers
         
-        if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+        if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
             
-            if (m_setNumber < 7) { // Maximum number of set is 5
+            if (self.m_setNumber < 7) { // Maximum number of set is 5
                 
-                if (!m_database) {
-                    m_database      = [Database alloc];
+                if (!self.m_database) {
+                    self.m_database      = [Database alloc];
                 }
-                if (m_setNumber > 1) { // When set is more than 1, data needs to be updated in database
-                    exerciseReportStatus            = [m_database updateExerciseReport:self.exerciseNameLabel.text Email_Id:[NSString getUserEmail] Date:date Set:setNumber SetTheWeight:numberSetOneWeightField SetTheTime:numberSetOneTimeField SetTheRep:numberSetOneRepField];
+                if (self.m_setNumber > 1) { // When set is more than 1, data needs to be updated in database
+                    exerciseReportStatus            = [self.m_database updateExerciseReport:self.exerciseNameLabel.text Email_Id:[NSString getUserEmail] Date:date Set:setNumber SetTheWeight:numberSetOneWeightField SetTheTime:numberSetOneTimeField SetTheRep:numberSetOneRepField];
                 }
                 else { // When set is 1, data needs to be inserted in database
-                    exerciseReportStatus            = [m_database insertIntoExerciseReport:self.exerciseNameLabel.text Email_Id:[NSString getUserEmail] Date:date SetOneWeight:numberSetOneWeightField SetOneTime:numberSetOneTimeField SetOneRep:numberSetOneRepField];
+                    exerciseReportStatus            = [self.m_database insertIntoExerciseReport:self.exerciseNameLabel.text Email_Id:[NSString getUserEmail] Date:date SetOneWeight:numberSetOneWeightField SetOneTime:numberSetOneTimeField SetOneRep:numberSetOneRepField];
                 }
                 
                 if ([exerciseReportStatus isEqualToString:@"updated"]) {
-                    [self displayMessage:[NSString stringWithFormat:@"Set number %d was successfully saved.", m_setNumber]];
+                    [self displayMessage:[NSString stringWithFormat:@"Set number %d was successfully saved.", self.m_setNumber]];
                     
                     // Increment for the next set
-                    m_setNumber++;
+                    self.m_setNumber++;
                     
                     // if the set number reaches 5 , then it should become 1 to start again
-                    if (m_setNumber == 6) {
-                        m_setNumber                         = 1;
+                    if (self.m_setNumber == 6) {
+                        self.m_setNumber                         = 1;
                     }
                     // Update the set number, after pressing done
-                    setNumberLabel.text                = [NSString stringWithFormat:@"%d", m_setNumber];
+                    self.setNumberLabel.text                = [NSString stringWithFormat:@"%d", self.m_setNumber];
                 }
                 else {
                     [self displayMessage:@"This record failed to be saved."];
@@ -830,7 +830,7 @@
             }
         }
         else { // for exercise other than time
-            exerciseReportStatus            = [m_database insertIntoExerciseReport:self.exerciseNameLabel.text Email_Id:[NSString getUserEmail] Date:date SetOneWeight:numberSetOneWeightField SetOneTime:numberSetOneTimeField SetOneRep:numberSetOneRepField];
+            exerciseReportStatus            = [self.m_database insertIntoExerciseReport:self.exerciseNameLabel.text Email_Id:[NSString getUserEmail] Date:date SetOneWeight:numberSetOneWeightField SetOneTime:numberSetOneTimeField SetOneRep:numberSetOneRepField];
             if ([exerciseReportStatus isEqualToString:@"updated"]) {
                 [self displayMessage:[NSString stringWithFormat:@"This record was successfully saved."]];
             }
@@ -920,7 +920,7 @@
     self.bigExerciseImageView.hidden                 = NO;
     
     // Set True
-    isBigImageVisible                                = TRUE;
+    self.isBigImageVisible                                = TRUE;
     [self.view addSubview:self.bigExerciseImageView];
 }
 
@@ -929,14 +929,14 @@
  */
 - (void)showOtherViewsAfterHidingBigImage
 {
-    if (!m_transition) {
-        m_transition                                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                                = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionDisappear:self.bigExerciseImageView];
+    [self.m_transition performTransitionDisappear:self.bigExerciseImageView];
     [self.bigExerciseImageView removeFromSuperview];
     
     // Big image make invisible
-    isBigImageVisible                               = FALSE;
+    self.isBigImageVisible                               = FALSE;
 }
 
 /*
@@ -945,17 +945,17 @@
 - (void)displayBigExerciseImage:(UIInterfaceOrientation)orientation
 {
     // assign selected image view
-    m_bigExerciseImageNameString                    = m_exerciseImageNameString;
+    self.m_bigExerciseImageNameString                    = self.m_exerciseImageNameString;
     
     // Remove the below line, only for testing
-    m_bigExerciseImageNameString                    = [m_bigExerciseImageNameString stringByReplacingOccurrencesOfString:@"thumb" withString:@"landscape"];
+    self.m_bigExerciseImageNameString                    = [self.m_bigExerciseImageNameString stringByReplacingOccurrencesOfString:@"thumb" withString:@"landscape"];
     if (orientation == UIInterfaceOrientationLandscapeLeft) {
-        self.bigExerciseImageView.image             = [[UIImage alloc] initWithCGImage: [UIImage imageNamed:m_bigExerciseImageNameString].CGImage
+        self.bigExerciseImageView.image             = [[UIImage alloc] initWithCGImage: [UIImage imageNamed:self.m_bigExerciseImageNameString].CGImage
                                                                                  scale: 1.90
                                                                            orientation: UIImageOrientationLeft];
     }
     else if(orientation == UIInterfaceOrientationLandscapeRight) {
-        self.bigExerciseImageView.image             = [[UIImage alloc] initWithCGImage: [UIImage imageNamed:m_bigExerciseImageNameString].CGImage
+        self.bigExerciseImageView.image             = [[UIImage alloc] initWithCGImage: [UIImage imageNamed:self.m_bigExerciseImageNameString].CGImage
                                                                                  scale: 1.90
                                                                            orientation: UIImageOrientationRight];
     }
@@ -994,7 +994,7 @@
     else { // Remove the big exercise image
         [self showOtherViewsAfterHidingBigImage];
         // Set True
-        isBigImageVisible                       = FALSE;
+        self.isBigImageVisible                       = FALSE;
     }
 }
 
@@ -1003,7 +1003,7 @@
  */
 - (void)plusTimeWeightRepby10:(id)sender
 {
-    [UILabel incrementBy10OnLabelOne:beforeFirstTimeWeightLabel LabelTwo:firstTimeWeightLabel  LabelThree:secondTimeWeightLabel LabelFour:thirdTimeWeightLabel LabelFive:afterThirdTimeWeightLabel];
+    [UILabel incrementBy10OnLabelOne:self.beforeFirstTimeWeightLabel LabelTwo:self.firstTimeWeightLabel  LabelThree:self.secondTimeWeightLabel LabelFour:self.thirdTimeWeightLabel LabelFive:self.afterThirdTimeWeightLabel];
 }
 
 /*
@@ -1011,8 +1011,8 @@
  */
 - (void)minusTimeWeightRepby10:(id)sender
 {
-    if ([secondTimeWeightLabel.text intValue] > 5) {
-        [UILabel decrementBy10OnLabelOne:beforeFirstTimeWeightLabel LabelTwo:firstTimeWeightLabel  LabelThree:secondTimeWeightLabel LabelFour:thirdTimeWeightLabel LabelFive:afterThirdTimeWeightLabel];
+    if ([self.secondTimeWeightLabel.text intValue] > 5) {
+        [UILabel decrementBy10OnLabelOne:self.beforeFirstTimeWeightLabel LabelTwo:self.firstTimeWeightLabel  LabelThree:self.secondTimeWeightLabel LabelFour:self.thirdTimeWeightLabel LabelFive:self.afterThirdTimeWeightLabel];
     }
 }
 
@@ -1024,34 +1024,34 @@
     int value                               = [label.text intValue];
     
     if ([incrementOrDecrement isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_afterThirdFrame.origin.x) {
-            if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
+        if (label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
+            if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
                 value                       = value + 25;
             }
-            else if (([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) || ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"])) {
+            else if (([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) || ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"])) {
                 value                       = value + 5;
             }
         }
-        else if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            m_beforeFirstWeightLabel        = value;
+        else if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            self.m_beforeFirstWeightLabel        = value;
         }
     }
     else if([incrementOrDecrement isEqualToString:@"Right"]) {
-        if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
+        if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
                 value                       = value - 25;
-                m_beforeFirstWeightLabel    = value;
+                self.m_beforeFirstWeightLabel    = value;
             }
-            else if (([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) || ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"])) {
+            else if (([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) || ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"])) {
                 value                       = value - 5;
-                m_beforeFirstWeightLabel    = value;
+                self.m_beforeFirstWeightLabel    = value;
             }
         }
     }
     
     // Get the selected Weight or Time
-    if (label.frame.origin.x == m_secondFrame.origin.x) {
-        m_selectedWeightTimeRepitition                = [label.text intValue];
+    if (label.frame.origin.x == self.m_secondFrame.origin.x) {
+        self.m_selectedWeightTimeRepitition                = [label.text intValue];
     }
     
     return value;
@@ -1065,23 +1065,23 @@
     int value                               = [label.text intValue];
     
     if ([incrementOrDecrement isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_afterThirdDifficultyRepFrame.origin.x) {
+        if (label.frame.origin.x == self.m_afterThirdDifficultyRepFrame.origin.x) {
             value                           = value + 5;
         }
-        else if (label.frame.origin.x == m_beforeFirstDifficultyRepFrame.origin.x) {
-            m_beforeFirstDifficultyRepLabel = value;
+        else if (label.frame.origin.x == self.m_beforeFirstDifficultyRepFrame.origin.x) {
+            self.m_beforeFirstDifficultyRepLabel = value;
         }
     }
     else if([incrementOrDecrement isEqualToString:@"Right"]) {
-        if (label.frame.origin.x == m_beforeFirstDifficultyRepFrame.origin.x) {
+        if (label.frame.origin.x == self.m_beforeFirstDifficultyRepFrame.origin.x) {
             value                           = value - 5;
-            m_beforeFirstDifficultyRepLabel = value;
+            self.m_beforeFirstDifficultyRepLabel = value;
         }
     }
     
     // Get the selected Difficulty / Rep
-    if (label.frame.origin.x == m_secondDifficultyRepFrame.origin.x) {
-        m_selectedDifficultyRep             = [label.text intValue];
+    if (label.frame.origin.x == self.m_secondDifficultyRepFrame.origin.x) {
+        self.m_selectedDifficultyRep             = [label.text intValue];
     }
     
     return value;
@@ -1096,28 +1096,28 @@
     [UIView setAnimationDuration: 0.25];
     
     if ([leftOrRight isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_beforeFirstDifficultyRepFrame.origin.x) {
-            label.frame            = m_afterThirdDifficultyRepFrame;
+        if (label.frame.origin.x == self.m_beforeFirstDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_afterThirdDifficultyRepFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_firstDifficultyRepFrame.origin.x) {
-            label.frame            = m_beforeFirstDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_firstDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_beforeFirstDifficultyRepFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_secondDifficultyRepFrame.origin.x) {
-            label.frame            = m_firstDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_secondDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_firstDifficultyRepFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_thirdDifficultyRepFrame.origin.x) {
-            label.frame            = m_secondDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_thirdDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_secondDifficultyRepFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_afterThirdDifficultyRepFrame.origin.x) {
-            label.frame            = m_thirdDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_afterThirdDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_thirdDifficultyRepFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
@@ -1127,28 +1127,28 @@
         label.text             = [NSString stringWithFormat:@"%d", [self incrementOrDecrement:@"Left" DifficultyRepValue:label]];
     }
     else if ([leftOrRight isEqualToString:@"Right"]) {
-        if(label.frame.origin.x == m_beforeFirstDifficultyRepFrame.origin.x) {
-            label.frame            = m_firstDifficultyRepFrame;
+        if(label.frame.origin.x == self.m_beforeFirstDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_firstDifficultyRepFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if (label.frame.origin.x == m_afterThirdDifficultyRepFrame.origin.x) {
-            label.frame            = m_beforeFirstDifficultyRepFrame;
+        else if (label.frame.origin.x == self.m_afterThirdDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_beforeFirstDifficultyRepFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_thirdDifficultyRepFrame.origin.x) {
-            label.frame            = m_afterThirdDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_thirdDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_afterThirdDifficultyRepFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_secondDifficultyRepFrame.origin.x) {
-            label.frame            = m_thirdDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_secondDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_thirdDifficultyRepFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_firstDifficultyRepFrame.origin.x) {
-            label.frame            = m_secondDifficultyRepFrame;
+        else if(label.frame.origin.x == self.m_firstDifficultyRepFrame.origin.x) {
+            label.frame            = self.m_secondDifficultyRepFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
@@ -1168,28 +1168,28 @@
     [UIView setAnimationDuration: 0.25];
     
     if ([leftOrRight isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            label.frame            = m_afterThirdFrame;
+        if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            label.frame            = self.m_afterThirdFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_firstFrame.origin.x) {
-            label.frame            = m_beforeFirstFrame;
+        else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
+            label.frame            = self.m_beforeFirstFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_secondFrame.origin.x) {
-            label.frame            = m_firstFrame;
+        else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
+            label.frame            = self.m_firstFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_thirdFrame.origin.x) {
-            label.frame            = m_secondFrame;
+        else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
+            label.frame            = self.m_secondFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_afterThirdFrame.origin.x) {
-            label.frame            = m_thirdFrame;
+        else if(label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
+            label.frame            = self.m_thirdFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
@@ -1199,28 +1199,28 @@
         label.text             = [NSString stringWithFormat:@"%d", [self incrementOrDecrement:@"Left" WeightTimeValue:label]];
     }
     else if ([leftOrRight isEqualToString:@"Right"]) {
-        if(label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            label.frame            = m_firstFrame;
+        if(label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            label.frame            = self.m_firstFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if (label.frame.origin.x == m_afterThirdFrame.origin.x) {
-            label.frame            = m_beforeFirstFrame;
+        else if (label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
+            label.frame            = self.m_beforeFirstFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_thirdFrame.origin.x) {
-            label.frame            = m_afterThirdFrame;
+        else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
+            label.frame            = self.m_afterThirdFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_secondFrame.origin.x) {
-            label.frame            = m_thirdFrame;
+        else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
+            label.frame            = self.m_thirdFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_firstFrame.origin.x) {
-            label.frame            = m_secondFrame;
+        else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
+            label.frame            = self.m_secondFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
@@ -1237,15 +1237,15 @@
 - (void)animateLeftTimeWeightRepLabels
 {
     // Animate the first label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:firstTimeWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.firstTimeWeightLabel];
     // Animate the second label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:secondTimeWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.secondTimeWeightLabel];
     // Animate the third label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:thirdTimeWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.thirdTimeWeightLabel];
     // Animate after third label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:afterThirdTimeWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.afterThirdTimeWeightLabel];
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:beforeFirstTimeWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.beforeFirstTimeWeightLabel];
 }
 
 /*
@@ -1253,17 +1253,17 @@
  */
 -(void)animateRightTimeWeightRepLabels
 {
-    if(m_beforeFirstWeightLabel >= 0) { // If before first label value is less than zero, do nothing
+    if(self.m_beforeFirstWeightLabel >= 0) { // If before first label value is less than zero, do nothing
         // Animate first label
-        [self animateLeftOrRight:@"Right" TimeWeightLabel:firstTimeWeightLabel];
+        [self animateLeftOrRight:@"Right" TimeWeightLabel:self.firstTimeWeightLabel];
         // Animate second label
-        [self animateLeftOrRight:@"Right" TimeWeightLabel:secondTimeWeightLabel];
+        [self animateLeftOrRight:@"Right" TimeWeightLabel:self.secondTimeWeightLabel];
         // Animate third label
-        [self animateLeftOrRight:@"Right" TimeWeightLabel:thirdTimeWeightLabel];
+        [self animateLeftOrRight:@"Right" TimeWeightLabel:self.thirdTimeWeightLabel];
         // Animate after third label
-        [self animateLeftOrRight:@"Right" TimeWeightLabel:afterThirdTimeWeightLabel];
+        [self animateLeftOrRight:@"Right" TimeWeightLabel:self.afterThirdTimeWeightLabel];
         // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-        [self animateLeftOrRight:@"Right" TimeWeightLabel:beforeFirstTimeWeightLabel];
+        [self animateLeftOrRight:@"Right" TimeWeightLabel:self.beforeFirstTimeWeightLabel];
     }
 }
 
@@ -1279,35 +1279,35 @@
     else if (swipeRecognizer == self.difficultyRepLeftSwipeGesture) {
         
         // Animate the second label
-        [self animateLeftOrRight:@"Left" DifficultyRepLabel:firstDifficultyRepLabel];
+        [self animateLeftOrRight:@"Left" DifficultyRepLabel:self.firstDifficultyRepLabel];
         // Animate the third label
-        [self animateLeftOrRight:@"Left" DifficultyRepLabel:secondDifficultyRepLabel];
+        [self animateLeftOrRight:@"Left" DifficultyRepLabel:self.secondDifficultyRepLabel];
         // Animate after third label
-        [self animateLeftOrRight:@"Left" DifficultyRepLabel:thirdDifficultyRepLabel];
-        [self animateLeftOrRight:@"Left" DifficultyRepLabel:afterThirdDifficultyRepLabel];
+        [self animateLeftOrRight:@"Left" DifficultyRepLabel:self.thirdDifficultyRepLabel];
+        [self animateLeftOrRight:@"Left" DifficultyRepLabel:self.afterThirdDifficultyRepLabel];
         // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-        [self animateLeftOrRight:@"Left" DifficultyRepLabel:beforeFirstDifficultyRepLabel];
+        [self animateLeftOrRight:@"Left" DifficultyRepLabel:self.beforeFirstDifficultyRepLabel];
     }
     else if (swipeRecognizer == self.timeWeightRightSwipeGesture) {
         
-        if(m_beforeFirstWeightLabel >= 0) { // If before first label value is less than zero, do nothing
+        if(self.m_beforeFirstWeightLabel >= 0) { // If before first label value is less than zero, do nothing
             [self animateRightTimeWeightRepLabels];
         }
     }
     else if (swipeRecognizer == self.difficultyRepRightSwipeGesture) {
         
-        if (m_beforeFirstDifficultyRepLabel >= 0) { // first value must be zero or more so that selected value cannot be less than 0
+        if (self.m_beforeFirstDifficultyRepLabel >= 0) { // first value must be zero or more so that selected value cannot be less than 0
             
             // Animate the first label
             // Animate the second label
-            [self animateLeftOrRight:@"Right" DifficultyRepLabel:firstDifficultyRepLabel];
+            [self animateLeftOrRight:@"Right" DifficultyRepLabel:self.firstDifficultyRepLabel];
             // Animate the third label
-            [self animateLeftOrRight:@"Right" DifficultyRepLabel:secondDifficultyRepLabel];
+            [self animateLeftOrRight:@"Right" DifficultyRepLabel:self.secondDifficultyRepLabel];
             // Animate after third label
-            [self animateLeftOrRight:@"Right" DifficultyRepLabel:thirdDifficultyRepLabel];
-            [self animateLeftOrRight:@"Right" DifficultyRepLabel:afterThirdDifficultyRepLabel];
+            [self animateLeftOrRight:@"Right" DifficultyRepLabel:self.thirdDifficultyRepLabel];
+            [self animateLeftOrRight:@"Right" DifficultyRepLabel:self.afterThirdDifficultyRepLabel];
             // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-            [self animateLeftOrRight:@"Right" DifficultyRepLabel:beforeFirstDifficultyRepLabel];
+            [self animateLeftOrRight:@"Right" DifficultyRepLabel:self.beforeFirstDifficultyRepLabel];
         }
     }
 }
@@ -1336,30 +1336,30 @@
 {
     NSString *underscore                    = @"_";
     // Remove underscore from the image name
-    m_exerciseDescriptionPlist              = [exerciseImageNameString stringByReplacingOccurrencesOfString:underscore withString:@" "];
-    m_exerciseDescriptionPlist              = [m_exerciseDescriptionPlist stringByReplacingOccurrencesOfString:@" male thumb" withString:@""]; // Remove male thumb
-    m_exerciseDescriptionPlist              = [m_exerciseDescriptionPlist stringByReplacingOccurrencesOfString:@" female thumb" withString:@""]; // Remove female thumb
+    self.m_exerciseDescriptionPlist              = [exerciseImageNameString stringByReplacingOccurrencesOfString:underscore withString:@" "];
+    self.m_exerciseDescriptionPlist              = [self.m_exerciseDescriptionPlist stringByReplacingOccurrencesOfString:@" male thumb" withString:@""]; // Remove male thumb
+    self.m_exerciseDescriptionPlist              = [self.m_exerciseDescriptionPlist stringByReplacingOccurrencesOfString:@" female thumb" withString:@""]; // Remove female thumb
     // Then remove the .png image extensions, we get the name of the exercise
-    m_exerciseDescriptionPlist              = [m_exerciseDescriptionPlist stringByReplacingOccurrencesOfString:@".png" withString:@""]; // Remove .png
+    self.m_exerciseDescriptionPlist              = [self.m_exerciseDescriptionPlist stringByReplacingOccurrencesOfString:@".png" withString:@""]; // Remove .png
     
     // Display exercise name with first letter of the each words capatalized
-    self.exerciseNameLabel.text             = [self removeWhiteSpaceBeforeFirstWord:[self capatalizeFirstLetterOfWordsOfExerciseName:m_exerciseDescriptionPlist]];
+    self.self.exerciseNameLabel.text             = [self removeWhiteSpaceBeforeFirstWord:[self capatalizeFirstLetterOfWordsOfExerciseName:self.m_exerciseDescriptionPlist]];
     
     // save exercise name
-    m_exerciseNameDisplayed                 = self.exerciseNameLabel.text;
+    self.m_exerciseNameDisplayed                 = self.exerciseNameLabel.text;
     
     // Change it back to lowercase to retrive the related plist
-    m_exerciseDescriptionPlist              = [m_exerciseDescriptionPlist lowercaseString];
-    if ((m_exerciseDescriptionPlist != NULL) && (m_exerciseDescriptionPlist.length != 0)) {
+    self.m_exerciseDescriptionPlist              = [self.m_exerciseDescriptionPlist lowercaseString];
+    if ((self.m_exerciseDescriptionPlist != NULL) && (self.m_exerciseDescriptionPlist.length != 0)) {
         // Load dictionary from the plist having same image name
-        m_workoutDescriptionDictionary      = nil;
+        self.m_workoutDescriptionDictionary      = nil;
         
-        if (!m_workoutDescriptionDictionary) {
-            m_workoutDescriptionDictionary  = [[NSMutableDictionary alloc] init];
+        if (!self.m_workoutDescriptionDictionary) {
+            self.m_workoutDescriptionDictionary  = [[NSMutableDictionary alloc] init];
         }
-        m_workoutDescriptionDictionary      = [m_workoutSelection loadUpPlist:[m_exerciseDescriptionPlist lowercaseString]];
+        self.m_workoutDescriptionDictionary      = [self.m_workoutSelection loadUpPlist:[self.m_exerciseDescriptionPlist lowercaseString]];
     }
-    [self addExerciseDescriptions:m_workoutDescriptionDictionary];
+    [self addExerciseDescriptions:self.m_workoutDescriptionDictionary];
 }
 
 /*
@@ -1367,44 +1367,44 @@
  */
 - (void)loadExerciseImagesAndDescription
 {
-    if (!m_workoutDescriptionDictionary) {
-        m_workoutDescriptionDictionary      = [[NSMutableDictionary alloc] init];
+    if (!self.m_workoutDescriptionDictionary) {
+        self.m_workoutDescriptionDictionary      = [[NSMutableDictionary alloc] init];
     }
-    if (!m_workoutSelection) {
-        m_workoutSelection                  = [WorkoutSelection  sharedInstance];
+    if (!self.m_workoutSelection) {
+        self.m_workoutSelection                  = [WorkoutSelection  sharedInstance];
     }
-    if (!m_calenderViewController) {
-        m_calenderViewController            = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController            = [CalenderViewController sharedInstance];
     }
-    if (!m_mealViewController) {
-        m_mealViewController                = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController                = [MealViewController sharedInstance];
     }
-    if (!m_exerciseViewController) {
-        m_exerciseViewController            = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController            = [ExerciseViewController sharedInstance];
     }
-    if (!m_exerciseListViewController) {
-        m_exerciseListViewController        = [ExerciseListViewController sharedInstance];
+    if (!self.m_exerciseListViewController) {
+        self.m_exerciseListViewController        = [ExerciseListViewController sharedInstance];
     }
     
     // Present image for the exercise imageView
-    if ([m_calenderViewController.selectedImage length] != 0) {
-        m_exerciseImageNameString                       = [NSString stringWithFormat:@"%@.png", m_calenderViewController.selectedImage];
-        m_calenderViewController.selectedImage          = nil;
+    if ([self.m_calenderViewController.selectedImage length] != 0) {
+        self.m_exerciseImageNameString                       = [NSString stringWithFormat:@"%@.png", self.m_calenderViewController.selectedImage];
+        self.m_calenderViewController.selectedImage          = nil;
     }
-    else if([m_exerciseViewController.selectedImage length] != 0) { // If coming from ExerciseViewController's view
-        m_exerciseImageNameString                       = [NSString stringWithFormat:@"%@.png", m_exerciseViewController.selectedImage];
-        m_exerciseViewController.selectedImage          = nil;
+    else if([self.m_exerciseViewController.selectedImage length] != 0) { // If coming from ExerciseViewController's view
+        self.m_exerciseImageNameString                       = [NSString stringWithFormat:@"%@.png", self.m_exerciseViewController.selectedImage];
+        self.m_exerciseViewController.selectedImage          = nil;
     }
-    else if([m_exerciseListViewController.selectedImage length] != 0) { // if coming from ExerciseListViewController's view
-        m_exerciseImageNameString                       = [NSString stringWithFormat:@"%@.png", m_exerciseListViewController.selectedImage];
-        m_exerciseListViewController.selectedImage      = nil;
+    else if([self.m_exerciseListViewController.selectedImage length] != 0) { // if coming from ExerciseListViewController's view
+        self.m_exerciseImageNameString                       = [NSString stringWithFormat:@"%@.png", self.m_exerciseListViewController.selectedImage];
+        self.m_exerciseListViewController.selectedImage      = nil;
     }
     
     // Position the images properly
-    [self showExerciseImage:m_exerciseImageNameString];
+    [self showExerciseImage:self.m_exerciseImageNameString];
     
     // load up Exercise description from plist
-    [self loadUpExerciseDescriptionFromPlistUsingExerciseImageName:m_exerciseImageNameString];
+    [self loadUpExerciseDescriptionFromPlistUsingExerciseImageName:self.m_exerciseImageNameString];
 }
 
 /*
@@ -1419,7 +1419,7 @@
         int averageWeight                         = 0;
         int averageRep                            = 0;
         if (totalNumberOfItemsInDataForGraph) {
-            if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
+            if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
                 for (int i = 0; i < totalNumberOfItemsInDataForGraph; i = i+2) {
                     theweight          += [[weeklyReportData objectAtIndex:i]intValue];
                     
@@ -1430,18 +1430,18 @@
             }
             else {
                 for (int i = 0; i < totalNumberOfItemsInDataForGraph; i++) {
-                    if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+                    if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
                         theweight          += [[weeklyReportData objectAtIndex:i]intValue];
                         averageWeight                     = theweight/(totalNumberOfItemsInDataForGraph/2);
                     }
-                    else if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
+                    else if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
                         therep             += [[weeklyReportData objectAtIndex:i] intValue];
                     }
                 }
                 averageRep                        = therep/totalNumberOfItemsInDataForGraph;
             }
-            [m_weightArray addObject:[NSNumber numberWithInt:averageWeight]];
-            [m_repArray addObject:[NSNumber numberWithInt:averageRep]];
+            [self.m_weightArray addObject:[NSNumber numberWithInt:averageWeight]];
+            [self.m_repArray addObject:[NSNumber numberWithInt:averageRep]];
         }
     }
 }
@@ -1452,55 +1452,55 @@
 - (int)incrementByTheDayOfTheWeek:(NSInteger)weekday
 {
     if(weekday == 1) { // Today is the sunday of the week
-        m_decrementWeek         = -6;
+        self.m_decrementWeek         = -6;
     }
     else if (weekday == 2) { // Today is the monday of the week
-        m_decrementWeek         = -5;
+        self.m_decrementWeek         = -5;
     }
     else if(weekday == 3) { // Today is the tuesday of the week
-        m_decrementWeek         = -4;
+        self.m_decrementWeek         = -4;
     }
     else if(weekday == 4) { // Today is the wedday of the week
-        m_decrementWeek         = -3;
+        self.m_decrementWeek         = -3;
     }
     else if(weekday == 5) { // Today is the thursday of the week
-        m_decrementWeek         = -2;
+        self.m_decrementWeek         = -2;
     }
     else if(weekday == 6) { // Today is the fridaday of the week
-        m_decrementWeek         = -1;
+        self.m_decrementWeek         = -1;
     }
     else if(weekday == 7) { // Today is the saturday of the week
-        m_decrementWeek         = -0;
+        self.m_decrementWeek         = -0;
     }
-    return m_decrementWeek;
+    return self.m_decrementWeek;
 }
 
 // To avoid crashes due to memory over allocation
 - (void)setupDateObjects
 {
     // Calender
-    if (!m_calendar) {
-        m_calendar                    = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    if (!self.m_calendar) {
+        self.m_calendar                    = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
     
     // Today
-    if (!m_today) {
-        m_today                       = [NSDate date];
+    if (!self.m_today) {
+        self.m_today                       = [NSDate date];
     }
     
     // Date Components
-    if (!m_components) {
-        m_components                  = [[NSDateComponents alloc] init];
-        m_components                  = [m_calendar components: NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:m_today];
+    if (!self.m_components) {
+        self.m_components                  = [[NSDateComponents alloc] init];
+        self.m_components                  = [self.m_calendar components: NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:self.m_today];
     }
     
     // For getting the increment on each week
-    if (!m_dayComponent) {
-        m_dayComponent                = [[NSDateComponents alloc] init];
+    if (!self.m_dayComponent) {
+        self.m_dayComponent                = [[NSDateComponents alloc] init];
     }
     
-    if (!m_theCalendar) {
-        m_theCalendar                 = [NSCalendar currentCalendar];
+    if (!self.m_theCalendar) {
+        self.m_theCalendar                 = [NSCalendar currentCalendar];
     }
 }
 
@@ -1509,43 +1509,43 @@
  */
 - (void)getWeeklyReport
 {
-    if (!m_weekStartDate) {
-        m_weekStartDate               = [[NSDate date] init];
+    if (!self.m_weekStartDate) {
+        self.m_weekStartDate               = [[NSDate date] init];
     }
     
-    if (!m_weekEndDate) {
-        m_weekEndDate                 = [[NSDate alloc] init];
+    if (!self.m_weekEndDate) {
+        self.m_weekEndDate                 = [[NSDate alloc] init];
     }
     
-    NSInteger weekday               = [m_components weekday];
+    NSInteger weekday               = [self.m_components weekday];
     
-    if (!m_decrementWeek) {
+    if (!self.m_decrementWeek) {
         // clean up the week decrementor first
-        m_decrementWeek             = [self incrementByTheDayOfTheWeek:weekday];
+        self.m_decrementWeek             = [self incrementByTheDayOfTheWeek:weekday];
     }
     
     // Increment by 7 each time
-    m_dayComponent.day                = m_decrementWeek;
+    self.m_dayComponent.day                = self.m_decrementWeek;
     
-    m_weekEndDate                   = [m_theCalendar dateByAddingComponents:m_dayComponent toDate:m_weekEndDate options:0];
+    self.m_weekEndDate                   = [self.m_theCalendar dateByAddingComponents:self.m_dayComponent toDate:self.m_weekEndDate options:0];
     
     // drecrement by 7 days for the next week
-    m_decrementWeek                -= 7;
+    self.m_decrementWeek                -= 7;
     // Clean up the report data
-    m_weeklyReportData              = nil;
-    if (!m_weeklyReportData) {
-        m_weeklyReportData          = [NSMutableArray mutableArrayObject];
+    self.m_weeklyReportData              = nil;
+    if (!self.m_weeklyReportData) {
+        self.m_weeklyReportData          = [NSMutableArray mutableArrayObject];
     }
     
-    if ((m_weekStartDate) && (m_weekEndDate)) {
-        m_weeklyReportData          = [m_database getAverageExerciseReport:self.exerciseNameLabel.text ForAWeek:[NSString getUserEmail] StartDate:m_weekStartDate EndDate:m_weekEndDate];
-        if (m_weeklyReportData != nil) {
+    if ((self.m_weekStartDate) && (self.m_weekEndDate)) {
+        self.m_weeklyReportData          = [self.m_database getAverageExerciseReport:self.exerciseNameLabel.text ForAWeek:[NSString getUserEmail] StartDate:self.m_weekStartDate EndDate:self.m_weekEndDate];
+        if (self.m_weeklyReportData != nil) {
             // Get average of the data for the week
-            [self getAverageFromWeeklyData:m_weeklyReportData];
+            [self getAverageFromWeeklyData:self.m_weeklyReportData];
         }
     }
     // start week date for the next week
-    m_weekStartDate                 = m_weekEndDate;
+    self.m_weekStartDate                 = self.m_weekEndDate;
 }
 
 /*
@@ -1557,22 +1557,22 @@
     self.graphView.hidden                   = NO;
     
     // Initialize to store weight and rep data
-    m_weightArray                           = nil;
-    if (!m_weightArray) {
-        m_weightArray                       = [NSMutableArray mutableArrayObject];
+    self.m_weightArray                           = nil;
+    if (!self.m_weightArray) {
+        self.m_weightArray                       = [NSMutableArray mutableArrayObject];
     }
     
-    m_repArray                              = nil;
-    if (!m_repArray) {
-        m_repArray                          = [NSMutableArray mutableArrayObject];
+    self.m_repArray                              = nil;
+    if (!self.m_repArray) {
+        self.m_repArray                          = [NSMutableArray mutableArrayObject];
     }
     
     // Clean up the week decrementor
-    m_decrementWeek                         = 0;
+    self.m_decrementWeek                         = 0;
     // Clean up the end week
-    m_weekEndDate                           = 0;
+    self.m_weekEndDate                           = 0;
     // Clean up the start week
-    m_weekStartDate                         = 0;
+    self.m_weekStartDate                         = 0;
     
     // Week's data
     for (int i = 0; i < 7; i++) {
@@ -1590,20 +1590,20 @@
     [self.graphView addSubview:self.weightBox];
     // Clean up first to avoid crashing when added to view
     [self.weightLabel removeFromSuperview];
-    if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
+    if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
         // Show the weight label
         // Hide the weight box
         self.weightBox.hidden               = NO;
         self.weightLabel.hidden             = NO;
         self.weightLabel.text               = @"Weight";
     }
-    else if([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
+    else if([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
         // Hide the weight label
         // Hide the weight box
         self.weightBox.hidden               = YES;
         self.weightLabel.hidden             = YES;
     }
-    else if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+    else if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
         // Make it a time label
         self.weightLabel.text               = @"Time";
         // Hide the weight box
@@ -1632,14 +1632,14 @@
  */
 - (IBAction)goBack:(id)sender
 {
-    if (!m_transition) {
-        m_transition        = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition        = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromLeft:self.view.superview];
+    [self.m_transition performTransitionFromLeft:self.view.superview];
     [self.view removeFromSuperview];
     
     // Place the below code before moving to supverview, or will crash as we try to work on the view already removed
-    if (isBigImageVisible) {
+    if (self.isBigImageVisible) {
         [self showOtherViewsAfterHidingBigImage];
     }
     
@@ -1652,7 +1652,7 @@
 {
     // Default is "NO"
     bool yesorNo                = NO;
-    for (NSString *exerciseIntheList in m_exercisesWithoutReportOrProgress) {
+    for (NSString *exerciseIntheList in self.m_exercisesWithoutReportOrProgress) {
         if ([exerciseIntheList isEqualToString:exercise]) {
             yesorNo             = YES;
             return yesorNo  ;
@@ -1668,7 +1668,7 @@
 {
     // Default is "NO"
     bool yesorNo                = NO;
-    for (NSString *exerciseIntheList in m_exercisesWithOnlyRepititions) {
+    for (NSString *exerciseIntheList in self.m_exercisesWithOnlyRepititions) {
         if ([exerciseIntheList isEqualToString:exercise]) {
             yesorNo             = YES;
             return yesorNo  ;
@@ -1684,7 +1684,7 @@
 {
     // Default is "NO"
     bool yesorNo                = NO;
-    for (NSString *exerciseIntheList in m_exercisesWithOnlyTime) {
+    for (NSString *exerciseIntheList in self.m_exercisesWithOnlyTime) {
         if ([exerciseIntheList isEqualToString:exercise]) {
             yesorNo             = YES;
             return yesorNo  ;
@@ -1698,21 +1698,21 @@
  */
 - (void)loadUpExerciseWithoutReportOrProgress
 {
-    if (!m_exercisesWithoutReportOrProgress) {
-        m_exercisesWithoutReportOrProgress          = [NSMutableArray mutableArrayObject];
-        [m_exercisesWithoutReportOrProgress addObject:@"Foam Roll"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Stretch"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Basketball"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Cycling"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Hockey"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Rowing"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Running"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Skiing"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Snowboarding"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Soccer"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Swimming"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Tennis"];
-        [m_exercisesWithoutReportOrProgress addObject:@"Yoga"];
+    if (!self.m_exercisesWithoutReportOrProgress) {
+        self.m_exercisesWithoutReportOrProgress          = [NSMutableArray mutableArrayObject];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Foam Roll"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Stretch"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Basketball"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Cycling"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Hockey"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Rowing"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Running"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Skiing"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Snowboarding"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Soccer"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Swimming"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Tennis"];
+        [self.m_exercisesWithoutReportOrProgress addObject:@"Yoga"];
     }
 }
 
@@ -1721,41 +1721,41 @@
  */
 - (void)loadUpExerciseWithOnlyRepititions
 {
-    if (!m_exercisesWithOnlyRepititions) {
-        m_exercisesWithOnlyRepititions          = [NSMutableArray mutableArrayObject];
-        [m_exercisesWithOnlyRepititions addObject:@"Push Ups"];
-        [m_exercisesWithOnlyRepititions addObject:@"Narrow Grip Pull Up"];
-        [m_exercisesWithOnlyRepititions addObject:@"Wide Grip Pull Up"];
-        [m_exercisesWithOnlyRepititions addObject:@"Mountain Climbers"];
-        [m_exercisesWithOnlyRepititions addObject:@"Crunches"];
-        [m_exercisesWithOnlyRepititions addObject:@"Sit Ups"];
-        [m_exercisesWithOnlyRepititions addObject:@"Ball Hand To Feet"];
-        [m_exercisesWithOnlyRepititions addObject:@"Burpees"];
-        [m_exercisesWithOnlyRepititions addObject:@"Body Weight Squats"];
-        [m_exercisesWithOnlyRepititions addObject:@"Bicycle Crunch"];
-        [m_exercisesWithOnlyRepititions addObject:@"Bench Dips"];
-        [m_exercisesWithOnlyRepititions addObject:@"Bench V Sit"];
-        [m_exercisesWithOnlyRepititions addObject:@"Agility"];
-        [m_exercisesWithOnlyRepititions addObject:@"Ab Roller"];
-        [m_exercisesWithOnlyRepititions addObject:@"Ball Roll Ins"];
-        [m_exercisesWithOnlyRepititions addObject:@"Burpee Push up"];
-        [m_exercisesWithOnlyRepititions addObject:@"Butt Kicks"];
-        [m_exercisesWithOnlyRepititions addObject:@"Flutter Kicks"];
-        [m_exercisesWithOnlyRepititions addObject:@"Half Burpees"];
-        [m_exercisesWithOnlyRepititions addObject:@"Hanging leg Raises"];
-        [m_exercisesWithOnlyRepititions addObject:@"Inch Worm Push Up"];
-        [m_exercisesWithOnlyRepititions addObject:@"Jump Tucks"];
-        [m_exercisesWithOnlyRepititions addObject:@"Hip Raises"];
-        [m_exercisesWithOnlyRepititions addObject:@"High Knees"];
-        [m_exercisesWithOnlyRepititions addObject:@"Jumping Jacks"];
-        [m_exercisesWithOnlyRepititions addObject:@"Jumping Split Squat"];
-        [m_exercisesWithOnlyRepititions addObject:@"Knee Abductions"];
-        [m_exercisesWithOnlyRepititions addObject:@"Laying Windshield Wipers"];
-        [m_exercisesWithOnlyRepititions addObject:@"Scissor Sit Ups"];
-        [m_exercisesWithOnlyRepititions addObject:@"Side Plank Hip Raises"];
-        [m_exercisesWithOnlyRepititions addObject:@"Supermans"];
-        [m_exercisesWithOnlyRepititions addObject:@"Toe Touches"];
-        [m_exercisesWithOnlyRepititions addObject:@"V Sit"];
+    if (!self.m_exercisesWithOnlyRepititions) {
+        self.m_exercisesWithOnlyRepititions          = [NSMutableArray mutableArrayObject];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Push Ups"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Narrow Grip Pull Up"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Wide Grip Pull Up"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Mountain Climbers"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Crunches"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Sit Ups"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Ball Hand To Feet"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Burpees"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Body Weight Squats"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Bicycle Crunch"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Bench Dips"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Bench V Sit"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Agility"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Ab Roller"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Ball Roll Ins"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Burpee Push up"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Butt Kicks"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Flutter Kicks"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Half Burpees"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Hanging leg Raises"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Inch Worm Push Up"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Jump Tucks"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Hip Raises"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"High Knees"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Jumping Jacks"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Jumping Split Squat"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Knee Abductions"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Laying Windshield Wipers"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Scissor Sit Ups"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Side Plank Hip Raises"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Supermans"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"Toe Touches"];
+        [self.m_exercisesWithOnlyRepititions addObject:@"V Sit"];
     }
 }
 
@@ -1764,18 +1764,18 @@
  */
 - (void)loadUpExerciseWithOnlyTime
 {
-    if (!m_exercisesWithOnlyTime) {
-        m_exercisesWithOnlyTime             = [NSMutableArray mutableArrayObject];
-        [m_exercisesWithOnlyTime addObject:@"Elliptical"];
-        [m_exercisesWithOnlyTime addObject:@"Plank"];
-        [m_exercisesWithOnlyTime addObject:@"Side Plank"];
-        [m_exercisesWithOnlyTime addObject:@"Jog"];
-        [m_exercisesWithOnlyTime addObject:@"Sprint"];
-        [m_exercisesWithOnlyTime addObject:@"Swimming"];
-        [m_exercisesWithOnlyTime addObject:@"Rowing"];
-        [m_exercisesWithOnlyTime addObject:@"Bike"];
-        [m_exercisesWithOnlyTime addObject:@"Skip"];
-        [m_exercisesWithOnlyTime addObject:@"Jogging"];
+    if (!self.m_exercisesWithOnlyTime) {
+        self.m_exercisesWithOnlyTime             = [NSMutableArray mutableArrayObject];
+        [self.m_exercisesWithOnlyTime addObject:@"Elliptical"];
+        [self.m_exercisesWithOnlyTime addObject:@"Plank"];
+        [self.m_exercisesWithOnlyTime addObject:@"Side Plank"];
+        [self.m_exercisesWithOnlyTime addObject:@"Jog"];
+        [self.m_exercisesWithOnlyTime addObject:@"Sprint"];
+        [self.m_exercisesWithOnlyTime addObject:@"Swimming"];
+        [self.m_exercisesWithOnlyTime addObject:@"Rowing"];
+        [self.m_exercisesWithOnlyTime addObject:@"Bike"];
+        [self.m_exercisesWithOnlyTime addObject:@"Skip"];
+        [self.m_exercisesWithOnlyTime addObject:@"Jogging"];
     }
 }
 
@@ -1817,7 +1817,7 @@
     if (self) {
         // Custom initialization
         // initialize this
-        m_exerciseDescriptionPlist      = [[NSString alloc] init];
+        self.m_exerciseDescriptionPlist      = [[NSString alloc] init];
     }
     return self;
 }
@@ -1852,9 +1852,9 @@
     else {
         workoutDescriptionButtonFrame                  = CGRectMake(0.0f, 215.0f, 107.0f, 75.0f);
     }
-    workoutDescriptionButton                           = [[UIButton alloc] initWithFrame:workoutDescriptionButtonFrame];
-    [self.view addSubview:workoutDescriptionButton];
-    [workoutDescriptionButton addTarget:self action:@selector(showExerciseSections:) forControlEvents:UIControlEventTouchUpInside];
+    self.workoutDescriptionButton                           = [[UIButton alloc] initWithFrame:workoutDescriptionButtonFrame];
+    [self.view addSubview:self.workoutDescriptionButton];
+    [self.workoutDescriptionButton addTarget:self action:@selector(showExerciseSections:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect reportButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1863,9 +1863,9 @@
     else {
         reportButtonFrame                              = CGRectMake(108.0f, 215.0f, 107.0f, 75.0f);
     }
-    reportButton                                       = [[UIButton alloc] initWithFrame:reportButtonFrame];
-    [self.view addSubview:reportButton];
-    [reportButton addTarget:self action:@selector(showExerciseSections:) forControlEvents:UIControlEventTouchUpInside];
+    self.reportButton                                       = [[UIButton alloc] initWithFrame:reportButtonFrame];
+    [self.view addSubview:self.reportButton];
+    [self.reportButton addTarget:self action:@selector(showExerciseSections:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect progressButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1874,9 +1874,9 @@
     else {
         progressButtonFrame                            = CGRectMake(215.0f, 215.0f, 107.0f, 75.0f);
     }
-    progressButton                                     = [[UIButton alloc] initWithFrame:progressButtonFrame];
-    [self.view addSubview:progressButton];
-    [progressButton addTarget:self action:@selector(showExerciseSections:) forControlEvents:UIControlEventTouchUpInside];
+    self.progressButton                                     = [[UIButton alloc] initWithFrame:progressButtonFrame];
+    [self.view addSubview:self.progressButton];
+    [self.progressButton addTarget:self action:@selector(showExerciseSections:) forControlEvents:UIControlEventTouchUpInside];
     
     // Weight, Time, Repitition ImageView
     CGRect reportTimeWeightRepImageViewFrame;
@@ -1886,11 +1886,11 @@
     else {
         reportTimeWeightRepImageViewFrame              = CGRectMake(0.0f, 286.0f, 320.0f, 157.0f);
     }
-    reportTimeWeightRepImageView                       = [[UIImageView alloc] initWithFrame:reportTimeWeightRepImageViewFrame];
-    reportTimeWeightRepImageView.userInteractionEnabled= YES;
-    reportTimeWeightRepImageView.multipleTouchEnabled  = YES;
-    reportTimeWeightRepImageView.image                 = [UIImage imageNamed:@"report_weight_reps.png"];
-    [self.view addSubview:reportTimeWeightRepImageView];
+    self.reportTimeWeightRepImageView                       = [[UIImageView alloc] initWithFrame:reportTimeWeightRepImageViewFrame];
+    self.reportTimeWeightRepImageView.userInteractionEnabled= YES;
+    self.reportTimeWeightRepImageView.multipleTouchEnabled  = YES;
+    self.reportTimeWeightRepImageView.image                 = [UIImage imageNamed:@"report_weight_reps.png"];
+    [self.view addSubview:self.reportTimeWeightRepImageView];
     
     // Add TimeWeightImageViewMask for gesture recognizing
     CGRect reportTimeWeightImageViewMaskFrame;
@@ -1900,9 +1900,9 @@
     else {
         reportTimeWeightImageViewMaskFrame              = CGRectMake(0.0f, 307.0f, 320.0f, 45.0f);
     }
-    reportTimeWeightImageViewMask                       = [[UIImageView alloc] initWithFrame:reportTimeWeightImageViewMaskFrame];
-    reportTimeWeightImageViewMask.userInteractionEnabled   = YES;
-    [self.view addSubview:reportTimeWeightImageViewMask];
+    self.reportTimeWeightImageViewMask                       = [[UIImageView alloc] initWithFrame:reportTimeWeightImageViewMaskFrame];
+    self.reportTimeWeightImageViewMask.userInteractionEnabled   = YES;
+    [self.view addSubview:self.reportTimeWeightImageViewMask];
     self.timeWeightLeftSwipeGesture                                           = nil;
     self.timeWeightRightSwipeGesture                                          = nil;
     
@@ -1910,13 +1910,13 @@
     UISwipeGestureRecognizer *timeWeightLeftSwipeGestureLocal                 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [timeWeightLeftSwipeGestureLocal setDirection:UISwipeGestureRecognizerDirectionLeft];
     self.timeWeightLeftSwipeGesture             = timeWeightLeftSwipeGestureLocal;
-    [reportTimeWeightImageViewMask addGestureRecognizer:self.timeWeightLeftSwipeGesture];
+    [self.reportTimeWeightImageViewMask addGestureRecognizer:self.timeWeightLeftSwipeGesture];
     
     // Add right swipe gesture
     UISwipeGestureRecognizer *timeWeightRightSwipeGestureLocal                = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [timeWeightRightSwipeGestureLocal setDirection:UISwipeGestureRecognizerDirectionRight];
     self.timeWeightRightSwipeGesture            = timeWeightRightSwipeGestureLocal;
-    [reportTimeWeightImageViewMask addGestureRecognizer:self.timeWeightRightSwipeGesture];
+    [self.reportTimeWeightImageViewMask addGestureRecognizer:self.timeWeightRightSwipeGesture];
     
     
     CGRect minusTimeWeightRepButtonFrame;
@@ -1926,10 +1926,10 @@
     else {
         minusTimeWeightRepButtonFrame              = CGRectMake(0.0f, 286.0f, 33.0f, 157.0f);
     }
-    m_minusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:minusTimeWeightRepButtonFrame];
-    [self.view addSubview:m_minusTimeWeightRepButton];
-    [m_minusTimeWeightRepButton addTarget:self action:@selector(minusTimeWeightRepby10:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view bringSubviewToFront:m_minusTimeWeightRepButton];
+    self.m_minusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:minusTimeWeightRepButtonFrame];
+    [self.view addSubview:self.m_minusTimeWeightRepButton];
+    [self.m_minusTimeWeightRepButton addTarget:self action:@selector(minusTimeWeightRepby10:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:self.m_minusTimeWeightRepButton];
     
     CGRect plusTimeWeightRepButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1938,10 +1938,10 @@
     else {
         plusTimeWeightRepButtonFrame              = CGRectMake(287.0f, 286.0f, 33.0f, 157.0f);
     }
-    m_plusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:plusTimeWeightRepButtonFrame];
-    [self.view addSubview:m_plusTimeWeightRepButton];
-    [m_plusTimeWeightRepButton addTarget:self action:@selector(plusTimeWeightRepby10:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view bringSubviewToFront:m_plusTimeWeightRepButton];
+    self.m_plusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:plusTimeWeightRepButtonFrame];
+    [self.view addSubview:self.m_plusTimeWeightRepButton];
+    [self.m_plusTimeWeightRepButton addTarget:self action:@selector(plusTimeWeightRepby10:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:self.m_plusTimeWeightRepButton];
     
     // before first time weight label
     CGRect beforeFirstTimeWeightLabelFrame;
@@ -1951,14 +1951,14 @@
     else {
         beforeFirstTimeWeightLabelFrame         = CGRectMake(20.0f, 322.0f, 40.0f, 20.0f);
     }
-    beforeFirstTimeWeightLabel                  = [[UILabel alloc] initWithFrame:beforeFirstTimeWeightLabelFrame];
-    beforeFirstTimeWeightLabel.font             = [UIFont customFontWithSize:20];
-    beforeFirstTimeWeightLabel.backgroundColor  = [UIColor clearColor];
-    beforeFirstTimeWeightLabel.textColor        = [UIColor darkGrayColor];
+    self.beforeFirstTimeWeightLabel                  = [[UILabel alloc] initWithFrame:beforeFirstTimeWeightLabelFrame];
+    self.beforeFirstTimeWeightLabel.font             = [UIFont customFontWithSize:20];
+    self.beforeFirstTimeWeightLabel.backgroundColor  = [UIColor clearColor];
+    self.beforeFirstTimeWeightLabel.tintColor        = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    beforeFirstTimeWeightLabel.textAlignment    = NSTextAlignmentCenter;
-    beforeFirstTimeWeightLabel.hidden           = YES;
-    [self.view addSubview:beforeFirstTimeWeightLabel];
+//    self.beforeFirstTimeWeightLabel.textAlignment    = NSTextAlignmentCenter;
+    self.beforeFirstTimeWeightLabel.hidden           = YES;
+    [self.view addSubview:self.beforeFirstTimeWeightLabel];
     
     // first time weight label
     CGRect firstTimeWeightLabelFrame;
@@ -1968,13 +1968,13 @@
     else {
         firstTimeWeightLabelFrame               = CGRectMake(65.0f, 322.0f, 40.0f, 20.0f);
     }
-    firstTimeWeightLabel                        = [[UILabel alloc] initWithFrame:firstTimeWeightLabelFrame];
-    firstTimeWeightLabel.font                   = [UIFont customFontWithSize:20];
-    firstTimeWeightLabel.backgroundColor        = [UIColor clearColor];
-    firstTimeWeightLabel.textColor              = [UIColor darkGrayColor];
-    [self.view addSubview:firstTimeWeightLabel];
+    self.firstTimeWeightLabel                        = [[UILabel alloc] initWithFrame:firstTimeWeightLabelFrame];
+    self.firstTimeWeightLabel.font                   = [UIFont customFontWithSize:20];
+    self.firstTimeWeightLabel.backgroundColor        = [UIColor clearColor];
+    self.firstTimeWeightLabel.textColor              = [UIColor darkGrayColor];
+    [self.view addSubview:self.firstTimeWeightLabel];
     // Helps when there is only a single digit value
-    firstTimeWeightLabel.textAlignment          = NSTextAlignmentCenter;
+    self.firstTimeWeightLabel.textAlignment          = NSTextAlignmentCenter;
     
     // second time weight label
     CGRect secondTimeWeightLabelFrame;
@@ -1984,13 +1984,13 @@
     else {
         secondTimeWeightLabelFrame              = CGRectMake(140.0f, 322.0f, 40.0f, 20.0f);
     }
-    secondTimeWeightLabel                       = [[UILabel alloc] initWithFrame:secondTimeWeightLabelFrame];
-    secondTimeWeightLabel.font                  = [UIFont customFontWithSize:20];
-    secondTimeWeightLabel.backgroundColor       = [UIColor clearColor];
-    secondTimeWeightLabel.textColor             = [UIColor redColor];
-    [self.view addSubview:secondTimeWeightLabel];
+    self.secondTimeWeightLabel                       = [[UILabel alloc] initWithFrame:secondTimeWeightLabelFrame];
+    self.secondTimeWeightLabel.font                  = [UIFont customFontWithSize:20];
+    self.secondTimeWeightLabel.backgroundColor       = [UIColor clearColor];
+    self.secondTimeWeightLabel.textColor             = [UIColor redColor];
+    [self.view addSubview:self.secondTimeWeightLabel];
     // Helps when there is only a single digit value
-    secondTimeWeightLabel.textAlignment         = NSTextAlignmentCenter;
+    self.secondTimeWeightLabel.textAlignment         = NSTextAlignmentCenter;
     
     // third time weight label
     CGRect thirdTimeWeightLabelFrame;
@@ -2000,13 +2000,13 @@
     else {
         thirdTimeWeightLabelFrame               = CGRectMake(210.0f, 322.0f, 40.0f, 20.0f);
     }
-    thirdTimeWeightLabel                        = [[UILabel alloc] initWithFrame:thirdTimeWeightLabelFrame];
-    thirdTimeWeightLabel.font                   = [UIFont customFontWithSize:20];
-    thirdTimeWeightLabel.backgroundColor        = [UIColor clearColor];
-    thirdTimeWeightLabel.textColor              = [UIColor darkGrayColor];
-    [self.view addSubview:thirdTimeWeightLabel];
+    self.thirdTimeWeightLabel                        = [[UILabel alloc] initWithFrame:thirdTimeWeightLabelFrame];
+    self.thirdTimeWeightLabel.font                   = [UIFont customFontWithSize:20];
+    self.thirdTimeWeightLabel.backgroundColor        = [UIColor clearColor];
+    self.thirdTimeWeightLabel.textColor              = [UIColor darkGrayColor];
+    [self.view addSubview:self.thirdTimeWeightLabel];
     // Helps when there is only a single digit value
-    thirdTimeWeightLabel.textAlignment          = NSTextAlignmentCenter;
+    self.thirdTimeWeightLabel.textAlignment          = NSTextAlignmentCenter;
     
     // before third time weight label
     CGRect afterThirdTimeWeightLabelFrame;
@@ -2016,14 +2016,14 @@
     else {
         afterThirdTimeWeightLabelFrame          = CGRectMake(255.0f, 322.0f, 40.0f, 20.0f);
     }
-    afterThirdTimeWeightLabel                   = [[UILabel alloc] initWithFrame:afterThirdTimeWeightLabelFrame];
-    afterThirdTimeWeightLabel.font              = [UIFont customFontWithSize:20];
-    afterThirdTimeWeightLabel.backgroundColor   = [UIColor clearColor];
-    afterThirdTimeWeightLabel.textColor         = [UIColor darkGrayColor];
+    self.afterThirdTimeWeightLabel                   = [[UILabel alloc] initWithFrame:afterThirdTimeWeightLabelFrame];
+    self.afterThirdTimeWeightLabel.font              = [UIFont customFontWithSize:20];
+    self.afterThirdTimeWeightLabel.backgroundColor   = [UIColor clearColor];
+    self.afterThirdTimeWeightLabel.textColor         = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    afterThirdTimeWeightLabel.textAlignment     = NSTextAlignmentCenter;
-    afterThirdTimeWeightLabel.hidden            = YES;
-    [self.view addSubview:afterThirdTimeWeightLabel];
+    self.afterThirdTimeWeightLabel.textAlignment     = NSTextAlignmentCenter;
+    self.afterThirdTimeWeightLabel.hidden            = YES;
+    [self.view addSubview:self.afterThirdTimeWeightLabel];
     
     CGRect reportDifficultyRepImageViewMaskFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -2032,23 +2032,23 @@
     else {
         reportDifficultyRepImageViewMaskFrame   = CGRectMake(5.0f, 376.0f, 190.0f, 50.0f);
     }
-    reportDifficultyRepImageViewMask            = [[UIImageView alloc] initWithFrame:reportDifficultyRepImageViewMaskFrame];
-    reportDifficultyRepImageViewMask.userInteractionEnabled    = YES;
-    reportDifficultyRepImageViewMask.multipleTouchEnabled      = YES;
-    [self.view addSubview:reportDifficultyRepImageViewMask];
+    self.reportDifficultyRepImageViewMask            = [[UIImageView alloc] initWithFrame:reportDifficultyRepImageViewMaskFrame];
+    self.reportDifficultyRepImageViewMask.userInteractionEnabled    = YES;
+    self.reportDifficultyRepImageViewMask.multipleTouchEnabled      = YES;
+    [self.view addSubview:self.reportDifficultyRepImageViewMask];
     self.difficultyRepLeftSwipeGesture                                        = nil;
     self.difficultyRepRightSwipeGesture                                       = nil;
     // Add left swipe gesture
     UISwipeGestureRecognizer *difficultyRepLeftSwipeGestureLocal              = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [difficultyRepLeftSwipeGestureLocal setDirection:UISwipeGestureRecognizerDirectionLeft];
     self.difficultyRepLeftSwipeGesture                                        = difficultyRepLeftSwipeGestureLocal;
-    [reportDifficultyRepImageViewMask addGestureRecognizer:self.difficultyRepLeftSwipeGesture];
+    [self.reportDifficultyRepImageViewMask addGestureRecognizer:self.difficultyRepLeftSwipeGesture];
     
     // Add right swipe gesture
     UISwipeGestureRecognizer *difficultyRepRightSwipeGestureLocal             = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [difficultyRepRightSwipeGestureLocal setDirection:UISwipeGestureRecognizerDirectionRight];
     self.difficultyRepRightSwipeGesture                                       = difficultyRepRightSwipeGestureLocal;
-    [reportDifficultyRepImageViewMask addGestureRecognizer:self.difficultyRepRightSwipeGesture];
+    [self.reportDifficultyRepImageViewMask addGestureRecognizer:self.difficultyRepRightSwipeGesture];
     
     // before first difficulty rep label
     CGRect beforeFirstDifficultyRepLabelFrame;
@@ -2058,15 +2058,15 @@
     else {
         beforeFirstDifficultyRepLabelFrame        = CGRectMake(0.0f, 395.0f, 30.0f, 20.0f);
     }
-    beforeFirstDifficultyRepLabel                 = [[UILabel alloc] initWithFrame:beforeFirstDifficultyRepLabelFrame];
-    beforeFirstDifficultyRepLabel.text            = @"4";
-    beforeFirstDifficultyRepLabel.font            = [UIFont customFontWithSize:20];
-    beforeFirstDifficultyRepLabel.backgroundColor = [UIColor clearColor];
-    beforeFirstDifficultyRepLabel.textColor       = [UIColor darkGrayColor];
+    self.beforeFirstDifficultyRepLabel                 = [[UILabel alloc] initWithFrame:beforeFirstDifficultyRepLabelFrame];
+    self.beforeFirstDifficultyRepLabel.text            = @"4";
+    self.beforeFirstDifficultyRepLabel.font            = [UIFont customFontWithSize:20];
+    self.beforeFirstDifficultyRepLabel.backgroundColor = [UIColor clearColor];
+    self.beforeFirstDifficultyRepLabel.textColor       = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    beforeFirstDifficultyRepLabel.textAlignment   = NSTextAlignmentCenter;
-    beforeFirstDifficultyRepLabel.hidden          = YES;
-    [self.view addSubview:beforeFirstDifficultyRepLabel];
+    self.beforeFirstDifficultyRepLabel.textAlignment   = NSTextAlignmentCenter;
+    self.beforeFirstDifficultyRepLabel.hidden          = YES;
+    [self.view addSubview:self.beforeFirstDifficultyRepLabel];
     
     // first difficulty rep label
     CGRect firstDifficultyRepLabelFrame;
@@ -2076,14 +2076,14 @@
     else {
         firstDifficultyRepLabelFrame              = CGRectMake(33.0f, 395.0f, 30.0f, 20.0f);
     }
-    firstDifficultyRepLabel                       = [[UILabel alloc] initWithFrame:firstDifficultyRepLabelFrame];
-    firstDifficultyRepLabel.text                  = @"5";
-    firstDifficultyRepLabel.font                  = [UIFont customFontWithSize:20];
-    firstDifficultyRepLabel.backgroundColor       = [UIColor clearColor];
-    firstDifficultyRepLabel.textColor             = [UIColor darkGrayColor];
+    self.firstDifficultyRepLabel                       = [[UILabel alloc] initWithFrame:firstDifficultyRepLabelFrame];
+    self.firstDifficultyRepLabel.text                  = @"5";
+    self.firstDifficultyRepLabel.font                  = [UIFont customFontWithSize:20];
+    self.firstDifficultyRepLabel.backgroundColor       = [UIColor clearColor];
+    self.firstDifficultyRepLabel.textColor             = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    firstDifficultyRepLabel.textAlignment         = NSTextAlignmentCenter;
-    [self.view addSubview:firstDifficultyRepLabel];
+    self.firstDifficultyRepLabel.textAlignment         = NSTextAlignmentCenter;
+    [self.view addSubview:self.firstDifficultyRepLabel];
     
     // second difficulty rep label
     CGRect secondDifficultyRepLabelFrame;
@@ -2093,14 +2093,14 @@
     else {
         secondDifficultyRepLabelFrame              = CGRectMake(88.0f, 395.0f, 30.0f, 20.0f);
     }
-    secondDifficultyRepLabel                       = [[UILabel alloc] initWithFrame:secondDifficultyRepLabelFrame];
-    secondDifficultyRepLabel.text                  = @"6";
-    secondDifficultyRepLabel.font                  = [UIFont customFontWithSize:20];
-    secondDifficultyRepLabel.backgroundColor       = [UIColor clearColor];
-    secondDifficultyRepLabel.textColor              = [UIColor redColor];
+    self.secondDifficultyRepLabel                       = [[UILabel alloc] initWithFrame:secondDifficultyRepLabelFrame];
+    self.secondDifficultyRepLabel.text                  = @"6";
+    self.secondDifficultyRepLabel.font                  = [UIFont customFontWithSize:20];
+    self.secondDifficultyRepLabel.backgroundColor       = [UIColor clearColor];
+    self.secondDifficultyRepLabel.textColor              = [UIColor redColor];
     // Helps when there is only a single digit value
-    secondDifficultyRepLabel.textAlignment         = NSTextAlignmentCenter;
-    [self.view addSubview:secondDifficultyRepLabel];
+    self.secondDifficultyRepLabel.textAlignment         = NSTextAlignmentCenter;
+    [self.view addSubview:self.secondDifficultyRepLabel];
     
     // third difficulty rep label
     CGRect thirdDifficultyRepLabelFrame;
@@ -2110,14 +2110,14 @@
     else {
         thirdDifficultyRepLabelFrame              =  CGRectMake(143.0f, 395.0f, 30.0f, 20.0f);
     }
-    thirdDifficultyRepLabel                       = [[UILabel alloc] initWithFrame:thirdDifficultyRepLabelFrame];
-    thirdDifficultyRepLabel.text                  = @"7";
-    thirdDifficultyRepLabel.font                  = [UIFont customFontWithSize:20];
-    thirdDifficultyRepLabel.backgroundColor       = [UIColor clearColor];
-    thirdDifficultyRepLabel.textColor             = [UIColor darkGrayColor];
+    self.thirdDifficultyRepLabel                       = [[UILabel alloc] initWithFrame:thirdDifficultyRepLabelFrame];
+    self.thirdDifficultyRepLabel.text                  = @"7";
+    self.thirdDifficultyRepLabel.font                  = [UIFont customFontWithSize:20];
+    self.thirdDifficultyRepLabel.backgroundColor       = [UIColor clearColor];
+    self.thirdDifficultyRepLabel.textColor             = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    thirdDifficultyRepLabel.textAlignment         = NSTextAlignmentCenter;
-    [self.view addSubview:thirdDifficultyRepLabel];
+    self.thirdDifficultyRepLabel.textAlignment         = NSTextAlignmentCenter;
+    [self.view addSubview:self.thirdDifficultyRepLabel];
     
     // ninth difficulty rep label
     CGRect afterThirdDifficultyRepLabelFrame;
@@ -2127,15 +2127,15 @@
     else {
         afterThirdDifficultyRepLabelFrame          = CGRectMake(175.0f, 395.0f, 30.0f, 20.0f);
     }
-    afterThirdDifficultyRepLabel                   = [[UILabel alloc] initWithFrame:afterThirdDifficultyRepLabelFrame];
-    afterThirdDifficultyRepLabel.text              = @"8";
-    afterThirdDifficultyRepLabel.font              = [UIFont customFontWithSize:20];
-    afterThirdDifficultyRepLabel.backgroundColor   = [UIColor clearColor];
-    afterThirdDifficultyRepLabel.textColor         = [UIColor darkGrayColor];
+    self.afterThirdDifficultyRepLabel                   = [[UILabel alloc] initWithFrame:afterThirdDifficultyRepLabelFrame];
+    self.afterThirdDifficultyRepLabel.text              = @"8";
+    self.afterThirdDifficultyRepLabel.font              = [UIFont customFontWithSize:20];
+    self.afterThirdDifficultyRepLabel.backgroundColor   = [UIColor clearColor];
+    self.afterThirdDifficultyRepLabel.textColor         = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    afterThirdDifficultyRepLabel.textAlignment     = NSTextAlignmentCenter;
-    afterThirdDifficultyRepLabel.hidden            = YES;
-    [self.view addSubview:afterThirdDifficultyRepLabel];
+    self.afterThirdDifficultyRepLabel.textAlignment     = NSTextAlignmentCenter;
+    self.afterThirdDifficultyRepLabel.hidden            = YES;
+    [self.view addSubview:self.afterThirdDifficultyRepLabel];
     
     CGRect reportWeightRepNextDoneButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -2144,9 +2144,9 @@
     else {
         reportWeightRepNextDoneButtonFrame         = CGRectMake(205.0f, 379.0f, 110.0f, 45.0f);
     }
-    reportWeightRepNextDoneButton                  = [[UIButton alloc] initWithFrame:reportWeightRepNextDoneButtonFrame];
-    [self.view addSubview:reportWeightRepNextDoneButton];
-    [reportWeightRepNextDoneButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
+    self.reportWeightRepNextDoneButton                  = [[UIButton alloc] initWithFrame:reportWeightRepNextDoneButtonFrame];
+    [self.view addSubview:self.reportWeightRepNextDoneButton];
+    [self.reportWeightRepNextDoneButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
     
     // Add Time Save Report Button
     CGRect reportTimeDoneButtonFrame;
@@ -2156,9 +2156,9 @@
     else {
         reportTimeDoneButtonFrame                  = CGRectMake(143.0f, 355.0f, 170.0f, 45.f);
     }
-    reportTimeNextDoneButton                       = [[UIButton alloc] initWithFrame:reportTimeDoneButtonFrame];
-    [reportTimeNextDoneButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:reportTimeNextDoneButton];
+    self.reportTimeNextDoneButton                       = [[UIButton alloc] initWithFrame:reportTimeDoneButtonFrame];
+    [self.reportTimeNextDoneButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.reportTimeNextDoneButton];
     
     CGRect reportRepNextDoneButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -2167,9 +2167,9 @@
     else {
         reportRepNextDoneButtonFrame               = CGRectMake(10.0f, 375.0f, 300.0f, 45.0f);
     }
-    reportRepNextDoneButton                        = [[UIButton alloc] initWithFrame:reportRepNextDoneButtonFrame];
-    [self.view addSubview:reportRepNextDoneButton];
-    [reportRepNextDoneButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
+    self.reportRepNextDoneButton                        = [[UIButton alloc] initWithFrame:reportRepNextDoneButtonFrame];
+    [self.view addSubview:self.reportRepNextDoneButton];
+    [self.reportRepNextDoneButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
     
     // Add set name label
     CGRect setNameLabelFrame;
@@ -2179,13 +2179,13 @@
     else {
         setNameLabelFrame                          = CGRectMake(30.0f, 360.0f, 40.0f, 50.0f);
     }
-    setNameLabel                                   = [[UILabel alloc] initWithFrame:setNameLabelFrame];
-    setNameLabel.backgroundColor                   = [UIColor clearColor];
-    setNameLabel.text                              = @"Sets";
-    setNameLabel.textColor                         = [UIColor darkGrayColor];
-    setNameLabel.font                              = [UIFont customFontWithSize:16];
-    setNameLabel.textAlignment                     = NSTextAlignmentCenter;
-    [self.view addSubview:setNameLabel];
+    self.setNameLabel                                   = [[UILabel alloc] initWithFrame:setNameLabelFrame];
+    self.setNameLabel.backgroundColor                   = [UIColor clearColor];
+    self.setNameLabel.text                              = @"Sets";
+    self.setNameLabel.textColor                         = [UIColor darkGrayColor];
+    self.setNameLabel.font                              = [UIFont customFontWithSize:16];
+    self.setNameLabel.textAlignment                     = NSTextAlignmentCenter;
+    [self.view addSubview:self.setNameLabel];
     
     // Add set number label
     CGRect setNumberLabelFrame;
@@ -2195,13 +2195,13 @@
     else {
         setNumberLabelFrame                        = CGRectMake(70.0f, 360.0f, 20, 50);
     }
-    setNumberLabel                                 = [[UILabel alloc] initWithFrame:setNumberLabelFrame];
-    setNumberLabel.backgroundColor                 = [UIColor clearColor];
-    setNumberLabel.text                            = @"1";
-    setNumberLabel.textColor                       = [UIColor darkGrayColor];
-    setNumberLabel.font                            = [UIFont customFontWithSize:16];
-    setNumberLabel.textAlignment                   = NSTextAlignmentCenter;
-    [self.view addSubview:setNumberLabel];
+    self.setNumberLabel                                 = [[UILabel alloc] initWithFrame:setNumberLabelFrame];
+    self.setNumberLabel.backgroundColor                 = [UIColor clearColor];
+    self.setNumberLabel.text                            = @"1";
+    self.setNumberLabel.textColor                       = [UIColor darkGrayColor];
+    self.setNumberLabel.font                            = [UIFont customFontWithSize:16];
+    self.setNumberLabel.textAlignment                   = NSTextAlignmentCenter;
+    [self.view addSubview:self.setNumberLabel];
     
     // Add set number label
     CGRect setMaxNumberLabelFrame;
@@ -2211,13 +2211,13 @@
     else {
         setMaxNumberLabelFrame                     = CGRectMake(82.0f, 360.0f, 20, 50);
     }
-    setMaxNumberLabel                              = [[UILabel alloc] initWithFrame:setMaxNumberLabelFrame];
-    setMaxNumberLabel.backgroundColor              = [UIColor clearColor];
-    setMaxNumberLabel.text                         = @"/5";
-    setMaxNumberLabel.textColor                    = [UIColor darkGrayColor];
-    setMaxNumberLabel.font                         = [UIFont customFontWithSize:16];
-    setMaxNumberLabel.textAlignment                = NSTextAlignmentCenter;
-    [self.view addSubview:setMaxNumberLabel];
+    self.setMaxNumberLabel                              = [[UILabel alloc] initWithFrame:setMaxNumberLabelFrame];
+    self.setMaxNumberLabel.backgroundColor              = [UIColor clearColor];
+    self.setMaxNumberLabel.text                         = @"/5";
+    self.setMaxNumberLabel.textColor                    = [UIColor darkGrayColor];
+    self.setMaxNumberLabel.font                         = [UIFont customFontWithSize:16];
+    self.setMaxNumberLabel.textAlignment                = NSTextAlignmentCenter;
+    [self.view addSubview:self.setMaxNumberLabel];
     
     // Content Text View height adjusted
     CGRect  contentsTextViewFrame;
@@ -2241,7 +2241,7 @@
 - (void)loadUpRightImagesAndValues:(UILabel *)label
 {
     // Set the image for rep or difficulty
-    if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
+    if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Weight"]) {
         // Weights values
         NSString *beforeFirstLabelWeight;
         NSString *firstLabelWeight;
@@ -2249,14 +2249,14 @@
         NSString *thirdLabelWeight;
         NSString *afterThirdLabelWeight;
         
-        if ([m_gender isEqualToString:@"Male"]) { // if male
+        if ([self.m_gender isEqualToString:@"Male"]) { // if male
             beforeFirstLabelWeight                   = @"0";
             firstLabelWeight                         = @"5";
             secondLabelWeight                        = @"10";
             thirdLabelWeight                         = @"15";
             afterThirdLabelWeight                    = @"20";
         }
-        else if([m_gender isEqualToString:@"Female"]) { // if female
+        else if([self.m_gender isEqualToString:@"Female"]) { // if female
             beforeFirstLabelWeight                   = @"0";
             firstLabelWeight                         = @"5";
             secondLabelWeight                        = @"10";
@@ -2265,45 +2265,45 @@
         }
         
         // Assign values for the labels
-        m_beforeFirstWeightLabel                     = beforeFirstLabelWeight;
+        self.m_beforeFirstWeightLabel                     = beforeFirstLabelWeight;
         
-        if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
+        if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
             label.text                               = beforeFirstLabelWeight;
         }
-        else if(label.frame.origin.x == m_firstFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
             label.text                               = firstLabelWeight;
         }
-        else if(label.frame.origin.x == m_secondFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
             label.text                               = secondLabelWeight;
         }
-        else if(label.frame.origin.x == m_thirdFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
             label.text                               = thirdLabelWeight;
         }
-        else if(label.frame.origin.x == m_afterThirdFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
             label.text                               = afterThirdLabelWeight;
         }
         // Default weight value
-        m_selectedWeightTimeRepitition               = [secondLabelWeight intValue];
+        self.m_selectedWeightTimeRepitition               = [secondLabelWeight intValue];
         // Default rep value is 8
-        m_selectedDifficultyRep                      = 7;
+        self.m_selectedDifficultyRep                      = 7;
     }
-    else if (([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) || ([m_weightOrTimeOrRepititionImage isEqualToString:@"Time"])) {
+    else if (([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) || ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"])) {
         // Assign values for the labels
-        if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
+        if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
             label.text                               = @"6";
         }
-        else if(label.frame.origin.x == m_firstFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
             label.text                               = @"7";
         }
-        else if(label.frame.origin.x == m_secondFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
             label.text                               = @"8";
             // Default time
-            m_selectedWeightTimeRepitition           = [label.text intValue];
+            self.m_selectedWeightTimeRepitition           = [label.text intValue];
         }
-        else if(label.frame.origin.x == m_thirdFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
             label.text                               = @"9";
         }
-        else if(label.frame.origin.x == m_afterThirdFrame.origin.x) {
+        else if(label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
             label.text                               = @"10";
         }
     }
@@ -2319,31 +2319,31 @@
     [self loadUpExerciseWithOnlyTime];
     
     // Check exercise name to decide the image display
-    if ([self checkIfExerciseIsWithOnlyRepititions:m_exerciseNameDisplayed]) {
-        reportTimeWeightRepImageView.image        = [UIImage imageNamed:@"report_reps"];
-        m_weightOrTimeOrRepititionImage           = @"Repitition";
-        reportDifficultyRepImageViewMask.hidden   = YES;
-        reportWeightRepNextDoneButton.hidden      = YES;
-        reportRepNextDoneButton.hidden            = NO;
-        reportTimeNextDoneButton.hidden           = YES;
+    if ([self checkIfExerciseIsWithOnlyRepititions:self.m_exerciseNameDisplayed]) {
+        self.reportTimeWeightRepImageView.image        = [UIImage imageNamed:@"report_reps"];
+        self.m_weightOrTimeOrRepititionImage           = @"Repitition";
+        self.reportDifficultyRepImageViewMask.hidden   = YES;
+        self.reportWeightRepNextDoneButton.hidden      = YES;
+        self.reportRepNextDoneButton.hidden            = NO;
+        self.reportTimeNextDoneButton.hidden           = YES;
         [self hideRepDetails];
     }
-    else if([self checkIfExerciseIsWithOnlyTime:m_exerciseNameDisplayed]) {
-        reportTimeWeightRepImageView.image        = [UIImage imageNamed:@"report_time"];
-        m_weightOrTimeOrRepititionImage           = @"Time";
-        reportDifficultyRepImageViewMask.hidden   = YES;
+    else if([self checkIfExerciseIsWithOnlyTime:self.m_exerciseNameDisplayed]) {
+        self.reportTimeWeightRepImageView.image        = [UIImage imageNamed:@"report_time"];
+        self.m_weightOrTimeOrRepititionImage           = @"Time";
+        self.reportDifficultyRepImageViewMask.hidden   = YES;
         [self hideRepDetails];
-        reportWeightRepNextDoneButton.hidden      = YES;
-        reportRepNextDoneButton.hidden            = YES;
-        reportTimeNextDoneButton.hidden           = NO;
+        self.reportWeightRepNextDoneButton.hidden      = YES;
+        self.reportRepNextDoneButton.hidden            = YES;
+        self.reportTimeNextDoneButton.hidden           = NO;
     }
     else {
-        reportTimeWeightRepImageView.image        = [UIImage imageNamed:@"report_weight_reps"];
-        m_weightOrTimeOrRepititionImage           = @"Weight";
+        self.reportTimeWeightRepImageView.image        = [UIImage imageNamed:@"report_weight_reps"];
+        self.m_weightOrTimeOrRepititionImage           = @"Weight";
         [self hideRepDetails];
-        reportWeightRepNextDoneButton.hidden      = NO;
-        reportRepNextDoneButton.hidden            = YES;
-        reportTimeNextDoneButton.hidden           = YES;
+        self.reportWeightRepNextDoneButton.hidden      = NO;
+        self.reportRepNextDoneButton.hidden            = YES;
+        self.reportTimeNextDoneButton.hidden           = YES;
     }
 }
 
@@ -2353,18 +2353,18 @@
 - (void)setUpInitialReportNumberLabelsFrame
 {
     // Number label frames
-    m_beforeFirstFrame                      = beforeFirstTimeWeightLabel.frame;
-    m_firstFrame                            = firstTimeWeightLabel.frame;
-    m_secondFrame                           = secondTimeWeightLabel.frame;
-    m_thirdFrame                            = thirdTimeWeightLabel.frame;
-    m_afterThirdFrame                       = afterThirdTimeWeightLabel.frame;
+    self.m_beforeFirstFrame                      = self.beforeFirstTimeWeightLabel.frame;
+    self.m_firstFrame                            = self.firstTimeWeightLabel.frame;
+    self.m_secondFrame                           = self.secondTimeWeightLabel.frame;
+    self.m_thirdFrame                            = self.thirdTimeWeightLabel.frame;
+    self.m_afterThirdFrame                       = self.afterThirdTimeWeightLabel.frame;
     
     // Initial frames for the difficulty/rep labels
-    m_beforeFirstDifficultyRepFrame         = beforeFirstDifficultyRepLabel.frame;
-    m_firstDifficultyRepFrame               = firstDifficultyRepLabel.frame;
-    m_secondDifficultyRepFrame              = secondDifficultyRepLabel.frame;
-    m_thirdDifficultyRepFrame               = thirdDifficultyRepLabel.frame;
-    m_afterThirdDifficultyRepFrame          = afterThirdDifficultyRepLabel.frame;
+    self.m_beforeFirstDifficultyRepFrame         = self.beforeFirstDifficultyRepLabel.frame;
+    self.m_firstDifficultyRepFrame               = self.firstDifficultyRepLabel.frame;
+    self.m_secondDifficultyRepFrame              = self.secondDifficultyRepLabel.frame;
+    self.m_thirdDifficultyRepFrame               = self.thirdDifficultyRepLabel.frame;
+    self.m_afterThirdDifficultyRepFrame          = self.afterThirdDifficultyRepLabel.frame;
 }
 
 - (void)setUpViewToDisplayCorrectReportValues
@@ -2430,19 +2430,19 @@
     self.view.hidden                                = NO;
     
     // Default section active is exercise report
-    m_checkWhichExerciseButtonWasClicked            = @"exerciseReport";
+    self.m_checkWhichExerciseButtonWasClicked            = @"exerciseReport";
     
-    if (!m_database) {
-        m_database                                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                                  = [Database alloc];
     }
     // Get gender of the user
-    m_gender                                        = [m_database getGender:[NSString getUserEmail]];
+    self.m_gender                                        = [self.m_database getGender:[NSString getUserEmail]];
     
     // Set up food image and show nutrition benefits description
     // place the below method here to update contents when coming back from a different view
     [self loadExerciseImagesAndDescription];
     
-    if ([self checkIfExerciseIsWithoutReportOrProgress:m_exerciseNameDisplayed]) {
+    if ([self checkIfExerciseIsWithoutReportOrProgress:self.m_exerciseNameDisplayed]) {
         // Hide exercise report details
         [self hideExerciseReportDetails];
         
@@ -2450,7 +2450,7 @@
         [self hideProgress];
         
         // Default section active is exercise report
-        m_checkWhichExerciseButtonWasClicked            = @"exerciseDescription";
+        self.m_checkWhichExerciseButtonWasClicked            = @"exerciseDescription";
         // Show exercise description
         [self.exerciseDetailsImageView setImage:[UIImage imageNamed:@"tfn_description_active.png"]];
         [self showExerciseDescription];
@@ -2580,7 +2580,7 @@
     [xRange expandRangeByFactor:CPTDecimalFromCGFloat(16.0f)];
     plotSpace.xRange                                = xRange;
     CPTMutablePlotRange *yRange                     = [plotSpace.yRange mutableCopy];
-    if ([m_weightArray count] >= 1) {
+    if ([self.m_weightArray count] >= 1) {
         if ([UIScreen mainScreen].bounds.size.height == 568.0f) {
             [yRange expandRangeByFactor:CPTDecimalFromCGFloat(5.0f)];
         }
@@ -2600,7 +2600,7 @@
     }
     plotSpace.yRange                                = yRange;
     // 4 - Create styles and symbols
-    if (![m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
+    if (![self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
         
         CPTMutableLineStyle *weightLineStyle            = [weightPlot.dataLineStyle mutableCopy];
         weightLineStyle.lineWidth                       = 2.5;
@@ -2615,7 +2615,7 @@
         weightPlot.plotSymbol                           = weightSymbol;
     }
     
-    if (![m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
+    if (![self.m_weightOrTimeOrRepititionImage isEqualToString:@"Time"]) {
         CPTMutableLineStyle *repLineStyle               = [repPlot.dataLineStyle mutableCopy];
         repLineStyle.lineWidth                          = 2.5;
         repLineStyle.lineColor                          = repColor;
@@ -2716,11 +2716,11 @@
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
     
-    if ([m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
-        return [m_repArray count];
+    if ([self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
+        return [self.m_repArray count];
     }
     else {
-        return [m_weightArray count];
+        return [self.m_weightArray count];
     }
 }
 
@@ -2736,14 +2736,14 @@
         case CPTScatterPlotFieldY:
             
             if ([plot.identifier isEqual:CPDTickerSymbolWeight] == YES) {
-                if (![m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
-                    if (m_weightArray) {
-                        return [m_weightArray objectAtIndex:index];
+                if (![self.m_weightOrTimeOrRepititionImage isEqualToString:@"Repitition"]) {
+                    if (self.m_weightArray) {
+                        return [self.m_weightArray objectAtIndex:index];
                     }
                 }
             } else if ([plot.identifier isEqual:CPDTickerSymbolRep] == YES) {
-                if (m_repArray) {
-                    return [m_repArray objectAtIndex:index];
+                if (self.m_repArray) {
+                    return [self.m_repArray objectAtIndex:index];
                 }
             }
             break;
