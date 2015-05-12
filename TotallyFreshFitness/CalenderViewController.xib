@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalenderViewController">
+            <connections>
+                <outlet property="fifthLabel" destination="578" id="1004"/>
+                <outlet property="fifthLabelLeftSwipeRecognizer" destination="1688" id="1729"/>
+                <outlet property="fifthLabelRightSwipeRecognizer" destination="1924" id="1964"/>
+                <outlet property="fifthLabelTapRecognizer" destination="987" id="1238"/>
+                <outlet property="firstLabel" destination="523" id="1000"/>
+                <outlet property="firstLabelLeftSwipeRecognizer" destination="1912" id="1961"/>
+                <outlet property="firstLabelRightSwipeRecognizer" destination="1670" id="1726"/>
+                <outlet property="firstLabelTapRecognizer" destination="975" id="1234"/>
+                <outlet property="fourthLabel" destination="570" id="1003"/>
+                <outlet property="fourthLabelLeftSwipeRecognizer" destination="1699" id="1828"/>
+                <outlet property="fourthLabelRightSwipeRecognizer" destination="1686" id="1827"/>
+                <outlet property="fourthLabelTapRecognizer" destination="984" id="1237"/>
+                <outlet property="mealPlanSectionButton" destination="1589" id="dwX-Es-neb"/>
+                <outlet property="monthLabel" destination="1830" id="1891"/>
+                <outlet property="planSectionButton" destination="1484" id="1658"/>
+                <outlet property="secondLabel" destination="551" id="1001"/>
+                <outlet property="secondLabelLeftSwipeRecognizer" destination="1914" id="1962"/>
+                <outlet property="secondLabelRightSwipeRecognizer" destination="1672" id="1727"/>
+                <outlet property="secondLabelTapRecognizer" destination="978" id="1235"/>
+                <outlet property="selectionButton" destination="h2y-ZJ-7aw" id="DzK-2Y-W51"/>
+                <outlet property="seventhLabel" destination="602" id="1006"/>
+                <outlet property="seventhLabelLeftSwipeRecognizer" destination="1692" id="1731"/>
+                <outlet property="seventhLabelRightSwipeRecognizer" destination="1928" id="1966"/>
+                <outlet property="seventhLabelTapRecognizer" destination="993" id="1240"/>
+                <outlet property="sixthLabel" destination="587" id="1005"/>
+                <outlet property="sixthLabelLeftSwipeRecognizer" destination="1690" id="1730"/>
+                <outlet property="sixthLabelRightSwipeRecognizer" destination="1926" id="1965"/>
+                <outlet property="sixthLabelTapRecognizer" destination="990" id="1239"/>
+                <outlet property="theTableView" destination="1732" id="1983"/>
+                <outlet property="thirdLabel" destination="561" id="1002"/>
+                <outlet property="thirdLabelLeftSwipeRecognizer" destination="1916" id="1963"/>
+                <outlet property="thirdLabelRightSwipeRecognizer" destination="1684" id="1728"/>
+                <outlet property="thirdLabelTapRecognizer" destination="981" id="1236"/>
+                <outlet property="view" destination="1" id="1120"/>
+                <outlet property="workOutPlanSectionButton" destination="1538" id="i4Y-3A-v8k"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topBar_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="96g-Ka-aaf">
+                    <rect key="frame" x="100" y="25" width="120" height="30"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tfn_Calender.png" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                    <rect key="frame" x="0.0" y="60" width="320" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="2271"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2y-ZJ-7aw">
+                    <rect key="frame" x="5" y="115" width="37" height="30"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1830">
+                    <rect key="frame" x="90" y="66" width="141" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="1878"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="602">
+                    <rect key="frame" x="274" y="111" width="46" height="35"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="1267"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="993" appends="YES" id="994"/>
+                        <outletCollection property="gestureRecognizers" destination="1692" appends="YES" id="1693"/>
+                        <outletCollection property="gestureRecognizers" destination="1928" appends="YES" id="1929"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="587">
+                    <rect key="frame" x="229" y="111" width="46" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="1269"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="990" appends="YES" id="991"/>
+                        <outletCollection property="gestureRecognizers" destination="1690" appends="YES" id="1691"/>
+                        <outletCollection property="gestureRecognizers" destination="1926" appends="YES" id="1927"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="578">
+                    <rect key="frame" x="184" y="111" width="46" height="35"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="1271"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="987" appends="YES" id="988"/>
+                        <outletCollection property="gestureRecognizers" destination="1688" appends="YES" id="1689"/>
+                        <outletCollection property="gestureRecognizers" destination="1924" appends="YES" id="1925"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="570">
+                    <rect key="frame" x="137" y="111" width="46" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="1272"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="984" appends="YES" id="985"/>
+                        <outletCollection property="gestureRecognizers" destination="1686" appends="YES" id="1687"/>
+                        <outletCollection property="gestureRecognizers" destination="1699" appends="YES" id="1700"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="561">
+                    <rect key="frame" x="91" y="111" width="46" height="35"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="1275"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="981" appends="YES" id="982"/>
+                        <outletCollection property="gestureRecognizers" destination="1684" appends="YES" id="1685"/>
+                        <outletCollection property="gestureRecognizers" destination="1916" appends="YES" id="1917"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="551">
+                    <rect key="frame" x="45" y="111" width="46" height="35"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="1276"/>
+                        <constraint firstAttribute="height" constant="35" id="2032"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="978" appends="YES" id="979"/>
+                        <outletCollection property="gestureRecognizers" destination="1672" appends="YES" id="1673"/>
+                        <outletCollection property="gestureRecognizers" destination="1914" appends="YES" id="1915"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="523">
+                    <rect key="frame" x="0.0" y="111" width="46" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="1134"/>
+                        <constraint firstAttribute="width" constant="46" id="1574"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="975" appends="YES" id="976"/>
+                        <outletCollection property="gestureRecognizers" destination="1670" appends="YES" id="1671"/>
+                        <outletCollection property="gestureRecognizers" destination="1912" appends="YES" id="1913"/>
+                    </connections>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1484">
+                    <rect key="frame" x="0.0" y="147" width="320" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="1992"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" backgroundImage="tfn_mealplan-active.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1589">
+                    <rect key="frame" x="-1" y="150" width="160" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="1640"/>
+                        <constraint firstAttribute="height" constant="70" id="1986"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="planSection:" destination="-1" eventType="touchUpInside" id="Ew7-f0-gph"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1538">
+                    <rect key="frame" x="159" y="150" width="160" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="1652"/>
+                        <constraint firstAttribute="height" constant="70" id="1994"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="planSection:" destination="-1" eventType="touchUpInside" id="KLJ-HS-r6I"/>
+                    </connections>
+                </button>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="30" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1732">
+                    <rect key="frame" x="0.0" y="218" width="320" height="220"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="2276"/>
+                    </constraints>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="1742"/>
+                        <outlet property="delegate" destination="-1" id="1743"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7if-Q3-8PT">
+                    <rect key="frame" x="20" y="12" width="50" height="50"/>
+                    <state key="normal" image="home.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="moveToRootViewController:" destination="-1" eventType="touchUpInside" id="xES-U1-n1c"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="1078"/>
+                <constraint firstItem="4" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="1096"/>
+                <constraint firstItem="578" firstAttribute="top" secondItem="570" secondAttribute="top" id="1196"/>
+                <constraint firstItem="587" firstAttribute="top" secondItem="578" secondAttribute="top" id="1206"/>
+                <constraint firstItem="561" firstAttribute="top" secondItem="570" secondAttribute="top" id="1217"/>
+                <constraint firstItem="602" firstAttribute="top" secondItem="587" secondAttribute="top" id="1230"/>
+                <constraint firstItem="602" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="1266"/>
+                <constraint firstAttribute="trailing" secondItem="587" secondAttribute="trailing" constant="45" id="1268"/>
+                <constraint firstItem="523" firstAttribute="top" secondItem="1" secondAttribute="top" constant="111" id="1324"/>
+                <constraint firstItem="551" firstAttribute="top" secondItem="561" secondAttribute="top" id="1328"/>
+                <constraint firstItem="523" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="1462"/>
+                <constraint firstItem="551" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="45" id="1465"/>
+                <constraint firstItem="1484" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="1535"/>
+                <constraint firstItem="1484" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="1536"/>
+                <constraint firstItem="1732" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="1774"/>
+                <constraint firstItem="1732" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="1775"/>
+                <constraint firstAttribute="trailing" secondItem="578" secondAttribute="trailing" constant="90" id="1856"/>
+                <constraint firstItem="561" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="91" id="1882"/>
+                <constraint firstItem="1830" firstAttribute="top" secondItem="1" secondAttribute="top" constant="66" id="1893"/>
+                <constraint firstItem="561" firstAttribute="baseline" secondItem="551" secondAttribute="baseline" id="1944"/>
+                <constraint firstItem="587" firstAttribute="baseline" secondItem="578" secondAttribute="baseline" id="1945"/>
+                <constraint firstItem="587" firstAttribute="baseline" secondItem="602" secondAttribute="baseline" id="1949"/>
+                <constraint firstItem="570" firstAttribute="baseline" secondItem="578" secondAttribute="baseline" id="1951"/>
+                <constraint firstItem="570" firstAttribute="baseline" secondItem="561" secondAttribute="baseline" id="1952"/>
+                <constraint firstItem="1589" firstAttribute="top" secondItem="1" secondAttribute="top" constant="150" id="2009"/>
+                <constraint firstItem="1484" firstAttribute="top" secondItem="1" secondAttribute="top" constant="147" id="2016"/>
+                <constraint firstItem="551" firstAttribute="top" secondItem="1" secondAttribute="top" constant="111" id="2031"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" constant="60" id="2270"/>
+                <constraint firstItem="1732" firstAttribute="top" secondItem="1" secondAttribute="top" constant="218" id="2282"/>
+                <constraint firstItem="1589" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="-1" id="2326"/>
+                <constraint firstItem="1484" firstAttribute="centerX" secondItem="570" secondAttribute="centerX" id="2338"/>
+                <constraint firstAttribute="trailing" secondItem="1538" secondAttribute="trailing" constant="1" id="2378"/>
+                <constraint firstItem="1538" firstAttribute="top" secondItem="1" secondAttribute="top" constant="150" id="2430"/>
+                <constraint firstItem="1830" firstAttribute="centerX" secondItem="4" secondAttribute="centerX" id="L6x-i3-azh"/>
+            </constraints>
+        </view>
+        <tapGestureRecognizer id="975">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1123"/>
+                <outlet property="delegate" destination="-1" id="977"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="978">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1124"/>
+                <outlet property="delegate" destination="-1" id="980"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="981">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1125"/>
+                <outlet property="delegate" destination="-1" id="983"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="984">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1126"/>
+                <outlet property="delegate" destination="-1" id="986"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="987">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1127"/>
+                <outlet property="delegate" destination="-1" id="989"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="990">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1128"/>
+                <outlet property="delegate" destination="-1" id="992"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="993">
+            <connections>
+                <action selector="handleTap:" destination="-1" id="1129"/>
+                <outlet property="delegate" destination="-1" id="995"/>
+            </connections>
+        </tapGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1670">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1713"/>
+                <outlet property="delegate" destination="-1" id="1710"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1912">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1954"/>
+                <outlet property="delegate" destination="-1" id="1930"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1672">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1712"/>
+                <outlet property="delegate" destination="-1" id="1711"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1914">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1933"/>
+                <outlet property="delegate" destination="-1" id="1932"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1684">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1715"/>
+                <outlet property="delegate" destination="-1" id="1714"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1916">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1935"/>
+                <outlet property="delegate" destination="-1" id="1934"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1686">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1717"/>
+                <outlet property="delegate" destination="-1" id="1716"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1699">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1719"/>
+                <outlet property="delegate" destination="-1" id="1718"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1688">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1721"/>
+                <outlet property="delegate" destination="-1" id="1720"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1924">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1939"/>
+                <outlet property="delegate" destination="-1" id="1938"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1690">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1722"/>
+                <outlet property="delegate" destination="-1" id="1723"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1926">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1941"/>
+                <outlet property="delegate" destination="-1" id="1940"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="1692">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1725"/>
+                <outlet property="delegate" destination="-1" id="1724"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="1928">
+            <connections>
+                <action selector="handleSwipeFrom:" destination="-1" id="1943"/>
+                <outlet property="delegate" destination="-1" id="1942"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="home.png" width="80" height="80"/>
+        <image name="tfn_Calender.png" width="640" height="150"/>
+        <image name="tfn_mealplan-active.png" width="640" height="150"/>
+        <image name="topBar_logo.png" width="2917" height="646"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

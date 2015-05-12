@@ -14,6 +14,154 @@
 		34D1D1861B01A8DD0079457F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1851B01A8DD0079457F /* Images.xcassets */; };
 		34D1D1891B01A8DD0079457F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1871B01A8DD0079457F /* LaunchScreen.xib */; };
 		34D1D1951B01A8DD0079457F /* TotallyFreshFitnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */; };
+		34D1D1A21B01ACBE0079457F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1A11B01ACBE0079457F /* RootViewController.m */; };
+		34D1D1A41B01ACCE0079457F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1A31B01ACCE0079457F /* RootViewController.xib */; };
+		34D1D1A71B01ADC20079457F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1A61B01ADC20079457F /* LoginViewController.m */; };
+		34D1D1D61B01ADD30079457F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1A91B01ADD30079457F /* RegisterViewController.m */; };
+		34D1D1D71B01ADD30079457F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1AB1B01ADD30079457F /* ProfileViewController.m */; };
+		34D1D1D81B01ADD30079457F /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1AD1B01ADD30079457F /* GenderViewController.m */; };
+		34D1D1D91B01ADD30079457F /* IntensityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1AF1B01ADD30079457F /* IntensityViewController.m */; };
+		34D1D1DA1B01ADD30079457F /* GoalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1B11B01ADD30079457F /* GoalsViewController.m */; };
+		34D1D1DB1B01ADD30079457F /* ExerciseLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1B31B01ADD30079457F /* ExerciseLevelViewController.m */; };
+		34D1D1DC1B01ADD30079457F /* WorkOutDaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1B51B01ADD30079457F /* WorkOutDaysViewController.m */; };
+		34D1D1DD1B01ADD30079457F /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1B71B01ADD30079457F /* ResultViewController.m */; };
+		34D1D1DE1B01ADD30079457F /* MusicTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1B91B01ADD30079457F /* MusicTracksViewController.m */; };
+		34D1D1DF1B01ADD30079457F /* MusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1BB1B01ADD30079457F /* MusicListViewController.m */; };
+		34D1D1E01B01ADD30079457F /* PlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1BD1B01ADD30079457F /* PlayMusicViewController.m */; };
+		34D1D1E11B01ADD30079457F /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1BF1B01ADD30079457F /* ExerciseViewController.m */; };
+		34D1D1E21B01ADD30079457F /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1C11B01ADD30079457F /* CalenderViewController.m */; };
+		34D1D1E31B01ADD30079457F /* MealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1C31B01ADD30079457F /* MealViewController.m */; };
+		34D1D1E41B01ADD30079457F /* SupplementPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1C51B01ADD30079457F /* SupplementPlanViewController.m */; };
+		34D1D1E51B01ADD30079457F /* SupplementProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1C71B01ADD30079457F /* SupplementProfileViewController.m */; };
+		34D1D1E61B01ADD30079457F /* SupplementOrderWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1C91B01ADD30079457F /* SupplementOrderWebViewController.m */; };
+		34D1D1E71B01ADD30079457F /* FoodProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1CB1B01ADD30079457F /* FoodProfileViewController.m */; };
+		34D1D1E81B01ADD30079457F /* ExerciseProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1CD1B01ADD30079457F /* ExerciseProfileViewController.m */; };
+		34D1D1E91B01ADD30079457F /* ExerciseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1CF1B01ADD30079457F /* ExerciseListViewController.m */; };
+		34D1D1EA1B01ADD30079457F /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1D11B01ADD30079457F /* ProgressViewController.m */; };
+		34D1D1EB1B01ADD30079457F /* SwitchPlanItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1D31B01ADD30079457F /* SwitchPlanItemViewController.m */; };
+		34D1D1EC1B01ADD30079457F /* ExcerciseIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1D51B01ADD30079457F /* ExcerciseIndexViewController.m */; };
+		34D1D1EE1B01ADE40079457F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1ED1B01ADE40079457F /* LoginViewController.xib */; };
+		34D1D1F01B01ADEC0079457F /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1EF1B01ADEC0079457F /* RegisterViewController.xib */; };
+		34D1D1F21B01ADF30079457F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1F11B01ADF30079457F /* ProfileViewController.xib */; };
+		34D1D1F41B01ADFA0079457F /* GenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1F31B01ADFA0079457F /* GenderViewController.xib */; };
+		34D1D1F61B01AE040079457F /* IntensityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1F51B01AE040079457F /* IntensityViewController.xib */; };
+		34D1D1F81B01AE0E0079457F /* GoalsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1F71B01AE0E0079457F /* GoalsViewController.xib */; };
+		34D1D1FA1B01AE190079457F /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1F91B01AE190079457F /* ExerciseViewController.xib */; };
+		34D1D1FC1B01AE390079457F /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1FB1B01AE390079457F /* ResultViewController.xib */; };
+		34D1D1FE1B01AE3E0079457F /* WorkOutDaysViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1FD1B01AE3E0079457F /* WorkOutDaysViewController.xib */; };
+		34D1D2001B01AE480079457F /* MusicTracksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1FF1B01AE480079457F /* MusicTracksViewController.xib */; };
+		34D1D2021B01AE4D0079457F /* MusicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2011B01AE4D0079457F /* MusicListViewController.xib */; };
+		34D1D2041B01AE5F0079457F /* PlayMusicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2031B01AE5F0079457F /* PlayMusicViewController.xib */; };
+		34D1D2061B01AE8A0079457F /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2051B01AE8A0079457F /* ExerciseViewController.xib */; };
+		34D1D2081B01AE990079457F /* CalenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2071B01AE990079457F /* CalenderViewController.xib */; };
+		34D1D20A1B01AE9F0079457F /* MealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2091B01AE9F0079457F /* MealViewController.xib */; };
+		34D1D20C1B01AEA60079457F /* SupplementPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D20B1B01AEA60079457F /* SupplementPlanViewController.xib */; };
+		34D1D20E1B01AEAA0079457F /* SupplementProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D20D1B01AEAA0079457F /* SupplementProfileViewController.xib */; };
+		34D1D2101B01AEAF0079457F /* SupplementOrderWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D20F1B01AEAF0079457F /* SupplementOrderWebViewController.xib */; };
+		34D1D2121B01AEB50079457F /* FoodProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2111B01AEB50079457F /* FoodProfileViewController.xib */; };
+		34D1D2141B01AEBE0079457F /* ExerciseProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2131B01AEBE0079457F /* ExerciseProfileViewController.xib */; };
+		34D1D2161B01AEC30079457F /* ExerciseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2151B01AEC30079457F /* ExerciseListViewController.xib */; };
+		34D1D2181B01AEC90079457F /* ProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2171B01AEC90079457F /* ProgressViewController.xib */; };
+		34D1D21A1B01AED00079457F /* SwitchPlanItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D2191B01AED00079457F /* SwitchPlanItemViewController.xib */; };
+		34D1D21C1B01AF010079457F /* ExcerciseIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D21B1B01AF010079457F /* ExcerciseIndexViewController.xib */; };
+		34D1D2201B01AF240079457F /* ViewTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D21F1B01AF240079457F /* ViewTransitions.m */; };
+		34D1D2231B01AF2C0079457F /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2221B01AF2C0079457F /* ViewFactory.m */; };
+		34D1D2271B01AF430079457F /* SupplementCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2261B01AF430079457F /* SupplementCheck.m */; };
+		34D1D2361B01AF4D0079457F /* MealPlanSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2291B01AF4D0079457F /* MealPlanSelection.m */; };
+		34D1D2371B01AF4D0079457F /* WorkoutSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D22B1B01AF4D0079457F /* WorkoutSelection.m */; };
+		34D1D2381B01AF4D0079457F /* BeginnerWorkoutSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D22D1B01AF4D0079457F /* BeginnerWorkoutSelection.m */; };
+		34D1D2391B01AF4D0079457F /* IntermediateWorkoutSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D22F1B01AF4D0079457F /* IntermediateWorkoutSelection.m */; };
+		34D1D23A1B01AF4D0079457F /* AdvancedWorkoutSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2311B01AF4D0079457F /* AdvancedWorkoutSelection.m */; };
+		34D1D23B1B01AF4D0079457F /* SupplementPlanSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2331B01AF4D0079457F /* SupplementPlanSelection.m */; };
+		34D1D23C1B01AF4D0079457F /* SwitchPlanItemSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2351B01AF4D0079457F /* SwitchPlanItemSelection.m */; };
+		34D1D26C1B01AF950079457F /* NSString+Music_Mix.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D23F1B01AF940079457F /* NSString+Music_Mix.m */; };
+		34D1D26D1B01AF950079457F /* NSMutableArray+Music_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2411B01AF940079457F /* NSMutableArray+Music_Data.m */; };
+		34D1D26E1B01AF950079457F /* NSMutableArray+Homepage_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2431B01AF940079457F /* NSMutableArray+Homepage_Data.m */; };
+		34D1D26F1B01AF950079457F /* NSURL+SupplementOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2451B01AF940079457F /* NSURL+SupplementOrder.m */; };
+		34D1D2701B01AF950079457F /* NSMutableArray+SportsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2471B01AF940079457F /* NSMutableArray+SportsList.m */; };
+		34D1D2711B01AF950079457F /* UILabel+ChangeLabelNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2491B01AF940079457F /* UILabel+ChangeLabelNumbers.m */; };
+		34D1D2721B01AF950079457F /* NSMutableArray+MotivationalQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D24B1B01AF940079457F /* NSMutableArray+MotivationalQuote.m */; };
+		34D1D2731B01AF950079457F /* UIFont+CustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D24D1B01AF940079457F /* UIFont+CustomFont.m */; };
+		34D1D2741B01AF950079457F /* UIImageView+Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D24F1B01AF940079457F /* UIImageView+Bar.m */; };
+		34D1D2751B01AF950079457F /* UINavigationBar+TopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2511B01AF940079457F /* UINavigationBar+TopBar.m */; };
+		34D1D2761B01AF950079457F /* UILabel+Scroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2531B01AF940079457F /* UILabel+Scroll.m */; };
+		34D1D2771B01AF950079457F /* UIImageView+Scroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2551B01AF940079457F /* UIImageView+Scroll.m */; };
+		34D1D2781B01AF950079457F /* NSString+UserEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2571B01AF940079457F /* NSString+UserEmail.m */; };
+		34D1D2791B01AF950079457F /* NSString+ExerciseToSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2591B01AF940079457F /* NSString+ExerciseToSwitch.m */; };
+		34D1D27A1B01AF950079457F /* NSString+FoodToSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D25B1B01AF940079457F /* NSString+FoodToSwitch.m */; };
+		34D1D27B1B01AF950079457F /* NSString+Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D25D1B01AF940079457F /* NSString+Gender.m */; };
+		34D1D27C1B01AF950079457F /* NSMutableArray+PlanLists.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D25F1B01AF940079457F /* NSMutableArray+PlanLists.m */; };
+		34D1D27D1B01AF950079457F /* UIViewController+NavigateUIViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2611B01AF940079457F /* UIViewController+NavigateUIViews.m */; };
+		34D1D27E1B01AF950079457F /* NSString+FindImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2631B01AF940079457F /* NSString+FindImage.m */; };
+		34D1D27F1B01AF950079457F /* NSString+SupplementImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2651B01AF950079457F /* NSString+SupplementImageName.m */; };
+		34D1D2801B01AF950079457F /* UIViewController+iPhoneScreenSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2671B01AF950079457F /* UIViewController+iPhoneScreenSizes.m */; };
+		34D1D2811B01AF950079457F /* NSMutableArray+SupplementItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2691B01AF950079457F /* NSMutableArray+SupplementItems.m */; };
+		34D1D2821B01AF950079457F /* IntensityViewController+BMRCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D26B1B01AF950079457F /* IntensityViewController+BMRCalculator.m */; };
+		34D1D2851B01AFB40079457F /* TFNGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2841B01AFB40079457F /* TFNGateway.m */; };
+		34D1D28C1B01AFCB0079457F /* CPDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2871B01AFCB0079457F /* CPDConstants.m */; };
+		34D1D28D1B01AFCB0079457F /* CPDExerciseProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2891B01AFCB0079457F /* CPDExerciseProgress.m */; };
+		34D1D28E1B01AFCB0079457F /* CPDWeightProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D28B1B01AFCB0079457F /* CPDWeightProgress.m */; };
+		34D1D2911B01B0B30079457F /* MealGroceryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2901B01B0B30079457F /* MealGroceryList.m */; };
+		34D1D2981B01B16C0079457F /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2971B01B16C0079457F /* Database.m */; };
+		34D1D2A11B01B2EA0079457F /* SHCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D29B1B01B2EA0079457F /* SHCTableViewCell.m */; };
+		34D1D2A21B01B2EA0079457F /* SHCToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D29D1B01B2EA0079457F /* SHCToDoItem.m */; };
+		34D1D2A31B01B2EA0079457F /* SHCStrikethroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2A01B01B2EA0079457F /* SHCStrikethroughLabel.m */; };
+		34D1D2EA1B01B3F70079457F /* Exercise_Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2AF1B01B3F60079457F /* Exercise_Report.m */; };
+		34D1D2EB1B01B3F70079457F /* Breakfast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2B11B01B3F60079457F /* Breakfast.m */; };
+		34D1D2EC1B01B3F70079457F /* Dinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2B31B01B3F60079457F /* Dinner.m */; };
+		34D1D2ED1B01B3F70079457F /* Second_Snack.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2B51B01B3F60079457F /* Second_Snack.m */; };
+		34D1D2EE1B01B3F70079457F /* Third_Snack.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2B71B01B3F60079457F /* Third_Snack.m */; };
+		34D1D2EF1B01B3F70079457F /* Lunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2B91B01B3F60079457F /* Lunch.m */; };
+		34D1D2F01B01B3F70079457F /* First_Snack.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2BB1B01B3F70079457F /* First_Snack.m */; };
+		34D1D2F11B01B3F70079457F /* Terms_And_Conditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2BD1B01B3F70079457F /* Terms_And_Conditions.m */; };
+		34D1D2F21B01B3F70079457F /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2BF1B01B3F70079457F /* Users.m */; };
+		34D1D2F31B01B3F70079457F /* Food_Recipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2C11B01B3F70079457F /* Food_Recipes.m */; };
+		34D1D2F41B01B3F70079457F /* BMR.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2C31B01B3F70079457F /* BMR.m */; };
+		34D1D2F51B01B3F70079457F /* Goals.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2C51B01B3F70079457F /* Goals.m */; };
+		34D1D2F61B01B3F70079457F /* Exercise_Levels.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2C71B01B3F70079457F /* Exercise_Levels.m */; };
+		34D1D2F71B01B3F70079457F /* Exercise_Days.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2C91B01B3F70079457F /* Exercise_Days.m */; };
+		34D1D2F81B01B3F70079457F /* Work_Out_Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2CB1B01B3F70079457F /* Work_Out_Plan.m */; };
+		34D1D2F91B01B3F70079457F /* Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2CD1B01B3F70079457F /* Progress.m */; };
+		34D1D2FA1B01B3F70079457F /* Meal_Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2CF1B01B3F70079457F /* Meal_Plan.m */; };
+		34D1D2FB1B01B3F70079457F /* Grocery.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2D11B01B3F70079457F /* Grocery.m */; };
+		34D1D2FC1B01B3F70079457F /* Exercises.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2D31B01B3F70079457F /* Exercises.m */; };
+		34D1D2FD1B01B3F70079457F /* Workout_Day_Four.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2D51B01B3F70079457F /* Workout_Day_Four.m */; };
+		34D1D2FE1B01B3F70079457F /* Workout_Day_Seven.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2D71B01B3F70079457F /* Workout_Day_Seven.m */; };
+		34D1D2FF1B01B3F70079457F /* Workout_Day_Six.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2D91B01B3F70079457F /* Workout_Day_Six.m */; };
+		34D1D3001B01B3F70079457F /* Workout_Day_Five.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2DB1B01B3F70079457F /* Workout_Day_Five.m */; };
+		34D1D3011B01B3F70079457F /* Workout_Day_One.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2DD1B01B3F70079457F /* Workout_Day_One.m */; };
+		34D1D3021B01B3F70079457F /* Workout_Day_Three.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2DF1B01B3F70079457F /* Workout_Day_Three.m */; };
+		34D1D3031B01B3F70079457F /* Workout_Day_Two.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2E11B01B3F70079457F /* Workout_Day_Two.m */; };
+		34D1D3041B01B3F70079457F /* SupplementPostWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2E31B01B3F70079457F /* SupplementPostWorkout.m */; };
+		34D1D3051B01B3F70079457F /* SupplementBeforeBed.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2E51B01B3F70079457F /* SupplementBeforeBed.m */; };
+		34D1D3061B01B3F70079457F /* SupplementPreWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2E71B01B3F70079457F /* SupplementPreWorkout.m */; };
+		34D1D3071B01B3F70079457F /* SupplementBreakfast.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D2E91B01B3F70079457F /* SupplementBreakfast.m */; };
+		34D1D3131B01B42E0079457F /* SupplementPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D30A1B01B42D0079457F /* SupplementPlanManager.m */; };
+		34D1D3141B01B42E0079457F /* BreakFastSupplementPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D30C1B01B42E0079457F /* BreakFastSupplementPlanManager.m */; };
+		34D1D3151B01B42E0079457F /* PreWorkoutSupplementPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D30E1B01B42E0079457F /* PreWorkoutSupplementPlanManager.m */; };
+		34D1D3161B01B42E0079457F /* PostWorkoutSupplementPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3101B01B42E0079457F /* PostWorkoutSupplementPlanManager.m */; };
+		34D1D3171B01B42E0079457F /* BeforeBedSupplementPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3121B01B42E0079457F /* BeforeBedSupplementPlanManager.m */; };
+		34D1D3281B01B43A0079457F /* WorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3191B01B43A0079457F /* WorkoutPlanManager.m */; };
+		34D1D3291B01B43A0079457F /* FirstDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D31B1B01B43A0079457F /* FirstDayWorkoutPlanManager.m */; };
+		34D1D32A1B01B43A0079457F /* SecondDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D31D1B01B43A0079457F /* SecondDayWorkoutPlanManager.m */; };
+		34D1D32B1B01B43A0079457F /* ThirdDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D31F1B01B43A0079457F /* ThirdDayWorkoutPlanManager.m */; };
+		34D1D32C1B01B43A0079457F /* FourthDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3211B01B43A0079457F /* FourthDayWorkoutPlanManager.m */; };
+		34D1D32D1B01B43A0079457F /* FifthDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3231B01B43A0079457F /* FifthDayWorkoutPlanManager.m */; };
+		34D1D32E1B01B43A0079457F /* SixthDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3251B01B43A0079457F /* SixthDayWorkoutPlanManager.m */; };
+		34D1D32F1B01B43A0079457F /* SeventhDayWorkoutPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3271B01B43A0079457F /* SeventhDayWorkoutPlanManager.m */; };
+		34D1D33E1B01B4460079457F /* MealPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3311B01B4450079457F /* MealPlanManager.m */; };
+		34D1D33F1B01B4460079457F /* BreakFastPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3331B01B4450079457F /* BreakFastPlanManager.m */; };
+		34D1D3401B01B4460079457F /* FirstSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3351B01B4450079457F /* FirstSnackPlanManager.m */; };
+		34D1D3411B01B4460079457F /* LunchPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3371B01B4450079457F /* LunchPlanManager.m */; };
+		34D1D3421B01B4460079457F /* SecondSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3391B01B4460079457F /* SecondSnackPlanManager.m */; };
+		34D1D3431B01B4460079457F /* DinnerPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D33B1B01B4460079457F /* DinnerPlanManager.m */; };
+		34D1D3441B01B4460079457F /* ThirdSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D33D1B01B4460079457F /* ThirdSnackPlanManager.m */; };
+		34D1D3471B01B4780079457F /* TestMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3461B01B4780079457F /* TestMutableArray.m */; };
+		34D1D34A1B01B47F0079457F /* Total_Fitness_and_NutritionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */; };
+		34D1D34D1B01B49C0079457F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D34C1B01B49C0079457F /* HomeViewController.m */; };
+		34D1D34F1B01B4AC0079457F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D34E1B01B4AC0079457F /* HomeViewController.xib */; };
+		34D1D3531B01B4B20079457F /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D3501B01B4B20079457F /* HomeCell.xib */; };
+		34D1D3541B01B4B20079457F /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3521B01B4B20079457F /* HomeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +188,278 @@
 		34D1D18E1B01A8DD0079457F /* TotallyFreshFitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TotallyFreshFitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D1D1931B01A8DD0079457F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotallyFreshFitnessTests.m; sourceTree = "<group>"; };
+		34D1D1A01B01ACBE0079457F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		34D1D1A11B01ACBE0079457F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		34D1D1A31B01ACCE0079457F /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		34D1D1A51B01ADC20079457F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		34D1D1A61B01ADC20079457F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		34D1D1A81B01ADD30079457F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		34D1D1A91B01ADD30079457F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		34D1D1AA1B01ADD30079457F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		34D1D1AB1B01ADD30079457F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		34D1D1AC1B01ADD30079457F /* GenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenderViewController.h; sourceTree = "<group>"; };
+		34D1D1AD1B01ADD30079457F /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
+		34D1D1AE1B01ADD30079457F /* IntensityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntensityViewController.h; sourceTree = "<group>"; };
+		34D1D1AF1B01ADD30079457F /* IntensityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntensityViewController.m; sourceTree = "<group>"; };
+		34D1D1B01B01ADD30079457F /* GoalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalsViewController.h; sourceTree = "<group>"; };
+		34D1D1B11B01ADD30079457F /* GoalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalsViewController.m; sourceTree = "<group>"; };
+		34D1D1B21B01ADD30079457F /* ExerciseLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseLevelViewController.h; sourceTree = "<group>"; };
+		34D1D1B31B01ADD30079457F /* ExerciseLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseLevelViewController.m; sourceTree = "<group>"; };
+		34D1D1B41B01ADD30079457F /* WorkOutDaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkOutDaysViewController.h; sourceTree = "<group>"; };
+		34D1D1B51B01ADD30079457F /* WorkOutDaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkOutDaysViewController.m; sourceTree = "<group>"; };
+		34D1D1B61B01ADD30079457F /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		34D1D1B71B01ADD30079457F /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		34D1D1B81B01ADD30079457F /* MusicTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTracksViewController.h; sourceTree = "<group>"; };
+		34D1D1B91B01ADD30079457F /* MusicTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTracksViewController.m; sourceTree = "<group>"; };
+		34D1D1BA1B01ADD30079457F /* MusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListViewController.h; sourceTree = "<group>"; };
+		34D1D1BB1B01ADD30079457F /* MusicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicListViewController.m; sourceTree = "<group>"; };
+		34D1D1BC1B01ADD30079457F /* PlayMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMusicViewController.h; sourceTree = "<group>"; };
+		34D1D1BD1B01ADD30079457F /* PlayMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusicViewController.m; sourceTree = "<group>"; };
+		34D1D1BE1B01ADD30079457F /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
+		34D1D1BF1B01ADD30079457F /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
+		34D1D1C01B01ADD30079457F /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
+		34D1D1C11B01ADD30079457F /* CalenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderViewController.m; sourceTree = "<group>"; };
+		34D1D1C21B01ADD30079457F /* MealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealViewController.h; sourceTree = "<group>"; };
+		34D1D1C31B01ADD30079457F /* MealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealViewController.m; sourceTree = "<group>"; };
+		34D1D1C41B01ADD30079457F /* SupplementPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementPlanViewController.h; sourceTree = "<group>"; };
+		34D1D1C51B01ADD30079457F /* SupplementPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementPlanViewController.m; sourceTree = "<group>"; };
+		34D1D1C61B01ADD30079457F /* SupplementProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementProfileViewController.h; sourceTree = "<group>"; };
+		34D1D1C71B01ADD30079457F /* SupplementProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementProfileViewController.m; sourceTree = "<group>"; };
+		34D1D1C81B01ADD30079457F /* SupplementOrderWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementOrderWebViewController.h; sourceTree = "<group>"; };
+		34D1D1C91B01ADD30079457F /* SupplementOrderWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementOrderWebViewController.m; sourceTree = "<group>"; };
+		34D1D1CA1B01ADD30079457F /* FoodProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodProfileViewController.h; sourceTree = "<group>"; };
+		34D1D1CB1B01ADD30079457F /* FoodProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodProfileViewController.m; sourceTree = "<group>"; };
+		34D1D1CC1B01ADD30079457F /* ExerciseProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseProfileViewController.h; sourceTree = "<group>"; };
+		34D1D1CD1B01ADD30079457F /* ExerciseProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseProfileViewController.m; sourceTree = "<group>"; };
+		34D1D1CE1B01ADD30079457F /* ExerciseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseListViewController.h; sourceTree = "<group>"; };
+		34D1D1CF1B01ADD30079457F /* ExerciseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseListViewController.m; sourceTree = "<group>"; };
+		34D1D1D01B01ADD30079457F /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
+		34D1D1D11B01ADD30079457F /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		34D1D1D21B01ADD30079457F /* SwitchPlanItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchPlanItemViewController.h; sourceTree = "<group>"; };
+		34D1D1D31B01ADD30079457F /* SwitchPlanItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchPlanItemViewController.m; sourceTree = "<group>"; };
+		34D1D1D41B01ADD30079457F /* ExcerciseIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExcerciseIndexViewController.h; sourceTree = "<group>"; };
+		34D1D1D51B01ADD30079457F /* ExcerciseIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcerciseIndexViewController.m; sourceTree = "<group>"; };
+		34D1D1ED1B01ADE40079457F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		34D1D1EF1B01ADEC0079457F /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		34D1D1F11B01ADF30079457F /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		34D1D1F31B01ADFA0079457F /* GenderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderViewController.xib; sourceTree = "<group>"; };
+		34D1D1F51B01AE040079457F /* IntensityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntensityViewController.xib; sourceTree = "<group>"; };
+		34D1D1F71B01AE0E0079457F /* GoalsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalsViewController.xib; sourceTree = "<group>"; };
+		34D1D1F91B01AE190079457F /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
+		34D1D1FB1B01AE390079457F /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		34D1D1FD1B01AE3E0079457F /* WorkOutDaysViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkOutDaysViewController.xib; sourceTree = "<group>"; };
+		34D1D1FF1B01AE480079457F /* MusicTracksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicTracksViewController.xib; sourceTree = "<group>"; };
+		34D1D2011B01AE4D0079457F /* MusicListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListViewController.xib; sourceTree = "<group>"; };
+		34D1D2031B01AE5F0079457F /* PlayMusicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayMusicViewController.xib; sourceTree = "<group>"; };
+		34D1D2051B01AE8A0079457F /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
+		34D1D2071B01AE990079457F /* CalenderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalenderViewController.xib; sourceTree = "<group>"; };
+		34D1D2091B01AE9F0079457F /* MealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealViewController.xib; sourceTree = "<group>"; };
+		34D1D20B1B01AEA60079457F /* SupplementPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementPlanViewController.xib; sourceTree = "<group>"; };
+		34D1D20D1B01AEAA0079457F /* SupplementProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementProfileViewController.xib; sourceTree = "<group>"; };
+		34D1D20F1B01AEAF0079457F /* SupplementOrderWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupplementOrderWebViewController.xib; sourceTree = "<group>"; };
+		34D1D2111B01AEB50079457F /* FoodProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodProfileViewController.xib; sourceTree = "<group>"; };
+		34D1D2131B01AEBE0079457F /* ExerciseProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseProfileViewController.xib; sourceTree = "<group>"; };
+		34D1D2151B01AEC30079457F /* ExerciseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseListViewController.xib; sourceTree = "<group>"; };
+		34D1D2171B01AEC90079457F /* ProgressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressViewController.xib; sourceTree = "<group>"; };
+		34D1D2191B01AED00079457F /* SwitchPlanItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchPlanItemViewController.xib; sourceTree = "<group>"; };
+		34D1D21B1B01AF010079457F /* ExcerciseIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExcerciseIndexViewController.xib; sourceTree = "<group>"; };
+		34D1D21E1B01AF240079457F /* ViewTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewTransitions.h; sourceTree = "<group>"; };
+		34D1D21F1B01AF240079457F /* ViewTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewTransitions.m; sourceTree = "<group>"; };
+		34D1D2211B01AF2C0079457F /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFactory.h; sourceTree = "<group>"; };
+		34D1D2221B01AF2C0079457F /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
+		34D1D2241B01AF3C0079457F /* ProfileViewController_Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController_Profile.h; sourceTree = "<group>"; };
+		34D1D2251B01AF430079457F /* SupplementCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementCheck.h; sourceTree = "<group>"; };
+		34D1D2261B01AF430079457F /* SupplementCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementCheck.m; sourceTree = "<group>"; };
+		34D1D2281B01AF4D0079457F /* MealPlanSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealPlanSelection.h; sourceTree = "<group>"; };
+		34D1D2291B01AF4D0079457F /* MealPlanSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealPlanSelection.m; sourceTree = "<group>"; };
+		34D1D22A1B01AF4D0079457F /* WorkoutSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSelection.h; sourceTree = "<group>"; };
+		34D1D22B1B01AF4D0079457F /* WorkoutSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSelection.m; sourceTree = "<group>"; };
+		34D1D22C1B01AF4D0079457F /* BeginnerWorkoutSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeginnerWorkoutSelection.h; sourceTree = "<group>"; };
+		34D1D22D1B01AF4D0079457F /* BeginnerWorkoutSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeginnerWorkoutSelection.m; sourceTree = "<group>"; };
+		34D1D22E1B01AF4D0079457F /* IntermediateWorkoutSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntermediateWorkoutSelection.h; sourceTree = "<group>"; };
+		34D1D22F1B01AF4D0079457F /* IntermediateWorkoutSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntermediateWorkoutSelection.m; sourceTree = "<group>"; };
+		34D1D2301B01AF4D0079457F /* AdvancedWorkoutSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedWorkoutSelection.h; sourceTree = "<group>"; };
+		34D1D2311B01AF4D0079457F /* AdvancedWorkoutSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedWorkoutSelection.m; sourceTree = "<group>"; };
+		34D1D2321B01AF4D0079457F /* SupplementPlanSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementPlanSelection.h; sourceTree = "<group>"; };
+		34D1D2331B01AF4D0079457F /* SupplementPlanSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementPlanSelection.m; sourceTree = "<group>"; };
+		34D1D2341B01AF4D0079457F /* SwitchPlanItemSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchPlanItemSelection.h; sourceTree = "<group>"; };
+		34D1D2351B01AF4D0079457F /* SwitchPlanItemSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchPlanItemSelection.m; sourceTree = "<group>"; };
+		34D1D23E1B01AF940079457F /* NSString+Music_Mix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Music_Mix.h"; sourceTree = "<group>"; };
+		34D1D23F1B01AF940079457F /* NSString+Music_Mix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Music_Mix.m"; sourceTree = "<group>"; };
+		34D1D2401B01AF940079457F /* NSMutableArray+Music_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Music_Data.h"; sourceTree = "<group>"; };
+		34D1D2411B01AF940079457F /* NSMutableArray+Music_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Music_Data.m"; sourceTree = "<group>"; };
+		34D1D2421B01AF940079457F /* NSMutableArray+Homepage_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Homepage_Data.h"; sourceTree = "<group>"; };
+		34D1D2431B01AF940079457F /* NSMutableArray+Homepage_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Homepage_Data.m"; sourceTree = "<group>"; };
+		34D1D2441B01AF940079457F /* NSURL+SupplementOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SupplementOrder.h"; sourceTree = "<group>"; };
+		34D1D2451B01AF940079457F /* NSURL+SupplementOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SupplementOrder.m"; sourceTree = "<group>"; };
+		34D1D2461B01AF940079457F /* NSMutableArray+SportsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SportsList.h"; sourceTree = "<group>"; };
+		34D1D2471B01AF940079457F /* NSMutableArray+SportsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SportsList.m"; sourceTree = "<group>"; };
+		34D1D2481B01AF940079457F /* UILabel+ChangeLabelNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ChangeLabelNumbers.h"; sourceTree = "<group>"; };
+		34D1D2491B01AF940079457F /* UILabel+ChangeLabelNumbers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ChangeLabelNumbers.m"; sourceTree = "<group>"; };
+		34D1D24A1B01AF940079457F /* NSMutableArray+MotivationalQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MotivationalQuote.h"; sourceTree = "<group>"; };
+		34D1D24B1B01AF940079457F /* NSMutableArray+MotivationalQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MotivationalQuote.m"; sourceTree = "<group>"; };
+		34D1D24C1B01AF940079457F /* UIFont+CustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFont.h"; sourceTree = "<group>"; };
+		34D1D24D1B01AF940079457F /* UIFont+CustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFont.m"; sourceTree = "<group>"; };
+		34D1D24E1B01AF940079457F /* UIImageView+Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Bar.h"; sourceTree = "<group>"; };
+		34D1D24F1B01AF940079457F /* UIImageView+Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Bar.m"; sourceTree = "<group>"; };
+		34D1D2501B01AF940079457F /* UINavigationBar+TopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+TopBar.h"; sourceTree = "<group>"; };
+		34D1D2511B01AF940079457F /* UINavigationBar+TopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+TopBar.m"; sourceTree = "<group>"; };
+		34D1D2521B01AF940079457F /* UILabel+Scroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Scroll.h"; sourceTree = "<group>"; };
+		34D1D2531B01AF940079457F /* UILabel+Scroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Scroll.m"; sourceTree = "<group>"; };
+		34D1D2541B01AF940079457F /* UIImageView+Scroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Scroll.h"; sourceTree = "<group>"; };
+		34D1D2551B01AF940079457F /* UIImageView+Scroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Scroll.m"; sourceTree = "<group>"; };
+		34D1D2561B01AF940079457F /* NSString+UserEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UserEmail.h"; sourceTree = "<group>"; };
+		34D1D2571B01AF940079457F /* NSString+UserEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UserEmail.m"; sourceTree = "<group>"; };
+		34D1D2581B01AF940079457F /* NSString+ExerciseToSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ExerciseToSwitch.h"; sourceTree = "<group>"; };
+		34D1D2591B01AF940079457F /* NSString+ExerciseToSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ExerciseToSwitch.m"; sourceTree = "<group>"; };
+		34D1D25A1B01AF940079457F /* NSString+FoodToSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FoodToSwitch.h"; sourceTree = "<group>"; };
+		34D1D25B1B01AF940079457F /* NSString+FoodToSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FoodToSwitch.m"; sourceTree = "<group>"; };
+		34D1D25C1B01AF940079457F /* NSString+Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Gender.h"; sourceTree = "<group>"; };
+		34D1D25D1B01AF940079457F /* NSString+Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Gender.m"; sourceTree = "<group>"; };
+		34D1D25E1B01AF940079457F /* NSMutableArray+PlanLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+PlanLists.h"; sourceTree = "<group>"; };
+		34D1D25F1B01AF940079457F /* NSMutableArray+PlanLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+PlanLists.m"; sourceTree = "<group>"; };
+		34D1D2601B01AF940079457F /* UIViewController+NavigateUIViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigateUIViews.h"; sourceTree = "<group>"; };
+		34D1D2611B01AF940079457F /* UIViewController+NavigateUIViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigateUIViews.m"; sourceTree = "<group>"; };
+		34D1D2621B01AF940079457F /* NSString+FindImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FindImage.h"; sourceTree = "<group>"; };
+		34D1D2631B01AF940079457F /* NSString+FindImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FindImage.m"; sourceTree = "<group>"; };
+		34D1D2641B01AF940079457F /* NSString+SupplementImageName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SupplementImageName.h"; sourceTree = "<group>"; };
+		34D1D2651B01AF950079457F /* NSString+SupplementImageName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SupplementImageName.m"; sourceTree = "<group>"; };
+		34D1D2661B01AF950079457F /* UIViewController+iPhoneScreenSizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+iPhoneScreenSizes.h"; sourceTree = "<group>"; };
+		34D1D2671B01AF950079457F /* UIViewController+iPhoneScreenSizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+iPhoneScreenSizes.m"; sourceTree = "<group>"; };
+		34D1D2681B01AF950079457F /* NSMutableArray+SupplementItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SupplementItems.h"; sourceTree = "<group>"; };
+		34D1D2691B01AF950079457F /* NSMutableArray+SupplementItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SupplementItems.m"; sourceTree = "<group>"; };
+		34D1D26A1B01AF950079457F /* IntensityViewController+BMRCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IntensityViewController+BMRCalculator.h"; sourceTree = "<group>"; };
+		34D1D26B1B01AF950079457F /* IntensityViewController+BMRCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IntensityViewController+BMRCalculator.m"; sourceTree = "<group>"; };
+		34D1D2831B01AFB40079457F /* TFNGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFNGateway.h; sourceTree = "<group>"; };
+		34D1D2841B01AFB40079457F /* TFNGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFNGateway.m; sourceTree = "<group>"; };
+		34D1D2861B01AFCB0079457F /* CPDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDConstants.h; sourceTree = "<group>"; };
+		34D1D2871B01AFCB0079457F /* CPDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDConstants.m; sourceTree = "<group>"; };
+		34D1D2881B01AFCB0079457F /* CPDExerciseProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDExerciseProgress.h; sourceTree = "<group>"; };
+		34D1D2891B01AFCB0079457F /* CPDExerciseProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDExerciseProgress.m; sourceTree = "<group>"; };
+		34D1D28A1B01AFCB0079457F /* CPDWeightProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDWeightProgress.h; sourceTree = "<group>"; };
+		34D1D28B1B01AFCB0079457F /* CPDWeightProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDWeightProgress.m; sourceTree = "<group>"; };
+		34D1D28F1B01B0B30079457F /* MealGroceryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealGroceryList.h; sourceTree = "<group>"; };
+		34D1D2901B01B0B30079457F /* MealGroceryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealGroceryList.m; sourceTree = "<group>"; };
+		34D1D2951B01B1130079457F /* TotallyFreshPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotallyFreshPrefixHeader.pch; sourceTree = "<group>"; };
+		34D1D2961B01B16C0079457F /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		34D1D2971B01B16C0079457F /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		34D1D29A1B01B2EA0079457F /* SHCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCTableViewCell.h; sourceTree = "<group>"; };
+		34D1D29B1B01B2EA0079457F /* SHCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCTableViewCell.m; sourceTree = "<group>"; };
+		34D1D29C1B01B2EA0079457F /* SHCToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCToDoItem.h; sourceTree = "<group>"; };
+		34D1D29D1B01B2EA0079457F /* SHCToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCToDoItem.m; sourceTree = "<group>"; };
+		34D1D29E1B01B2EA0079457F /* SHCTableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCTableViewCellDelegate.h; sourceTree = "<group>"; };
+		34D1D29F1B01B2EA0079457F /* SHCStrikethroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCStrikethroughLabel.h; sourceTree = "<group>"; };
+		34D1D2A01B01B2EA0079457F /* SHCStrikethroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCStrikethroughLabel.m; sourceTree = "<group>"; };
+		34D1D2AE1B01B3F60079457F /* Exercise_Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise_Report.h; sourceTree = "<group>"; };
+		34D1D2AF1B01B3F60079457F /* Exercise_Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise_Report.m; sourceTree = "<group>"; };
+		34D1D2B01B01B3F60079457F /* Breakfast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breakfast.h; sourceTree = "<group>"; };
+		34D1D2B11B01B3F60079457F /* Breakfast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Breakfast.m; sourceTree = "<group>"; };
+		34D1D2B21B01B3F60079457F /* Dinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dinner.h; sourceTree = "<group>"; };
+		34D1D2B31B01B3F60079457F /* Dinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dinner.m; sourceTree = "<group>"; };
+		34D1D2B41B01B3F60079457F /* Second_Snack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Second_Snack.h; sourceTree = "<group>"; };
+		34D1D2B51B01B3F60079457F /* Second_Snack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Second_Snack.m; sourceTree = "<group>"; };
+		34D1D2B61B01B3F60079457F /* Third_Snack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Third_Snack.h; sourceTree = "<group>"; };
+		34D1D2B71B01B3F60079457F /* Third_Snack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Third_Snack.m; sourceTree = "<group>"; };
+		34D1D2B81B01B3F60079457F /* Lunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lunch.h; sourceTree = "<group>"; };
+		34D1D2B91B01B3F60079457F /* Lunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lunch.m; sourceTree = "<group>"; };
+		34D1D2BA1B01B3F60079457F /* First_Snack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = First_Snack.h; sourceTree = "<group>"; };
+		34D1D2BB1B01B3F70079457F /* First_Snack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = First_Snack.m; sourceTree = "<group>"; };
+		34D1D2BC1B01B3F70079457F /* Terms_And_Conditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terms_And_Conditions.h; sourceTree = "<group>"; };
+		34D1D2BD1B01B3F70079457F /* Terms_And_Conditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Terms_And_Conditions.m; sourceTree = "<group>"; };
+		34D1D2BE1B01B3F70079457F /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Users.h; sourceTree = "<group>"; };
+		34D1D2BF1B01B3F70079457F /* Users.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Users.m; sourceTree = "<group>"; };
+		34D1D2C01B01B3F70079457F /* Food_Recipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food_Recipes.h; sourceTree = "<group>"; };
+		34D1D2C11B01B3F70079457F /* Food_Recipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food_Recipes.m; sourceTree = "<group>"; };
+		34D1D2C21B01B3F70079457F /* BMR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMR.h; sourceTree = "<group>"; };
+		34D1D2C31B01B3F70079457F /* BMR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMR.m; sourceTree = "<group>"; };
+		34D1D2C41B01B3F70079457F /* Goals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goals.h; sourceTree = "<group>"; };
+		34D1D2C51B01B3F70079457F /* Goals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goals.m; sourceTree = "<group>"; };
+		34D1D2C61B01B3F70079457F /* Exercise_Levels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise_Levels.h; sourceTree = "<group>"; };
+		34D1D2C71B01B3F70079457F /* Exercise_Levels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise_Levels.m; sourceTree = "<group>"; };
+		34D1D2C81B01B3F70079457F /* Exercise_Days.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise_Days.h; sourceTree = "<group>"; };
+		34D1D2C91B01B3F70079457F /* Exercise_Days.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise_Days.m; sourceTree = "<group>"; };
+		34D1D2CA1B01B3F70079457F /* Work_Out_Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Work_Out_Plan.h; sourceTree = "<group>"; };
+		34D1D2CB1B01B3F70079457F /* Work_Out_Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Work_Out_Plan.m; sourceTree = "<group>"; };
+		34D1D2CC1B01B3F70079457F /* Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progress.h; sourceTree = "<group>"; };
+		34D1D2CD1B01B3F70079457F /* Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progress.m; sourceTree = "<group>"; };
+		34D1D2CE1B01B3F70079457F /* Meal_Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal_Plan.h; sourceTree = "<group>"; };
+		34D1D2CF1B01B3F70079457F /* Meal_Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal_Plan.m; sourceTree = "<group>"; };
+		34D1D2D01B01B3F70079457F /* Grocery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grocery.h; sourceTree = "<group>"; };
+		34D1D2D11B01B3F70079457F /* Grocery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grocery.m; sourceTree = "<group>"; };
+		34D1D2D21B01B3F70079457F /* Exercises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercises.h; sourceTree = "<group>"; };
+		34D1D2D31B01B3F70079457F /* Exercises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercises.m; sourceTree = "<group>"; };
+		34D1D2D41B01B3F70079457F /* Workout_Day_Four.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_Four.h; sourceTree = "<group>"; };
+		34D1D2D51B01B3F70079457F /* Workout_Day_Four.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_Four.m; sourceTree = "<group>"; };
+		34D1D2D61B01B3F70079457F /* Workout_Day_Seven.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_Seven.h; sourceTree = "<group>"; };
+		34D1D2D71B01B3F70079457F /* Workout_Day_Seven.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_Seven.m; sourceTree = "<group>"; };
+		34D1D2D81B01B3F70079457F /* Workout_Day_Six.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_Six.h; sourceTree = "<group>"; };
+		34D1D2D91B01B3F70079457F /* Workout_Day_Six.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_Six.m; sourceTree = "<group>"; };
+		34D1D2DA1B01B3F70079457F /* Workout_Day_Five.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_Five.h; sourceTree = "<group>"; };
+		34D1D2DB1B01B3F70079457F /* Workout_Day_Five.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_Five.m; sourceTree = "<group>"; };
+		34D1D2DC1B01B3F70079457F /* Workout_Day_One.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_One.h; sourceTree = "<group>"; };
+		34D1D2DD1B01B3F70079457F /* Workout_Day_One.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_One.m; sourceTree = "<group>"; };
+		34D1D2DE1B01B3F70079457F /* Workout_Day_Three.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_Three.h; sourceTree = "<group>"; };
+		34D1D2DF1B01B3F70079457F /* Workout_Day_Three.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_Three.m; sourceTree = "<group>"; };
+		34D1D2E01B01B3F70079457F /* Workout_Day_Two.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout_Day_Two.h; sourceTree = "<group>"; };
+		34D1D2E11B01B3F70079457F /* Workout_Day_Two.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout_Day_Two.m; sourceTree = "<group>"; };
+		34D1D2E21B01B3F70079457F /* SupplementPostWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementPostWorkout.h; sourceTree = "<group>"; };
+		34D1D2E31B01B3F70079457F /* SupplementPostWorkout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementPostWorkout.m; sourceTree = "<group>"; };
+		34D1D2E41B01B3F70079457F /* SupplementBeforeBed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementBeforeBed.h; sourceTree = "<group>"; };
+		34D1D2E51B01B3F70079457F /* SupplementBeforeBed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementBeforeBed.m; sourceTree = "<group>"; };
+		34D1D2E61B01B3F70079457F /* SupplementPreWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementPreWorkout.h; sourceTree = "<group>"; };
+		34D1D2E71B01B3F70079457F /* SupplementPreWorkout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementPreWorkout.m; sourceTree = "<group>"; };
+		34D1D2E81B01B3F70079457F /* SupplementBreakfast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementBreakfast.h; sourceTree = "<group>"; };
+		34D1D2E91B01B3F70079457F /* SupplementBreakfast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementBreakfast.m; sourceTree = "<group>"; };
+		34D1D3091B01B42D0079457F /* SupplementPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplementPlanManager.h; sourceTree = "<group>"; };
+		34D1D30A1B01B42D0079457F /* SupplementPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplementPlanManager.m; sourceTree = "<group>"; };
+		34D1D30B1B01B42E0079457F /* BreakFastSupplementPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakFastSupplementPlanManager.h; sourceTree = "<group>"; };
+		34D1D30C1B01B42E0079457F /* BreakFastSupplementPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakFastSupplementPlanManager.m; sourceTree = "<group>"; };
+		34D1D30D1B01B42E0079457F /* PreWorkoutSupplementPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreWorkoutSupplementPlanManager.h; sourceTree = "<group>"; };
+		34D1D30E1B01B42E0079457F /* PreWorkoutSupplementPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreWorkoutSupplementPlanManager.m; sourceTree = "<group>"; };
+		34D1D30F1B01B42E0079457F /* PostWorkoutSupplementPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostWorkoutSupplementPlanManager.h; sourceTree = "<group>"; };
+		34D1D3101B01B42E0079457F /* PostWorkoutSupplementPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostWorkoutSupplementPlanManager.m; sourceTree = "<group>"; };
+		34D1D3111B01B42E0079457F /* BeforeBedSupplementPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeforeBedSupplementPlanManager.h; sourceTree = "<group>"; };
+		34D1D3121B01B42E0079457F /* BeforeBedSupplementPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeforeBedSupplementPlanManager.m; sourceTree = "<group>"; };
+		34D1D3181B01B43A0079457F /* WorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D3191B01B43A0079457F /* WorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D31A1B01B43A0079457F /* FirstDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D31B1B01B43A0079457F /* FirstDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D31C1B01B43A0079457F /* SecondDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D31D1B01B43A0079457F /* SecondDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D31E1B01B43A0079457F /* ThirdDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D31F1B01B43A0079457F /* ThirdDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D3201B01B43A0079457F /* FourthDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D3211B01B43A0079457F /* FourthDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D3221B01B43A0079457F /* FifthDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D3231B01B43A0079457F /* FifthDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D3241B01B43A0079457F /* SixthDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D3251B01B43A0079457F /* SixthDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D3261B01B43A0079457F /* SeventhDayWorkoutPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeventhDayWorkoutPlanManager.h; sourceTree = "<group>"; };
+		34D1D3271B01B43A0079457F /* SeventhDayWorkoutPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeventhDayWorkoutPlanManager.m; sourceTree = "<group>"; };
+		34D1D3301B01B4450079457F /* MealPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealPlanManager.h; sourceTree = "<group>"; };
+		34D1D3311B01B4450079457F /* MealPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealPlanManager.m; sourceTree = "<group>"; };
+		34D1D3321B01B4450079457F /* BreakFastPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakFastPlanManager.h; sourceTree = "<group>"; };
+		34D1D3331B01B4450079457F /* BreakFastPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakFastPlanManager.m; sourceTree = "<group>"; };
+		34D1D3341B01B4450079457F /* FirstSnackPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSnackPlanManager.h; sourceTree = "<group>"; };
+		34D1D3351B01B4450079457F /* FirstSnackPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSnackPlanManager.m; sourceTree = "<group>"; };
+		34D1D3361B01B4450079457F /* LunchPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunchPlanManager.h; sourceTree = "<group>"; };
+		34D1D3371B01B4450079457F /* LunchPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunchPlanManager.m; sourceTree = "<group>"; };
+		34D1D3381B01B4450079457F /* SecondSnackPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSnackPlanManager.h; sourceTree = "<group>"; };
+		34D1D3391B01B4460079457F /* SecondSnackPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSnackPlanManager.m; sourceTree = "<group>"; };
+		34D1D33A1B01B4460079457F /* DinnerPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerPlanManager.h; sourceTree = "<group>"; };
+		34D1D33B1B01B4460079457F /* DinnerPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerPlanManager.m; sourceTree = "<group>"; };
+		34D1D33C1B01B4460079457F /* ThirdSnackPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdSnackPlanManager.h; sourceTree = "<group>"; };
+		34D1D33D1B01B4460079457F /* ThirdSnackPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdSnackPlanManager.m; sourceTree = "<group>"; };
+		34D1D3451B01B4780079457F /* TestMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMutableArray.h; sourceTree = "<group>"; };
+		34D1D3461B01B4780079457F /* TestMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMutableArray.m; sourceTree = "<group>"; };
+		34D1D3481B01B47F0079457F /* Total_Fitness_and_NutritionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Total_Fitness_and_NutritionTests.h; sourceTree = "<group>"; };
+		34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Total_Fitness_and_NutritionTests.m; sourceTree = "<group>"; };
+		34D1D34B1B01B49C0079457F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		34D1D34C1B01B49C0079457F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		34D1D34E1B01B4AC0079457F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		34D1D3501B01B4B20079457F /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		34D1D3511B01B4B20079457F /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		34D1D3521B01B4B20079457F /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TotallyFreshFitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7396AC39AD84D317A09E44 /* Pods-TotallyFreshFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotallyFreshFitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-TotallyFreshFitness/Pods-TotallyFreshFitness.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,8 +508,12 @@
 			children = (
 				34D1D17C1B01A8DD0079457F /* AppDelegate.h */,
 				34D1D17D1B01A8DD0079457F /* AppDelegate.m */,
+				34D1D2951B01B1130079457F /* TotallyFreshPrefixHeader.pch */,
 				34D1D17F1B01A8DD0079457F /* ViewController.h */,
 				34D1D1801B01A8DD0079457F /* ViewController.m */,
+				34D1D2991B01B2E00079457F /* ClearStyle */,
+				34D1D23D1B01AF670079457F /* Categories */,
+				34D1D19F1B01ACA40079457F /* TotallyStale */,
 				34D1D1851B01A8DD0079457F /* Images.xcassets */,
 				34D1D1871B01A8DD0079457F /* LaunchScreen.xib */,
 				34D1D1781B01A8DD0079457F /* Supporting Files */,
@@ -109,6 +533,10 @@
 		34D1D1911B01A8DD0079457F /* TotallyFreshFitnessTests */ = {
 			isa = PBXGroup;
 			children = (
+				34D1D3451B01B4780079457F /* TestMutableArray.h */,
+				34D1D3461B01B4780079457F /* TestMutableArray.m */,
+				34D1D3481B01B47F0079457F /* Total_Fitness_and_NutritionTests.h */,
+				34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */,
 				34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */,
 				34D1D1921B01A8DD0079457F /* Supporting Files */,
 			);
@@ -121,6 +549,318 @@
 				34D1D1931B01A8DD0079457F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		34D1D19F1B01ACA40079457F /* TotallyStale */ = {
+			isa = PBXGroup;
+			children = (
+				34D1D34B1B01B49C0079457F /* HomeViewController.h */,
+				34D1D34C1B01B49C0079457F /* HomeViewController.m */,
+				34D1D34E1B01B4AC0079457F /* HomeViewController.xib */,
+				34D1D3511B01B4B20079457F /* HomeTableViewCell.h */,
+				34D1D3521B01B4B20079457F /* HomeTableViewCell.m */,
+				34D1D3501B01B4B20079457F /* HomeCell.xib */,
+				34D1D3081B01B41E0079457F /* Managers */,
+				34D1D2AD1B01B3EB0079457F /* Model */,
+				34D1D21D1B01AF190079457F /* Etc */,
+				34D1D1A01B01ACBE0079457F /* RootViewController.h */,
+				34D1D1A11B01ACBE0079457F /* RootViewController.m */,
+				34D1D1A31B01ACCE0079457F /* RootViewController.xib */,
+				34D1D1A51B01ADC20079457F /* LoginViewController.h */,
+				34D1D1A61B01ADC20079457F /* LoginViewController.m */,
+				34D1D1ED1B01ADE40079457F /* LoginViewController.xib */,
+				34D1D1A81B01ADD30079457F /* RegisterViewController.h */,
+				34D1D1A91B01ADD30079457F /* RegisterViewController.m */,
+				34D1D1EF1B01ADEC0079457F /* RegisterViewController.xib */,
+				34D1D1AA1B01ADD30079457F /* ProfileViewController.h */,
+				34D1D1AB1B01ADD30079457F /* ProfileViewController.m */,
+				34D1D1F11B01ADF30079457F /* ProfileViewController.xib */,
+				34D1D1AC1B01ADD30079457F /* GenderViewController.h */,
+				34D1D1AD1B01ADD30079457F /* GenderViewController.m */,
+				34D1D1F31B01ADFA0079457F /* GenderViewController.xib */,
+				34D1D1AE1B01ADD30079457F /* IntensityViewController.h */,
+				34D1D1AF1B01ADD30079457F /* IntensityViewController.m */,
+				34D1D1F51B01AE040079457F /* IntensityViewController.xib */,
+				34D1D1B01B01ADD30079457F /* GoalsViewController.h */,
+				34D1D1B11B01ADD30079457F /* GoalsViewController.m */,
+				34D1D1F71B01AE0E0079457F /* GoalsViewController.xib */,
+				34D1D1B21B01ADD30079457F /* ExerciseLevelViewController.h */,
+				34D1D1B31B01ADD30079457F /* ExerciseLevelViewController.m */,
+				34D1D1F91B01AE190079457F /* ExerciseViewController.xib */,
+				34D1D1B41B01ADD30079457F /* WorkOutDaysViewController.h */,
+				34D1D1B51B01ADD30079457F /* WorkOutDaysViewController.m */,
+				34D1D1FD1B01AE3E0079457F /* WorkOutDaysViewController.xib */,
+				34D1D1B61B01ADD30079457F /* ResultViewController.h */,
+				34D1D1B71B01ADD30079457F /* ResultViewController.m */,
+				34D1D1FB1B01AE390079457F /* ResultViewController.xib */,
+				34D1D1B81B01ADD30079457F /* MusicTracksViewController.h */,
+				34D1D1B91B01ADD30079457F /* MusicTracksViewController.m */,
+				34D1D1FF1B01AE480079457F /* MusicTracksViewController.xib */,
+				34D1D1BA1B01ADD30079457F /* MusicListViewController.h */,
+				34D1D1BB1B01ADD30079457F /* MusicListViewController.m */,
+				34D1D2011B01AE4D0079457F /* MusicListViewController.xib */,
+				34D1D1BC1B01ADD30079457F /* PlayMusicViewController.h */,
+				34D1D1BD1B01ADD30079457F /* PlayMusicViewController.m */,
+				34D1D2031B01AE5F0079457F /* PlayMusicViewController.xib */,
+				34D1D1BE1B01ADD30079457F /* ExerciseViewController.h */,
+				34D1D1BF1B01ADD30079457F /* ExerciseViewController.m */,
+				34D1D2051B01AE8A0079457F /* ExerciseViewController.xib */,
+				34D1D1C01B01ADD30079457F /* CalenderViewController.h */,
+				34D1D1C11B01ADD30079457F /* CalenderViewController.m */,
+				34D1D2071B01AE990079457F /* CalenderViewController.xib */,
+				34D1D1C21B01ADD30079457F /* MealViewController.h */,
+				34D1D1C31B01ADD30079457F /* MealViewController.m */,
+				34D1D2091B01AE9F0079457F /* MealViewController.xib */,
+				34D1D1C41B01ADD30079457F /* SupplementPlanViewController.h */,
+				34D1D1C51B01ADD30079457F /* SupplementPlanViewController.m */,
+				34D1D20B1B01AEA60079457F /* SupplementPlanViewController.xib */,
+				34D1D1C61B01ADD30079457F /* SupplementProfileViewController.h */,
+				34D1D1C71B01ADD30079457F /* SupplementProfileViewController.m */,
+				34D1D20D1B01AEAA0079457F /* SupplementProfileViewController.xib */,
+				34D1D1C81B01ADD30079457F /* SupplementOrderWebViewController.h */,
+				34D1D1C91B01ADD30079457F /* SupplementOrderWebViewController.m */,
+				34D1D20F1B01AEAF0079457F /* SupplementOrderWebViewController.xib */,
+				34D1D1CA1B01ADD30079457F /* FoodProfileViewController.h */,
+				34D1D1CB1B01ADD30079457F /* FoodProfileViewController.m */,
+				34D1D2111B01AEB50079457F /* FoodProfileViewController.xib */,
+				34D1D1CC1B01ADD30079457F /* ExerciseProfileViewController.h */,
+				34D1D1CD1B01ADD30079457F /* ExerciseProfileViewController.m */,
+				34D1D2131B01AEBE0079457F /* ExerciseProfileViewController.xib */,
+				34D1D1CE1B01ADD30079457F /* ExerciseListViewController.h */,
+				34D1D1CF1B01ADD30079457F /* ExerciseListViewController.m */,
+				34D1D2151B01AEC30079457F /* ExerciseListViewController.xib */,
+				34D1D1D01B01ADD30079457F /* ProgressViewController.h */,
+				34D1D1D11B01ADD30079457F /* ProgressViewController.m */,
+				34D1D2171B01AEC90079457F /* ProgressViewController.xib */,
+				34D1D1D21B01ADD30079457F /* SwitchPlanItemViewController.h */,
+				34D1D1D31B01ADD30079457F /* SwitchPlanItemViewController.m */,
+				34D1D2191B01AED00079457F /* SwitchPlanItemViewController.xib */,
+				34D1D1D41B01ADD30079457F /* ExcerciseIndexViewController.h */,
+				34D1D1D51B01ADD30079457F /* ExcerciseIndexViewController.m */,
+				34D1D21B1B01AF010079457F /* ExcerciseIndexViewController.xib */,
+			);
+			name = TotallyStale;
+			sourceTree = "<group>";
+		};
+		34D1D21D1B01AF190079457F /* Etc */ = {
+			isa = PBXGroup;
+			children = (
+				34D1D2961B01B16C0079457F /* Database.h */,
+				34D1D2971B01B16C0079457F /* Database.m */,
+				34D1D28F1B01B0B30079457F /* MealGroceryList.h */,
+				34D1D2901B01B0B30079457F /* MealGroceryList.m */,
+				34D1D2861B01AFCB0079457F /* CPDConstants.h */,
+				34D1D2871B01AFCB0079457F /* CPDConstants.m */,
+				34D1D2881B01AFCB0079457F /* CPDExerciseProgress.h */,
+				34D1D2891B01AFCB0079457F /* CPDExerciseProgress.m */,
+				34D1D28A1B01AFCB0079457F /* CPDWeightProgress.h */,
+				34D1D28B1B01AFCB0079457F /* CPDWeightProgress.m */,
+				34D1D2831B01AFB40079457F /* TFNGateway.h */,
+				34D1D2841B01AFB40079457F /* TFNGateway.m */,
+				34D1D21E1B01AF240079457F /* ViewTransitions.h */,
+				34D1D21F1B01AF240079457F /* ViewTransitions.m */,
+				34D1D2211B01AF2C0079457F /* ViewFactory.h */,
+				34D1D2221B01AF2C0079457F /* ViewFactory.m */,
+				34D1D2241B01AF3C0079457F /* ProfileViewController_Profile.h */,
+				34D1D2251B01AF430079457F /* SupplementCheck.h */,
+				34D1D2261B01AF430079457F /* SupplementCheck.m */,
+				34D1D2281B01AF4D0079457F /* MealPlanSelection.h */,
+				34D1D2291B01AF4D0079457F /* MealPlanSelection.m */,
+				34D1D22A1B01AF4D0079457F /* WorkoutSelection.h */,
+				34D1D22B1B01AF4D0079457F /* WorkoutSelection.m */,
+				34D1D22C1B01AF4D0079457F /* BeginnerWorkoutSelection.h */,
+				34D1D22D1B01AF4D0079457F /* BeginnerWorkoutSelection.m */,
+				34D1D22E1B01AF4D0079457F /* IntermediateWorkoutSelection.h */,
+				34D1D22F1B01AF4D0079457F /* IntermediateWorkoutSelection.m */,
+				34D1D2301B01AF4D0079457F /* AdvancedWorkoutSelection.h */,
+				34D1D2311B01AF4D0079457F /* AdvancedWorkoutSelection.m */,
+				34D1D2321B01AF4D0079457F /* SupplementPlanSelection.h */,
+				34D1D2331B01AF4D0079457F /* SupplementPlanSelection.m */,
+				34D1D2341B01AF4D0079457F /* SwitchPlanItemSelection.h */,
+				34D1D2351B01AF4D0079457F /* SwitchPlanItemSelection.m */,
+			);
+			name = Etc;
+			sourceTree = "<group>";
+		};
+		34D1D23D1B01AF670079457F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				34D1D23E1B01AF940079457F /* NSString+Music_Mix.h */,
+				34D1D23F1B01AF940079457F /* NSString+Music_Mix.m */,
+				34D1D2401B01AF940079457F /* NSMutableArray+Music_Data.h */,
+				34D1D2411B01AF940079457F /* NSMutableArray+Music_Data.m */,
+				34D1D2421B01AF940079457F /* NSMutableArray+Homepage_Data.h */,
+				34D1D2431B01AF940079457F /* NSMutableArray+Homepage_Data.m */,
+				34D1D2441B01AF940079457F /* NSURL+SupplementOrder.h */,
+				34D1D2451B01AF940079457F /* NSURL+SupplementOrder.m */,
+				34D1D2461B01AF940079457F /* NSMutableArray+SportsList.h */,
+				34D1D2471B01AF940079457F /* NSMutableArray+SportsList.m */,
+				34D1D2481B01AF940079457F /* UILabel+ChangeLabelNumbers.h */,
+				34D1D2491B01AF940079457F /* UILabel+ChangeLabelNumbers.m */,
+				34D1D24A1B01AF940079457F /* NSMutableArray+MotivationalQuote.h */,
+				34D1D24B1B01AF940079457F /* NSMutableArray+MotivationalQuote.m */,
+				34D1D24C1B01AF940079457F /* UIFont+CustomFont.h */,
+				34D1D24D1B01AF940079457F /* UIFont+CustomFont.m */,
+				34D1D24E1B01AF940079457F /* UIImageView+Bar.h */,
+				34D1D24F1B01AF940079457F /* UIImageView+Bar.m */,
+				34D1D2501B01AF940079457F /* UINavigationBar+TopBar.h */,
+				34D1D2511B01AF940079457F /* UINavigationBar+TopBar.m */,
+				34D1D2521B01AF940079457F /* UILabel+Scroll.h */,
+				34D1D2531B01AF940079457F /* UILabel+Scroll.m */,
+				34D1D2541B01AF940079457F /* UIImageView+Scroll.h */,
+				34D1D2551B01AF940079457F /* UIImageView+Scroll.m */,
+				34D1D2561B01AF940079457F /* NSString+UserEmail.h */,
+				34D1D2571B01AF940079457F /* NSString+UserEmail.m */,
+				34D1D2581B01AF940079457F /* NSString+ExerciseToSwitch.h */,
+				34D1D2591B01AF940079457F /* NSString+ExerciseToSwitch.m */,
+				34D1D25A1B01AF940079457F /* NSString+FoodToSwitch.h */,
+				34D1D25B1B01AF940079457F /* NSString+FoodToSwitch.m */,
+				34D1D25C1B01AF940079457F /* NSString+Gender.h */,
+				34D1D25D1B01AF940079457F /* NSString+Gender.m */,
+				34D1D25E1B01AF940079457F /* NSMutableArray+PlanLists.h */,
+				34D1D25F1B01AF940079457F /* NSMutableArray+PlanLists.m */,
+				34D1D2601B01AF940079457F /* UIViewController+NavigateUIViews.h */,
+				34D1D2611B01AF940079457F /* UIViewController+NavigateUIViews.m */,
+				34D1D2621B01AF940079457F /* NSString+FindImage.h */,
+				34D1D2631B01AF940079457F /* NSString+FindImage.m */,
+				34D1D2641B01AF940079457F /* NSString+SupplementImageName.h */,
+				34D1D2651B01AF950079457F /* NSString+SupplementImageName.m */,
+				34D1D2661B01AF950079457F /* UIViewController+iPhoneScreenSizes.h */,
+				34D1D2671B01AF950079457F /* UIViewController+iPhoneScreenSizes.m */,
+				34D1D2681B01AF950079457F /* NSMutableArray+SupplementItems.h */,
+				34D1D2691B01AF950079457F /* NSMutableArray+SupplementItems.m */,
+				34D1D26A1B01AF950079457F /* IntensityViewController+BMRCalculator.h */,
+				34D1D26B1B01AF950079457F /* IntensityViewController+BMRCalculator.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		34D1D2991B01B2E00079457F /* ClearStyle */ = {
+			isa = PBXGroup;
+			children = (
+				34D1D29A1B01B2EA0079457F /* SHCTableViewCell.h */,
+				34D1D29B1B01B2EA0079457F /* SHCTableViewCell.m */,
+				34D1D29C1B01B2EA0079457F /* SHCToDoItem.h */,
+				34D1D29D1B01B2EA0079457F /* SHCToDoItem.m */,
+				34D1D29E1B01B2EA0079457F /* SHCTableViewCellDelegate.h */,
+				34D1D29F1B01B2EA0079457F /* SHCStrikethroughLabel.h */,
+				34D1D2A01B01B2EA0079457F /* SHCStrikethroughLabel.m */,
+			);
+			name = ClearStyle;
+			sourceTree = "<group>";
+		};
+		34D1D2AD1B01B3EB0079457F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				34D1D2AE1B01B3F60079457F /* Exercise_Report.h */,
+				34D1D2AF1B01B3F60079457F /* Exercise_Report.m */,
+				34D1D2B01B01B3F60079457F /* Breakfast.h */,
+				34D1D2B11B01B3F60079457F /* Breakfast.m */,
+				34D1D2B21B01B3F60079457F /* Dinner.h */,
+				34D1D2B31B01B3F60079457F /* Dinner.m */,
+				34D1D2B41B01B3F60079457F /* Second_Snack.h */,
+				34D1D2B51B01B3F60079457F /* Second_Snack.m */,
+				34D1D2B61B01B3F60079457F /* Third_Snack.h */,
+				34D1D2B71B01B3F60079457F /* Third_Snack.m */,
+				34D1D2B81B01B3F60079457F /* Lunch.h */,
+				34D1D2B91B01B3F60079457F /* Lunch.m */,
+				34D1D2BA1B01B3F60079457F /* First_Snack.h */,
+				34D1D2BB1B01B3F70079457F /* First_Snack.m */,
+				34D1D2BC1B01B3F70079457F /* Terms_And_Conditions.h */,
+				34D1D2BD1B01B3F70079457F /* Terms_And_Conditions.m */,
+				34D1D2BE1B01B3F70079457F /* Users.h */,
+				34D1D2BF1B01B3F70079457F /* Users.m */,
+				34D1D2C01B01B3F70079457F /* Food_Recipes.h */,
+				34D1D2C11B01B3F70079457F /* Food_Recipes.m */,
+				34D1D2C21B01B3F70079457F /* BMR.h */,
+				34D1D2C31B01B3F70079457F /* BMR.m */,
+				34D1D2C41B01B3F70079457F /* Goals.h */,
+				34D1D2C51B01B3F70079457F /* Goals.m */,
+				34D1D2C61B01B3F70079457F /* Exercise_Levels.h */,
+				34D1D2C71B01B3F70079457F /* Exercise_Levels.m */,
+				34D1D2C81B01B3F70079457F /* Exercise_Days.h */,
+				34D1D2C91B01B3F70079457F /* Exercise_Days.m */,
+				34D1D2CA1B01B3F70079457F /* Work_Out_Plan.h */,
+				34D1D2CB1B01B3F70079457F /* Work_Out_Plan.m */,
+				34D1D2CC1B01B3F70079457F /* Progress.h */,
+				34D1D2CD1B01B3F70079457F /* Progress.m */,
+				34D1D2CE1B01B3F70079457F /* Meal_Plan.h */,
+				34D1D2CF1B01B3F70079457F /* Meal_Plan.m */,
+				34D1D2D01B01B3F70079457F /* Grocery.h */,
+				34D1D2D11B01B3F70079457F /* Grocery.m */,
+				34D1D2D21B01B3F70079457F /* Exercises.h */,
+				34D1D2D31B01B3F70079457F /* Exercises.m */,
+				34D1D2D41B01B3F70079457F /* Workout_Day_Four.h */,
+				34D1D2D51B01B3F70079457F /* Workout_Day_Four.m */,
+				34D1D2D61B01B3F70079457F /* Workout_Day_Seven.h */,
+				34D1D2D71B01B3F70079457F /* Workout_Day_Seven.m */,
+				34D1D2D81B01B3F70079457F /* Workout_Day_Six.h */,
+				34D1D2D91B01B3F70079457F /* Workout_Day_Six.m */,
+				34D1D2DA1B01B3F70079457F /* Workout_Day_Five.h */,
+				34D1D2DB1B01B3F70079457F /* Workout_Day_Five.m */,
+				34D1D2DC1B01B3F70079457F /* Workout_Day_One.h */,
+				34D1D2DD1B01B3F70079457F /* Workout_Day_One.m */,
+				34D1D2DE1B01B3F70079457F /* Workout_Day_Three.h */,
+				34D1D2DF1B01B3F70079457F /* Workout_Day_Three.m */,
+				34D1D2E01B01B3F70079457F /* Workout_Day_Two.h */,
+				34D1D2E11B01B3F70079457F /* Workout_Day_Two.m */,
+				34D1D2E21B01B3F70079457F /* SupplementPostWorkout.h */,
+				34D1D2E31B01B3F70079457F /* SupplementPostWorkout.m */,
+				34D1D2E41B01B3F70079457F /* SupplementBeforeBed.h */,
+				34D1D2E51B01B3F70079457F /* SupplementBeforeBed.m */,
+				34D1D2E61B01B3F70079457F /* SupplementPreWorkout.h */,
+				34D1D2E71B01B3F70079457F /* SupplementPreWorkout.m */,
+				34D1D2E81B01B3F70079457F /* SupplementBreakfast.h */,
+				34D1D2E91B01B3F70079457F /* SupplementBreakfast.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		34D1D3081B01B41E0079457F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				34D1D3301B01B4450079457F /* MealPlanManager.h */,
+				34D1D3311B01B4450079457F /* MealPlanManager.m */,
+				34D1D3321B01B4450079457F /* BreakFastPlanManager.h */,
+				34D1D3331B01B4450079457F /* BreakFastPlanManager.m */,
+				34D1D3341B01B4450079457F /* FirstSnackPlanManager.h */,
+				34D1D3351B01B4450079457F /* FirstSnackPlanManager.m */,
+				34D1D3361B01B4450079457F /* LunchPlanManager.h */,
+				34D1D3371B01B4450079457F /* LunchPlanManager.m */,
+				34D1D3381B01B4450079457F /* SecondSnackPlanManager.h */,
+				34D1D3391B01B4460079457F /* SecondSnackPlanManager.m */,
+				34D1D33A1B01B4460079457F /* DinnerPlanManager.h */,
+				34D1D33B1B01B4460079457F /* DinnerPlanManager.m */,
+				34D1D33C1B01B4460079457F /* ThirdSnackPlanManager.h */,
+				34D1D33D1B01B4460079457F /* ThirdSnackPlanManager.m */,
+				34D1D3181B01B43A0079457F /* WorkoutPlanManager.h */,
+				34D1D3191B01B43A0079457F /* WorkoutPlanManager.m */,
+				34D1D31A1B01B43A0079457F /* FirstDayWorkoutPlanManager.h */,
+				34D1D31B1B01B43A0079457F /* FirstDayWorkoutPlanManager.m */,
+				34D1D31C1B01B43A0079457F /* SecondDayWorkoutPlanManager.h */,
+				34D1D31D1B01B43A0079457F /* SecondDayWorkoutPlanManager.m */,
+				34D1D31E1B01B43A0079457F /* ThirdDayWorkoutPlanManager.h */,
+				34D1D31F1B01B43A0079457F /* ThirdDayWorkoutPlanManager.m */,
+				34D1D3201B01B43A0079457F /* FourthDayWorkoutPlanManager.h */,
+				34D1D3211B01B43A0079457F /* FourthDayWorkoutPlanManager.m */,
+				34D1D3221B01B43A0079457F /* FifthDayWorkoutPlanManager.h */,
+				34D1D3231B01B43A0079457F /* FifthDayWorkoutPlanManager.m */,
+				34D1D3241B01B43A0079457F /* SixthDayWorkoutPlanManager.h */,
+				34D1D3251B01B43A0079457F /* SixthDayWorkoutPlanManager.m */,
+				34D1D3261B01B43A0079457F /* SeventhDayWorkoutPlanManager.h */,
+				34D1D3271B01B43A0079457F /* SeventhDayWorkoutPlanManager.m */,
+				34D1D3091B01B42D0079457F /* SupplementPlanManager.h */,
+				34D1D30A1B01B42D0079457F /* SupplementPlanManager.m */,
+				34D1D30B1B01B42E0079457F /* BreakFastSupplementPlanManager.h */,
+				34D1D30C1B01B42E0079457F /* BreakFastSupplementPlanManager.m */,
+				34D1D30D1B01B42E0079457F /* PreWorkoutSupplementPlanManager.h */,
+				34D1D30E1B01B42E0079457F /* PreWorkoutSupplementPlanManager.m */,
+				34D1D30F1B01B42E0079457F /* PostWorkoutSupplementPlanManager.h */,
+				34D1D3101B01B42E0079457F /* PostWorkoutSupplementPlanManager.m */,
+				34D1D3111B01B42E0079457F /* BeforeBedSupplementPlanManager.h */,
+				34D1D3121B01B42E0079457F /* BeforeBedSupplementPlanManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		69AAFD1C08CDF76D114129E0 /* Pods */ = {
@@ -222,8 +962,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34D1D21C1B01AF010079457F /* ExcerciseIndexViewController.xib in Resources */,
+				34D1D2021B01AE4D0079457F /* MusicListViewController.xib in Resources */,
+				34D1D3531B01B4B20079457F /* HomeCell.xib in Resources */,
+				34D1D2001B01AE480079457F /* MusicTracksViewController.xib in Resources */,
+				34D1D2061B01AE8A0079457F /* ExerciseViewController.xib in Resources */,
+				34D1D1FA1B01AE190079457F /* ExerciseViewController.xib in Resources */,
+				34D1D1F41B01ADFA0079457F /* GenderViewController.xib in Resources */,
+				34D1D20C1B01AEA60079457F /* SupplementPlanViewController.xib in Resources */,
+				34D1D21A1B01AED00079457F /* SwitchPlanItemViewController.xib in Resources */,
+				34D1D1F21B01ADF30079457F /* ProfileViewController.xib in Resources */,
+				34D1D2141B01AEBE0079457F /* ExerciseProfileViewController.xib in Resources */,
+				34D1D2081B01AE990079457F /* CalenderViewController.xib in Resources */,
+				34D1D1F61B01AE040079457F /* IntensityViewController.xib in Resources */,
+				34D1D2161B01AEC30079457F /* ExerciseListViewController.xib in Resources */,
+				34D1D1FC1B01AE390079457F /* ResultViewController.xib in Resources */,
+				34D1D2121B01AEB50079457F /* FoodProfileViewController.xib in Resources */,
+				34D1D1EE1B01ADE40079457F /* LoginViewController.xib in Resources */,
+				34D1D1F01B01ADEC0079457F /* RegisterViewController.xib in Resources */,
+				34D1D2041B01AE5F0079457F /* PlayMusicViewController.xib in Resources */,
+				34D1D2101B01AEAF0079457F /* SupplementOrderWebViewController.xib in Resources */,
+				34D1D34F1B01B4AC0079457F /* HomeViewController.xib in Resources */,
 				34D1D1891B01A8DD0079457F /* LaunchScreen.xib in Resources */,
+				34D1D20A1B01AE9F0079457F /* MealViewController.xib in Resources */,
 				34D1D1861B01A8DD0079457F /* Images.xcassets in Resources */,
+				34D1D1FE1B01AE3E0079457F /* WorkOutDaysViewController.xib in Resources */,
+				34D1D20E1B01AEAA0079457F /* SupplementProfileViewController.xib in Resources */,
+				34D1D1F81B01AE0E0079457F /* GoalsViewController.xib in Resources */,
+				34D1D2181B01AEC90079457F /* ProgressViewController.xib in Resources */,
+				34D1D1A41B01ACCE0079457F /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +1041,128 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34D1D2271B01AF430079457F /* SupplementCheck.m in Sources */,
+				34D1D3421B01B4460079457F /* SecondSnackPlanManager.m in Sources */,
 				34D1D1811B01A8DD0079457F /* ViewController.m in Sources */,
+				34D1D2F51B01B3F70079457F /* Goals.m in Sources */,
+				34D1D32F1B01B43A0079457F /* SeventhDayWorkoutPlanManager.m in Sources */,
+				34D1D2EE1B01B3F70079457F /* Third_Snack.m in Sources */,
+				34D1D2A31B01B2EA0079457F /* SHCStrikethroughLabel.m in Sources */,
+				34D1D27C1B01AF950079457F /* NSMutableArray+PlanLists.m in Sources */,
+				34D1D3541B01B4B20079457F /* HomeTableViewCell.m in Sources */,
+				34D1D23B1B01AF4D0079457F /* SupplementPlanSelection.m in Sources */,
+				34D1D2771B01AF950079457F /* UIImageView+Scroll.m in Sources */,
+				34D1D3061B01B3F70079457F /* SupplementPreWorkout.m in Sources */,
+				34D1D3031B01B3F70079457F /* Workout_Day_Two.m in Sources */,
+				34D1D2F41B01B3F70079457F /* BMR.m in Sources */,
+				34D1D1D61B01ADD30079457F /* RegisterViewController.m in Sources */,
+				34D1D2981B01B16C0079457F /* Database.m in Sources */,
+				34D1D2821B01AF950079457F /* IntensityViewController+BMRCalculator.m in Sources */,
+				34D1D1E71B01ADD30079457F /* FoodProfileViewController.m in Sources */,
+				34D1D3171B01B42E0079457F /* BeforeBedSupplementPlanManager.m in Sources */,
 				34D1D17E1B01A8DD0079457F /* AppDelegate.m in Sources */,
+				34D1D27D1B01AF950079457F /* UIViewController+NavigateUIViews.m in Sources */,
+				34D1D2FA1B01B3F70079457F /* Meal_Plan.m in Sources */,
+				34D1D2ED1B01B3F70079457F /* Second_Snack.m in Sources */,
+				34D1D3041B01B3F70079457F /* SupplementPostWorkout.m in Sources */,
+				34D1D32C1B01B43A0079457F /* FourthDayWorkoutPlanManager.m in Sources */,
+				34D1D1A21B01ACBE0079457F /* RootViewController.m in Sources */,
+				34D1D2FF1B01B3F70079457F /* Workout_Day_Six.m in Sources */,
+				34D1D28C1B01AFCB0079457F /* CPDConstants.m in Sources */,
+				34D1D2F91B01B3F70079457F /* Progress.m in Sources */,
+				34D1D26C1B01AF950079457F /* NSString+Music_Mix.m in Sources */,
+				34D1D1E41B01ADD30079457F /* SupplementPlanViewController.m in Sources */,
+				34D1D2371B01AF4D0079457F /* WorkoutSelection.m in Sources */,
+				34D1D3411B01B4460079457F /* LunchPlanManager.m in Sources */,
+				34D1D2FD1B01B3F70079457F /* Workout_Day_Four.m in Sources */,
+				34D1D3431B01B4460079457F /* DinnerPlanManager.m in Sources */,
+				34D1D2711B01AF950079457F /* UILabel+ChangeLabelNumbers.m in Sources */,
+				34D1D3071B01B3F70079457F /* SupplementBreakfast.m in Sources */,
+				34D1D32A1B01B43A0079457F /* SecondDayWorkoutPlanManager.m in Sources */,
+				34D1D23A1B01AF4D0079457F /* AdvancedWorkoutSelection.m in Sources */,
+				34D1D2FC1B01B3F70079457F /* Exercises.m in Sources */,
+				34D1D2EB1B01B3F70079457F /* Breakfast.m in Sources */,
+				34D1D2FB1B01B3F70079457F /* Grocery.m in Sources */,
+				34D1D1DB1B01ADD30079457F /* ExerciseLevelViewController.m in Sources */,
+				34D1D1E31B01ADD30079457F /* MealViewController.m in Sources */,
+				34D1D2A21B01B2EA0079457F /* SHCToDoItem.m in Sources */,
+				34D1D26D1B01AF950079457F /* NSMutableArray+Music_Data.m in Sources */,
+				34D1D28D1B01AFCB0079457F /* CPDExerciseProgress.m in Sources */,
+				34D1D1D71B01ADD30079457F /* ProfileViewController.m in Sources */,
+				34D1D2911B01B0B30079457F /* MealGroceryList.m in Sources */,
+				34D1D3281B01B43A0079457F /* WorkoutPlanManager.m in Sources */,
+				34D1D1D81B01ADD30079457F /* GenderViewController.m in Sources */,
+				34D1D23C1B01AF4D0079457F /* SwitchPlanItemSelection.m in Sources */,
+				34D1D3401B01B4460079457F /* FirstSnackPlanManager.m in Sources */,
+				34D1D2F81B01B3F70079457F /* Work_Out_Plan.m in Sources */,
+				34D1D33E1B01B4460079457F /* MealPlanManager.m in Sources */,
+				34D1D1E11B01ADD30079457F /* ExerciseViewController.m in Sources */,
+				34D1D2231B01AF2C0079457F /* ViewFactory.m in Sources */,
+				34D1D2761B01AF950079457F /* UILabel+Scroll.m in Sources */,
+				34D1D32B1B01B43A0079457F /* ThirdDayWorkoutPlanManager.m in Sources */,
+				34D1D3131B01B42E0079457F /* SupplementPlanManager.m in Sources */,
 				34D1D17B1B01A8DD0079457F /* main.m in Sources */,
+				34D1D32E1B01B43A0079457F /* SixthDayWorkoutPlanManager.m in Sources */,
+				34D1D2F21B01B3F70079457F /* Users.m in Sources */,
+				34D1D28E1B01AFCB0079457F /* CPDWeightProgress.m in Sources */,
+				34D1D26F1B01AF950079457F /* NSURL+SupplementOrder.m in Sources */,
+				34D1D2201B01AF240079457F /* ViewTransitions.m in Sources */,
+				34D1D1DF1B01ADD30079457F /* MusicListViewController.m in Sources */,
+				34D1D1EA1B01ADD30079457F /* ProgressViewController.m in Sources */,
+				34D1D2721B01AF950079457F /* NSMutableArray+MotivationalQuote.m in Sources */,
+				34D1D2EA1B01B3F70079457F /* Exercise_Report.m in Sources */,
+				34D1D2851B01AFB40079457F /* TFNGateway.m in Sources */,
+				34D1D27A1B01AF950079457F /* NSString+FoodToSwitch.m in Sources */,
+				34D1D3051B01B3F70079457F /* SupplementBeforeBed.m in Sources */,
+				34D1D34D1B01B49C0079457F /* HomeViewController.m in Sources */,
+				34D1D27F1B01AF950079457F /* NSString+SupplementImageName.m in Sources */,
+				34D1D1E21B01ADD30079457F /* CalenderViewController.m in Sources */,
+				34D1D1EB1B01ADD30079457F /* SwitchPlanItemViewController.m in Sources */,
+				34D1D2791B01AF950079457F /* NSString+ExerciseToSwitch.m in Sources */,
+				34D1D2381B01AF4D0079457F /* BeginnerWorkoutSelection.m in Sources */,
+				34D1D1E91B01ADD30079457F /* ExerciseListViewController.m in Sources */,
+				34D1D3021B01B3F70079457F /* Workout_Day_Three.m in Sources */,
+				34D1D2F31B01B3F70079457F /* Food_Recipes.m in Sources */,
+				34D1D1E61B01ADD30079457F /* SupplementOrderWebViewController.m in Sources */,
+				34D1D1D91B01ADD30079457F /* IntensityViewController.m in Sources */,
+				34D1D2731B01AF950079457F /* UIFont+CustomFont.m in Sources */,
+				34D1D1EC1B01ADD30079457F /* ExcerciseIndexViewController.m in Sources */,
+				34D1D2F71B01B3F70079457F /* Exercise_Days.m in Sources */,
+				34D1D1E01B01ADD30079457F /* PlayMusicViewController.m in Sources */,
+				34D1D3001B01B3F70079457F /* Workout_Day_Five.m in Sources */,
+				34D1D3291B01B43A0079457F /* FirstDayWorkoutPlanManager.m in Sources */,
+				34D1D2A11B01B2EA0079457F /* SHCTableViewCell.m in Sources */,
+				34D1D1DC1B01ADD30079457F /* WorkOutDaysViewController.m in Sources */,
+				34D1D27E1B01AF950079457F /* NSString+FindImage.m in Sources */,
+				34D1D2801B01AF950079457F /* UIViewController+iPhoneScreenSizes.m in Sources */,
+				34D1D27B1B01AF950079457F /* NSString+Gender.m in Sources */,
+				34D1D3141B01B42E0079457F /* BreakFastSupplementPlanManager.m in Sources */,
+				34D1D3011B01B3F70079457F /* Workout_Day_One.m in Sources */,
+				34D1D2EC1B01B3F70079457F /* Dinner.m in Sources */,
+				34D1D1E81B01ADD30079457F /* ExerciseProfileViewController.m in Sources */,
+				34D1D1A71B01ADC20079457F /* LoginViewController.m in Sources */,
+				34D1D2701B01AF950079457F /* NSMutableArray+SportsList.m in Sources */,
+				34D1D3151B01B42E0079457F /* PreWorkoutSupplementPlanManager.m in Sources */,
+				34D1D2F01B01B3F70079457F /* First_Snack.m in Sources */,
+				34D1D1DA1B01ADD30079457F /* GoalsViewController.m in Sources */,
+				34D1D2811B01AF950079457F /* NSMutableArray+SupplementItems.m in Sources */,
+				34D1D1E51B01ADD30079457F /* SupplementProfileViewController.m in Sources */,
+				34D1D2751B01AF950079457F /* UINavigationBar+TopBar.m in Sources */,
+				34D1D1DE1B01ADD30079457F /* MusicTracksViewController.m in Sources */,
+				34D1D2FE1B01B3F70079457F /* Workout_Day_Seven.m in Sources */,
+				34D1D3441B01B4460079457F /* ThirdSnackPlanManager.m in Sources */,
+				34D1D26E1B01AF950079457F /* NSMutableArray+Homepage_Data.m in Sources */,
+				34D1D2361B01AF4D0079457F /* MealPlanSelection.m in Sources */,
+				34D1D2F11B01B3F70079457F /* Terms_And_Conditions.m in Sources */,
+				34D1D1DD1B01ADD30079457F /* ResultViewController.m in Sources */,
+				34D1D2EF1B01B3F70079457F /* Lunch.m in Sources */,
+				34D1D2391B01AF4D0079457F /* IntermediateWorkoutSelection.m in Sources */,
+				34D1D32D1B01B43A0079457F /* FifthDayWorkoutPlanManager.m in Sources */,
+				34D1D33F1B01B4460079457F /* BreakFastPlanManager.m in Sources */,
+				34D1D2741B01AF950079457F /* UIImageView+Bar.m in Sources */,
+				34D1D3161B01B42E0079457F /* PostWorkoutSupplementPlanManager.m in Sources */,
+				34D1D2F61B01B3F70079457F /* Exercise_Levels.m in Sources */,
+				34D1D2781B01AF950079457F /* NSString+UserEmail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +1170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34D1D3471B01B4780079457F /* TestMutableArray.m in Sources */,
+				34D1D34A1B01B47F0079457F /* Total_Fitness_and_NutritionTests.m in Sources */,
 				34D1D1951B01A8DD0079457F /* TotallyFreshFitnessTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +1223,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TotallyFreshFitness/TotallyFreshPrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -377,6 +1267,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TotallyFreshFitness/TotallyFreshPrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

@@ -1,0 +1,38 @@
+//
+//  TotallyFreshPrefixHeader.pch
+//  TotallyFreshFitness
+//
+//  Created by Kevin Zhang on 2015-05-11.
+//  Copyright (c) 2015 Kevin Zhang. All rights reserved.
+//
+
+#ifndef TotallyFreshFitness_TotallyFreshPrefixHeader_pch
+#define TotallyFreshFitness_TotallyFreshPrefixHeader_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "UIImageView+Bar.h"
+#import "UINavigationBar+TopBar.h"
+#import "UIFont+CustomFont.h"
+#import "UIViewController+iPhoneScreenSizes.h"
+#import "UIViewController+NavigateUIViews.h"
+#import "NSMutableArray+PlanLists.h"
+#import "NSString+Gender.h"
+#import "NSString+UserEmail.h"
+#import "ViewFactory.h"
+#import "ViewTransitions.h"
+#import "Database.h"
+#import "CalenderViewController.h"
+#import "ExerciseViewController.h"
+#import "MusicTracksViewController.h"
+#import "ProfileViewController.h"
+#import "GenderViewController.h"
+#import "MealViewController.h"
+#import "SupplementPlanViewController.h"
+#import "AFNetworking.h"
+#import "Database.h"
+#endif
+
+#endif

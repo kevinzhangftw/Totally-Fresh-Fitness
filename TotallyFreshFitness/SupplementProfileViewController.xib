@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SupplementProfileViewController">
+            <connections>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topBar_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="SBt-Bh-696">
+                    <rect key="frame" x="100" y="25" width="120" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="SAD-PC-wXQ"/>
+                        <constraint firstAttribute="height" constant="30" id="W1d-zg-YNp"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="ciJ-BZ-lup">
+                    <rect key="frame" x="-1" y="58" width="322" height="3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="3" id="O5O-UQ-ZgF"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O75-Ag-IWE">
+                    <rect key="frame" x="20" y="20" width="44" height="36"/>
+                    <state key="normal" image="back.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="moveToPreviousViewController:" destination="-1" eventType="touchUpInside" id="Q3C-0M-ST1"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ciJ-BZ-lup" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="-1" id="BDd-Uk-5U0"/>
+                <constraint firstItem="SBt-Bh-696" firstAttribute="top" secondItem="1" secondAttribute="top" constant="25" id="SSP-Eg-lDJ"/>
+                <constraint firstItem="SBt-Bh-696" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="X3U-JG-r4O"/>
+                <constraint firstItem="ciJ-BZ-lup" firstAttribute="top" secondItem="SBt-Bh-696" secondAttribute="bottom" constant="3" id="cUT-Ud-Uk2"/>
+                <constraint firstItem="SBt-Bh-696" firstAttribute="centerX" secondItem="ciJ-BZ-lup" secondAttribute="centerX" id="jvg-xW-lma"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="back.png" width="50" height="50"/>
+        <image name="topBar_logo.png" width="2917" height="646"/>
+        <image name="topLine.png" width="640" height="6"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

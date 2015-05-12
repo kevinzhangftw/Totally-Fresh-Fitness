@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SupplementPlanViewController">
+            <connections>
+                <outlet property="controlsImageView" destination="skK-ex-UZH" id="RiN-g8-X9N"/>
+                <outlet property="homeButton" destination="o6g-4J-lqM" id="hae-eA-cRF"/>
+                <outlet property="indicatorView" destination="9OG-Mk-eFy" id="PF7-8y-Z51"/>
+                <outlet property="supplementOrderSectionButton" destination="uEu-ta-xPW" id="nb2-M6-B9E"/>
+                <outlet property="supplementOrderWebPlanView" destination="NJ0-N0-0PV" id="QLm-iH-fXk"/>
+                <outlet property="supplementPlanSectionButton" destination="Utr-cI-LYQ" id="4C6-tK-z1R"/>
+                <outlet property="supplementPlanTableView" destination="ODO-jD-G1c" id="IxL-KO-4Q7"/>
+                <outlet property="toolBar" destination="A2l-0d-ak4" id="EBo-R9-xnc"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topBar_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2rF-tV-wMZ">
+                    <rect key="frame" x="100" y="25" width="120" height="30"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="tfn_Supplementplan_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="skK-ex-UZH">
+                    <rect key="frame" x="0.0" y="55" width="320" height="75"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utr-cI-LYQ">
+                    <rect key="frame" x="-1" y="57" width="160" height="68"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="planSection:" destination="-1" eventType="touchUpInside" id="KnI-41-7UO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEu-ta-xPW">
+                    <rect key="frame" x="160" y="57" width="160" height="68"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="planSection:" destination="-1" eventType="touchUpInside" id="0yU-Gz-M6Z"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="30" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ODO-jD-G1c">
+                    <rect key="frame" x="0.0" y="127" width="320" height="313"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yNr-RW-P8n"/>
+                        <outlet property="delegate" destination="-1" id="cBZ-c3-33W"/>
+                    </connections>
+                </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-Mk-eFy">
+                    <rect key="frame" x="150" y="291" width="20" height="20"/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-4J-lqM">
+                    <rect key="frame" x="20" y="12" width="50" height="50"/>
+                    <state key="normal" image="home.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="moveToRootViewController:" destination="-1" eventType="touchUpInside" id="2bm-XI-RCF"/>
+                    </connections>
+                </button>
+                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJ0-N0-0PV">
+                    <rect key="frame" x="-1" y="171" width="321" height="344"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="k6g-yb-CO4"/>
+                    </connections>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A2l-0d-ak4">
+                    <rect key="frame" x="0.0" y="127" width="320" height="44"/>
+                    <items>
+                        <barButtonItem systemItem="rewind" id="qMf-xc-Mx6">
+                            <connections>
+                                <action selector="goBack" destination="NJ0-N0-0PV" id="x6O-Tw-H0M"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MGw-cq-eUC"/>
+                        <barButtonItem systemItem="stop" id="czl-7B-7RT">
+                            <connections>
+                                <action selector="stopLoading" destination="NJ0-N0-0PV" id="qGD-ge-cxl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ZPo-aa-jc4"/>
+                        <barButtonItem systemItem="refresh" id="1Wf-XX-MWR">
+                            <connections>
+                                <action selector="reload" destination="NJ0-N0-0PV" id="P8N-S2-mkN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="lJ4-Kc-Dq5"/>
+                        <barButtonItem systemItem="fastForward" id="vzy-12-0gV">
+                            <connections>
+                                <action selector="goForward" destination="NJ0-N0-0PV" id="vmp-fV-Pnw"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home.png" width="80" height="80"/>
+        <image name="tfn_Supplementplan_active.png" width="640" height="150"/>
+        <image name="topBar_logo.png" width="2917" height="646"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

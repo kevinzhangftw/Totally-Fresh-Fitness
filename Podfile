@@ -3,12 +3,15 @@
 
 target 'TotallyFreshFitness' do
 
-pod "AFNetworking", "~> 2.0"
+pod 'google-plus-ios-sdk'
+pod 'AFNetworking', '~> 2.0'
 pod 'STTwitter'
 pod 'Parse'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit' 
+pod 'MBProgressHUD'
+pod 'ChimpKit'
 
 end
 

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
+            <connections>
+                <outlet property="termsAndConditionTextView" destination="fgB-mK-7oX" id="D6J-hv-mFV"/>
+                <outlet property="view" destination="UPv-86-JBJ" id="U39-oX-ILx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UPv-86-JBJ">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+        </view>
+        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fgB-mK-7oX">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <string key="text">This document sets forth the terms and conditions ("Terms and Conditions") governing your use of Total Fitness (the "App") operated by Total Fitness and Nutrition Inc ("TFN "), and the information and sen/ices made available on and through the App. Please read these Terms and Conditions carefully. These Terms and Conditions will form a binding Agreement between you, the user, and TFN.
+
+Acceptance of Terms and Conditions
+
+Your use of the App indicates your acceptance of these Terms and Conditions. If you do not accept these Terms and Conditions, you may not use the App. Please review these Terms and Conditions each time you use the App as they are subject to change at any time by TFN without notice to you. Any changes to these Terms and Conditions will be effective immediately upon posting to the App.
+
+Intellectual Property
+
+The text, graphics, designs, logos, button icons, images, audio clips, data compilations and information ("Content") contained on the App are owned or controlled by TFN or its respective owners and are protected by Canada and international copyright laws. You may download Content solely for your personal use for non- commercial purposes. You may not modify or further reproduce the Content for any purpose whatsoever.
+All logos and trademarks displayed on the App are registered trademarks or trademarks of TFN or are the marks, trade names, trade dress of their respective owners. Depictions of products or services on the App are trademarks of their respective owners ("Trademarks") and are protected in the Canada and internationally.
+
+ 
+No use of any Trademarks may be made without the prior written authorization of TFN or the respective owners of the Trademarks except to identify the products or services associated therewith. Nothing contained herein shall be construed as conferring any license or right to any patents, copyright or trademark embodied in the App. All right, title and interest in the Content and the Trademarks shall reside solely with TFN or
+the respective owners thereof. TFN does not want to receive confidential or proprietary information from you through the App and any information or material sent to TFN through the App in respect of any products or service referenced or offered on the App will be deemed NOT to be confidential. By sending TFN any information or material regarding our services, you grant TFN an unlimited, worldwide, irrevocable right and license to use, reproduce, display, perform, modify, transmit and distribute those materials or information, and you also agree that TFN is free to use any ideas, inventions, concepts, know-how or techniques that you send TFN for any purpose. Such
+purposes may include disclosure to third parties and/or developing, manufacturing and/or marketing goods or services.
+
+Representations of User
+
+By using the App, you hereby represent and warrant that: (i) all information contained in any submission by you is either owned by you or rights have been granted to you permitting you to disseminate the information as set forth in these Terms and Conditions; and (ii) the information contained in any submissions by you does not infringe on the intellectual property rights of others, including but not limited to, copyright, trademark, patent, or trade secret rights.
+ 
+
+You accept full responsibility, assume all risk, and waive and/or release TFN from any direct or indirect loss, injury, claim or damage arising from your use of the App, whether or not such use was appropriately supervised and regardless of whether you were negligent in such use. By using the App, you attest and verify that you are physically and mentally able to use the App, and knowingly accept and are fully aware of all risks
+associated with its use. If you include information which identifies who you are, in any transmission you make using the App and combine that with any of your health care or
+medical information, this could constitute the type of health information someone might find valuable. TFN makes no representation or warranty regarding the confidentiality of that information. You agree that the best practice would be for you to eliminate any health information from any transmission you make using the App and you will therefore exert every effort to eliminate any such health information from any such transmission.
+You will not do anything in connection with your use of the App to compromise the integrity or confidentiality of anyone's health information and will immediately notify TFN in the event you become aware of anything or anyone which or who might be acting in a way that might compromise the integrity or confidentiality of any TFN user's health information.
+
+Monitoring of Information
+
+TFN does not assume any obligation to review the accuracy, completeness, truthfulness or content of any information submitted to the App by you, other users of the App, or of companies offering products or services on the App. Notwithstanding, TFN may in its discretion review information submitted to the App for any purpose whatsoever and it reserves the right, in its sole discretion, to reject any information submitted. 
+Not all of the products and services described on this App are available in all geographic areas of the world. You may not be eligible for all of the described products or services and we reserve the right to determine the eligibility of any user for any product or service. The pages relating to each product or service may provide additional information on the availability of each product or service and may contain additional terms governing eligibility.
+
+Children
+
+This App does not intend to market any products or services to children. TFN does not
+knowingly gather, or solicit data, from children through this App for marketing purposes.
+
+Accuracy Of Content
+TFN will make every reasonable effort to include accurate and up to date content on the
+App. Notwithstanding, TFN provides such content for informational purposes only and does not warrant or represent that descriptions of services or other content contained on the App is complete, accurate, reliable, current or error-free.
+
+Disclaimer
+
+THE APP AND THE INFORMATION ON THIS APP IS PROVIDED "AS IS" WITHOUT ANY WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON- INFRINGEMENT. TFN MAKES NO REPRESENTATION OR WARRANTY THAT THE INFORMATION CONTAINED ON THIS APP WILL BE CURRENT, TIMELY, COMPLETE, ACCURATE OR ERROR FREE. TFN HAS NOT
+REVIEWED ALL THE SITES THAT MAY BE LINKED TO ITS APP AND DOES NOT ENDORSE AND IS NOT RESPONSIBLE FOR THE CONTENT OF ANY OFF-APP PAGES OR ANY OTHER SITES LINKED TO THESE SITES. YOUR LINKS TO SUCH SITES IS AT YOUR OWN RISK. TO THE EXTENT THAT THE LAW DOES NOT PERMIT THE DISCLAIMER OF WARRANTIES, ALL CONTENT ACCESSIBLE ON THE APP, OR ANY OTHER WEB SITE TO WHICH THIS APP LINKS, IS WARRANTED ONLY TO THE MINIMUM AMOUNT LEGALLY REQUIRED. IN NO EVENT SHALL
+TFN BE LIABLE TO ANY PARTY FOR ANY DIRECT, INDIRECT, SPECIAL OR OTHER
+CONSEQUENTIAL DAMAGES FOR ANY USE OF THIS APP, OR ON ANY LINKED WEB SITE, INCLUDING, WITHOUT LIMITATION, ANY LOST PROFITS, BUSINESS INTERRUPTION OR OTHERWISE.
+
+TFN MAKES NO REPRESENTATIONS REGARDING: (A) THE CREDENTIALS OF ANYONE USING THE APP AS PART OF ANY HEALTH CARE OR MEDICAL PLAN OF CARE OR PLAN OF TREATMENT ("POC"); (B) THE SUITABILITY OF THE EXERCISES INCLUDED IN ANY SUCH POC; (C) THE VIABILITY, MEDICAL SOUNDNESS OR EFFICACY OF ANY SUCH POC; OR (D) THE OVERALL HEALTH OR MEDICAL BENEFITS YOU MIGHT DERIVE FROM USING THE APP OR POC WHICH INCORPORATES THE APP.
+TFN IS NOT A LICENSED HEALTH CARE PROVIDER AND IS NOT IN THE BUSINESS OF PRACTICING MEDICINE OR PROVIDING ANY OTHER PROFESSIONAL HEALTH CARE OR MEDICAL ADVICE. YOU SHOULD SEEK THE
+ADVICE OF QUALIFIED, LICENSED PROFESSIONALS FOR ANY MEDICAL CARE
+NEEDS YOU HAVE.
+ 
+
+These Terms and conditions are governed by the internal substantive laws of the Province of Alberta in Canada, without respect to its conflict of laws principles. Jurisdiction and venue for any claims arising under from the use of
+the App or these Terms and Conditions shall lie exclusively with the provincial and federal courts within the Province of Alberta. You hereby irrevocably
+consent to the jurisdiction of the provincial and federal courts within the Province of Alberta.
+If any provision of these Terms and Conditions is found to be invalid by any court having competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of these Terms and Conditions, which shall remain in full force and effect. The failure of TFN to enforce any term or condition of these Terms and Conditions shall not be deemed a waiver thereof and shall not prevent its later enforcement.
+
+
+
+This document sets forth the terms and conditions ("Terms and Conditions") governing your use of Total Fitness Application (the "App") operated by Total Fitness and Nutrition Inc ("TFN "), and the information and services made available on and through the App. Please read these Terms and Conditions carefully. These Terms and Conditions will form a binding Agreement between you, the user, and TFN.
+
+Acceptance of Terms and Conditions
+
+Your use of the App indicates your acceptance of these Terms and Conditions. If you do not accept these Terms and Conditions, you may not use the App. The use of the App is a privilege. Please review these Terms and Conditions each time you use the App as they are subject to change at any time by TFN without notice to you. Any changes to these Terms and Conditions will be effective immediately upon posting to the App.
+
+Intellectual Property
+
+The text, graphics, designs, logos, button icons, images, audio clips, data compilations and information ("Content") contained on the App are owned or controlled by TFN or its respective owners and are protected by Canadian and international copyright laws. You may download Content solely for your personal use for non-commercial purposes. You may not modify or further reproduce the Content for any purpose whatsoever.
+All logos and trademarks displayed on the App are registered trademarks or trademarks of TFN or are the marks, trade names, trade dress of their respective owners. Depictions of products or services on the App are trademarks of their respective owners ("Trademarks") and are protected in the United States and internationally.
+
+ 
+No use of any Trademarks may be made without the prior written authorization of TFN or the respective owners of the Trademarks except to identify the products or services associated therewith. Nothing contained herein shall be construed as conferring any license or right to any patents, copyright or trademark embodied in the App. All
+right, title and interest in the Content and the Trademarks shall reside solely with TFN or
+the respective owners thereof. TFN does not want to receive confidential or proprietary information from you through the App and any information or material sent to TFN
+through the App in respect of any products or service referenced or offered on the App will be deemed NOT to be confidential. By sending TFN any information or material regarding our services, you grant TFN an unlimited, worldwide, irrevocable right and license to use, reproduce, display, perform, modify, transmit and distribute those materials or information, and you also agree that TFN is free to use any ideas,
+inventions, concepts, know-how or techniques that you send TFN for any purpose. Such
+purposes may include disclosure to third parties and/or developing, manufacturing and/or marketing goods or services.
+
+Representations of User
+
+By using the App, you hereby represent and warrant that: (i) all information contained in any submission by you is either owned by you or rights have been granted to you permitting you to disseminate the information as set forth in these Terms and Conditions; and (ii) the information contained in any submissions by you does not
+infringe on the intellectual property rights of others, including but not limited to, copyright, trademark, patent, or trade secret rights.
+ 
+
+You accept full responsibility, assume all risk, and waive and/or release TFN from any direct or indirect loss, injury, claim or damage arising from your use of the App, whether or not such use was appropriately supervised and regardless of whether you were negligent in such use. By using the App, you attest and verify that you are
+physically and mentally able to use the App, and knowingly accept and are fully aware of all risks associated with its use. If you include information which identifies who you
+are, in any transmission you make using the App and combine that with any of your health care or medical information, this could constitute the type of health information someone might find valuable.
+TFN makes no representation or warranty regarding the confidentiality of that information. You agree that the best practice would be for you to eliminate any health information from any transmission you make using the App and you will
+therefore exert every effort to eliminate any such health information from any such transmission. You will not do anything in connection with your use of the App to compromise the integrity or confidentiality of anyone's health information and will immediately notify TFN in the event you become aware of anything or anyone which or
+who might be acting in a way that might compromise the integrity or confidentiality of any TFN user's health information.
+
+Monitoring of Information
+
+TFN does not assume any obligation to review the accuracy, completeness, truthfulness or content of any information submitted to the App by you, other users of the App, or of companies offering products or services on the App. Notwithstanding, TFN may in its discretion review information submitted to the App for any purpose whatsoever and it reserves the right, in its sole discretion, to reject any information submitted Not all of the products and services described on this App are available in all geographic areas of
+the world. You may not be eligible for all of the described products or services and we reserve the right to determine the eligibility of any user for any product or service. The pages relating to each product or service may provide additional information on the availability of each product or service and may contain additional terms governing eligibility.
+
+Accuracy Of Content
+TFN will make every reasonable effort to include accurate and up to date content on the App. Notwithstanding, TFN provides such content for informational purposes only and does not warrant or represent that descriptions of services or other content contained on the App is complete, accurate, reliable, current or error-free.
+
+Disclaimer
+
+THE APP AND THE INFORMATION ON THIS APP IS PROVIDED "AS IS" WITHOUT ANY WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. TFN MAKES NO REPRESENTATION OR WARRANTY THAT THE INFORMATION CONTAINED ON THIS APP WILL BE CURRENT, TIMELY, COMPLETE, ACCURATE.
+ 
+BE CURRENT, TIMELY, COMPLETE, ACCURATE OR ERROR FREE. TFN HAS NOT
+REVIEWED ALL THE SITES THAT MAY BE LINKED TO ITS APP AND DOES NOT ENDORSE AND IS NOT RESPONSIBLE FOR THE CONTENT OF ANY OFF-APP PAGES OR ANY OTHER SITES LINKED TO THESE SITES. YOUR LINKS TO
+SUCH SITES IS AT YOUR OWN RISK. TO THE EXTENT THAT THE LAW DOES NOT PERMIT THE DISCLAIMER OF WARRANTIES, ALL CONTENT ACCESSIBLE ON THE APP, OR ANY OTHER WEB SITE TO WHICH THIS APP LINKS, IS WARRANTED ONLY TO THE MINIMUM AMOUNT LEGALLY REQUIRED. IN NO EVENT SHALL
+TFN BE LIABLE TO ANY PARTY FOR ANY DIRECT, INDIRECT, SPECIAL OR OTHER
+CONSEQUENTIAL DAMAGES FOR ANY USE OF THIS APP, OR ON ANY LINKED WEB SITE, INCLUDING, WITHOUT LIMITATION, ANY LOST PROFITS, BUSINESS INTERRUPTION OR OTHERWISE.
+
+TFN MAKES NO REPRESENTATIONS REGARDING: (A) THE CREDENTIALS OF
+ANYONE USING THE APP AS PART OF ANY HEALTH CARE OR MEDICAL PLAN OF CARE OR PLAN OF TREATMENT ("POC"); (B) THE SUITABILITY OF THE EXERCISES INCLUDED IN ANY SUCH POC; (C) THE VIABILITY, MEDICAL
+SOUNDNESS OR EFFICACY OF ANY SUCH POC; OR (D) THE OVERALL HEALTH OR MEDICAL BENEFITS YOU MIGHT DERIVE FROM USING
+THE APP OR POC WHICH INCORPORATES THE APP.
+TFN IS NOT A LICENSED HEALTH CARE PROVIDER AND IS NOT IN THE BUSINESS OF PRACTICING MEDICINE OR PROVIDING ANY OTHER PROFESSIONAL HEALTH CARE OR MEDICAL ADVICE. YOU SHOULD SEEK THE
+ADVICE OF QUALIFIED, LICENSED PROFESSIONALS FOR ANY MEDICAL CARE
+NEEDS YOU HAVE.
+ 
+
+These Terms and conditions are governed by the internal substantive laws of the Province of Alberta in Canada, without respect to its conflict of laws principles. Jurisdiction and venue for any claims arising under from the use of the App or these Terms and Conditions shall lie exclusively with the provincial and federal courts within
+the Province of Alberta. You hereby irrevocably consent to the jurisdiction of the provincial and federal courts within the Province of Alberta. If any provision of these Terms and Conditions is found to be invalid by any court having competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions
+of these Terms and Conditions, which shall remain in full force and effect. The failure of TFN to enforce any term or condition of these Terms and Conditions shall not be deemed a waiver thereof and shall not prevent its later enforcement.
+
+
+The information contained in these Terms and Conditions may be changed or updated by TFN from time to time and without prior notice by posting the modified Terms and
+Conditions to the App. TFN may also make improvements and/or changes in the products and/or the programs described in this information at any time without notice. It is your obligation to review these Terms and Conditions on an ongoing basis. Your continued use of the App constitutes your agreement to these Terms and Conditions. If
+at any time you do not agree to these Terms and Conditions, you must cease your use of this App. 
+YOU AGREE TO INDEMNIFY, DEFEND AND HOLD TFN HARMLESS FROM AND
+AGAINST ANY AND ALL LIABILITY, CLAIMS, CAUSES OF ACTIONS, DAMAGES, COSTS AND EXPENSES (INCLUDING BUT NOT LIMITED TO, ATTORNEYS' FEES AND COSTS INCURRED IN CONNECTION WITH ANY LEGAL ACTION)
+ARISING BREACH OF ANY OF THESE. 
+
+
+
+</string>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+        </textView>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

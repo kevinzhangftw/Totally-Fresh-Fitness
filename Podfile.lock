@@ -26,6 +26,7 @@ PODS:
   - Bolts/AppLinks (1.1.5):
     - Bolts/Tasks
   - Bolts/Tasks (1.1.5)
+  - ChimpKit (3.1.1)
   - FBSDKCoreKit (4.1.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc (= 4.1.0)
@@ -39,24 +40,32 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.1.0):
     - FBSDKCoreKit
+  - google-plus-ios-sdk (1.7.1)
+  - MBProgressHUD (0.9.1)
   - Parse (1.7.2.2):
     - Bolts/Tasks (>= 1.1.5)
   - STTwitter (0.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - ChimpKit
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - google-plus-ios-sdk
+  - MBProgressHUD
   - Parse
   - STTwitter
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  ChimpKit: d020126089544daa349397a91f1489a3f271b791
   FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
   FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
   FBSDKShareKit: 8002faf0c564ff3625eadd16e506b0b0fbf3adef
+  google-plus-ios-sdk: 47adbe03ea904bdb7aa1c0eca282a23c4686e1bc
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Parse: 6187586a80eb7b4960d755f85e1353148a611f87
   STTwitter: 4fda61d0a96c707f94df85677b1a4aedbcec6fcd
 
