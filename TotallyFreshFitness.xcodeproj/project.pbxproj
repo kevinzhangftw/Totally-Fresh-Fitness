@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FAF82199C23CEB05FE68C15 /* libPods-TotallyFreshFitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */; };
 		34D1D17B1B01A8DD0079457F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17A1B01A8DD0079457F /* main.m */; };
 		34D1D17E1B01A8DD0079457F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17D1B01A8DD0079457F /* AppDelegate.m */; };
 		34D1D1811B01A8DD0079457F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1801B01A8DD0079457F /* ViewController.m */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27820FA0F54FA95D0AACC67C /* Pods-TotallyFreshFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotallyFreshFitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TotallyFreshFitness/Pods-TotallyFreshFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		34D1D1751B01A8DD0079457F /* TotallyFreshFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotallyFreshFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D1D1791B01A8DD0079457F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D1D17A1B01A8DD0079457F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		34D1D18E1B01A8DD0079457F /* TotallyFreshFitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TotallyFreshFitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D1D1931B01A8DD0079457F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotallyFreshFitnessTests.m; sourceTree = "<group>"; };
+		3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TotallyFreshFitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7396AC39AD84D317A09E44 /* Pods-TotallyFreshFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotallyFreshFitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-TotallyFreshFitness/Pods-TotallyFreshFitness.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FAF82199C23CEB05FE68C15 /* libPods-TotallyFreshFitness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,8 @@
 				34D1D1771B01A8DD0079457F /* TotallyFreshFitness */,
 				34D1D1911B01A8DD0079457F /* TotallyFreshFitnessTests */,
 				34D1D1761B01A8DD0079457F /* Products */,
+				69AAFD1C08CDF76D114129E0 /* Pods */,
+				F083652A185B22F02053A9DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +123,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		69AAFD1C08CDF76D114129E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27820FA0F54FA95D0AACC67C /* Pods-TotallyFreshFitness.debug.xcconfig */,
+				8B7396AC39AD84D317A09E44 /* Pods-TotallyFreshFitness.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F083652A185B22F02053A9DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D1D1981B01A8DD0079457F /* Build configuration list for PBXNativeTarget "TotallyFreshFitness" */;
 			buildPhases = (
+				023EDB5DB1B91A98DF9D989F /* Check Pods Manifest.lock */,
 				34D1D1711B01A8DD0079457F /* Sources */,
 				34D1D1721B01A8DD0079457F /* Frameworks */,
 				34D1D1731B01A8DD0079457F /* Resources */,
+				7C6A183A9B40E39BB556212B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +235,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		023EDB5DB1B91A98DF9D989F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C6A183A9B40E39BB556212B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TotallyFreshFitness/Pods-TotallyFreshFitness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34D1D1711B01A8DD0079457F /* Sources */ = {
@@ -333,6 +392,7 @@
 		};
 		34D1D1991B01A8DD0079457F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27820FA0F54FA95D0AACC67C /* Pods-TotallyFreshFitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TotallyFreshFitness/Info.plist;
@@ -343,6 +403,7 @@
 		};
 		34D1D19A1B01A8DD0079457F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B7396AC39AD84D317A09E44 /* Pods-TotallyFreshFitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TotallyFreshFitness/Info.plist;
