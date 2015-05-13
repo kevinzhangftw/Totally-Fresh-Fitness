@@ -14,6 +14,73 @@
 
 @interface ExerciseListViewController ()
 
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// ExerciseProfileViewController class object
+@property (strong, nonatomic)ExerciseProfileViewController *m_exerciseProfileViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+//// ExerciseProfileViewController class object
+//@property (strong, nonatomic)ExerciseProfileViewController *m_exerciseProfileViewController;
+// MealViewController class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// ExerciseListViewController class object
+@property (strong, nonatomic)ExerciseListViewController *m_exerciseListViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// ViewTransitions class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+//ExerciseListView
+@property (strong, nonatomic)ExcerciseIndexViewController *m_ExerciseIndexView;
+
+// Images array
+@property (strong, nonatomic)NSMutableArray *m_imagesArray;
+// Triceps images array
+@property (strong, nonatomic)NSMutableArray *m_tricepsImagesArray;
+// Biceps images array
+@property (strong, nonatomic)NSMutableArray *m_bicepsImagesArray;
+// Abs exercises list
+@property (strong, nonatomic)NSMutableArray *m_absExerciseList;
+// Arms exercises list
+@property (strong, nonatomic)NSMutableArray *m_armsExerciseList;
+// Triceps exercises list
+@property (strong, nonatomic)NSMutableArray *m_tricepsExerciseList;
+// Biceps exercises list
+@property (strong, nonatomic)NSMutableArray *m_bicepsExerciseList;
+// Back exercises list
+@property (strong, nonatomic)NSMutableArray *m_backExerciseList;
+// Chest exercises list
+@property (strong, nonatomic)NSMutableArray *m_chestExerciseList;
+// Legs exercises list
+@property (strong, nonatomic)NSMutableArray *m_legsExerciseList;
+// Shoulder exercises list
+@property (strong, nonatomic)NSMutableArray *m_shoulderExerciseList;
+// Full Body exercises list
+@property (strong, nonatomic)NSMutableArray *m_fullBodyExerciseList;
+// Cardio exercises list
+@property (strong, nonatomic)NSMutableArray *m_cardioExerciseList;
+// Sports exercises list
+@property (strong, nonatomic)NSMutableArray *m_sportsExerciseList;
+@property (strong, nonatomic)NSMutableArray *m_sleep;
+// Selected exercise list
+@property (strong, nonatomic)NSMutableArray *m_itemsListArray;
+// Exercise selected
+@property (strong, nonatomic)NSString *m_selectedStringFromExerciseViewController;
+// User email id
+@property (strong, nonatomic)NSString *m_userEmailID;
+// Gender of the user
+@property (strong, nonatomic)NSString *m_gender;
+// Triceps exercise count
+@property (nonatomic)NSUInteger m_tricepsExercisesCount;
+// Biceps exercise count
+@property (nonatomic)NSUInteger m_bicepsExercisesCount;
+// Biceps image start check
+@property (strong, nonatomic)NSString *m_showBicepImages;
+
 // Move to previous View
 - (IBAction)goBack:(id)sender;
 // Move to ExerciseViewController
@@ -43,72 +110,7 @@
 
 @implementation ExerciseListViewController
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// ExerciseProfileViewController class object
-ExerciseProfileViewController *m_exerciseProfileViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// ExerciseProfileViewController class object
-ExerciseProfileViewController *m_exerciseProfileViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// ExerciseListViewController class object
-ExerciseListViewController *m_exerciseListViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// ViewTransitions class object
-ViewTransitions *m_transition;
-//ExerciseListView
-ExcerciseIndexViewController *m_ExerciseIndexView;
 
-// Images array
-NSMutableArray *m_imagesArray;
-// Triceps images array
-NSMutableArray *m_tricepsImagesArray;
-// Biceps images array
-NSMutableArray *m_bicepsImagesArray;
-// Abs exercises list
-NSMutableArray *m_absExerciseList;
-// Arms exercises list
-NSMutableArray *m_armsExerciseList;
-// Triceps exercises list
-NSMutableArray *m_tricepsExerciseList;
-// Biceps exercises list
-NSMutableArray *m_bicepsExerciseList;
-// Back exercises list
-NSMutableArray *m_backExerciseList;
-// Chest exercises list
-NSMutableArray *m_chestExerciseList;
-// Legs exercises list
-NSMutableArray *m_legsExerciseList;
-// Shoulder exercises list
-NSMutableArray *m_shoulderExerciseList;
-// Full Body exercises list
-NSMutableArray *m_fullBodyExerciseList;
-// Cardio exercises list
-NSMutableArray *m_cardioExerciseList;
-// Sports exercises list
-NSMutableArray *m_sportsExerciseList;
-NSMutableArray *m_sleep;
-// Selected exercise list
-NSMutableArray *m_itemsListArray;
-// Exercise selected
-NSString *m_selectedStringFromExerciseViewController;
-// User email id
-NSString *m_userEmailID;
-// Gender of the user
-NSString *m_gender;
-// Triceps exercise count
-NSUInteger m_tricepsExercisesCount;
-// Biceps exercise count
-NSUInteger m_bicepsExercisesCount;
-// Biceps image start check
-NSString *m_showBicepImages;
 
 @synthesize topNavigationBar;
 @synthesize backButton;
@@ -140,14 +142,14 @@ NSString *m_showBicepImages;
  */
 - (IBAction)goBack:(id)sender
 {
-    if (!m_transition) {
-        m_transition                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                = [ViewTransitions sharedInstance];
     }
     
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
     // Clean up the selected exercise from the previous view
-    m_selectedStringFromExerciseViewController      = @"";
+    self.m_selectedStringFromExerciseViewController      = @"";
     [self cleanUpImagesArray];
     
 }
@@ -157,10 +159,10 @@ NSString *m_showBicepImages;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 }
 
@@ -169,11 +171,11 @@ NSString *m_showBicepImages;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController alloc];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController alloc];
     }
-    id instanceObject                   = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -182,13 +184,13 @@ NSString *m_showBicepImages;
  */
 - (void)moveToExerciseProfileViewController:(id)sender
 {
-    if (!m_exerciseProfileViewController) {
-        m_exerciseProfileViewController         = [ExerciseProfileViewController sharedInstance];
+    if (!self.m_exerciseProfileViewController) {
+        self.m_exerciseProfileViewController         = [ExerciseProfileViewController sharedInstance];
     }
     
-    id instanceObject                           = m_exerciseProfileViewController;
+    id instanceObject                           = self.m_exerciseProfileViewController;
     
-    [self moveToView:m_exerciseProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -196,12 +198,12 @@ NSString *m_showBicepImages;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
     
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -210,11 +212,11 @@ NSString *m_showBicepImages;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController alloc];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController alloc];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -223,11 +225,11 @@ NSString *m_showBicepImages;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController alloc];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController alloc];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -235,13 +237,13 @@ NSString *m_showBicepImages;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
     
 }
@@ -261,9 +263,9 @@ NSString *m_showBicepImages;
 - (void)cleanUpImagesArray
 {
     // Clean up images array and arms exercises increments
-    m_imagesArray               = nil;
-    m_tricepsExercisesCount     = 0;
-    m_bicepsExercisesCount      = 0;
+    self.m_imagesArray               = nil;
+    self.m_tricepsExercisesCount     = 0;
+    self.m_bicepsExercisesCount      = 0;
 }
 
 /*
@@ -271,30 +273,30 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpAbsExercise
 {
-    if (!m_absExerciseList) {
-        m_absExerciseList           = [NSMutableArray mutableArrayObject];
-        [m_absExerciseList addObject:@"Ab Roller"];
-        [m_absExerciseList addObject:@"Ball Hand To Feet"];
-        [m_absExerciseList addObject:@"Ball Roll Ins"];
-        [m_absExerciseList addObject:@"Ball Twist"];
-        [m_absExerciseList addObject:@"Bench V Sit Crunch"];
-        [m_absExerciseList addObject:@"Bicycle Crunch"];
-        [m_absExerciseList addObject:@"Crunches"];
-        [m_absExerciseList addObject:@"Flutter Kicks"];
-        [m_absExerciseList addObject:@"Hanging Leg Raises"];
-        [m_absExerciseList addObject:@"Hip Raises"];
-        [m_absExerciseList addObject:@"Laying Windshield Wipers"];
-        [m_absExerciseList addObject:@"Plank"];
-        [m_absExerciseList addObject:@"Scissor Sit Ups"];
-        [m_absExerciseList addObject:@"Side Plank Hip Raises"];
-        [m_absExerciseList addObject:@"Side Plank"];
-        [m_absExerciseList addObject:@"Sit ups"];
-        [m_absExerciseList addObject:@"Supermans"];
-        [m_absExerciseList addObject:@"Toe Touches"];
-        [m_absExerciseList addObject:@"V Sit"];
-        [m_absExerciseList addObject:@"Weighted Crunch On Ball"];
+    if (!self.m_absExerciseList) {
+        self.m_absExerciseList           = [NSMutableArray mutableArrayObject];
+        [self.m_absExerciseList addObject:@"Ab Roller"];
+        [self.m_absExerciseList addObject:@"Ball Hand To Feet"];
+        [self.m_absExerciseList addObject:@"Ball Roll Ins"];
+        [self.m_absExerciseList addObject:@"Ball Twist"];
+        [self.m_absExerciseList addObject:@"Bench V Sit Crunch"];
+        [self.m_absExerciseList addObject:@"Bicycle Crunch"];
+        [self.m_absExerciseList addObject:@"Crunches"];
+        [self.m_absExerciseList addObject:@"Flutter Kicks"];
+        [self.m_absExerciseList addObject:@"Hanging Leg Raises"];
+        [self.m_absExerciseList addObject:@"Hip Raises"];
+        [self.m_absExerciseList addObject:@"Laying Windshield Wipers"];
+        [self.m_absExerciseList addObject:@"Plank"];
+        [self.m_absExerciseList addObject:@"Scissor Sit Ups"];
+        [self.m_absExerciseList addObject:@"Side Plank Hip Raises"];
+        [self.m_absExerciseList addObject:@"Side Plank"];
+        [self.m_absExerciseList addObject:@"Sit ups"];
+        [self.m_absExerciseList addObject:@"Supermans"];
+        [self.m_absExerciseList addObject:@"Toe Touches"];
+        [self.m_absExerciseList addObject:@"V Sit"];
+        [self.m_absExerciseList addObject:@"Weighted Crunch On Ball"];
     }
-    return m_absExerciseList;
+    return self.m_absExerciseList;
 }
 
 /*
@@ -302,29 +304,29 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpArmsExercises
 {
-    if (!m_tricepsExerciseList) {
-        m_tricepsExerciseList           = [NSMutableArray mutableArrayObject];
+    if (!self.m_tricepsExerciseList) {
+        self.m_tricepsExerciseList           = [NSMutableArray mutableArrayObject];
         // triceps exercise list starts
-        [m_tricepsExerciseList addObject:@"Bench Dips"];
+        [self.m_tricepsExerciseList addObject:@"Bench Dips"];
 //        [m_tricepsExerciseList addObject:@"Dumbbell Skull Crushers"];
-        [m_tricepsExerciseList addObject:@"Tricep Extension"];
-        [m_tricepsExerciseList addObject:@"Tricep Kick Backs"];
-        [m_tricepsExerciseList addObject:@"Tricep Rope Pull Down"];
+        [self.m_tricepsExerciseList addObject:@"Tricep Extension"];
+        [self.m_tricepsExerciseList addObject:@"Tricep Kick Backs"];
+        [self.m_tricepsExerciseList addObject:@"Tricep Rope Pull Down"];
         // Total triceps exercises
-        m_tricepsExercisesCount             = [m_tricepsExerciseList count];
+        self.m_tricepsExercisesCount             = [self.m_tricepsExerciseList count];
     }
-    if (!m_bicepsExerciseList) {
-        m_bicepsExerciseList            = [NSMutableArray mutableArrayObject];
+    if (!self.m_bicepsExerciseList) {
+        self.m_bicepsExerciseList            = [NSMutableArray mutableArrayObject];
         // biceps exercise list starts
-        [m_bicepsExerciseList addObject:@"Bicep Curl"];
-        [m_bicepsExerciseList addObject:@"Concentration Curl"];
-        [m_bicepsExerciseList addObject:@"EZ Bar Curl"];
-        [m_bicepsExerciseList addObject:@"Preacher Curl"];
+        [self.m_bicepsExerciseList addObject:@"Bicep Curl"];
+        [self.m_bicepsExerciseList addObject:@"Concentration Curl"];
+        [self.m_bicepsExerciseList addObject:@"EZ Bar Curl"];
+        [self.m_bicepsExerciseList addObject:@"Preacher Curl"];
         // Total biceps exercises
-        m_bicepsExercisesCount              = [m_bicepsExerciseList count];
+        self.m_bicepsExercisesCount              = [self.m_bicepsExerciseList count];
     }
     
-    return m_armsExerciseList;
+    return self.m_armsExerciseList;
 }
 
 /*
@@ -332,19 +334,19 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpBackExercises
 {
-    if (!m_backExerciseList) {
-        m_backExerciseList              = [NSMutableArray mutableArrayObject];
-        [m_backExerciseList addObject:@"Single Arm Bent Over Row"];
-        [m_backExerciseList addObject:@"Bent Over Alternating Row"];
-        [m_backExerciseList addObject:@"Bent Over Barbell Row"];
-        [m_backExerciseList addObject:@"Bent Over Dumbbell Row"];
-        [m_backExerciseList addObject:@"Seated Row"];
-        [m_backExerciseList addObject:@"Narrow Grip Pull Up"];
-        [m_backExerciseList addObject:@"Upright Row"];
-        [m_backExerciseList addObject:@"Wide Grip Lateral Pull Down"];
-        [m_backExerciseList addObject:@"Wide Grip Pull Up"];
+    if (!self.m_backExerciseList) {
+        self.m_backExerciseList              = [NSMutableArray mutableArrayObject];
+        [self.m_backExerciseList addObject:@"Single Arm Bent Over Row"];
+        [self.m_backExerciseList addObject:@"Bent Over Alternating Row"];
+        [self.m_backExerciseList addObject:@"Bent Over Barbell Row"];
+        [self.m_backExerciseList addObject:@"Bent Over Dumbbell Row"];
+        [self.m_backExerciseList addObject:@"Seated Row"];
+        [self.m_backExerciseList addObject:@"Narrow Grip Pull Up"];
+        [self.m_backExerciseList addObject:@"Upright Row"];
+        [self.m_backExerciseList addObject:@"Wide Grip Lateral Pull Down"];
+        [self.m_backExerciseList addObject:@"Wide Grip Pull Up"];
     }
-    return m_backExerciseList;
+    return self.m_backExerciseList;
 }
 
 /*
@@ -352,16 +354,16 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpChestExercises
 {
-    if (!m_chestExerciseList) {
-        m_chestExerciseList            = [NSMutableArray mutableArrayObject];
-        [m_chestExerciseList addObject:@"Bench Press"];
-        [m_chestExerciseList addObject:@"Inch Worm Push Up"];
-        [m_chestExerciseList addObject:@"Incline Bench Press"];
+    if (!self.m_chestExerciseList) {
+        self.m_chestExerciseList            = [NSMutableArray mutableArrayObject];
+        [self.m_chestExerciseList addObject:@"Bench Press"];
+        [self.m_chestExerciseList addObject:@"Inch Worm Push Up"];
+        [self.m_chestExerciseList addObject:@"Incline Bench Press"];
 //        [m_chestExerciseList addObject:@"Incline Dumbbell Chest Press"];
-        [m_chestExerciseList addObject:@"Push Ups"];
-        [m_chestExerciseList addObject:@"Weighted Chest Fly"];
+        [self.m_chestExerciseList addObject:@"Push Ups"];
+        [self.m_chestExerciseList addObject:@"Weighted Chest Fly"];
     }
-    return m_chestExerciseList;
+    return self.m_chestExerciseList;
 }
 
 /*
@@ -369,25 +371,25 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpLegsExercises
 {
-    if (!m_legsExerciseList) {
-        m_legsExerciseList             = [NSMutableArray mutableArrayObject];
-        [m_legsExerciseList addObject:@"Body Weight Squats"];
-        [m_legsExerciseList addObject:@"Butt Kicks"];
-        [m_legsExerciseList addObject:@"Calf Raises"];
-        [m_legsExerciseList addObject:@"Deadlift"];
-        [m_legsExerciseList addObject:@"Squat and Press"];
-        [m_legsExerciseList addObject:@"Dumbbell Deadlift"];
-        [m_legsExerciseList addObject:@"Front Squat"];
-        [m_legsExerciseList addObject:@"Jump squat"];
-        [m_legsExerciseList addObject:@"Squat"];
-        [m_legsExerciseList addObject:@"Jumping Split Squat"];
-        [m_legsExerciseList addObject:@"Leg Press"];
-        [m_legsExerciseList addObject:@"Lunges"];
-        [m_legsExerciseList addObject:@"Reverse Lunge"];
-        [m_legsExerciseList addObject:@"Single Arm Deadlift"];
-        [m_legsExerciseList addObject:@"Skater Lunges"];
+    if (!self.m_legsExerciseList) {
+        self.m_legsExerciseList             = [NSMutableArray mutableArrayObject];
+        [self.m_legsExerciseList addObject:@"Body Weight Squats"];
+        [self.m_legsExerciseList addObject:@"Butt Kicks"];
+        [self.m_legsExerciseList addObject:@"Calf Raises"];
+        [self.m_legsExerciseList addObject:@"Deadlift"];
+        [self.m_legsExerciseList addObject:@"Squat and Press"];
+        [self.m_legsExerciseList addObject:@"Dumbbell Deadlift"];
+        [self.m_legsExerciseList addObject:@"Front Squat"];
+        [self.m_legsExerciseList addObject:@"Jump squat"];
+        [self.m_legsExerciseList addObject:@"Squat"];
+        [self.m_legsExerciseList addObject:@"Jumping Split Squat"];
+        [self.m_legsExerciseList addObject:@"Leg Press"];
+        [self.m_legsExerciseList addObject:@"Lunges"];
+        [self.m_legsExerciseList addObject:@"Reverse Lunge"];
+        [self.m_legsExerciseList addObject:@"Single Arm Deadlift"];
+        [self.m_legsExerciseList addObject:@"Skater Lunges"];
     }
-    return m_legsExerciseList;
+    return self.m_legsExerciseList;
 }
 
 /*
@@ -395,48 +397,48 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpShoulderExercises
 {
-    if (!m_shoulderExerciseList) {
-        m_shoulderExerciseList          = [NSMutableArray mutableArrayObject];
-        [m_shoulderExerciseList addObject:@"Bent Lateral Raises"];
-        [m_shoulderExerciseList addObject:@"Dumbbell Drop"];
-        [m_shoulderExerciseList addObject:@"Front Raises"];
-        [m_shoulderExerciseList addObject:@"Seated Shoulder Press"];
-        [m_shoulderExerciseList addObject:@"Power Shrug"];
-        [m_shoulderExerciseList addObject:@"Standing Shoulder Press"];
-        [m_shoulderExerciseList addObject:@"Standing Shrug"];
+    if (!self.m_shoulderExerciseList) {
+        self.m_shoulderExerciseList          = [NSMutableArray mutableArrayObject];
+        [self.m_shoulderExerciseList addObject:@"Bent Lateral Raises"];
+        [self.m_shoulderExerciseList addObject:@"Dumbbell Drop"];
+        [self.m_shoulderExerciseList addObject:@"Front Raises"];
+        [self.m_shoulderExerciseList addObject:@"Seated Shoulder Press"];
+        [self.m_shoulderExerciseList addObject:@"Power Shrug"];
+        [self.m_shoulderExerciseList addObject:@"Standing Shoulder Press"];
+        [self.m_shoulderExerciseList addObject:@"Standing Shrug"];
     }
-    return m_shoulderExerciseList;
+    return self.m_shoulderExerciseList;
 }
 
 -(NSMutableArray *)loadUpSleep{
-    if(!m_sleep){
-        m_sleep = [NSMutableArray mutableArrayObject];
-        [m_sleep addObject:@"Sleep Benefits"];
+    if(!self.m_sleep){
+        self.m_sleep = [NSMutableArray mutableArrayObject];
+        [self.m_sleep addObject:@"Sleep Benefits"];
     }
-    return m_sleep;
+    return self.m_sleep;
 }
 /*
  load up Full Body Exercises
  */
 - (NSMutableArray *)loadUpFullBodyExercises
 {
-    if (!m_fullBodyExerciseList) {
-        m_fullBodyExerciseList          = [NSMutableArray mutableArrayObject];
-        [m_fullBodyExerciseList addObject:@"Burpee Push Up"];
-        [m_fullBodyExerciseList addObject:@"Burpees"];
-        [m_fullBodyExerciseList addObject:@"Half Burpees"];
-        [m_fullBodyExerciseList addObject:@"High Pull"];
-        [m_fullBodyExerciseList addObject:@"Jump Tucks"];
-        [m_fullBodyExerciseList addObject:@"Jumping Jacks"];
-        [m_fullBodyExerciseList addObject:@"Kettle Bell Swing"];
-        [m_fullBodyExerciseList addObject:@"Knee Abductions"];
-        [m_fullBodyExerciseList addObject:@"Mountain Climbers"];
-        [m_fullBodyExerciseList addObject:@"Plea Squat Upright Row"];
-        [m_fullBodyExerciseList addObject:@"High Knees"];
-        [m_fullBodyExerciseList addObject:@"Squat And Press"];
-        [m_fullBodyExerciseList addObject:@"Wood Choppers"];
+    if (!self.m_fullBodyExerciseList) {
+        self.m_fullBodyExerciseList          = [NSMutableArray mutableArrayObject];
+        [self.m_fullBodyExerciseList addObject:@"Burpee Push Up"];
+        [self.m_fullBodyExerciseList addObject:@"Burpees"];
+        [self.m_fullBodyExerciseList addObject:@"Half Burpees"];
+        [self.m_fullBodyExerciseList addObject:@"High Pull"];
+        [self.m_fullBodyExerciseList addObject:@"Jump Tucks"];
+        [self.m_fullBodyExerciseList addObject:@"Jumping Jacks"];
+        [self.m_fullBodyExerciseList addObject:@"Kettle Bell Swing"];
+        [self.m_fullBodyExerciseList addObject:@"Knee Abductions"];
+        [self.m_fullBodyExerciseList addObject:@"Mountain Climbers"];
+        [self.m_fullBodyExerciseList addObject:@"Plea Squat Upright Row"];
+        [self.m_fullBodyExerciseList addObject:@"High Knees"];
+        [self.m_fullBodyExerciseList addObject:@"Squat And Press"];
+        [self.m_fullBodyExerciseList addObject:@"Wood Choppers"];
     }
-    return m_fullBodyExerciseList;
+    return self.m_fullBodyExerciseList;
 }
 
 /*
@@ -444,15 +446,15 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpCardioExercises
 {
-    if (!m_cardioExerciseList) {
-        m_cardioExerciseList            = [NSMutableArray mutableArrayObject];
-        [m_cardioExerciseList addObject:@"Bike"];
-        [m_cardioExerciseList addObject:@"Skip"];
+    if (!self.m_cardioExerciseList) {
+        self.m_cardioExerciseList            = [NSMutableArray mutableArrayObject];
+        [self.m_cardioExerciseList addObject:@"Bike"];
+        [self.m_cardioExerciseList addObject:@"Skip"];
 //        [m_cardioExerciseList addObject:@"Sprint"];
 //        [m_cardioExerciseList addObject:@"Walk"];
-        [m_cardioExerciseList addObject:@"Jogging"];
+        [self.m_cardioExerciseList addObject:@"Jogging"];
     }
-    return m_cardioExerciseList;
+    return self.m_cardioExerciseList;
 }
 
 /*
@@ -460,10 +462,10 @@ NSString *m_showBicepImages;
  */
 - (NSMutableArray *)loadUpSportsExercises
 {
-    if (!m_sportsExerciseList) {
-        m_sportsExerciseList            = [NSMutableArray sportsList];
+    if (!self.m_sportsExerciseList) {
+        self.m_sportsExerciseList            = [NSMutableArray sportsList];
     }
-    return m_sportsExerciseList;
+    return self.m_sportsExerciseList;
 }
 
 - (UIImage *)imageWithFilename:(NSString *)filename
@@ -489,19 +491,19 @@ NSString *m_showBicepImages;
 
 -(void)findImageForBicep:(NSMutableArray *)itemsListArray{
     // Need to add bicep images on triceps images
-    if (![m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
-        m_imagesArray              = nil;
+    if (![self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+        self.m_imagesArray              = nil;
     }
     
-    if(!m_bicepsImagesArray){
-        m_bicepsImagesArray = [NSMutableArray mutableArrayObject];
+    if(!self.m_bicepsImagesArray){
+        self.m_bicepsImagesArray = [NSMutableArray mutableArrayObject];
     }
     
     for (NSString *exercise in itemsListArray) {
         NSString *imageName        = [NSString findImageForWorkout:[NSString stringWithFormat:@"%@",exercise]];
         //NSString *imageName = [NSString findImageForWorkout:[self stringWithFilename:[NSString stringWithFormat:@"%@", exercise]]];
         //NSString *imageName = [self imageWithFilename:[NSString findImageForWorkout:[NSString stringWithFormat:@"%@", exercise]]];
-        [m_bicepsImagesArray addObject:imageName];
+        [self.m_bicepsImagesArray addObject:imageName];
     }
 
 }
@@ -512,12 +514,12 @@ NSString *m_showBicepImages;
 - (void)findImageForExercise:(NSMutableArray *)itemsListArray
 {
     // Need to add bicep images on triceps images
-    if (![m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
-        m_imagesArray              = nil;
+    if (![self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+        self.m_imagesArray              = nil;
     }
 
-    if (!m_imagesArray) {
-        m_imagesArray              = [NSMutableArray mutableArrayObject];
+    if (!self.m_imagesArray) {
+        self.m_imagesArray              = [NSMutableArray mutableArrayObject];
     }
     
 
@@ -525,7 +527,7 @@ NSString *m_showBicepImages;
         NSString *imageName        = [NSString findImageForWorkout:[NSString stringWithFormat:@"%@",exercise]];
         //NSString *imageName = [NSString findImageForWorkout:[self stringWithFilename:[NSString stringWithFormat:@"%@", exercise]]];
         //NSString *imageName = [self imageWithFilename:[NSString findImageForWorkout:[NSString stringWithFormat:@"%@", exercise]]];
-        [m_imagesArray addObject:imageName];
+        [self.m_imagesArray addObject:imageName];
     }
 }
 
@@ -535,49 +537,49 @@ NSString *m_showBicepImages;
 - (void)selectExerciseList:(NSString *)selectedString
 {
     // Empty arrays first
-    m_itemsListArray                = nil;
-    m_tricepsExerciseList           = nil;
-    m_bicepsExerciseList            = nil;
+    self.m_itemsListArray                = nil;
+    self.m_tricepsExerciseList           = nil;
+    self.m_bicepsExerciseList            = nil;
     
-    if (![m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+    if (![self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
         if([selectedString isEqualToString:@"Abdomimals"]) {
-            m_itemsListArray            = [self loadUpAbsExercise];
+            self.m_itemsListArray            = [self loadUpAbsExercise];
         }
         else if([selectedString isEqualToString:@"Back"]) {
-            m_itemsListArray            = [self loadUpBackExercises];
+            self.m_itemsListArray            = [self loadUpBackExercises];
         }
         else if([selectedString isEqualToString:@"Chest"]) {
-            m_itemsListArray            = [self loadUpChestExercises];
+            self.m_itemsListArray            = [self loadUpChestExercises];
         }
         else if([selectedString isEqualToString:@"Legs"]) {
-            m_itemsListArray            = [self loadUpLegsExercises];
+            self.m_itemsListArray            = [self loadUpLegsExercises];
         }
         else if([selectedString isEqualToString:@"Shoulders"]) {
-            m_itemsListArray            = [self loadUpShoulderExercises];
+            self.m_itemsListArray            = [self loadUpShoulderExercises];
         }
         else if([selectedString isEqualToString:@"Full Body"]) {
-            m_itemsListArray            = [self loadUpFullBodyExercises];
+            self.m_itemsListArray            = [self loadUpFullBodyExercises];
         }
         else if([selectedString isEqualToString:@"Cardio"]) {
-            m_itemsListArray            = [self loadUpCardioExercises];
+            self.m_itemsListArray            = [self loadUpCardioExercises];
         }
         else if([selectedString isEqualToString:@"Sports"]) {
-            m_itemsListArray            = [self loadUpSportsExercises];
+            self.m_itemsListArray            = [self loadUpSportsExercises];
         }
         else if([selectedString isEqualToString:@"Sleep"]){
-            m_itemsListArray = [self loadUpSleep];
+            self.m_itemsListArray = [self loadUpSleep];
         }
         // Then find the image using the exercise names
-        [self findImageForExercise:m_itemsListArray];
+        [self findImageForExercise:self.m_itemsListArray];
     }
     else if([selectedString isEqualToString:@"Arms"]) {
-        m_selectedStringFromExerciseViewController          = @"Arms";
-        m_imagesArray                   = nil;
-        m_bicepsImagesArray = nil;
+        self.m_selectedStringFromExerciseViewController          = @"Arms";
+        self.m_imagesArray                   = nil;
+        self.m_bicepsImagesArray = nil;
         [self loadUpArmsExercises];
         // Then find the image using the exercise names
-        [self findImageForExercise:m_tricepsExerciseList];
-        [self findImageForBicep:m_bicepsExerciseList];
+        [self findImageForExercise:self.m_tricepsExerciseList];
+        [self findImageForBicep:self.m_bicepsExerciseList];
     }
 }
 
@@ -646,8 +648,8 @@ NSString *m_showBicepImages;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    m_userEmailID                                       = [NSString getUserEmail];
-    m_gender                                            = [NSString getGenderOfUser];
+    self.m_userEmailID                                       = [NSString getUserEmail];
+    self.m_gender                                            = [NSString getGenderOfUser];
     
 //    if (!m_exerciseViewController) {
 //        m_exerciseViewController                        = [ExerciseViewController sharedInstance];
@@ -660,15 +662,15 @@ NSString *m_showBicepImages;
 //        [self selectExerciseList:m_selectedStringFromExerciseViewController];
 //    }
     
-    if(!m_ExerciseIndexView){
-        m_ExerciseIndexView = [ExcerciseIndexViewController sharedInstance];
+    if(!self.m_ExerciseIndexView){
+        self.m_ExerciseIndexView = [ExcerciseIndexViewController sharedInstance];
     }
     
-    if(([m_ExerciseIndexView.selectedImage length] != 0) && (m_ExerciseIndexView.selectedImage != NULL)){
-        m_selectedStringFromExerciseViewController = m_ExerciseIndexView.selectedImage;
-        m_ExerciseIndexView.selectedImage = @"";
+    if(([self.m_ExerciseIndexView.selectedImage length] != 0) && (self.m_ExerciseIndexView.selectedImage != NULL)){
+        self.m_selectedStringFromExerciseViewController = self.m_ExerciseIndexView.selectedImage;
+        self.m_ExerciseIndexView.selectedImage = @"";
     }
-    [self selectExerciseList:m_selectedStringFromExerciseViewController];
+    [self selectExerciseList:self.m_selectedStringFromExerciseViewController];
 
     // Refresh the TableView data
     [self.theTableView reloadData];
@@ -691,7 +693,7 @@ NSString *m_showBicepImages;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     int numberOfSections        = 1;
-    if ([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+    if ([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
         numberOfSections        = 2;
     }
     
@@ -701,16 +703,16 @@ NSString *m_showBicepImages;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRowsInSection                  = 0;
-    if ([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+    if ([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
         if (section == 0) { // Triceps exercises count
-           return numberOfRowsInSection        = m_tricepsExercisesCount;
+           return numberOfRowsInSection        = self.m_tricepsExercisesCount;
         }
         else if(section == 1) { // Biceps exercises count
-            return numberOfRowsInSection       = m_bicepsExercisesCount;
+            return numberOfRowsInSection       = self.m_bicepsExercisesCount;
         }
     }
     else {
-        return numberOfRowsInSection           = [m_itemsListArray count];
+        return numberOfRowsInSection           = [self.m_itemsListArray count];
     }
     return numberOfRowsInSection;
 }
@@ -723,10 +725,10 @@ NSString *m_showBicepImages;
     // needed for images to increment the tricep exercise count for biceps exercises count
     NSUInteger objectAtIndex                                       = 0;
     UIImage *cellImage                                      = nil;
-    if ([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+    if ([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
         
-        if ([m_showBicepImages isEqualToString:@"YES"]) {
-            objectAtIndex                                       = m_tricepsExercisesCount;
+        if ([self.m_showBicepImages isEqualToString:@"YES"]) {
+            objectAtIndex                                       = self.m_tricepsExercisesCount;
         }
         if ([imageArray count] >= indexPath.row) {
             cellImage                                           = [self imageWithFilename:imageArray[indexPath.row]];
@@ -775,18 +777,18 @@ NSString *m_showBicepImages;
  */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath onTableView:tableView
 {
-    if ([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
+    if ([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) {
         if (indexPath.section == 0) {
-            m_showBicepImages               = @"NO";
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:m_imagesArray AndExerciseArray:m_tricepsExerciseList];
+            self.m_showBicepImages               = @"NO";
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_imagesArray AndExerciseArray:self.m_tricepsExerciseList];
         }
         else if(indexPath.section == 1) {
-            m_showBicepImages               = @"YES";
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:m_bicepsImagesArray AndExerciseArray:m_bicepsExerciseList];
+            self.m_showBicepImages               = @"YES";
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_bicepsImagesArray AndExerciseArray:self.m_bicepsExerciseList];
         }
     }
     else {
-        [self cellContents:cell atIndexPath:indexPath WithImageArray:m_imagesArray AndExerciseArray:m_itemsListArray];    
+        [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_imagesArray AndExerciseArray:self.m_itemsListArray];
     }
 }
 
@@ -838,7 +840,7 @@ NSString *m_showBicepImages;
 {
     float heightForHeaderSection;
     
-    if([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) { // If the selected exercises "Arms"
+    if([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) { // If the selected exercises "Arms"
         heightForHeaderSection          = 30.0f;
     }
     else { // If the exercise index
@@ -850,7 +852,7 @@ NSString *m_showBicepImages;
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView;
-    if ([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) { // The table view is meal plan table view
+    if ([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) { // The table view is meal plan table view
         headerView              = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
         UILabel *label          = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
 
@@ -883,16 +885,16 @@ NSString *m_showBicepImages;
         self.selectedImage                   = @"";
     }
     // assign image from exercise images
-    if([m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) { // If the selected exercises "Arms"
+    if([self.m_selectedStringFromExerciseViewController isEqualToString:@"Arms"]) { // If the selected exercises "Arms"
         if (indexPath.section == 0) {
-            self.selectedImage               = [[NSString alloc ] initWithFormat:@"%@",[m_imagesArray objectAtIndex:indexPath.row]];
+            self.selectedImage               = [[NSString alloc ] initWithFormat:@"%@",[self.m_imagesArray objectAtIndex:indexPath.row]];
         }
         else if(indexPath.section == 1) {
-            self.selectedImage               = [[NSString alloc ] initWithFormat:@"%@",[m_bicepsImagesArray objectAtIndex:indexPath.row]];
+            self.selectedImage               = [[NSString alloc ] initWithFormat:@"%@",[self.m_bicepsImagesArray objectAtIndex:indexPath.row]];
         }
     }
     else {
-        self.selectedImage                   = [[NSString alloc ] initWithFormat:@"%@",[m_imagesArray objectAtIndex:indexPath.row]];
+        self.selectedImage                   = [[NSString alloc ] initWithFormat:@"%@",[self.m_imagesArray objectAtIndex:indexPath.row]];
     }
 
     if (self.selectedImage) { // We can retrieve a particular exercise name

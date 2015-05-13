@@ -14,16 +14,17 @@
 #import <Parse/Parse.h>
 
 @interface GenderViewController ()
+// IntensityViewController class object
+@property (strong, nonatomic)IntensityViewController *m_intensityViewController;
+// Selected Gender
+@property (strong, nonatomic)NSString *gender;
+@property (strong, nonatomic)ViewTransitions *m_transition;
 // Move to IntensityViewController
 - (void)moveToIntensityViewController:(id)sender;
 @end
 
 @implementation GenderViewController
-// IntensityViewController class object
-IntensityViewController *m_intensityViewController;
-// Selected Gender
-NSString *gender;
-ViewTransitions *m_transition;
+
 
 @synthesize maleButton;
 @synthesize femaleButton;
@@ -46,10 +47,10 @@ ViewTransitions *m_transition;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -59,11 +60,11 @@ ViewTransitions *m_transition;
  */
 - (void)moveToIntensityViewController:(id)sender
 {
-    if (!m_intensityViewController) {
-        m_intensityViewController          = [IntensityViewController sharedInstance];
+    if (!self.m_intensityViewController) {
+        self.m_intensityViewController          = [IntensityViewController sharedInstance];
     }
-    id instanceObject               = m_intensityViewController;
-    [self moveToView:m_intensityViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_intensityViewController;
+    [self moveToView:self.m_intensityViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 - (IBAction)nextView:(id)sender {
     
@@ -88,11 +89,11 @@ ViewTransitions *m_transition;
             [self.maleButton setBackgroundImage:[UIImage imageNamed:@"male_active.png"] forState:UIControlStateNormal];
             [self.femaleButton setBackgroundImage:[UIImage imageNamed:@"female.png"] forState:UIControlStateNormal];
             
-            gender                            = @"Male";
-            self.sex                        = gender;
+            self.gender                            = @"Male";
+            self.sex                        = self.gender;
             if (![self.sex isEqualToString:@""]) {
                 PFObject *sexObject = [PFObject objectWithClassName:@"User"];
-                [sexObject setObject:gender forKey:@"sex"];
+                [sexObject setObject:self.gender forKey:@"sex"];
                 [self moveToIntensityViewController:self];
             }
 
@@ -112,11 +113,11 @@ ViewTransitions *m_transition;
             // set light intensity image
             [self.maleButton setBackgroundImage:[UIImage imageNamed:@"male.png"] forState:UIControlStateNormal];
             [self.femaleButton setBackgroundImage:[UIImage imageNamed:@"female_active.png"] forState:UIControlStateNormal];
-            gender                            = @"Female";
-            self.sex                        = gender;
+            self.gender                            = @"Female";
+            self.sex                        = self.gender;
             if (![self.sex isEqualToString:@""]) {
                 PFObject *sexObject = [PFObject objectWithClassName:@"User"];
-                [sexObject setObject:gender forKey:@"sex"];
+                [sexObject setObject:self.gender forKey:@"sex"];
                 [self moveToIntensityViewController:self];
             }
 

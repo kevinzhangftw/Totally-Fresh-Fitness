@@ -14,6 +14,38 @@
 
 @interface SwitchPlanItemViewController ()
 
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MealViewContrioller class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// Database class object
+@property (strong, nonatomic)Database *m_database;
+// SwitchPlanItemSelection class object
+@property (strong, nonatomic)SwitchPlanItemSelection *m_switchPlanItemSelection;
+
+// Plan Mutable images array
+@property (strong, nonatomic)NSMutableArray *m_planImagesArray;
+// Plan Mutable Key array
+@property (strong, nonatomic)NSMutableArray *m_planItemArray;
+// Plan Mutable Value array
+@property (strong, nonatomic)NSMutableArray *m_planDetailArray;
+// Selected plan item
+@property (strong, nonatomic)NSString *m_selectedPlanItem;
+// Selected plan details
+@property (strong, nonatomic)NSString *m_selectedPlanDetails;
+// User email address
+@property (strong, nonatomic)NSString *m_userEmail;
+// days selected array
+@property (strong, nonatomic)NSMutableArray *m_daysArray;
+
 // Move to CalenderViewController
 - (void)moveToCalenderViewController:(id)sender;
 // Move to ExerciseViewController
@@ -35,37 +67,7 @@
 
 @implementation SwitchPlanItemViewController
 
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewContrioller class object
-MealViewController *m_mealViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// Database class object
-Database *m_database;
-// SwitchPlanItemSelection class object
-SwitchPlanItemSelection *m_switchPlanItemSelection;
 
-// Plan Mutable images array
-NSMutableArray *m_planImagesArray;
-// Plan Mutable Key array
-NSMutableArray *m_planItemArray;
-// Plan Mutable Value array
-NSMutableArray *m_planDetailArray;
-// Selected plan item
-NSString *m_selectedPlanItem;
-// Selected plan details
-NSString *m_selectedPlanDetails;
-// User email address
-NSString *m_userEmail;
-// days selected array
-NSMutableArray *m_daysArray;
 
 @synthesize messageButton;
 @synthesize theTableView;
@@ -95,10 +97,10 @@ NSMutableArray *m_daysArray;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -109,12 +111,12 @@ NSMutableArray *m_daysArray;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+  
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -123,12 +125,12 @@ NSMutableArray *m_daysArray;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
-    
-    id instanceObject               = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+  
+    id instanceObject               = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -137,11 +139,11 @@ NSMutableArray *m_daysArray;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -150,11 +152,11 @@ NSMutableArray *m_daysArray;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -163,13 +165,13 @@ NSMutableArray *m_daysArray;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -194,10 +196,10 @@ NSMutableArray *m_daysArray;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     if(self.view.tag == 1) { // if meal plan
         [UIButton animateWithDuration:3.0f animations:^{self.messageButton.alpha = 0.0;} completion:^(BOOL finished){
@@ -216,10 +218,10 @@ NSMutableArray *m_daysArray;
  */
 - (void)getImagesforMealPlanItems
 {
-    NSUInteger numberOfItems                    = [m_planItemArray count];
+    NSUInteger numberOfItems                    = [self.m_planItemArray count];
     for (int i = 0; i < numberOfItems; i++) {
         // First remove whitespace at the end
-        [m_planImagesArray addObject:[NSString findImageForMealPlan:[[m_planItemArray objectAtIndex:i] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]]]; // add meal images
+        [self.m_planImagesArray addObject:[NSString findImageForMealPlan:[[self.m_planItemArray objectAtIndex:i] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]]]; // add meal images
     }
 }
 
@@ -248,10 +250,10 @@ NSMutableArray *m_daysArray;
  */
 - (void)getImagesforWorkoutPlanItems
 {
-    NSUInteger numberOfItems                    = [m_planItemArray count];
+    NSUInteger numberOfItems                    = [self.m_planItemArray count];
     for (int i = 0; i < numberOfItems; i++) {
         // First remove whitespace at the end
-        [m_planImagesArray addObject:[NSString findImageForWorkout:[NSString stringWithFormat:@"%@",[[m_planItemArray objectAtIndex:i] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]]]]; // add workout images
+        [self.m_planImagesArray addObject:[NSString findImageForWorkout:[NSString stringWithFormat:@"%@",[[self.m_planItemArray objectAtIndex:i] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]]]]; // add workout images
     }
 }
 
@@ -265,68 +267,68 @@ NSMutableArray *m_daysArray;
     excercise = [excercise stringByReplacingOccurrencesOfString:@".Png" withString:@""];
 
     NSString *status                = @"";
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
-    if (!m_userEmail) {
-        m_userEmail                 = [NSString getUserEmail];
+    if (!self.m_userEmail) {
+        self.m_userEmail                 = [NSString getUserEmail];
     }
 
-    if (!m_daysArray) {
-        m_daysArray                 = [NSMutableArray mutableArrayObject];
+    if (!self.m_daysArray) {
+        self.m_daysArray                 = [NSMutableArray mutableArrayObject];
     }
-    if (!m_database) {
-        m_daysArray                 = [m_database getLatestExerciseDays:m_userEmail]; // Get latest selected days
+    if (!self.m_database) {
+        self.m_daysArray                 = [self.m_database getLatestExerciseDays:self.m_userEmail]; // Get latest selected days
     }
     NSMutableArray *daysArray       = [NSMutableArray mutableArrayObject];
 
-    for (int i = 0; i < [m_daysArray count]; i++) {
-        if ([[m_daysArray objectAtIndex:i] isEqualToString:@"YES"]) {
+    for (int i = 0; i < [self.m_daysArray count]; i++) {
+        if ([[self.m_daysArray objectAtIndex:i] isEqualToString:@"YES"]) {
             [daysArray addObject:[NSString stringWithFormat:@"%d", i]];
         }
     }
 
     if (([excercise length] != 0) || (excercise != NULL )) { // if workout item plan is not empty or null
         if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"0"]) {
-            status                      = [m_database updateFirstDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateFirstDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoFirstDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
-            }   
+                status                  = [self.m_database insertIntoFirstDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
+            }
         }
         else if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"1"]) {
-            status                      = [m_database updateSecondDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateSecondDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoSecondDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
+                status                  = [self.m_database insertIntoSecondDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
             }
         }
         else if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"2"]) {
-            status                      = [m_database updateThirdDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateThirdDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoThirdDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
+                status                  = [self.m_database insertIntoThirdDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
             }
         }
         else if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"3"]) {
-            status                      = [m_database updateFourthDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateFourthDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoFourthDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
+                status                  = [self.m_database insertIntoFourthDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
             }
         }
         else if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"4"]) {
-            status                      = [m_database updateFifthDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateFifthDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoFifthDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
+                status                  = [self.m_database insertIntoFifthDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
             }
         }
         else if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"5"]) {
-            status                      = [m_database updateSixthDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateSixthDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoSixthDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
+                status                  = [self.m_database insertIntoSixthDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
             }
         }
         else if ([[daysArray objectAtIndex:selectedSection] isEqualToString:@"6"]) {
-            status                      = [m_database updateSeventhDayWorkOut:excercise Details:details forUser:m_userEmail];
+            status                      = [self.m_database updateSeventhDayWorkOut:excercise Details:details forUser:self.m_userEmail];
             if ([status isEqualToString:@"deleted"]) {
-                status                  = [m_database insertIntoSeventhDayWorkOut:m_selectedPlanItem Details:details forUser:m_userEmail];
+                status                  = [self.m_database insertIntoSeventhDayWorkOut:self.m_selectedPlanItem Details:details forUser:self.m_userEmail];
             }
         }
     }
@@ -341,55 +343,55 @@ NSMutableArray *m_daysArray;
  */
 - (IBAction)switchPlanItems:(id)sender
 {
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
-    if (!m_userEmail) {
-        m_userEmail                 = [NSString getUserEmail];
+    if (!self.m_userEmail) {
+        self.m_userEmail                 = [NSString getUserEmail];
     }
     
     NSString *status;
 
     if (self.view.tag == 1) { // Meal plan switch
-        if (!m_mealViewController) {
-            m_mealViewController        = [MealViewController alloc];
+        if (!self.m_mealViewController) {
+            self.m_mealViewController        = [MealViewController alloc];
         }
-        if (([m_selectedPlanItem length] != 0) || (m_selectedPlanItem != NULL)) { // if selected meal plan is not empty or null
+        if (([self.m_selectedPlanItem length] != 0) || (self.m_selectedPlanItem != NULL)) { // if selected meal plan is not empty or null
 
-            if (m_mealViewController.selectedSection == 0) {
-                status                      = [m_database updateBreakfastFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)m_mealViewController.selectedSection] forUser:m_userEmail];
+            if (self.m_mealViewController.selectedSection == 0) {
+                status                      = [self.m_database updateBreakfastFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)self.m_mealViewController.selectedSection] forUser:self.m_userEmail];
                 if ([status isEqualToString:@"deleted"]) {
-                    status                  = [m_database insertIntoBreakfastFood:m_selectedPlanItem Quantity:m_selectedPlanDetails forUser:m_userEmail];
+                    status                  = [self.m_database insertIntoBreakfastFood:self.m_selectedPlanItem Quantity:self.m_selectedPlanDetails forUser:self.m_userEmail];
                 }
             }
-            else if(m_mealViewController.selectedSection == 1) {
-                status                      = [m_database updateFirstSnackFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)m_mealViewController.selectedSection] forUser:m_userEmail];
+            else if(self.m_mealViewController.selectedSection == 1) {
+                status                      = [self.m_database updateFirstSnackFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)self.m_mealViewController.selectedSection] forUser:self.m_userEmail];
                 if ([status isEqualToString:@"deleted"]) {
-                    status                  = [m_database insertIntoFirstSnackFood:m_selectedPlanItem Quantity:m_selectedPlanDetails forUser:m_userEmail];
+                    status                  = [self.m_database insertIntoFirstSnackFood:self.m_selectedPlanItem Quantity:self.m_selectedPlanDetails forUser:self.m_userEmail];
                 }
             }
-            else if(m_mealViewController.selectedSection == 2) {
-                status                      = [m_database updateLunchFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)m_mealViewController.selectedSection] forUser:m_userEmail];
+            else if(self.m_mealViewController.selectedSection == 2) {
+                status                      = [self.m_database updateLunchFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)self.m_mealViewController.selectedSection] forUser:self.m_userEmail];
                 if ([status isEqualToString:@"deleted"]) {
-                    status                  = [m_database insertIntoLunchFood:m_selectedPlanItem Quantity:m_selectedPlanDetails forUser:m_userEmail];
+                    status                  = [self.m_database insertIntoLunchFood:self.m_selectedPlanItem Quantity:self.m_selectedPlanDetails forUser:self.m_userEmail];
                 }
             }
-            else if(m_mealViewController.selectedSection == 3) {
-                status                      = [m_database updateSecondSnackFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)m_mealViewController.selectedSection] forUser:m_userEmail];
+            else if(self.m_mealViewController.selectedSection == 3) {
+                status                      = [self.m_database updateSecondSnackFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)self.m_mealViewController.selectedSection] forUser:self.m_userEmail];
                 if ([status isEqualToString:@"deleted"]) {
-                    status                  = [m_database insertIntoSecondSnackFood:m_selectedPlanItem Quantity:m_selectedPlanDetails forUser:m_userEmail];
+                    status                  = [self.m_database insertIntoSecondSnackFood:self.m_selectedPlanItem Quantity:self.m_selectedPlanDetails forUser:self.m_userEmail];
                 }
             }
-            else if(m_mealViewController.selectedSection == 4) {
-                status                      = [m_database updateDinnerFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)m_mealViewController.selectedSection] forUser:m_userEmail];
+            else if(self.m_mealViewController.selectedSection == 4) {
+                status                      = [self.m_database updateDinnerFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)self.m_mealViewController.selectedSection] forUser:self.m_userEmail];
                 if ([status isEqualToString:@"deleted"]) {
-                    status                  = [m_database insertIntoDinnerFood:m_selectedPlanItem Quantity:m_selectedPlanDetails forUser:m_userEmail];
+                    status                  = [self.m_database insertIntoDinnerFood:self.m_selectedPlanItem Quantity:self.m_selectedPlanDetails forUser:self.m_userEmail];
                 }
             }
-            else if(m_mealViewController.selectedSection == 5) {
-                status                      = [m_database updateThirdSnackFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)m_mealViewController.selectedSection] forUser:m_userEmail];
+            else if(self.m_mealViewController.selectedSection == 5) {
+                status                      = [self.m_database updateThirdSnackFood:[NSString getFoodItemToSwitch] Quantity:[NSString stringWithFormat:@"%lu", (unsigned long)self.m_mealViewController.selectedSection] forUser:self.m_userEmail];
                 if ([status isEqualToString:@"deleted"]) {
-                    status                  = [m_database insertIntoThirdSnackFood:m_selectedPlanItem Quantity:m_selectedPlanDetails forUser:m_userEmail];
+                    status                  = [self.m_database insertIntoThirdSnackFood:self.m_selectedPlanItem Quantity:self.m_selectedPlanDetails forUser:self.m_userEmail];
                 }
             }
             
@@ -406,10 +408,10 @@ NSMutableArray *m_daysArray;
         }
     }
     else if(self.view.tag == 2) { // if workout plan
-        if (!m_exerciseViewController) {
-            m_exerciseViewController            = [ExerciseViewController alloc];
+        if (!self.m_exerciseViewController) {
+            self.m_exerciseViewController            = [ExerciseViewController alloc];
         }
-        status                                  = [self updateWorkoutPlanWithExercise:[NSString getExerciseItemToSwitch] andDetails:@"Empty Space" forDay:(int)m_exerciseViewController.selectedSection]; // update workout plan
+        status                                  = [self updateWorkoutPlanWithExercise:[NSString getExerciseItemToSwitch] andDetails:@"Empty Space" forDay:(int)self.m_exerciseViewController.selectedSection]; // update workout plan
         if ([status isEqualToString:@"inserted"]) { // successfully switched food items
             // Make done button visible
             [self displayMessage:@"You have successfully switched exercise items"];
@@ -482,30 +484,30 @@ NSMutableArray *m_daysArray;
 - (void)viewWillAppear:(BOOL)animated
 {
     // plan arrays initialized
-    m_planImagesArray                       = [NSMutableArray mutableArrayObject];
-    m_planItemArray                         = [NSMutableArray mutableArrayObject];
-    m_planDetailArray                       = [NSMutableArray mutableArrayObject];
+    self.m_planImagesArray                       = [NSMutableArray mutableArrayObject];
+    self.m_planItemArray                         = [NSMutableArray mutableArrayObject];
+    self.m_planDetailArray                       = [NSMutableArray mutableArrayObject];
 
-    if (!m_switchPlanItemSelection) {
-        m_switchPlanItemSelection           = [SwitchPlanItemSelection sharedInstance];
+    if (!self.m_switchPlanItemSelection) {
+        self.m_switchPlanItemSelection           = [SwitchPlanItemSelection sharedInstance];
     }
     
-    if (!m_mealViewController) {
-        m_mealViewController                = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController                = [MealViewController sharedInstance];
     }
     
-    if (!m_exerciseViewController) {
-        m_exerciseViewController            = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController            = [ExerciseViewController sharedInstance];
     }
     
     NSMutableArray *tempArray;
     
     if (self.view.tag == 1) {
-        tempArray           = [m_switchPlanItemSelection getMealPanItems:[NSString getFoodItemToSwitch]];
+        tempArray           = [self.m_switchPlanItemSelection getMealPanItems:[NSString getFoodItemToSwitch]];
         if ([tempArray count] > 0) {
             for (int i = 0; i < [tempArray count]; i = i + 2) {
-                [m_planItemArray addObject:[tempArray objectAtIndex:i]];
-                [m_planDetailArray addObject:[tempArray objectAtIndex:i + 1]];
+                [self.m_planItemArray addObject:[tempArray objectAtIndex:i]];
+                [self.m_planDetailArray addObject:[tempArray objectAtIndex:i + 1]];
             }
             // get images
             [self getImagesforMealPlanItems];
@@ -519,10 +521,10 @@ NSMutableArray *m_daysArray;
     else if(self.view.tag == 2) {
         NSLog(@"[NSString getExerciseItemToSwitch] %@", [NSString getExerciseItemToSwitch]);
 
-        tempArray           = [m_switchPlanItemSelection getWorkoutPlanItems:[NSString getExerciseItemToSwitch]];
+        tempArray           = [self.m_switchPlanItemSelection getWorkoutPlanItems:[NSString getExerciseItemToSwitch]];
         if ([tempArray count] > 0) {
             for (int i = 0; i < [tempArray count]; i++) {
-                [m_planItemArray addObject:[tempArray objectAtIndex:i]];
+                [self.m_planItemArray addObject:[tempArray objectAtIndex:i]];
             }
             // get images
             [self getImagesforWorkoutPlanItems];
@@ -558,14 +560,14 @@ NSMutableArray *m_daysArray;
     headerView                  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
     UILabel *label              = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
     UIView *seperatorView;
-    if (!m_switchPlanItemSelection) {
-        m_switchPlanItemSelection           = [SwitchPlanItemSelection sharedInstance];
+    if (!self.m_switchPlanItemSelection) {
+        self.m_switchPlanItemSelection           = [SwitchPlanItemSelection sharedInstance];
     }
-    if (m_switchPlanItemSelection.categoryName == NULL) {
+    if (self.m_switchPlanItemSelection.categoryName == NULL) {
         label.text              = @"";
     }
     else {
-        label.text              = [NSString stringWithFormat:@"  %@", m_switchPlanItemSelection.categoryName];
+        label.text              = [NSString stringWithFormat:@"  %@", self.m_switchPlanItemSelection.categoryName];
     }
     label.textAlignment         = NSTextAlignmentLeft;
     label.textColor             = [UIColor redColor];
@@ -588,7 +590,7 @@ NSMutableArray *m_daysArray;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [m_planItemArray count];
+    return [self.m_planItemArray count];
 }
 
 - (UIImage *)imageWithFilename:(NSString *)filename
@@ -663,7 +665,7 @@ NSMutableArray *m_daysArray;
  */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath onTableView:tableView
 {
-    [self cellContents:cell atIndexPath:indexPath WithImageArray:m_planImagesArray AndKeyArray:m_planItemArray AndValueArray:m_planDetailArray];
+    [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_planImagesArray AndKeyArray:self.m_planItemArray AndValueArray:self.m_planDetailArray];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -748,8 +750,8 @@ NSMutableArray *m_daysArray;
     {
         self.checkedIndexPath = nil;
         // no item selected
-        m_selectedPlanItem              = @"";
-        m_selectedPlanDetails           = @"";
+        self.m_selectedPlanItem              = @"";
+        self.m_selectedPlanDetails           = @"";
     }
     else
     {
@@ -757,9 +759,9 @@ NSMutableArray *m_daysArray;
         cell.accessoryType              = UITableViewCellAccessoryCheckmark;
         self.checkedIndexPath           = indexPath;
         
-        m_selectedPlanItem              = [m_planItemArray objectAtIndex:indexPath.row];
-        if ([m_planDetailArray count] > 0) { // if it is meal plan
-            m_selectedPlanDetails       = [m_planDetailArray objectAtIndex:indexPath.row];
+        self.m_selectedPlanItem              = [self.m_planItemArray objectAtIndex:indexPath.row];
+        if ([self.m_planDetailArray count] > 0) { // if it is meal plan
+            self.m_selectedPlanDetails       = [self.m_planDetailArray objectAtIndex:indexPath.row];
         }
     }
 }

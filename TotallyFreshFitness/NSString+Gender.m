@@ -10,7 +10,6 @@
 
 @implementation NSString (Gender)
 
-Database *m_database;
 static NSString *m_gender   = nil;
 
 /*
@@ -18,10 +17,9 @@ static NSString *m_gender   = nil;
  */
 +(NSString *)getGenderOfUser
 {
-    if (m_gender == nil) {
-        m_database       = [Database alloc];
+    Database *m_database       = [Database alloc];
         m_gender         = [m_database getGender:[NSString getUserEmail]];
-    }
+  
     return [m_gender lowercaseString];
 }
 
@@ -39,9 +37,7 @@ static NSString *m_gender   = nil;
 +(void)resetGender
 {
     m_gender        = nil;
-    if (m_gender == nil) {
-        m_database       = [Database alloc];
+        Database *m_database       = [Database alloc];
         m_gender         = [m_database getGender:[NSString getUserEmail]];
-    }
 }
 @end

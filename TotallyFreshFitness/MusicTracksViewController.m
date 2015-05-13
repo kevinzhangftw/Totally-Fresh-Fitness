@@ -13,6 +13,33 @@
 
 @interface MusicTracksViewController ()
 
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MealViewContrioller class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MusicListViewController class object
+@property (strong, nonatomic)MusicListViewController *m_musicListViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+// ViewTransitions class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// Music categories array
+@property (strong, nonatomic)NSMutableArray *m_musicCategoriesArray;
+// Music mix urls array
+@property (strong, nonatomic)NSMutableArray *m_musicMixesURLArray;
+// Music images arrays
+@property (strong, nonatomic)NSMutableArray *m_tracksImagesArray;
+// Music contents
+@property (strong, nonatomic)NSMutableArray *m_tracksContentsArray;
+
 // Move to CalenderViewController
 - (void)moveToCalenderViewController:(id)sender;
 // Move to MealViewController
@@ -27,32 +54,7 @@
 @end
 
 @implementation MusicTracksViewController
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewContrioller class object
-MealViewController *m_mealViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MusicListViewController class object
-MusicListViewController *m_musicListViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransitions class object
-ViewTransitions *m_transition;
-// Music categories array
-NSMutableArray *m_musicCategoriesArray;
-// Music mix urls array
-NSMutableArray *m_musicMixesURLArray;
-// Music images arrays
-NSMutableArray *m_tracksImagesArray;
-// Music contents
-NSMutableArray *m_tracksContentsArray;
+
 
 @synthesize topNavigationBar;
 @synthesize backButton;
@@ -76,12 +78,12 @@ NSMutableArray *m_tracksContentsArray;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController                = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                = [RootViewController sharedInstance];
     }
     
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -89,13 +91,13 @@ NSMutableArray *m_tracksContentsArray;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
+    id instanceObject                   = self.m_exerciseViewController;
     
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -104,11 +106,11 @@ NSMutableArray *m_tracksContentsArray;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -117,11 +119,11 @@ NSMutableArray *m_tracksContentsArray;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -130,13 +132,13 @@ NSMutableArray *m_tracksContentsArray;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 
     
@@ -210,12 +212,12 @@ NSMutableArray *m_tracksContentsArray;
     
 //    m_tracksArray           = [[NSMutableArray alloc] initWithObjects:@"EDM", @"http://8tracks.com/totalfitness-nutrition/beast-mode", @"Rock", @"http://8tracks.com/louder-space/pump-it-up", @"Mash up", @"http://8tracks.com/cunningstunt/daft-punk-mashed", @"Hip Hop", @"http://8tracks.com/vurj/get-pumped", @"Dubstep", @"http://8tracks.com/alisonggil/sick-drops-and-dirty-beats", @"Country", @"http://8tracks.com/cherhasthoughts/we-can-work-it-out", @"Indie", @"http://8tracks.com/tina-t-na/all-those-indie-songs-you-can-t-get-out-of-your-head", @"Pop", @"http://8tracks.com/vixjiang/basically-the-radio-but-not-really", nil];
     
-    m_musicCategoriesArray      = [[NSMutableArray alloc] initWithObjects:@"EDM", @"Rock", @"Mash up", @"Hip Hop", @"Dubstep", @"Country",  @"Indie", @"Pop", nil];
-    
-    m_musicMixesURLArray           = [[NSMutableArray alloc] initWithObjects:@"http://8tracks.com/totalfitnessapp/mixes.json?", @"http://8tracks.com/louder-space/mixes.json?",  @"http://8tracks.com/cunningstunt/mixes.json?", @"http://8tracks.com/vurj/mixes.json?",  @"http://8tracks.com/alisonggil/mixes.json?", @"http://8tracks.com/cherhasthoughts/mixes.json?", @"http://8tracks.com/tina-t-na/mixes.json?", @"http://8tracks.com/vixjiang/mixes.json?", nil];
+    self.m_musicCategoriesArray      = [[NSMutableArray alloc] initWithObjects:@"EDM", @"Rock", @"Mash up", @"Hip Hop", @"Dubstep", @"Country",  @"Indie", @"Pop", nil];
+  
+    self.m_musicMixesURLArray           = [[NSMutableArray alloc] initWithObjects:@"http://8tracks.com/totalfitnessapp/mixes.json?", @"http://8tracks.com/louder-space/mixes.json?",  @"http://8tracks.com/cunningstunt/mixes.json?", @"http://8tracks.com/vurj/mixes.json?",  @"http://8tracks.com/alisonggil/mixes.json?", @"http://8tracks.com/cherhasthoughts/mixes.json?", @"http://8tracks.com/tina-t-na/mixes.json?", @"http://8tracks.com/vixjiang/mixes.json?", nil];
 
     
-    m_tracksImagesArray     = [[NSMutableArray alloc] initWithObjects:@"EDM.png", @"rock.png", @"mashup.png", @"hiphop.png", @"dubstep.png", @"country.png", @"indie.png", @"pop.png", nil];
+    self.m_tracksImagesArray     = [[NSMutableArray alloc] initWithObjects:@"EDM.png", @"rock.png", @"mashup.png", @"hiphop.png", @"dubstep.png", @"country.png", @"indie.png", @"pop.png", nil];
 }
 
 - (void)viewDidUnload
@@ -229,14 +231,14 @@ NSMutableArray *m_tracksContentsArray;
 - (void)cellContents:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     UIImage *cellImage                                  = nil;
-    if ([m_tracksImagesArray count] > 0) { // so that accessing the empty array doesn't crash the app
-        cellImage                                       = [UIImage imageNamed:[m_tracksImagesArray objectAtIndex:indexPath.row]];     // Find the right image
+    if ([self.m_tracksImagesArray count] > 0) { // so that accessing the empty array doesn't crash the app
+        cellImage                                       = [UIImage imageNamed:[self.m_tracksImagesArray objectAtIndex:indexPath.row]];     // Find the right image
     }
     ((UIImageView *)[cell viewWithTag:1]).image         = cellImage;
     // Customize accessoryView
     cell.accessoryType                                  = UITableViewCellAccessoryDisclosureIndicator;
     [cell setUserInteractionEnabled:YES];
-    ((UILabel *)[cell viewWithTag:2]).text              = [m_musicCategoriesArray objectAtIndex:indexPath.row];
+    ((UILabel *)[cell viewWithTag:2]).text              = [self.m_musicCategoriesArray objectAtIndex:indexPath.row];
 }
 
 #pragma mark -
@@ -248,7 +250,7 @@ NSMutableArray *m_tracksContentsArray;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [m_tracksImagesArray count];
+    return [self.m_tracksImagesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -320,17 +322,17 @@ NSMutableArray *m_tracksContentsArray;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedMusicURL           = [m_musicMixesURLArray objectAtIndex:indexPath.row];
+    self.selectedMusicURL           = [self.m_musicMixesURLArray objectAtIndex:indexPath.row];
     [NSString setMusicMixURL:self.selectedMusicURL];
     
-    if (!m_musicListViewController) {
-        m_musicListViewController   = [MusicListViewController sharedInstance];
+    if (!self.m_musicListViewController) {
+        self.m_musicListViewController   = [MusicListViewController sharedInstance];
     }
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:m_musicListViewController.view];
-    [self.view addSubview:m_musicListViewController.view];
+    [self.m_transition performTransitionFromRight:self.m_musicListViewController.view];
+    [self.view addSubview:self.m_musicListViewController.view];
 
     // Unselect the row
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

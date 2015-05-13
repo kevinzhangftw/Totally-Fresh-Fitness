@@ -12,30 +12,30 @@
 #import "SupplementPlanSelection.h"
 
 @interface SupplementProfileViewController ()
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MealViewController class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// SupplementPlanSelection class object
+@property (strong, nonatomic)SupplementPlanSelection *m_supplementPlanSelection;
+@property (strong, nonatomic)UILabel *m_supplementNameLabel;
+@property (strong, nonatomic)UIImageView *m_supplementImageView;
+@property (strong, nonatomic)UITextView *m_supplementDescriptionView;
+@property (strong, nonatomic)NSString *m_imageNameString;
+@property (strong, nonatomic)NSMutableDictionary *m_supplementDescriptionDictionary;
 
 @end
 
 @implementation SupplementProfileViewController
 
-// ViewTransition class object
-ViewTransitions *m_transition;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// SupplementPlanSelection class object
-SupplementPlanSelection *m_supplementPlanSelection;
-UILabel *m_supplementNameLabel;
-UIImageView *m_supplementImageView;
-UITextView *m_supplementDescriptionView;
-NSString *m_imageNameString;
-NSMutableDictionary *m_supplementDescriptionDictionary;
 
 /*
  Singleton NutritionPlanViewController object
@@ -54,10 +54,10 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -67,12 +67,12 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+  
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -82,11 +82,11 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -95,12 +95,12 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 
 }
@@ -110,11 +110,11 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -123,13 +123,13 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -203,7 +203,7 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
         }
     }
     // Remove the empty line from the supplement Description
-    m_supplementDescriptionView.text                              = [self removeWhiteSpaceBeforeFirstWord:supplementDescriptionText];
+    self.m_supplementDescriptionView.text                              = [self removeWhiteSpaceBeforeFirstWord:supplementDescriptionText];
     
 }
 
@@ -222,11 +222,11 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
 - (void)setUpViews
 {
     CGRect supplementNameLabel              = CGRectMake(0.0f, 60.0f, 320.0f, 20.0f);
-    m_supplementNameLabel                   = [[UILabel alloc] initWithFrame:supplementNameLabel];
-    m_supplementNameLabel.font              = [UIFont customFontWithSize:15];
-    m_supplementNameLabel.textColor         = [UIColor darkGrayColor];
-    m_supplementNameLabel.textAlignment     = NSTextAlignmentCenter;
-    [self.view addSubview:m_supplementNameLabel];
+    self.m_supplementNameLabel                   = [[UILabel alloc] initWithFrame:supplementNameLabel];
+    self.m_supplementNameLabel.font              = [UIFont customFontWithSize:15];
+    self.m_supplementNameLabel.textColor         = [UIColor darkGrayColor];
+    self.m_supplementNameLabel.textAlignment     = NSTextAlignmentCenter;
+    [self.view addSubview:self.m_supplementNameLabel];
     
     CGRect supplementImageViewFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -235,8 +235,8 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
     else {
         supplementImageViewFrame            = CGRectMake(80.0f, 91.0f, 150.0f, 150.0f);
     }
-    m_supplementImageView                   = [[UIImageView alloc] initWithFrame:supplementImageViewFrame];
-    [self.view addSubview:m_supplementImageView];
+    self.m_supplementImageView                   = [[UIImageView alloc] initWithFrame:supplementImageViewFrame];
+    [self.view addSubview:self.m_supplementImageView];
     
     CGRect redLineFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -256,13 +256,13 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
     else{
         supplementDescriptionViewFrame      = CGRectMake(0.0f, 248.0f, 320.0f, 180.0f);
     }
-    m_supplementDescriptionView             = [[UITextView alloc] initWithFrame:supplementDescriptionViewFrame];
-    m_supplementDescriptionView.backgroundColor = [UIColor whiteColor];
-    m_supplementDescriptionView.scrollEnabled   = YES;
-    m_supplementDescriptionView.font            = [UIFont customFontWithSize:12];
-    m_supplementDescriptionView.textColor       = [UIColor darkGrayColor];
-    m_supplementDescriptionView.editable        = NO;
-    [self.view addSubview:m_supplementDescriptionView];
+    self.m_supplementDescriptionView             = [[UITextView alloc] initWithFrame:supplementDescriptionViewFrame];
+    self.m_supplementDescriptionView.backgroundColor = [UIColor whiteColor];
+    self.m_supplementDescriptionView.scrollEnabled   = YES;
+    self.m_supplementDescriptionView.font            = [UIFont customFontWithSize:12];
+    self.m_supplementDescriptionView.textColor       = [UIColor darkGrayColor];
+    self.m_supplementDescriptionView.editable        = NO;
+    [self.view addSubview:self.m_supplementDescriptionView];
 }
 
 - (void)viewDidLoad
@@ -277,31 +277,31 @@ NSMutableDictionary *m_supplementDescriptionDictionary;
 {
     // We need to remove underscore from the image name
     NSString *underscore                        = @"_";
-    m_imageNameString                           = [NSString getSupplementImageName];
+    self.m_imageNameString                           = [NSString getSupplementImageName];
     // Remove underscore from the image name
-    m_imageNameString                           = [m_imageNameString stringByReplacingOccurrencesOfString:underscore withString:@" "];
+    self.m_imageNameString                           = [self.m_imageNameString stringByReplacingOccurrencesOfString:underscore withString:@" "];
     
     NSString *supplementName;
     // Display exercise name with first letter of the each words capatalized
-    supplementName                              = [self removeWhiteSpaceBeforeFirstWord:[self capatalizeFirstLetterOfWordsOfExerciseName:m_imageNameString]];
-    m_supplementNameLabel.text                  = supplementName;
+    supplementName                              = [self removeWhiteSpaceBeforeFirstWord:[self capatalizeFirstLetterOfWordsOfExerciseName:self.m_imageNameString]];
+    self.m_supplementNameLabel.text                  = supplementName;
     
     // Display this image
-    m_imageNameString                           = [NSString stringWithFormat:@"%@.png", [NSString getSupplementImageName]];
-    UIImage *imageName                          = [UIImage imageNamed:m_imageNameString];
-    [m_supplementImageView setImage:imageName];
+    self.m_imageNameString                           = [NSString stringWithFormat:@"%@.png", [NSString getSupplementImageName]];
+    UIImage *imageName                          = [UIImage imageNamed:self.m_imageNameString];
+    [self.m_supplementImageView setImage:imageName];
     
     if ((supplementName != NULL) && (supplementName.length != 0)) {
 
-        if (!m_supplementPlanSelection) {
-            m_supplementPlanSelection               = [SupplementPlanSelection sharedInstance];
+        if (!self.m_supplementPlanSelection) {
+            self.m_supplementPlanSelection               = [SupplementPlanSelection sharedInstance];
         }
-        m_supplementDescriptionDictionary           = [[NSMutableDictionary alloc] init];
+        self.m_supplementDescriptionDictionary           = [[NSMutableDictionary alloc] init];
         
         // Load array from the plist having same image name
-        m_supplementDescriptionDictionary           = [m_supplementPlanSelection loadUpPlist:[supplementName lowercaseString]];
+        self.m_supplementDescriptionDictionary           = [self.m_supplementPlanSelection loadUpPlist:[supplementName lowercaseString]];
         
-        [self setUpSupplementItemDescription:m_supplementDescriptionDictionary];
+        [self setUpSupplementItemDescription:self.m_supplementDescriptionDictionary];
     }
     
        [self addSelectorToControlButtons];

@@ -21,44 +21,48 @@
 #import "SwitchPlanItemViewController.h"
 #import "SupplementProfileViewController.h"
 
+@interface ViewFactory()
+// LoginViewController class object
+@property (strong, nonatomic)LoginViewController *m_loginViewController;
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// GoalsViewController class object
+@property (strong, nonatomic)GoalsViewController *m_goalsViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// WorkOutDaysViewController class object
+@property (strong, nonatomic)WorkOutDaysViewController *m_workOutDaysViewController;
+// ExerciseLevelViewController class object
+@property (strong, nonatomic)ExerciseLevelViewController *m_exerciseLevelViewController;
+// FoodProfileViewController class object
+@property (strong, nonatomic)FoodProfileViewController *m_foodProfileViewController;
+// ExerciseProfileViewController class object
+@property (strong, nonatomic)ExerciseProfileViewController *m_exerciseProfileViewController;
+// MealViewController class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// ExreciseListViewController class object
+@property (strong, nonatomic)ExerciseListViewController *m_exerciseListViewController;
+// IntensityViewController class object
+@property (strong, nonatomic)IntensityViewController *m_intensityViewController;
+// ProgressViewController class object
+@property (strong, nonatomic)ProgressViewController *m_progressViewController;
+// SwitchPlanItemViewController class object
+@property (strong, nonatomic)SwitchPlanItemViewController *m_switchPlanItemViewController;
+// SupplementProfileViewController class object
+@property (strong, nonatomic)SupplementProfileViewController *m_supplementProfileViewController;
+
+@end
+
 @implementation ViewFactory
 
-// LoginViewController class object
-LoginViewController *m_loginViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// GoalsViewController class object
-GoalsViewController *m_goalsViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// WorkOutDaysViewController class object
-WorkOutDaysViewController *m_workOutDaysViewController;
-// ExerciseLevelViewController class object
-ExerciseLevelViewController *m_exerciseLevelViewController;
-// FoodProfileViewController class object
-FoodProfileViewController *m_foodProfileViewController;
-// ExerciseProfileViewController class object
-ExerciseProfileViewController *m_exerciseProfileViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// ExreciseListViewController class object
-ExerciseListViewController *m_exerciseListViewController;
-// IntensityViewController class object
-IntensityViewController *m_intensityViewController;
-// ProgressViewController class object
-ProgressViewController *m_progressViewController;
-// SwitchPlanItemViewController class object
-SwitchPlanItemViewController *m_switchPlanItemViewController;
-// SupplementProfileViewController class object
-SupplementProfileViewController *m_supplementProfileViewController;
 /*
  Singleton ViewFactory object
  */
@@ -76,10 +80,7 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)loginViewControllerForWindow
 {
-    if (!m_loginViewController) {
-        m_loginViewController   = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    }
-    return m_loginViewController;
+    return [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
 }
 
 /*
@@ -87,10 +88,7 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)rootViewControllerForWindow
 {
-    if (!m_rootViewController) {
-        m_rootViewController        = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
-    }
-    return m_rootViewController;
+    return [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 }
 
 /*
@@ -98,10 +96,7 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)calenderViewControllerForWindow
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController   = [[CalenderViewController alloc] initWithNibName:@"CalenderViewController" bundle:nil];
-    }
-    return m_calenderViewController;
+    return [[CalenderViewController alloc] initWithNibName:@"CalenderViewController" bundle:nil];
 }
 
 /*
@@ -109,10 +104,7 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)profileViewControllerForWindow
 {
-    if (!m_profileViewController) {
-        m_profileViewController   = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
-    }
-    return m_profileViewController;
+    return [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
 }
 
 /*
@@ -120,10 +112,7 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)goalsViewControllerForWindow
 {
-    if (!m_goalsViewController) {
-        m_goalsViewController   = [[GoalsViewController alloc] initWithNibName:@"GoalsViewController" bundle:nil];
-    }
-    return m_goalsViewController;
+    return [[GoalsViewController alloc] initWithNibName:@"GoalsViewController" bundle:nil];
 }
 
 /*
@@ -131,10 +120,8 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)workOutDaysViewControllerForWindow
 {
-    if (!m_workOutDaysViewController) {
-        m_workOutDaysViewController   = [[WorkOutDaysViewController alloc] initWithNibName:@"WorkOutDaysViewController" bundle:nil];
-    }
-    return m_workOutDaysViewController;
+  
+    return [[WorkOutDaysViewController alloc] initWithNibName:@"WorkOutDaysViewController" bundle:nil];
 }
 
 /*
@@ -142,10 +129,7 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)exerciseLevelViewControllerForWindow
 {
-    if (!m_exerciseLevelViewController) {
-        m_exerciseLevelViewController   = [[ExerciseLevelViewController alloc] initWithNibName:@"ExerciseLevelViewController" bundle:nil];
-    }
-    return m_exerciseLevelViewController;
+    return [[ExerciseLevelViewController alloc] initWithNibName:@"ExerciseLevelViewController" bundle:nil];
 }
 
 /*
@@ -153,21 +137,18 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIViewController *)IntensityViewControllerForWindow
 {
-    if (!m_intensityViewController) {
-        m_intensityViewController       = [[IntensityViewController alloc] initWithNibName:@"IntensityViewController" bundle:nil];
-    }
-    return m_intensityViewController;
-}
+
+    return [[IntensityViewController alloc] initWithNibName:@"IntensityViewController" bundle:nil];}
 
 /*
  Move to LoginViewController's view
  */
 - (UIView *)loginViewControllerView
 {
-    if (!m_loginViewController) {
-        m_loginViewController   = [LoginViewController sharedInstance];
+    if (!self.m_loginViewController) {
+        self.m_loginViewController   = [LoginViewController sharedInstance];
     }
-    return m_loginViewController.view;
+    return self.m_loginViewController.view;
 }
 
 /*
@@ -175,10 +156,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)rootViewControllerView
 {
-    if (!m_rootViewController) {
-        m_rootViewController   = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController   = [RootViewController sharedInstance];
     }
-    return m_rootViewController.view;
+    return self.m_rootViewController.view;
 }
 
 /*
@@ -186,10 +167,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)profileViewControllerView
 {
-    if (!m_profileViewController) {
-        m_profileViewController   = [ProfileViewController sharedInstance];
+    if (!self.m_profileViewController) {
+        self.m_profileViewController   = [ProfileViewController sharedInstance];
     }
-    return m_profileViewController.view;
+    return self.m_profileViewController.view;
 }
 
 /*
@@ -197,10 +178,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)goalsViewControllerView
 {
-    if (!m_goalsViewController) {
-        m_goalsViewController   = [GoalsViewController sharedInstance];
+    if (!self.m_goalsViewController) {
+        self.m_goalsViewController   = [GoalsViewController sharedInstance];
     }
-    return m_goalsViewController.view;
+    return self.m_goalsViewController.view;
 }
 
 /*
@@ -208,10 +189,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)calenderViewControllerView
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController   = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController   = [CalenderViewController sharedInstance];
     }
-    return m_calenderViewController.view;
+    return self.m_calenderViewController.view;
 }
 
 /*
@@ -219,10 +200,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)workOutDaysViewControllerView
 {
-    if (!m_workOutDaysViewController) {
-        m_workOutDaysViewController   = [WorkOutDaysViewController sharedInstance];
+    if (!self.m_workOutDaysViewController) {
+        self.m_workOutDaysViewController   = [WorkOutDaysViewController sharedInstance];
     }
-    return m_workOutDaysViewController.view;
+    return self.m_workOutDaysViewController.view;
 }
 
 /*
@@ -230,10 +211,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)exerciseLevelViewControllerView
 {
-    if (!m_exerciseLevelViewController) {
-        m_exerciseLevelViewController   = [ExerciseLevelViewController sharedInstance];
+    if (!self.m_exerciseLevelViewController) {
+        self.m_exerciseLevelViewController   = [ExerciseLevelViewController sharedInstance];
     }
-    return m_exerciseLevelViewController.view;
+    return self.m_exerciseLevelViewController.view;
 }
 
 /*
@@ -241,10 +222,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)supplementPlanViewControllerView
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController   = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController   = [SupplementPlanViewController sharedInstance];
     }
-    return m_supplementPlanViewController.view;
+    return self.m_supplementPlanViewController.view;
 }
 
 /*
@@ -252,10 +233,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)foodProfileViewControllerView
 {
-    if (!m_foodProfileViewController) {
-        m_foodProfileViewController   = [FoodProfileViewController sharedInstance];
+    if (!self.m_foodProfileViewController) {
+        self.m_foodProfileViewController   = [FoodProfileViewController sharedInstance];
     }
-    return m_foodProfileViewController.view;
+    return self.m_foodProfileViewController.view;
 }
 
 /*
@@ -263,10 +244,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)exerciseProfileViewControllerView
 {
-    if (!m_exerciseProfileViewController) {
-        m_exerciseProfileViewController   = [ExerciseProfileViewController sharedInstance];
+    if (!self.m_exerciseProfileViewController) {
+        self.m_exerciseProfileViewController   = [ExerciseProfileViewController sharedInstance];
     }
-    return m_exerciseProfileViewController.view;
+    return self.m_exerciseProfileViewController.view;
 }
 
 /*
@@ -274,10 +255,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)mealViewControllerView
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    return m_mealViewController.view;
+    return self.m_mealViewController.view;
 }
 
 /*
@@ -285,10 +266,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)exerciseViewControllerView
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController    = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController    = [ExerciseViewController sharedInstance];
     }
-    return m_exerciseViewController.view;
+    return self.m_exerciseViewController.view;
 }
 
 /*
@@ -296,10 +277,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)musicTracksViewControllerView
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController           = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController           = [MusicTracksViewController sharedInstance];
     }
-    return m_musicTracksViewController.view;
+    return self.m_musicTracksViewController.view;
 }
 
 /*
@@ -307,10 +288,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)supplementProfileViewControllerView
 {
-    if (!m_supplementProfileViewController) {
-        m_supplementProfileViewController    = [SupplementProfileViewController sharedInstance];
+    if (!self.m_supplementProfileViewController) {
+        self.m_supplementProfileViewController    = [SupplementProfileViewController sharedInstance];
     }
-    return m_supplementProfileViewController.view;
+    return self.m_supplementProfileViewController.view;
 }
 
 /*
@@ -318,10 +299,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)moveToexerciseListViewController
 {
-    if (!m_exerciseListViewController) {
-        m_exerciseListViewController          = [ExerciseListViewController sharedInstance];
+    if (!self.m_exerciseListViewController) {
+        self.m_exerciseListViewController          = [ExerciseListViewController sharedInstance];
     }
-    return m_exerciseListViewController.view;
+    return self.m_exerciseListViewController.view;
 }
 
 /*
@@ -329,10 +310,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)moveToIntensityViewControllerViewController
 {
-    if (!m_intensityViewController) {
-        m_intensityViewController            = [IntensityViewController sharedInstance];
+    if (!self.m_intensityViewController) {
+        self.m_intensityViewController            = [IntensityViewController sharedInstance];
     }
-    return m_intensityViewController.view;
+    return self.m_intensityViewController.view;
 }
 
 /*
@@ -340,10 +321,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)progresViewControllerView
 {
-    if (!m_progressViewController) {
-        m_progressViewController            = [ProgressViewController alloc];
+    if (!self.m_progressViewController) {
+        self.m_progressViewController            = [ProgressViewController alloc];
     }
-    return m_progressViewController.view;
+    return self.m_progressViewController.view;
 }
 
 /*
@@ -351,10 +332,10 @@ SupplementProfileViewController *m_supplementProfileViewController;
  */
 - (UIView *)switchPlanItemViewController
 {
-    if (!m_switchPlanItemViewController) {
-        m_switchPlanItemViewController            = [SwitchPlanItemViewController alloc];
+    if (!self.m_switchPlanItemViewController) {
+        self.m_switchPlanItemViewController            = [SwitchPlanItemViewController alloc];
     }
-    return m_switchPlanItemViewController.view;
+    return self.m_switchPlanItemViewController.view;
 }
 
 @end

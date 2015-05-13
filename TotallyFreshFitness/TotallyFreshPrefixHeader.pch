@@ -31,7 +31,7 @@
 #import "GenderViewController.h"
 #import "MealViewController.h"
 #import "SupplementPlanViewController.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 #import "Database.h"
 #endif
 

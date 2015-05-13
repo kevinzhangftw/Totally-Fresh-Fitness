@@ -15,6 +15,28 @@
 
 @interface MusicListViewController ()
 
+@property (strong, nonatomic)TFNGateway *tfnGateway;
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MealViewContrioller class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// PlayMusicViewController class object
+@property (strong, nonatomic)PlayMusicViewController *m_playMusicViewController;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+// ViewTransitions class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+
 // Move to CalenderViewController
 - (void)moveToCalenderViewController:(id)sender;
 // Move to MealViewController
@@ -30,27 +52,7 @@
 
 @end
 
-TFNGateway *tfnGateway;
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewContrioller class object
-MealViewController *m_mealViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// PlayMusicViewController class object
-PlayMusicViewController *m_playMusicViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransitions class object
-ViewTransitions *m_transition;
+
 
 @implementation MusicListViewController
 
@@ -74,10 +76,10 @@ ViewTransitions *m_transition;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -87,12 +89,12 @@ ViewTransitions *m_transition;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController                = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                = [RootViewController sharedInstance];
     }
     
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -100,13 +102,13 @@ ViewTransitions *m_transition;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
+  
+    id instanceObject                   = self.m_exerciseViewController;
     
-    id instanceObject                   = m_exerciseViewController;
-    
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -115,11 +117,11 @@ ViewTransitions *m_transition;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -127,11 +129,11 @@ ViewTransitions *m_transition;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -140,13 +142,13 @@ ViewTransitions *m_transition;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
     
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -155,11 +157,11 @@ ViewTransitions *m_transition;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject               = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -168,11 +170,11 @@ ViewTransitions *m_transition;
  */
 - (void)moveToPlayMusicViewController:(id)sender
 {
-    if (!m_playMusicViewController) {
-        m_playMusicViewController         = [PlayMusicViewController sharedInstance];
+    if (!self.m_playMusicViewController) {
+        self.m_playMusicViewController         = [PlayMusicViewController sharedInstance];
     }
-    id instanceObject               = m_playMusicViewController;
-    [self moveToView:m_playMusicViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_playMusicViewController;
+    [self moveToView:self.m_playMusicViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -241,8 +243,8 @@ ViewTransitions *m_transition;
     [self.indicatorView setHidden:NO];
     [self.indicatorView startAnimating];
     
-    tfnGateway      = [TFNGateway sharedInstance];
-    [tfnGateway getMusicToken:[NSString getMusicMixURL]];
+    self.tfnGateway      = [TFNGateway sharedInstance];
+    [self.tfnGateway getMusicToken:[NSString getMusicMixURL]];
     
     [self setUpNotificationForMusicMixDetails];
 }

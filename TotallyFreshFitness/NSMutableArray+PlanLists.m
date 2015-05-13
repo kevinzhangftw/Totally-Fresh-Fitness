@@ -13,8 +13,8 @@
 
 
 @implementation NSMutableArray (PlanLists)
-
-Database *m_database;
+//HAX
+//Database *m_database;
 + (NSMutableArray *) mutableArrayObject {
     NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
     return mutableArray;
@@ -79,9 +79,8 @@ Database *m_database;
  */
 + (NSMutableArray *) loadUpWorkoutPlan
 {
-    if (!m_database) {
-        m_database                  = [Database alloc];
-    }
+    Database *m_database                  = [Database alloc];
+  
     NSMutableArray *workoutArray    = [self mutableArrayObject];
     NSMutableArray *m_daysArray     = [m_database getLatestExerciseDays:[NSString getUserEmail]]; // Get latest selected days
     // Keep track of selected days
@@ -194,10 +193,8 @@ Database *m_database;
  */
 + (NSMutableArray *) loadUpMealPlan
 {
-    if (!m_database) {
-        m_database                   = [Database alloc];
-    }
-    
+        Database *m_database                   = [Database alloc];
+  
     NSMutableArray *mealPlanArray    = [[NSMutableArray alloc] initWithObjects:
                                         [NSMutableArray setImagesAndSetKeyAndsetValueFromStockArrayForMealPlan:[m_database  getBreakfastforUser:[NSString getUserEmail]]],
                                         [NSMutableArray setImagesAndSetKeyAndsetValueFromStockArrayForMealPlan:[m_database  getFirstSnackforUser:[NSString getUserEmail]]],
@@ -243,9 +240,8 @@ Database *m_database;
  */
 + (NSMutableArray *) loadUpSupplementPlan
 {
-    if (!m_database) {
-        m_database                   = [Database alloc];
-    }
+    Database *m_database                   = [Database alloc];
+  
     
     NSMutableArray *supplementPlanArray    = [[NSMutableArray alloc] initWithObjects:
                                         [NSMutableArray setImagesAndetKeyAndsetValueFromStockArrayForSupplementPlan:[m_database  getSupplementBreakfastforUser:[NSString getUserEmail]]],
