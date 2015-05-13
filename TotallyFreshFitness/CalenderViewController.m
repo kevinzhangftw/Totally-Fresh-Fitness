@@ -1,3 +1,4 @@
+
 //
 //  CalenderViewController.m
 //  Total Fitness And Nutrition
@@ -189,150 +190,13 @@
 }
 
 /*
- Move to FoodProfileViewController
- */
-- (void)moveToFoodProfileViewController:(id)sender
-{
-    if (!self.m_foodProfileViewController) {
-        self.m_foodProfileViewController     = [FoodProfileViewController sharedInstance];
-    }
-    id instanceObject                   = self.m_foodProfileViewController;
-    [self moveToView:self.m_foodProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to ExerciseViewController
- */
-- (void)moveToExerciseViewController:(id)sender
-{
-    if (!self.m_exerciseViewController) {
-        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
-    }
-    
-    id instanceObject                   = self.m_exerciseViewController;
-    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to MealViewController
- */
-- (void)moveToMealViewController:(id)sender
-{
-    if (!self.m_mealViewController) {
-        self.m_mealViewController        = [MealViewController sharedInstance];
-    }
-    id instanceObject               = self.m_mealViewController;
-    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to SupplementPlanViewController
- */
-- (void)moveToSupplementPlanViewController:(id)sender
-{
-    if (!self.m_supplementPlanViewController) {
-        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
-    }
-    id instanceObject               = self.m_supplementPlanViewController;
-    self.m_supplementPlanViewController.view.tag     = 1;
-
-    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-    
-}
-
-/*
- Move to ExerciseProfileViewController
- */
-- (void)moveToExerciseProfileViewController:(id)sender
-{
-    if (!self.m_exerciseProfileViewController) {
-        self.m_exerciseProfileViewController         = [ExerciseProfileViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_exerciseProfileViewController;
-    [self moveToView:self.m_exerciseProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to WorkOutDaysViewController
- */
-- (void)moveToWorkOutDaysViewController:(id)sender
-{
-    if (!self.m_workoutDaysViewController) {
-        self.m_workoutDaysViewController             = [WorkOutDaysViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_workoutDaysViewController;
-    [self moveToView:self.m_workoutDaysViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to GoalsViewController
- */
-- (void)moveToGoalsViewController:(id)sender
-{
-    if (!self.m_goalsViewController) {
-        self.m_goalsViewController                   = [GoalsViewController sharedInstance];
-    }
-    id instanceObject               = self.m_goalsViewController;
-    [self moveToView:self.m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to ExerciseLevelViewController
- */
-- (void)moveToExerciseLevelViewController:(id)sender
-{
-    if (!self.m_exerciseLevelViewController) {
-        self.m_exerciseLevelViewController           = [ExerciseLevelViewController sharedInstance];
-    }
-    id instanceObject               = self.m_exerciseLevelViewController;
-    [self moveToView:self.m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];}
-
-/*
- Move to MusicTracksViewController
- */
-- (void)moveToMusicTracksViewController:(id)sender
-{
-    if (!self.m_musicTracksViewController) {
-        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
-    }
-    id instanceObject               = self.m_musicTracksViewController;
-    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-
-}
-
-/*
  Move to MusicTracksViewController
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!self.m_rootViewController) {
-        self.m_rootViewController                = [RootViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_rootViewController;
-    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
-/*
- Move to SupplementProfileViewController
- */
-- (void)moveToSupplementProfileViewController:(id)sender
-{
-    if (!self.m_supplementProfileViewController) {
-        self.m_supplementProfileViewController         = [SupplementProfileViewController sharedInstance];
-    }
-    id instanceObject               = self.m_supplementProfileViewController;
-    [self moveToView:self.m_supplementProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to supplements at website
- */
 - (void)moveToSupplementsAtWebsite:(id)sender
 {    
     NSURL *url                  = [[NSURL alloc] initWithString:@"http://totalfitness.com/supplements"];
@@ -1116,7 +980,7 @@
 {
     NSInteger numberOfRowsInSection       = 1;
     if (([self.m_workOutOrMealPlanTable isEqualToString:@"Meal Plan"])) { // if the tableview is meal plan table view
-        return numberOfRowsInSection    = [[[self.m_mealPlanArray objectAtIndex:section] objectAtIndex:0] count];
+        return numberOfRowsInSection    = 1;
     }
     else if([self.m_workOutOrMealPlanTable isEqualToString:@"Workout"]) { // Workout View has only one section
         if ([self.m_current_Selected_Label isEqualToString:@"Seven"]) {
@@ -1253,7 +1117,12 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     if (([self.m_workOutOrMealPlanTable isEqualToString:@"Meal Plan"])) {
-        [self cellContents:cell atIndexPath:indexPath WithImageArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:2]];
+      //HAX
+//        [self cellContents:cell
+//               atIndexPath:indexPath
+//            WithImageArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]
+//               AndKeyArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:1]
+//             AndValueArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:2]];
     }
     else if([self.m_workOutOrMealPlanTable isEqualToString:@"Workout"]) { // Only one section
         if (![self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // Muscle Isolation IS not the goal

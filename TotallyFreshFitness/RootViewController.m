@@ -132,26 +132,8 @@ static NSString *m_blogURLToShare;
 
 
 // Number of slides
-const static int m_numberOfSlides           = 21;
+const static int m_numberOfSlides           = 1;
 const static float m_numberOfSlidesForI4 = 26.8;
-
-
-@synthesize featuredScrollView;
-@synthesize featuredPageControl;
-@synthesize controlsImageView;
-@synthesize showProgressReportButton;
-@synthesize showDifficultyLevelButton;
-@synthesize createPersonalizedMealPlanButton;
-@synthesize showSupplementOrderButton;
-@synthesize messageButton;
-@synthesize bottomBarButton;
-@synthesize musicPlayerButton;
-@synthesize exercisePlanButton;
-@synthesize calendarButton;
-@synthesize mealPlanButton;
-@synthesize nutritionPlanButton;
-@synthesize activityIndicator;
-
 
 /*
  Singleton RootViewController object
@@ -165,150 +147,13 @@ const static float m_numberOfSlidesForI4 = 26.8;
 	return globalInstance;
 }
 
-/*
- Move to ProfileViewController
- */
-- (void)moveToProfileViewController:(id)sender
-{    
-    if (!self.m_profileViewController) {
-        self.m_profileViewController     = [ProfileViewController sharedInstance];
-    }
-    id instanceObject          = self.m_profileViewController;
-    self.m_profileViewController.view.tag= kProfileViewControllerChangedAtRoot;
-    [self moveToView:self.m_profileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to ExerciseViewController
- */
-- (void)moveToExerciseViewController:(id)sender
-{
-    if (!self.m_exerciseViewController) {
-        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
-    }
-    id instanceObject               = self.m_exerciseViewController;
-    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to MealViewController
- */
-- (void)moveToMealViewController:(id)sender
-{
-    if (!self.m_mealViewController) {
-        self.m_mealViewController        = [MealViewController sharedInstance];
-    }
-    id instanceObject           = self.m_mealViewController;
-    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-
-}
-
-/*
- Move to CalenderViewController
- */
-- (void)moveToCalenderViewController:(id)sender
-{
-    if (!self.m_calenderViewController) {
-        self.m_calenderViewController    = [CalenderViewController sharedInstance];
-    }
-    id instanceObject               = self.m_calenderViewController;
-    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-
-}
-
-/*
- Move to MusicTracksViewController
- */
-- (void)moveToMusicTracksViewController:(id)sender
-{
-    if (!self.m_musicTracksViewController) {
-        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
-    }
-    id instanceObject               = self.m_musicTracksViewController;
-    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 
-
-}
-
-/*
- Move to SupplementPlanViewController
- */
-- (void)moveToSupplementPlanViewController:(id)sender
-{
-    if (!self.m_supplementPlanViewController) {
-        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
-    }
-    id instanceObject               = self.m_supplementPlanViewController;
-    self.m_supplementPlanViewController.view.tag     = 1;
-
-    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-
-    
-}
-
-/*
- Move to WorkOutDaysViewController's view
- */
-- (void)moveToWorkOutDaysViewController
-{
-    if (!self.m_workoutDaysViewController) {
-        self.m_workoutDaysViewController         = [WorkOutDaysViewController  alloc];
-    }
-    id instanceObject               = self.m_workoutDaysViewController;
-    [self moveToView:self.m_workoutDaysViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to GoalsViewController's view
- */
-- (void)moveToGoalsViewController
-{
-    if (!self.m_goalsViewController) {
-        self.m_goalsViewController         = [GoalsViewController  alloc];
-    }
-    id instanceObject               = self.m_goalsViewController;
-    [self moveToView:self.m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
 - (IBAction)goToOtherHome:(id)sender {
-    
-    if(!self.m_homeViewController){
-        self.m_homeViewController = [HomeViewController alloc];
-    }
-    id instanceObject = self.m_homeViewController;
-    [self moveToView:self.m_homeViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+  [self moveToVC:[HomeViewController sharedInstance]];
 }
 
-/*
- Move to ExerciseLevelViewController's view
- */
-- (void)moveToExerciseLevelViewController
-{
-    if (!self.m_exerciseLevelViewController) {
-        self.m_exerciseLevelViewController         = [ExerciseLevelViewController  alloc];
-    }
-    id instanceObject               = self.m_exerciseLevelViewController;
-    [self moveToView:self.m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to supplements at website
- */
-- (void)moveToSupplementsAtWebsite:(id)sender
-{
-    NSURL *url                  = [[NSURL alloc] initWithString:@"http://totalfitness.com/supplements"];
-    [[UIApplication sharedApplication] openURL:url];
-}
-
-/*
- If days, goals and exercise levels are not selected, go to them
- */
-- (void)hasUserSelectedDaysGoalsAndLevels
-{
+- (void)hasUserSelectedDaysGoalsAndLevels{
     // Do any additional setup after loading the view.
     if (!self.m_database) {
         self.m_database              = [Database alloc];
@@ -319,15 +164,15 @@ const static float m_numberOfSlidesForI4 = 26.8;
                     // Stay on the RootViewController
             }
             else {
-                [self moveToExerciseLevelViewController];
+                //[self moveToExerciseLevelViewController];
             }
         }
         else {
-            [self moveToGoalsViewController];
+            //[self moveToGoalsViewController];
         }
     }
     else {
-        [self moveToWorkOutDaysViewController];
+        //[self moveToWorkOutDaysViewController];
     }
 }
 
@@ -988,7 +833,7 @@ const static float m_numberOfSlidesForI4 = 26.8;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.titleLabels count];
+  return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

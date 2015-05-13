@@ -293,12 +293,7 @@ static const NSString *m_sports_Female_Image_Name               = @"sports_femal
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!self.m_rootViewController) {
-        self.m_rootViewController                = [RootViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_rootViewController;
-    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 /*

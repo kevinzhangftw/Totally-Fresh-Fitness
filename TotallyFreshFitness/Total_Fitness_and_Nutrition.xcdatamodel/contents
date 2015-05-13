@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BMR" representedClassName="BMR" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="bmr" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise_mode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Breakfast" representedClassName="Breakfast" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Dinner" representedClassName="Dinner" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Exercise_Days" representedClassName="Exercise_Days" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="friday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="monday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="saturday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thursday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tuesday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wednesday" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Exercise_Levels" representedClassName="Exercise_Levels" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Exercise_Report" representedClassName="Exercise_Report" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="set_five_rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_five_time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_five_weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_four_rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_four_time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_four_weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_one_rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_one_time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_one_weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_three_rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_three_time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_three_weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_two_rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_two_three" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_two_time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="set_two_weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Exercises" representedClassName="Exercises" syncable="YES"/>
+    <entity name="First_Snack" representedClassName="First_Snack" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Food_Recipes" representedClassName="Food_Recipes" syncable="YES">
+        <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredients" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Goals" representedClassName="Goals" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="goal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Grocery" representedClassName="Grocery" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Lunch" representedClassName="Lunch" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Meal_Plan" representedClassName="Meal_Plan" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="meal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Progress" representedClassName="Progress" syncable="YES">
+        <attribute name="bmr" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="workouts" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Second_Snack" representedClassName="Second_Snack" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SupplementBeforeBed" representedClassName="SupplementBeforeBed" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplement" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SupplementBreakfast" representedClassName="SupplementBreakfast" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplement" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SupplementPostWorkout" representedClassName="SupplementPostWorkout" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplement" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SupplementPreWorkout" representedClassName="SupplementPreWorkout" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplement" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Terms_And_Conditions" representedClassName="Terms_And_Conditions" syncable="YES">
+        <attribute name="accepted" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="Third_Snack" representedClassName="Third_Snack" syncable="YES">
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="log" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Work_Out_Plan" representedClassName="Work_Out_Plan" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day_number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sync" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_Five" representedClassName="Workout_Day_Five" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_Four" representedClassName="Workout_Day_Four" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_One" representedClassName="Workout_Day_One" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_Seven" representedClassName="Workout_Day_Seven" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_Six" representedClassName="Workout_Day_Six" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_Three" representedClassName="Workout_Day_Three" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Workout_Day_Two" representedClassName="Workout_Day_Two" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BMR" positionX="-432" positionY="36" width="128" height="180"/>
+        <element name="Breakfast" positionX="-27" positionY="189" width="128" height="90"/>
+        <element name="Dinner" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Exercise_Days" positionX="-281" positionY="144" width="128" height="195"/>
+        <element name="Exercise_Levels" positionX="-432" positionY="347" width="128" height="103"/>
+        <element name="Exercise_Report" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="Exercises" positionX="-72" positionY="-108" width="128" height="45"/>
+        <element name="First_Snack" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Food_Recipes" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Goals" positionX="-72" positionY="54" width="128" height="105"/>
+        <element name="Grocery" positionX="-432" positionY="-126" width="128" height="105"/>
+        <element name="Lunch" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Meal_Plan" positionX="-261" positionY="-126" width="128" height="118"/>
+        <element name="Progress" positionX="-81" positionY="-333" width="128" height="165"/>
+        <element name="Second_Snack" positionX="-18" positionY="225" width="128" height="90"/>
+        <element name="Terms_And_Conditions" positionX="90" positionY="303" width="128" height="75"/>
+        <element name="Third_Snack" positionX="153" positionY="351" width="128" height="90"/>
+        <element name="Users" positionX="-432" positionY="-333" width="128" height="120"/>
+        <element name="Work_Out_Plan" positionX="-261" positionY="-333" width="128" height="165"/>
+        <element name="Workout_Day_Five" positionX="72" positionY="396" width="128" height="90"/>
+        <element name="Workout_Day_Four" positionX="142" positionY="126" width="128" height="90"/>
+        <element name="Workout_Day_One" positionX="-180" positionY="360" width="128" height="90"/>
+        <element name="Workout_Day_Seven" positionX="-180" positionY="459" width="128" height="90"/>
+        <element name="Workout_Day_Six" positionX="-29" positionY="477" width="128" height="90"/>
+        <element name="Workout_Day_Three" positionX="-27" positionY="414" width="128" height="90"/>
+        <element name="Workout_Day_Two" positionX="-27" positionY="306" width="128" height="90"/>
+        <element name="SupplementBreakfast" positionX="36" positionY="-52" width="128" height="88"/>
+        <element name="SupplementPreWorkout" positionX="189" positionY="-9" width="128" height="88"/>
+        <element name="SupplementPostWorkout" positionX="198" positionY="0" width="128" height="88"/>
+        <element name="SupplementBeforeBed" positionX="207" positionY="9" width="128" height="88"/>
+    </elements>
+</model>

@@ -6156,7 +6156,9 @@ return numberOfUsers;
         return _managedObjectModel;
     }
     NSURL *modelURL                     = [[NSBundle mainBundle] URLForResource:@"Total_Fitness_and_Nutrition" withExtension:@"momd"];
-    _managedObjectModel                 = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+  //HAX
+    //_managedObjectModel                 = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+  _managedObjectModel =  [NSManagedObjectModel mergedModelFromBundles:nil];
     return _managedObjectModel;
 }
 

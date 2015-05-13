@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "ViewFactory.h"
+#import "RootViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +21,13 @@
   if (self.window == nil) {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   }
-  ViewController *viewController = [ViewController new];
-  self.window.rootViewController = viewController;
+  ViewFactory *viewFactory = [ViewFactory sharedInstance];
+  UIViewController *viewController = [RootViewController new];
+  UINavigationController *navController = [UINavigationController new];
+  navController.navigationBarHidden = YES;
+  [navController setViewControllers:@[viewController]];
+  self.window.rootViewController = navController;
+  //self.window.rootViewController = [RootViewController new];
   [self.window makeKeyAndVisible];
   return YES;
 }

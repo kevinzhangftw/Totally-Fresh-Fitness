@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0FAF82199C23CEB05FE68C15 /* libPods-TotallyFreshFitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */; };
 		34618F741B01B8B100338F3B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34618F731B01B8B100338F3B /* CoreData.framework */; };
+		34618F761B030D2D00338F3B /* Total_Fitness_and_Nutrition.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 34618F751B030D2D00338F3B /* Total_Fitness_and_Nutrition.xcdatamodel */; };
+		34618F781B030DA600338F3B /* TotalFitnessHomePage.json in Resources */ = {isa = PBXBuildFile; fileRef = 34618F771B030DA600338F3B /* TotalFitnessHomePage.json */; };
+		34618F7A1B0314F400338F3B /* ExerciseLevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34618F791B0314F400338F3B /* ExerciseLevelViewController.xib */; };
+		346190021B03239900338F3B /* UIViewController+NavigationHax.m in Sources */ = {isa = PBXBuildFile; fileRef = 346190011B03239900338F3B /* UIViewController+NavigationHax.m */; };
 		34D1D17B1B01A8DD0079457F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17A1B01A8DD0079457F /* main.m */; };
 		34D1D17E1B01A8DD0079457F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17D1B01A8DD0079457F /* AppDelegate.m */; };
 		34D1D1811B01A8DD0079457F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1801B01A8DD0079457F /* ViewController.m */; };
@@ -175,6 +179,11 @@
 /* Begin PBXFileReference section */
 		27820FA0F54FA95D0AACC67C /* Pods-TotallyFreshFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TotallyFreshFitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TotallyFreshFitness/Pods-TotallyFreshFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		34618F731B01B8B100338F3B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		34618F751B030D2D00338F3B /* Total_Fitness_and_Nutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Total_Fitness_and_Nutrition.xcdatamodel; sourceTree = "<group>"; };
+		34618F771B030DA600338F3B /* TotalFitnessHomePage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TotalFitnessHomePage.json; sourceTree = "<group>"; };
+		34618F791B0314F400338F3B /* ExerciseLevelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseLevelViewController.xib; sourceTree = "<group>"; };
+		346190001B03239900338F3B /* UIViewController+NavigationHax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationHax.h"; sourceTree = "<group>"; };
+		346190011B03239900338F3B /* UIViewController+NavigationHax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationHax.m"; sourceTree = "<group>"; };
 		34D1D1751B01A8DD0079457F /* TotallyFreshFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TotallyFreshFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D1D1791B01A8DD0079457F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D1D17A1B01A8DD0079457F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -478,6 +487,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34618F7B1B0315E200338F3B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		34D1D16C1B01A8DD0079457F = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +519,10 @@
 			children = (
 				34D1D17C1B01A8DD0079457F /* AppDelegate.h */,
 				34D1D17D1B01A8DD0079457F /* AppDelegate.m */,
+				346190001B03239900338F3B /* UIViewController+NavigationHax.h */,
+				346190011B03239900338F3B /* UIViewController+NavigationHax.m */,
+				34618F751B030D2D00338F3B /* Total_Fitness_and_Nutrition.xcdatamodel */,
+				34618F771B030DA600338F3B /* TotalFitnessHomePage.json */,
 				34D1D2951B01B1130079457F /* TotallyFreshPrefixHeader.pch */,
 				34D1D17F1B01A8DD0079457F /* ViewController.h */,
 				34D1D1801B01A8DD0079457F /* ViewController.m */,
@@ -519,6 +539,7 @@
 		34D1D1781B01A8DD0079457F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				34618F7B1B0315E200338F3B /* Images */,
 				34D1D1791B01A8DD0079457F /* Info.plist */,
 				34D1D17A1B01A8DD0079457F /* main.m */,
 			);
@@ -576,6 +597,7 @@
 				34D1D1F71B01AE0E0079457F /* GoalsViewController.xib */,
 				34D1D1B21B01ADD30079457F /* ExerciseLevelViewController.h */,
 				34D1D1B31B01ADD30079457F /* ExerciseLevelViewController.m */,
+				34618F791B0314F400338F3B /* ExerciseLevelViewController.xib */,
 				34D1D1F91B01AE190079457F /* ExerciseViewController.xib */,
 				34D1D1B41B01ADD30079457F /* WorkOutDaysViewController.h */,
 				34D1D1B51B01ADD30079457F /* WorkOutDaysViewController.m */,
@@ -968,6 +990,7 @@
 				34D1D1F61B01AE040079457F /* IntensityViewController.xib in Resources */,
 				34D1D2161B01AEC30079457F /* ExerciseListViewController.xib in Resources */,
 				34D1D1FC1B01AE390079457F /* ResultViewController.xib in Resources */,
+				34618F7A1B0314F400338F3B /* ExerciseLevelViewController.xib in Resources */,
 				34D1D2121B01AEB50079457F /* FoodProfileViewController.xib in Resources */,
 				34D1D1EE1B01ADE40079457F /* LoginViewController.xib in Resources */,
 				34D1D1F01B01ADEC0079457F /* RegisterViewController.xib in Resources */,
@@ -978,6 +1001,7 @@
 				34D1D20A1B01AE9F0079457F /* MealViewController.xib in Resources */,
 				34D1D1861B01A8DD0079457F /* Images.xcassets in Resources */,
 				34D1D1FE1B01AE3E0079457F /* WorkOutDaysViewController.xib in Resources */,
+				34618F781B030DA600338F3B /* TotalFitnessHomePage.json in Resources */,
 				34D1D20E1B01AEAA0079457F /* SupplementProfileViewController.xib in Resources */,
 				34D1D1F81B01AE0E0079457F /* GoalsViewController.xib in Resources */,
 				34D1D2181B01AEC90079457F /* ProgressViewController.xib in Resources */,
@@ -1036,6 +1060,7 @@
 				34D1D3421B01B4460079457F /* SecondSnackPlanManager.m in Sources */,
 				34D1D1811B01A8DD0079457F /* ViewController.m in Sources */,
 				34D1D2F51B01B3F70079457F /* Goals.m in Sources */,
+				34618F761B030D2D00338F3B /* Total_Fitness_and_Nutrition.xcdatamodel in Sources */,
 				34D1D32F1B01B43A0079457F /* SeventhDayWorkoutPlanManager.m in Sources */,
 				34D1D2EE1B01B3F70079457F /* Third_Snack.m in Sources */,
 				34D1D2A31B01B2EA0079457F /* SHCStrikethroughLabel.m in Sources */,
@@ -1112,6 +1137,7 @@
 				34D1D2791B01AF950079457F /* NSString+ExerciseToSwitch.m in Sources */,
 				34D1D2381B01AF4D0079457F /* BeginnerWorkoutSelection.m in Sources */,
 				34D1D1E91B01ADD30079457F /* ExerciseListViewController.m in Sources */,
+				346190021B03239900338F3B /* UIViewController+NavigationHax.m in Sources */,
 				34D1D3021B01B3F70079457F /* Workout_Day_Three.m in Sources */,
 				34D1D2F31B01B3F70079457F /* Food_Recipes.m in Sources */,
 				34D1D1E61B01ADD30079457F /* SupplementOrderWebViewController.m in Sources */,

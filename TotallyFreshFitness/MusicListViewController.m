@@ -89,97 +89,9 @@
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!self.m_rootViewController) {
-        self.m_rootViewController                = [RootViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_rootViewController;
-    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
-/*
- Move to ExerciseViewController
- */
-- (void)moveToExerciseViewController:(id)sender
-{
-    if (!self.m_exerciseViewController) {
-        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
-    }
-  
-    id instanceObject                   = self.m_exerciseViewController;
-    
-    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to MealViewController
- */
-- (void)moveToMealViewController:(id)sender
-{
-    if (!self.m_mealViewController) {
-        self.m_mealViewController        = [MealViewController sharedInstance];
-    }
-    id instanceObject               = self.m_mealViewController;
-    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Move to CalenderViewController
- */
-- (void)moveToCalenderViewController:(id)sender
-{
-    if (!self.m_calenderViewController) {
-        self.m_calenderViewController    = [CalenderViewController sharedInstance];
-    }
-    id instanceObject               = self.m_calenderViewController;
-    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-
-}
-
-/*
- Move to SupplementPlanViewController
- */
-- (void)moveToSupplementPlanViewController:(id)sender
-{
-    if (!self.m_supplementPlanViewController) {
-        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
-    }
-    id instanceObject               = self.m_supplementPlanViewController;
-    self.m_supplementPlanViewController.view.tag     = 1;
-    
-    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to MusicTracksViewController
- */
-- (void)moveToMusicTracksViewController:(id)sender
-{
-    if (!self.m_musicTracksViewController) {
-        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
-    }
-    id instanceObject               = self.m_musicTracksViewController;
-    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-
-}
-
-/*
- Move to PlayMusicViewController
- */
-- (void)moveToPlayMusicViewController:(id)sender
-{
-    if (!self.m_playMusicViewController) {
-        self.m_playMusicViewController         = [PlayMusicViewController sharedInstance];
-    }
-    id instanceObject               = self.m_playMusicViewController;
-    [self moveToView:self.m_playMusicViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-}
-
-/*
- Display music mixe details
- */
 - (void)displayMusicMixeDetails
 {
     [self.musicListTableView reloadData];
@@ -439,7 +351,8 @@
     
     // Unselect the row
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self moveToPlayMusicViewController:self];
+  //HAX
+    //[self moveToPlayMusicViewController:self];
 }
 
 @end

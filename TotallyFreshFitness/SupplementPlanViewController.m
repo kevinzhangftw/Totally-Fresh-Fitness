@@ -124,79 +124,6 @@
 	return globalInstance;
 }
 
-/*
- Move to CalenderViewController
- */
-- (void)moveToCalenderViewController:(id)sender
-{
-    if (!self.m_calenderViewController) {
-        self.m_calenderViewController    = [CalenderViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_calenderViewController;
-    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-
-}
-
-
-/*
- Move to MealViewController
- */
-- (void)moveToMealViewController:(id)sender
-{
-    if (!self.m_mealViewController) {
-        self.m_mealViewController        = [MealViewController sharedInstance];
-    }
-    id instanceObject               = self.m_mealViewController;
-    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-
-}
-
-/*
- Move to ExerciseViewController
- */
-- (void)moveToExerciseViewController:(id)sender
-{
-    if (!self.m_exerciseViewController) {
-        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
-    }
-    
-    id instanceObject                   = self.m_exerciseViewController;
-    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to MusicTracksViewController
- */
-- (void)moveToMusicTracksViewController:(id)sender
-{
-    if (!self.m_musicTracksViewController) {
-        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
-    }
-    id instanceObject                       = self.m_musicTracksViewController;
-    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to SupplementProfileViewController
- */
-- (void)moveToSupplementProfileViewController:(id)sender
-{
-    if (!self.m_supplementProfileViewController) {
-        self.m_supplementProfileViewController    = [SupplementProfileViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_supplementProfileViewController;
-    [self moveToView:self.m_supplementProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    
-}
-
-/*
- Move to moveToSupplementOrderWebViewController
- */
 - (void)moveToSupplementOrderWebViewController:(id)sender
 {
     if (!self.m_supplementOrderWebViewController) {
@@ -213,12 +140,7 @@
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!self.m_rootViewController) {
-        self.m_rootViewController                = [RootViewController sharedInstance];
-    }
-    
-    id instanceObject               = self.m_rootViewController;
-    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 /*
@@ -716,7 +638,8 @@
             [NSString setSupplementImageName:self.selectedImage];
             
             // Move to SupplementProfileViewController
-            [self moveToSupplementProfileViewController:indexPath];
+          //HAX
+          //[self moveToSupplementProfileViewController:nil];
         }
     }
 //    else {
