@@ -21,7 +21,6 @@
 #import "ProgressViewController.h"
 #import "ExerciseLevelViewController.h"
 #import "GoalsViewController.h"
-#import "TestMutableArray.h"
 #import "NSMutableArray+Homepage_Data.h"
 #import <AVFoundation/AVFoundation.h>
 #import "NSMutableArray+Music_Data.h"
@@ -154,7 +153,6 @@ const static float m_numberOfSlidesForI4 = 26.8;
 @synthesize activityIndicator;
 
 
-TestMutableArray *m_testMutableArray;
 /*
  Singleton RootViewController object
  */
@@ -1084,9 +1082,7 @@ TestMutableArray *m_testMutableArray;
     
     // Add nav buttons
     [self addSelectorToControlButtons];
-    m_testMutableArray        = [TestMutableArray alloc];
-    [m_testMutableArray testMutableArrays];
-    
+   
     [self.tableView reloadData];
     
 }

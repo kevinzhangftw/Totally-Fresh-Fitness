@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0FAF82199C23CEB05FE68C15 /* libPods-TotallyFreshFitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6CC4BFA5DF58E2721FAB5E /* libPods-TotallyFreshFitness.a */; };
-		34618F711B01B75200338F3B /* TestMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3461B01B4780079457F /* TestMutableArray.m */; };
-		34618F721B01B75700338F3B /* TestMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3461B01B4780079457F /* TestMutableArray.m */; };
 		34618F741B01B8B100338F3B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34618F731B01B8B100338F3B /* CoreData.framework */; };
 		34D1D17B1B01A8DD0079457F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17A1B01A8DD0079457F /* main.m */; };
 		34D1D17E1B01A8DD0079457F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D17D1B01A8DD0079457F /* AppDelegate.m */; };
 		34D1D1811B01A8DD0079457F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1801B01A8DD0079457F /* ViewController.m */; };
 		34D1D1861B01A8DD0079457F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1851B01A8DD0079457F /* Images.xcassets */; };
 		34D1D1891B01A8DD0079457F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1871B01A8DD0079457F /* LaunchScreen.xib */; };
-		34D1D1951B01A8DD0079457F /* TotallyFreshFitnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */; };
 		34D1D1A21B01ACBE0079457F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1A11B01ACBE0079457F /* RootViewController.m */; };
 		34D1D1A41B01ACCE0079457F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D1A31B01ACCE0079457F /* RootViewController.xib */; };
 		34D1D1A71B01ADC20079457F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D1A61B01ADC20079457F /* LoginViewController.m */; };
@@ -159,7 +156,6 @@
 		34D1D3421B01B4460079457F /* SecondSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3391B01B4460079457F /* SecondSnackPlanManager.m */; };
 		34D1D3431B01B4460079457F /* DinnerPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D33B1B01B4460079457F /* DinnerPlanManager.m */; };
 		34D1D3441B01B4460079457F /* ThirdSnackPlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D33D1B01B4460079457F /* ThirdSnackPlanManager.m */; };
-		34D1D34A1B01B47F0079457F /* Total_Fitness_and_NutritionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */; };
 		34D1D34D1B01B49C0079457F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D1D34C1B01B49C0079457F /* HomeViewController.m */; };
 		34D1D34F1B01B4AC0079457F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D34E1B01B4AC0079457F /* HomeViewController.xib */; };
 		34D1D3531B01B4B20079457F /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D1D3501B01B4B20079457F /* HomeCell.xib */; };
@@ -190,7 +186,6 @@
 		34D1D1881B01A8DD0079457F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34D1D18E1B01A8DD0079457F /* TotallyFreshFitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TotallyFreshFitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D1D1931B01A8DD0079457F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotallyFreshFitnessTests.m; sourceTree = "<group>"; };
 		34D1D1A01B01ACBE0079457F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		34D1D1A11B01ACBE0079457F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		34D1D1A31B01ACCE0079457F /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
@@ -453,10 +448,6 @@
 		34D1D33B1B01B4460079457F /* DinnerPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerPlanManager.m; sourceTree = "<group>"; };
 		34D1D33C1B01B4460079457F /* ThirdSnackPlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdSnackPlanManager.h; sourceTree = "<group>"; };
 		34D1D33D1B01B4460079457F /* ThirdSnackPlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdSnackPlanManager.m; sourceTree = "<group>"; };
-		34D1D3451B01B4780079457F /* TestMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMutableArray.h; sourceTree = "<group>"; };
-		34D1D3461B01B4780079457F /* TestMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMutableArray.m; sourceTree = "<group>"; };
-		34D1D3481B01B47F0079457F /* Total_Fitness_and_NutritionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Total_Fitness_and_NutritionTests.h; sourceTree = "<group>"; };
-		34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Total_Fitness_and_NutritionTests.m; sourceTree = "<group>"; };
 		34D1D34B1B01B49C0079457F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		34D1D34C1B01B49C0079457F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		34D1D34E1B01B4AC0079457F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -537,11 +528,6 @@
 		34D1D1911B01A8DD0079457F /* TotallyFreshFitnessTests */ = {
 			isa = PBXGroup;
 			children = (
-				34D1D3451B01B4780079457F /* TestMutableArray.h */,
-				34D1D3461B01B4780079457F /* TestMutableArray.m */,
-				34D1D3481B01B47F0079457F /* Total_Fitness_and_NutritionTests.h */,
-				34D1D3491B01B47F0079457F /* Total_Fitness_and_NutritionTests.m */,
-				34D1D1941B01A8DD0079457F /* TotallyFreshFitnessTests.m */,
 				34D1D1921B01A8DD0079457F /* Supporting Files */,
 			);
 			path = TotallyFreshFitnessTests;
@@ -1116,7 +1102,6 @@
 				34D1D1EA1B01ADD30079457F /* ProgressViewController.m in Sources */,
 				34D1D2721B01AF950079457F /* NSMutableArray+MotivationalQuote.m in Sources */,
 				34D1D2EA1B01B3F70079457F /* Exercise_Report.m in Sources */,
-				34618F711B01B75200338F3B /* TestMutableArray.m in Sources */,
 				34D1D2851B01AFB40079457F /* TFNGateway.m in Sources */,
 				34D1D27A1B01AF950079457F /* NSString+FoodToSwitch.m in Sources */,
 				34D1D3051B01B3F70079457F /* SupplementBeforeBed.m in Sources */,
@@ -1176,9 +1161,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D1D34A1B01B47F0079457F /* Total_Fitness_and_NutritionTests.m in Sources */,
-				34618F721B01B75700338F3B /* TestMutableArray.m in Sources */,
-				34D1D1951B01A8DD0079457F /* TotallyFreshFitnessTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
