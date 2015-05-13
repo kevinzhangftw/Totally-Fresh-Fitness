@@ -8,19 +8,24 @@
 
 #import "SupplementPlanManager.h"
 #import "Database.h"
+@interface SupplementPlanManager()
+
+// Database object
+@property (strong, nonatomic)Database *m_database;
+
+// Supplement name
+@property (strong, nonatomic)NSString *m_supplementName;
+// Quantity
+@property (strong, nonatomic)NSString *m_quantity;
+// User email
+@property (strong, nonatomic)NSString *m_user_email;
+// Background Queue to create tables
+@property (strong, nonatomic)dispatch_queue_t m_coreDataBackgroundQueue;
+@end
 
 @implementation SupplementPlanManager
 
-// Database object
-Database *m_database;
-// Supplement name
-NSString *m_supplementName;
-// Quantity
-NSString *m_quantity;
-// User email
-NSString *m_user_email;
-// Background Queue to create tables
-dispatch_queue_t m_coreDataBackgroundQueue;
+
 
 
 /*
@@ -41,31 +46,31 @@ dispatch_queue_t m_coreDataBackgroundQueue;
  */
 - (void)getSupplementAndQuantityFromPlistDictionary:(NSMutableDictionary *)dictionary AndSaveIntoDatabase:(NSString *)insertIntoDatabase
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     // Get all the key first
     NSArray *keys                       = [dictionary allKeys];
     NSUInteger numberOfItems                   = [keys count];
     for (int i = 0; i < numberOfItems; i++) {
         if (([[keys objectAtIndex:i] length] != 0) || [keys objectAtIndex:i] != NULL) {
-            m_supplementName                  = [keys objectAtIndex:i]; // Add supplement name
+            self.m_supplementName                  = [keys objectAtIndex:i]; // Add supplement name
         }
         
         if (([dictionary objectForKey:[keys objectAtIndex:i]] != 0) || [dictionary objectForKey:[keys objectAtIndex:i]] != NULL) {
-            m_quantity                  = [dictionary objectForKey:[keys objectAtIndex:i]]; // Add quantity
+            self.m_quantity                  = [dictionary objectForKey:[keys objectAtIndex:i]]; // Add quantity
         }
         if ([insertIntoDatabase isEqualToString:@"insertIntoSupplementBreakfast"]) {
-            [m_database insertIntoSupplementBreakfast:m_supplementName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoSupplementBreakfast:self.m_supplementName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSupplementPreWorkout"]) {
-            [m_database insertIntoSupplementPreWorkout:m_supplementName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoSupplementPreWorkout:self.m_supplementName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSupplementPostWorkout"]) {
-            [m_database insertIntoSupplementPostWorkout:m_supplementName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoSupplementPostWorkout:self.m_supplementName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSupplementBeforeBed"]) {
-            [m_database insertIntoSupplementBeforeBed:m_supplementName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoSupplementBeforeBed:self.m_supplementName Quantity:self.m_quantity forUser:self.m_user_email];
         }
     }
 }
@@ -76,16 +81,16 @@ dispatch_queue_t m_coreDataBackgroundQueue;
     // Each meal dictionary
     NSMutableDictionary *dictionary;
     
-    if (!m_database) {
-        m_database                       = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                       = [Database alloc];
     }
-    m_user_email                         = [NSString getUserEmail];
+    self.m_user_email                         = [NSString getUserEmail];
     
     // Delete previous supplement plan, if any
-    [m_database deleteSupplementBreakfastforUser:m_user_email];
-    [m_database deleteSupplementPreWorkoutforUser:m_user_email];
-    [m_database deleteSupplementPostWorkoutforUser:m_user_email];
-    [m_database deleteSupplementBeforeBedforUser:m_user_email];
+    [self.m_database deleteSupplementBreakfastforUser:self.m_user_email];
+    [self.m_database deleteSupplementPreWorkoutforUser:self.m_user_email];
+    [self.m_database deleteSupplementPostWorkoutforUser:self.m_user_email];
+    [self.m_database deleteSupplementBeforeBedforUser:self.m_user_email];
     
     for (int i = 0; i < [supplementArray count]; i++) {
         
@@ -109,20 +114,20 @@ dispatch_queue_t m_coreDataBackgroundQueue;
 // Get supplement plan from database
 - (NSMutableArray *)getSupplementPlanFromDatabase:(NSString *)mealFromDatabase
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     if ([mealFromDatabase isEqualToString:@"SupplementBreakfast"]) {
-        return [m_database getSupplementBreakfastforUser:m_user_email];
+        return [self.m_database getSupplementBreakfastforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"SupplementPreWorkout"]) {
-        return [m_database getSupplementPreWorkoutforUser:m_user_email];
+        return [self.m_database getSupplementPreWorkoutforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"SupplementPostWorkout"]) {
-        return [m_database getSupplementPostWorkoutforUser:m_user_email];
+        return [self.m_database getSupplementPostWorkoutforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"SupplementBeforeBed"]) {
-        return [m_database getSupplementBeforeBedforUser:m_user_email];
+        return [self.m_database getSupplementBeforeBedforUser:self.m_user_email];
     }
     return nil;
 }

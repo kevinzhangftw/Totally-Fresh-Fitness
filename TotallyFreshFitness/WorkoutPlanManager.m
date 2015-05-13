@@ -8,17 +8,20 @@
 
 #import "WorkoutPlanManager.h"
 #import "Database.h"
+@interface WorkoutPlanManager()
+// Database object
+@property (strong, nonatomic)Database *m_database;
+// Exercise name
+@property (strong, nonatomic)NSString *m_exercise;
+// Quantity
+@property (strong, nonatomic)NSString *m_details;
+// User email
+@property (strong, nonatomic)NSString *m_user_email;
+@end
 
 @implementation WorkoutPlanManager
 
-// Database object
-Database *m_database;
-// Exercise name
-NSString *m_exercise;
-// Quantity
-NSString *m_details;
-// User email
-NSString *m_user_email;
+
 
 /*
  Singleton WorkoutPlanManager object
@@ -37,40 +40,40 @@ NSString *m_user_email;
  */
 - (void)getWorkoutFromArray:(NSMutableArray *)workoutArray AndSaveIntoDatabase:(NSString *)insertIntoDatabase
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
 
     // Get workoutarray count
     NSUInteger numberOfItems                   = [workoutArray count];
     for (int i = 0; i < numberOfItems; i = i+2) {
         if (([[workoutArray objectAtIndex:i] length] != 0) || [workoutArray objectAtIndex:i] != NULL) {
-            m_exercise                  = [workoutArray objectAtIndex:i]; // Add exercise name
+            self.m_exercise                  = [workoutArray objectAtIndex:i]; // Add exercise name
         }
         
         if (([workoutArray objectAtIndex:i+1] != 0) || [workoutArray objectAtIndex:i+1] != NULL) {
-            m_details                   = [workoutArray objectAtIndex:i + 1]; // Add details
+            self.m_details                   = [workoutArray objectAtIndex:i + 1]; // Add details
         }
         if ([insertIntoDatabase isEqualToString:@"insertIntoFirstDayWorkOut"]) {
-            [m_database insertIntoFirstDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoFirstDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSecondDayWorkOut"]) {
-            [m_database insertIntoSecondDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoSecondDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoThirdDayWorkOut"]) {
-            [m_database insertIntoThirdDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoThirdDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoFourthDayWorkOut"]) {
-            [m_database insertIntoFourthDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoFourthDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoFifthDayWorkOut"]) {
-            [m_database insertIntoFifthDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoFifthDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSixthDayWorkOut"]) {
-            [m_database insertIntoSixthDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoSixthDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSeventhDayWorkOut"]) {
-            [m_database insertIntoSeventhDayWorkOut:m_exercise Details:m_details forUser:m_user_email];
+            [self.m_database insertIntoSeventhDayWorkOut:self.m_exercise Details:self.m_details forUser:self.m_user_email];
         }
     }
 }
@@ -80,18 +83,18 @@ NSString *m_user_email;
  */
 - (void)deletePreviousWorkoutPlan
 {
-    if (!m_database) {
-        m_database                       = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                       = [Database alloc];
     }
-    m_user_email                         = [NSString getUserEmail];
+    self.m_user_email                         = [NSString getUserEmail];
 
-    [m_database deleteFirstDayWorkoutforUser:m_user_email];
-    [m_database deleteSecondDayWorkoutforUser:m_user_email];
-    [m_database deleteThirdDayWorkoutforUser:m_user_email];
-    [m_database deleteFourthDayWorkoutforUser:m_user_email];
-    [m_database deleteFifthDayWorkoutforUser:m_user_email];
-    [m_database deleteSixthDayWorkoutforUser:m_user_email];
-    [m_database deleteSeventhDayWorkoutforUser:m_user_email];
+    [self.m_database deleteFirstDayWorkoutforUser:self.m_user_email];
+    [self.m_database deleteSecondDayWorkoutforUser:self.m_user_email];
+    [self.m_database deleteThirdDayWorkoutforUser:self.m_user_email];
+    [self.m_database deleteFourthDayWorkoutforUser:self.m_user_email];
+    [self.m_database deleteFifthDayWorkoutforUser:self.m_user_email];
+    [self.m_database deleteSixthDayWorkoutforUser:self.m_user_email];
+    [self.m_database deleteSeventhDayWorkoutforUser:self.m_user_email];
 }
 
 /*
@@ -131,32 +134,32 @@ NSString *m_user_email;
  */
 - (NSMutableArray *)getWorkoutPlanFromDatabase:(NSString *)workoutFromDatabase
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
-    if (!m_user_email) {
-        m_user_email        = [NSString getUserEmail];
+    if (!self.m_user_email) {
+        self.m_user_email        = [NSString getUserEmail];
     }
     if ([workoutFromDatabase isEqualToString:@"One"]) {
-        return [m_database getFirstDayWorkOutforUser:m_user_email];
+        return [self.m_database getFirstDayWorkOutforUser:self.m_user_email];
     }
     else if ([workoutFromDatabase isEqualToString:@"Two"]) {
-        return [m_database getSecondDayWorkOutforUser:m_user_email];
+        return [self.m_database getSecondDayWorkOutforUser:self.m_user_email];
     }
     else if ([workoutFromDatabase isEqualToString:@"Three"]) {
-        return [m_database getThirdDayWorkOutforUser:m_user_email];
+        return [self.m_database getThirdDayWorkOutforUser:self.m_user_email];
     }
     else if ([workoutFromDatabase isEqualToString:@"Four"]) {
-        return [m_database getFourthDayWorkOutforUser:m_user_email];
+        return [self.m_database getFourthDayWorkOutforUser:self.m_user_email];
     }
     else if ([workoutFromDatabase isEqualToString:@"Five"]) {
-        return [m_database getFifthDayWorkOutforUser:m_user_email];
+        return [self.m_database getFifthDayWorkOutforUser:self.m_user_email];
     }
     else if ([workoutFromDatabase isEqualToString:@"Six"]) {
-        return [m_database getSixthDayWorkOutforUser:m_user_email];
+        return [self.m_database getSixthDayWorkOutforUser:self.m_user_email];
     }
     else if ([workoutFromDatabase isEqualToString:@"Seven"]) {
-        return [m_database getSeventhDayWorkOutforUser:m_user_email];
+        return [self.m_database getSeventhDayWorkOutforUser:self.m_user_email];
     }
     return nil;
 }

@@ -13,30 +13,30 @@
 #import "NSString+UserEmail.h"
 
 @interface SupplementOrderWebViewController ()
-
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MealViewController class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// Database
+@property (strong, nonatomic)Database *m_database;
+// WebView object
+@property (strong, nonatomic)UIWebView *m_orderPageView;
+@property (strong, nonatomic)NSString *m_userEmail;
+@property (strong, nonatomic)NSString *m_gender;
+@property (strong, nonatomic)NSString *m_goal;
 @end
 
 @implementation SupplementOrderWebViewController
 
-// ViewTransition class object
-ViewTransitions *m_transition;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// Database
-Database *m_database;
-// WebView object
-UIWebView *m_orderPageView;
-NSString *m_userEmail;
-NSString *m_gender;
-NSString *m_goal;
+
 
 @synthesize indicatorView;
 
@@ -57,10 +57,10 @@ NSString *m_goal;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -70,12 +70,12 @@ NSString *m_goal;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
     
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
     // Google Analytics Button click
 
@@ -87,11 +87,11 @@ NSString *m_goal;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
     // Google Analytics Button click
 
@@ -102,12 +102,12 @@ NSString *m_goal;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -116,11 +116,11 @@ NSString *m_goal;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -129,13 +129,13 @@ NSString *m_goal;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
     
 }
@@ -192,7 +192,7 @@ NSString *m_goal;
     else {
         webViewframe             = CGRectMake(0.0f, 62.0f, 320.0f, 363.0f);
     }
-    m_orderPageView              = [[UIWebView alloc] initWithFrame:webViewframe];
+    self.m_orderPageView              = [[UIWebView alloc] initWithFrame:webViewframe];
     
     //self.toolbar =  [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, webViewframe.size.width, 50)];
     //UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:nil];
@@ -205,45 +205,45 @@ NSString *m_goal;
     NSURL *url;
     NSURLRequest *request;
     
-    m_orderPageView.delegate        = self;
+    self.m_orderPageView.delegate        = self;
     //[self.view addSubview:m_orderPageView];
     
 
     
-    m_goal = [m_database getLatestExerciseGoal:m_userEmail];
-    m_gender = [m_database getGender:m_userEmail];
-    NSLog(@"Gender: %@", m_gender);
-    if([m_goal isEqualToString:@"SHRED FAT"] && [m_gender isEqualToString:@"Male"]){
+    self.m_goal = [self.m_database getLatestExerciseGoal:self.m_userEmail];
+    self.m_gender = [self.m_database getGender:self.m_userEmail];
+    NSLog(@"Gender: %@", self.m_gender);
+    if([self.m_goal isEqualToString:@"SHRED FAT"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/shredfatmen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [m_gender isEqualToString:@"Male"]){
+    else if([self.m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/buildmusclemen"];
         request = [NSURLRequest requestWithURL:url];
         
     }
-    else if([m_goal isEqualToString:@"GET TONED"] && [m_gender isEqualToString:@"Male"]){
+    else if([self.m_goal isEqualToString:@"GET TONED"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/buildmusclemen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"MUSCLE ISOLATION"] && [m_gender isEqualToString:@"Male"]){
+    else if([self.m_goal isEqualToString:@"MUSCLE ISOLATION"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/buildmusclemen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"SHRED FAT"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"SHRED FAT"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/shredfatwomen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/gettonedwomen"];
         request = [NSURLRequest requestWithURL:url];
         
     }
-    else if([m_goal isEqualToString:@"GET TONED"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"GET TONED"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/gettonedwomen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"MUSCLE ISOLATION"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"MUSCLE ISOLATION"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/gettonedwomen"];
         request = [NSURLRequest requestWithURL:url];
     }

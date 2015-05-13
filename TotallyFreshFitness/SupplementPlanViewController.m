@@ -18,6 +18,58 @@
 #import "NSString+UserEmail.h"
 
 @interface SupplementPlanViewController ()
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MealViewController class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementProfileViewController class object
+@property (strong, nonatomic)SupplementProfileViewController *m_supplementProfileViewController;
+// SupplementOrderWebViewController class object
+@property (strong, nonatomic)SupplementOrderWebViewController *m_supplementOrderWebViewController;
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// Database class object
+@property (strong, nonatomic)Database *m_database;
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+
+
+// Supplement plan array
+@property (strong, nonatomic)NSArray *m_supplementPlanArray;
+// Supplement order array
+@property (strong, nonatomic)NSMutableArray *m_supplementOrderArray;
+// Supplement order images array
+@property (strong, nonatomic)NSMutableArray *m_supplementOrderImagesArray;
+// Supplement order links array
+@property (strong, nonatomic)NSMutableArray *m_supplementOrderLinksArray;
+// To avoid redisplay an already active view
+@property (strong, nonatomic)NSString *m_checkWhichSupplementButtonWasClicked;
+// Meal Table is Meal Plan or Meal List
+@property (strong, nonatomic)NSString *m_mealPlanOrFoodListOnMealTable;
+// User email from database
+@property (strong, nonatomic)NSString *m_userEmail;
+// Gender of user
+@property (strong, nonatomic)NSString *m_gender;
+// NSMutableArray of cells
+@property (strong, nonatomic)NSMutableArray *m_arrayOfCells;
+// If switch or disclosure
+@property (nonatomic)BOOL isDisclosure;
+
+@property (strong, nonatomic)NSString *m_goal;
+//@property (strong, nonatomic)NSString *m_gender;
+
+// Help pop up button
+@property (strong, nonatomic)UIButton *m_helpPopUpButtonViewInSupplementPlanView;
+// NSUserDefault
+@property (strong, nonatomic)NSUserDefaults *userDefaults;
 
 // Move to CalenderViewController
 - (void)moveToCalenderViewController:(id)sender;
@@ -44,58 +96,6 @@
 
 @implementation SupplementPlanViewController
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementProfileViewController class object
-SupplementProfileViewController *m_supplementProfileViewController;
-// SupplementOrderWebViewController class object
-SupplementOrderWebViewController *m_supplementOrderWebViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// Database class object
-Database *m_database;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-
-
-// Supplement plan array
-NSArray *m_supplementPlanArray;
-// Supplement order array
-NSMutableArray *m_supplementOrderArray;
-// Supplement order images array
-NSMutableArray *m_supplementOrderImagesArray;
-// Supplement order links array
-NSMutableArray *m_supplementOrderLinksArray;
-// To avoid redisplay an already active view
-NSString *m_checkWhichSupplementButtonWasClicked;
-// Meal Table is Meal Plan or Meal List
-NSString *m_mealPlanOrFoodListOnMealTable;
-// User email from database
-NSString *m_userEmail;
-// Gender of user
-NSString *m_gender;
-// NSMutableArray of cells
-NSMutableArray *m_arrayOfCells;
-// If switch or disclosure
-bool isDisclosure;
-
-NSString *m_goal;
-NSString *m_gender;
-
-// Help pop up button
-UIButton *m_helpPopUpButtonViewInSupplementPlanView;
-// NSUserDefault
-NSUserDefaults *userDefaults;
 
 @synthesize controlsImageView;
 @synthesize supplementPlanSectionButton;
@@ -129,12 +129,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
     
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 
 }
@@ -145,11 +145,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -158,12 +158,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -172,11 +172,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -185,12 +185,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToSupplementProfileViewController:(id)sender
 {
-    if (!m_supplementProfileViewController) {
-        m_supplementProfileViewController    = [SupplementProfileViewController sharedInstance];
+    if (!self.m_supplementProfileViewController) {
+        self.m_supplementProfileViewController    = [SupplementProfileViewController sharedInstance];
     }
     
-    id instanceObject               = m_supplementProfileViewController;
-    [self moveToView:m_supplementProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_supplementProfileViewController;
+    [self moveToView:self.m_supplementProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -199,12 +199,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToSupplementOrderWebViewController:(id)sender
 {
-    if (!m_supplementOrderWebViewController) {
-        m_supplementOrderWebViewController    = [SupplementOrderWebViewController sharedInstance];
+    if (!self.m_supplementOrderWebViewController) {
+        self.m_supplementOrderWebViewController    = [SupplementOrderWebViewController sharedInstance];
     }
     
-    id instanceObject               = m_supplementOrderWebViewController;
-    [self moveToView:m_supplementOrderWebViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_supplementOrderWebViewController;
+    [self moveToView:self.m_supplementOrderWebViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -213,12 +213,12 @@ NSUserDefaults *userDefaults;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController                = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                = [RootViewController sharedInstance];
     }
     
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -226,12 +226,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)showSupplementOrderView
 {
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.supplementOrderWebPlanView];
+    [self.m_transition performTransitionFromRight:self.supplementOrderWebPlanView];
 
-    m_checkWhichSupplementButtonWasClicked  = @"Supplement Order";
+    self.m_checkWhichSupplementButtonWasClicked  = @"Supplement Order";
     self.controlsImageView.image            = [UIImage imageNamed:@"tfn_Supplementorder_active.png"];
     self.supplementOrderWebPlanView.hidden    = NO;
     self.toolBar.hidden = NO;
@@ -246,14 +246,14 @@ NSUserDefaults *userDefaults;
 {
 
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
     
-    if ((sender == self.supplementPlanSectionButton) && ([m_checkWhichSupplementButtonWasClicked isEqualToString:@"Supplement Order"])) {
-        m_checkWhichSupplementButtonWasClicked  = @"Supplement Plan";
+    if ((sender == self.supplementPlanSectionButton) && ([self.m_checkWhichSupplementButtonWasClicked isEqualToString:@"Supplement Order"])) {
+        self.m_checkWhichSupplementButtonWasClicked  = @"Supplement Plan";
         self.controlsImageView.image            = [UIImage imageNamed:@"tfn_Supplementplan_active.png"];
-        [m_transition performTransitionFromLeft:self.supplementPlanTableView];
+        [self.m_transition performTransitionFromLeft:self.supplementPlanTableView];
         self.supplementPlanTableView.hidden     = NO;
         self.toolBar.hidden = YES;
         self.supplementOrderWebPlanView.hidden    = YES;
@@ -264,7 +264,7 @@ NSUserDefaults *userDefaults;
 
         
     }
-    else if([m_checkWhichSupplementButtonWasClicked isEqualToString:@"Supplement Plan"]) {
+    else if([self.m_checkWhichSupplementButtonWasClicked isEqualToString:@"Supplement Plan"]) {
         [self showSupplementOrderView];
 
     }
@@ -275,7 +275,7 @@ NSUserDefaults *userDefaults;
  */
 - (void)getSupplementDetails
 {
-    m_supplementPlanArray         = [NSMutableArray loadUpSupplementPlan];
+    self.m_supplementPlanArray         = [NSMutableArray loadUpSupplementPlan];
 }
 
 /*
@@ -283,7 +283,7 @@ NSUserDefaults *userDefaults;
  */
 - (void)getSupplementOrderList
 {
-    m_supplementOrderArray        = [NSMutableArray loadUpSupplementOrder];
+    self.m_supplementOrderArray        = [NSMutableArray loadUpSupplementOrder];
 }
 
 /*
@@ -291,7 +291,7 @@ NSUserDefaults *userDefaults;
  */
 - (void)getSupplementOrderImages
 {
-    m_supplementOrderImagesArray  = [NSMutableArray loadUpSupplementOrderImages];
+    self.m_supplementOrderImagesArray  = [NSMutableArray loadUpSupplementOrderImages];
 }
 
 /*
@@ -299,7 +299,7 @@ NSUserDefaults *userDefaults;
  */
 - (void)getSupplementOrderLinks
 {
-    m_supplementOrderLinksArray  = [NSMutableArray loadUpSupplementOrderLinks];
+    self.m_supplementOrderLinksArray  = [NSMutableArray loadUpSupplementOrderLinks];
 }
 
 /*
@@ -330,11 +330,11 @@ NSUserDefaults *userDefaults;
 
 - (void)helpButtonClicked
 {
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:1 forKey:@"Supplement_Help"];
-    [userDefaults synchronize];
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults setInteger:1 forKey:@"Supplement_Help"];
+    [self.userDefaults synchronize];
     
-    [m_helpPopUpButtonViewInSupplementPlanView removeFromSuperview];
+    [self.m_helpPopUpButtonViewInSupplementPlanView removeFromSuperview];
     self.homeButton.userInteractionEnabled      = YES;
     self.supplementOrderSectionButton.userInteractionEnabled        = YES;
     self.supplementPlanSectionButton.userInteractionEnabled     = YES;
@@ -347,16 +347,16 @@ NSUserDefaults *userDefaults;
     CGRect helpPopUpButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 568.0f);
-        m_helpPopUpButtonViewInSupplementPlanView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInSupplementPlanView setBackgroundImage:[UIImage imageNamed:@"supplement_instruction_i5.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInSupplementPlanView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInSupplementPlanView setBackgroundImage:[UIImage imageNamed:@"supplement_instruction_i5.png"] forState:UIControlStateNormal];
     }
     else {
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-        m_helpPopUpButtonViewInSupplementPlanView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInSupplementPlanView setBackgroundImage:[UIImage imageNamed:@"supplement_instruction.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInSupplementPlanView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInSupplementPlanView setBackgroundImage:[UIImage imageNamed:@"supplement_instruction.png"] forState:UIControlStateNormal];
     }
-    [self.view addSubview:m_helpPopUpButtonViewInSupplementPlanView];
-    [m_helpPopUpButtonViewInSupplementPlanView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_helpPopUpButtonViewInSupplementPlanView];
+    [self.m_helpPopUpButtonViewInSupplementPlanView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
     self.homeButton.userInteractionEnabled      = NO;
     self.supplementOrderSectionButton.userInteractionEnabled        = NO;
@@ -377,9 +377,9 @@ NSUserDefaults *userDefaults;
 
 
 -(void)getURL{
-    m_database = [Database alloc];
-    m_userEmail = [NSString getUserEmail];
-    m_goal = [m_database getLatestExerciseGoal:m_userEmail];
+    self.m_database = [Database alloc];
+    self.m_userEmail = [NSString getUserEmail];
+    self.m_goal = [self.m_database getLatestExerciseGoal:self.m_userEmail];
     
 }
 
@@ -429,13 +429,13 @@ NSUserDefaults *userDefaults;
     [self.indicatorView startAnimating];
     
     // The default view is "Meal Plan"
-    m_checkWhichSupplementButtonWasClicked        = @"Supplement Plan";
+    self.m_checkWhichSupplementButtonWasClicked        = @"Supplement Plan";
     
     self.supplementOrderWebPlanView.hidden    = YES;
     self.toolBar.hidden = YES;
 
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults integerForKey:@"Supplement_Help"]) {
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    if (![self.userDefaults integerForKey:@"Supplement_Help"]) {
         // Add Help Pop Up
         [self createHelpPopUp];
     }
@@ -444,13 +444,13 @@ NSUserDefaults *userDefaults;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (!m_database) {
-        m_database                          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                          = [Database alloc];
     }
-    m_userEmail                             = [NSString getUserEmail];
+    self.m_userEmail                             = [NSString getUserEmail];
     
-    if (!m_arrayOfCells) {
-        m_arrayOfCells                      = [NSMutableArray mutableArrayObject];
+    if (!self.m_arrayOfCells) {
+        self.m_arrayOfCells                      = [NSMutableArray mutableArrayObject];
     }
     
     if (self.view.tag == 1) {
@@ -467,40 +467,40 @@ NSUserDefaults *userDefaults;
     NSURLRequest *request;
     self.supplementOrderWebPlanView.delegate = self;
 
-    m_goal = [m_database getLatestExerciseGoal:m_userEmail];
-    m_gender = [m_database getGender:m_userEmail];
-    NSLog(@"Gender: %@", m_gender);
-    if([m_goal isEqualToString:@"SHRED FAT"] && [m_gender isEqualToString:@"Male"]){
+    self.m_goal = [self.m_database getLatestExerciseGoal:self.m_userEmail];
+    self.m_gender = [self.m_database getGender:self.m_userEmail];
+    NSLog(@"Gender: %@", self.m_gender);
+    if([self.m_goal isEqualToString:@"SHRED FAT"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/shredfatmen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [m_gender isEqualToString:@"Male"]){
+    else if([self.m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/buildmusclemen"];
         request = [NSURLRequest requestWithURL:url];
         
     }
-             else if([m_goal isEqualToString:@"GET TONED"] && [m_gender isEqualToString:@"Male"]){
+             else if([self.m_goal isEqualToString:@"GET TONED"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/buildmusclemen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"MUSCLE ISOLATION"] && [m_gender isEqualToString:@"Male"]){
+    else if([self.m_goal isEqualToString:@"MUSCLE ISOLATION"] && [self.m_gender isEqualToString:@"Male"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/buildmusclemen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"SHRED FAT"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"SHRED FAT"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/shredfatwomen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"BUILD MUSCLE MASS"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/gettonedwomen"];
         request = [NSURLRequest requestWithURL:url];
         
     }
-    else if([m_goal isEqualToString:@"GET TONED"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"GET TONED"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/gettonedwomen"];
         request = [NSURLRequest requestWithURL:url];
     }
-    else if([m_goal isEqualToString:@"MUSCLE ISOLATION"] && [m_gender isEqualToString:@"Female"]){
+    else if([self.m_goal isEqualToString:@"MUSCLE ISOLATION"] && [self.m_gender isEqualToString:@"Female"]){
         url = [NSURL URLWithString:@"http://www.totalfitness.com/shop/gettonedwomen"];
         request = [NSURLRequest requestWithURL:url];
     }
@@ -577,7 +577,7 @@ NSUserDefaults *userDefaults;
             return numberOfRowsInSection    = 1;
         }
         else {
-            return numberOfRowsInSection    = [[[m_supplementPlanArray objectAtIndex:section] objectAtIndex:0] count];
+            return numberOfRowsInSection    = [[[self.m_supplementPlanArray objectAtIndex:section] objectAtIndex:0] count];
         }
     }
     return numberOfRowsInSection;
@@ -628,7 +628,7 @@ NSUserDefaults *userDefaults;
             [cell setUserInteractionEnabled:YES];
         }
         else {
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:[[m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:2]];
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:[[self.m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[self.m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[self.m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:2]];
         }
     }
 //    else {
@@ -711,7 +711,7 @@ NSUserDefaults *userDefaults;
             [self showSupplementOrderView];
         }
         else {
-            self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[[[m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row]];
+            self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[[[self.m_supplementPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row]];
             // Set supplementImage name
             [NSString setSupplementImageName:self.selectedImage];
             

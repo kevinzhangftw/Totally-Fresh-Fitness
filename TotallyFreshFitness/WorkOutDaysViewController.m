@@ -26,94 +26,96 @@
 - (void)displayMessage:(NSString *)message;
 //Save workout plan into database
 - (void)saveWorkoutPlanIntoDatabase;
-@end
+
 // ResultViewController class object
-ResultViewController *m_resultViewController;
+@property (strong, nonatomic)ResultViewController *m_resultViewController;
 // ViewFactory class object
-ViewFactory *m_controllerViews;
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
 // ViewTransitions clas object
-ViewTransitions *m_transition;
+@property (strong, nonatomic)ViewTransitions *m_transition;
 // Database class object
-Database *m_database;
+@property (strong, nonatomic)Database *m_database;
 // WorkoutSelection class object
-WorkoutSelection *m_workoutSelection;
+@property (strong, nonatomic)WorkoutSelection *m_workoutSelection;
 // WorkoutPlanManager class object
-WorkoutPlanManager *m_workoutPlanManager;
+@property (strong, nonatomic)WorkoutPlanManager *m_workoutPlanManager;
 // GoalsViewController class object
-GoalsViewController *m_goalsViewController;
+@property (strong, nonatomic)GoalsViewController *m_goalsViewController;
 // Previous Button
-UIButton *m_previousButton;
+@property (strong, nonatomic)UIButton *m_previousButton;
 
 // Help pop up button
-UIButton *m_helpPopUpButtonViewInWorkoutDaysview;
+@property (strong, nonatomic)UIButton *m_helpPopUpButtonViewInWorkoutDaysview;
 // NSUserDefault
-NSUserDefaults *userDefaults;
+@property (strong, nonatomic)NSUserDefaults *userDefaults;
 
 // All the days
-NSMutableArray *m_daysMutableArray;
+@property (strong, nonatomic)NSMutableArray *m_daysMutableArray;
 // Days default value is "NO"
-NSString *m_Monday      = @"NO";
-NSString *m_Tuesday     = @"NO";
-NSString *m_Wednesday   = @"NO";
-NSString *m_Thursday    = @"NO";
-NSString *m_Friday      = @"NO";
-NSString *m_Saturday    = @"NO";
-NSString *m_Sunday      = @"NO";
+@property (strong, nonatomic)NSString *m_Monday; //@"NO";
+@property (strong, nonatomic)NSString *m_Tuesday;//     = @"NO";
+@property (strong, nonatomic)NSString *m_Wednesday;//   = @"NO";
+@property (strong, nonatomic)NSString *m_Thursday;//    = @"NO";
+@property (strong, nonatomic)NSString *m_Friday;//      = @"NO";
+@property (strong, nonatomic)NSString *m_Saturday;//    = @"NO";
+@property (strong, nonatomic)NSString *m_Sunday;//    = @"NO";
 
 // Tick buttons
-UIButton *m_mondayButton;
-UIButton *m_tuesdayButton;
-UIButton *m_wednesdayButton;
-UIButton *m_thursdayButton;
-UIButton *m_fridayButton;
-UIButton *m_saturdayButton;
-UIButton *m_sundayButton;
+@property (strong, nonatomic)UIButton *m_mondayButton;
+@property (strong, nonatomic)UIButton *m_tuesdayButton;
+@property (strong, nonatomic)UIButton *m_wednesdayButton;
+@property (strong, nonatomic)UIButton *m_thursdayButton;
+@property (strong, nonatomic)UIButton *m_fridayButton;
+@property (strong, nonatomic)UIButton *m_saturdayButton;
+@property (strong, nonatomic)UIButton *m_sundayButton;
 
 // Day numbers
-int m_MondayNumber      = 0;
-int m_TuesdayNumber     = 1;
-int m_WednesdayNumber   = 2;
-int m_ThursdayNumber    = 3;
-int m_FridayNumber      = 4;
-int m_SaturdayNumber    = 5;
-int m_SundayNumber      = 6;
+@property (nonatomic)int m_MondayNumber;//      = 0;
+@property (nonatomic)int m_TuesdayNumber;//     = 1;
+@property (nonatomic)int m_WednesdayNumber;//   = 2;
+@property (nonatomic)int m_ThursdayNumber;//    = 3;
+@property (nonatomic)int m_FridayNumber;//      = 4;
+@property (nonatomic)int m_SaturdayNumber;//    = 5;
+@property (nonatomic)int m_SundayNumber;//      = 6;
 
 // User email id
-NSString *m_userEmailID;
+@property (strong, nonatomic)NSString *m_userEmailID;
 // User goal
-NSString *m_goal;
+@property (strong, nonatomic)NSString *m_goal;
 // Total number of days selected
-NSInteger m_totalNumberOfDaysSelected;
+@property (nonatomic)NSInteger m_totalNumberOfDaysSelected;
 // Workout array
-NSMutableArray *m_workoutArray;
+@property (strong, nonatomic)NSMutableArray *m_workoutArray;
 
 // Buttons
-UIButton *m_monday;
-UIButton *m_tuesday;
-UIButton *m_wednesday;
-UIButton *m_thursday;
-UIButton *m_friday;
-UIButton *m_saturday;
-UIButton *m_sunday;
-UIButton *m_nextButton;
+@property (strong, nonatomic)UIButton *m_monday;
+@property (strong, nonatomic)UIButton *m_tuesday;
+@property (strong, nonatomic)UIButton *m_wednesday;
+@property (strong, nonatomic)UIButton *m_thursday;
+@property (strong, nonatomic)UIButton *m_friday;
+@property (strong, nonatomic)UIButton *m_saturday;
+@property (strong, nonatomic)UIButton *m_sunday;
+@property (strong, nonatomic)UIButton *m_nextButton;
 
 // Labels
-UILabel *m_mondayLabel;
-UILabel *m_tuesdayLabel;
-UILabel *m_wednesdayLabel;
-UILabel *m_thursdayLabel;
-UILabel *m_fridayLabel;
-UILabel *m_saturdayLabel;
-UILabel *m_sundayLabel;
+@property (strong, nonatomic)UILabel *m_mondayLabel;
+@property (strong, nonatomic)UILabel *m_tuesdayLabel;
+@property (strong, nonatomic)UILabel *m_wednesdayLabel;
+@property (strong, nonatomic)UILabel *m_thursdayLabel;
+@property (strong, nonatomic)UILabel *m_fridayLabel;
+@property (strong, nonatomic)UILabel *m_saturdayLabel;
+@property (strong, nonatomic)UILabel *m_sundayLabel;
 
 // Buttons
-UIButton *m_mondayTickButton;
-UIButton *m_tuesdayTickButton;
-UIButton *m_wednesdayTickButton;
-UIButton *m_thursdayTickButton;
-UIButton *m_fridayTickButton;
-UIButton *m_saturdayTickButton;
-UIButton *m_sundayTickButton;
+@property (strong, nonatomic)UIButton *m_mondayTickButton;
+@property (strong, nonatomic)UIButton *m_tuesdayTickButton;
+@property (strong, nonatomic)UIButton *m_wednesdayTickButton;
+@property (strong, nonatomic)UIButton *m_thursdayTickButton;
+@property (strong, nonatomic)UIButton *m_fridayTickButton;
+@property (strong, nonatomic)UIButton *m_saturdayTickButton;
+@property (strong, nonatomic)UIButton *m_sundayTickButton;
+@end
+
 
 @implementation WorkOutDaysViewController
 
@@ -137,10 +139,10 @@ UIButton *m_sundayTickButton;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 }
 
@@ -149,11 +151,11 @@ UIButton *m_sundayTickButton;
  */
 - (void)moveToResultViewController:(id)sender
 {
-    if (!m_resultViewController) {
-        m_resultViewController                  = [ResultViewController sharedInstance];
+    if (!self.m_resultViewController) {
+        self.m_resultViewController                  = [ResultViewController sharedInstance];
     }
-    id instanceObject               = m_resultViewController;
-    [self moveToView:m_resultViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_resultViewController;
+    [self moveToView:self.m_resultViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -161,11 +163,11 @@ UIButton *m_sundayTickButton;
  */
 - (void)moveToGoalsViewController:(id)sender
 {
-    if (!m_goalsViewController) {
-        m_goalsViewController       = [GoalsViewController sharedInstance];
+    if (!self.m_goalsViewController) {
+        self.m_goalsViewController       = [GoalsViewController sharedInstance];
     }
-    id instanceObject               = m_goalsViewController;
-    [self moveToView:m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_goalsViewController;
+    [self moveToView:self.m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -179,10 +181,10 @@ UIButton *m_sundayTickButton;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -192,15 +194,15 @@ UIButton *m_sundayTickButton;
  */
 - (void)exerciseDaysSelected:(id)sender
 {
-    if (([m_Monday length] != 0) || ([m_Tuesday length] != 0) || ([m_Wednesday length] != 0) || ([m_Thursday length] != 0) || ([m_Friday length] != 0) || ([m_Saturday length] != 0) || ([m_Sunday length] != 0)) { // If atleast one day is selected
+    if (([self.m_Monday length] != 0) || ([self.m_Tuesday length] != 0) || ([self.m_Wednesday length] != 0) || ([self.m_Thursday length] != 0) || ([self.m_Friday length] != 0) || ([self.m_Saturday length] != 0) || ([self.m_Sunday length] != 0)) { // If atleast one day is selected
         NSString *daysStatus            = @"";
         NSDate *date                    = [NSDate date];
         
         // Save selections in the database
-        if (!m_database) {
-            m_database                  = [Database alloc];
+        if (!self.m_database) {
+            self.m_database                  = [Database alloc];
         }
-        daysStatus                      = [m_database insertIntoExerciseDaysEmail_Id:m_userEmailID Date:date Monday:m_Monday Tuesday:m_Tuesday Wednesday:m_Wednesday Thursday:m_Thursday Friday:m_Friday Saturday:m_Saturday Sunday:m_Sunday];
+        daysStatus                      = [self.m_database insertIntoExerciseDaysEmail_Id:self.m_userEmailID Date:date Monday:self.m_Monday Tuesday:self.m_Tuesday Wednesday:self.m_Wednesday Thursday:self.m_Thursday Friday:self.m_Friday Saturday:self.m_Saturday Sunday:self.m_Sunday];
         
         if ([daysStatus isEqualToString:@"updated"]) {
             // Save the workout plan into database
@@ -230,126 +232,126 @@ UIButton *m_sundayTickButton;
 // Monday button click
 - (void)clickMonday:(UIButton *)sender
 {
-    [self changeTextColor:m_monday];
-    if (m_monday.tag == 0) {
-        m_monday.tag = 1;
-        m_Monday            = @"YES";
-        [m_mondayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_monday];
+    if (self.m_monday.tag == 0) {
+        self.m_monday.tag = 1;
+       self.m_Monday            = @"YES";
+        [self.m_mondayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_monday.tag = 0;
-        m_Monday            = @"NO";
-        [m_mondayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_monday.tag = 0;
+        self.m_Monday            = @"NO";
+        [self.m_mondayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
 // Tuesday button click
 - (void)clickTuesday:(UIButton *)sender
 {
-    [self changeTextColor:m_tuesday];
-    if (m_tuesday.tag == 0) {
-        m_tuesday.tag = 1;
-        m_Tuesday           = @"YES";
-        [m_tuesdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_tuesday];
+    if (self.m_tuesday.tag == 0) {
+        self.m_tuesday.tag = 1;
+        self.m_Tuesday           = @"YES";
+        [self.m_tuesdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_tuesday.tag = 0;
-        m_Tuesday           = @"NO";
-        [m_tuesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_tuesday.tag = 0;
+        self.m_Tuesday           = @"NO";
+        [self.m_tuesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
 // Wednesday button click
 - (void)clickWednesday:(UIButton *)sender
 {
-    [self changeTextColor:m_wednesday];
-    if (m_wednesday.tag == 0) {
-        m_wednesday.tag = 1;
-        m_Wednesday         = @"YES";
-        [m_wednesdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_wednesday];
+    if (self.m_wednesday.tag == 0) {
+        self.m_wednesday.tag = 1;
+        self.m_Wednesday         = @"YES";
+        [self.m_wednesdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_wednesday.tag = 0;
-        m_Wednesday         = @"NO";
-        [m_wednesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_wednesday.tag = 0;
+        self.m_Wednesday         = @"NO";
+        [self.m_wednesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
 // Thursday button click
 - (void)clickThursday:(UIButton *)sender
 {
-    [self changeTextColor:m_thursday];
-    if (m_thursday.tag == 0) {
-        m_thursday.tag = 1;
-        m_Thursday          = @"YES";
-        [m_thursdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_thursday];
+    if (self.m_thursday.tag == 0) {
+        self.m_thursday.tag = 1;
+        self.m_Thursday          = @"YES";
+        [self.m_thursdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_thursday.tag = 0;
-        m_Thursday          = @"NO";
-        [m_thursdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_thursday.tag = 0;
+        self.m_Thursday          = @"NO";
+        [self.m_thursdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
 // Friday button click
 - (void)clickFriday:(UIButton *)sender
 {
-    [self changeTextColor:m_friday];
-    if (m_friday.tag == 0) {
-        m_friday.tag = 1;
-        m_Friday            = @"YES";
-        [m_fridayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_friday];
+    if (self.m_friday.tag == 0) {
+        self.m_friday.tag = 1;
+        self.m_Friday            = @"YES";
+        [self.m_fridayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_friday.tag = 0;
-        m_Friday            = @"NO";
-        [m_fridayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_friday.tag = 0;
+        self.m_Friday            = @"NO";
+        [self.m_fridayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
 // Saturday button click
 - (void)clickSaturday:(UIButton *)sender
 {
-    [self changeTextColor:m_saturday];
-    if (m_saturday.tag == 0) {
-        m_saturday.tag = 1;
-        m_Saturday          = @"YES";
-        [m_saturdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_saturday];
+    if (self.m_saturday.tag == 0) {
+        self.m_saturday.tag = 1;
+        self.m_Saturday          = @"YES";
+        [self.m_saturdayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_saturday.tag = 0;
-        m_Saturday          = @"NO";
-        [m_saturdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_saturday.tag = 0;
+        self.m_Saturday          = @"NO";
+        [self.m_saturdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
 // Sunday button click
 - (void)clickSunday:(UIButton *)sender
 {
-    [self changeTextColor:m_sunday];
-    if (m_sunday.tag == 0) {
-        m_sunday.tag = 1;
-        m_Sunday            = @"YES";
-        [m_sundayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected++;
+    [self changeTextColor:self.m_sunday];
+    if (self.m_sunday.tag == 0) {
+        self.m_sunday.tag = 1;
+        self.m_Sunday            = @"YES";
+        [self.m_sundayButton setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected++;
     }
     else {
-        m_sunday.tag = 0;
-        m_Sunday            = @"NO";
-        [m_sundayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        m_totalNumberOfDaysSelected--;
+        self.m_sunday.tag = 0;
+        self.m_Sunday            = @"NO";
+        [self.m_sundayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        self.m_totalNumberOfDaysSelected--;
     }
 }
 
@@ -357,52 +359,52 @@ UIButton *m_sundayTickButton;
 - (void)checkAllDays
 {
     // Reload tableview
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
-    m_userEmailID                   = [NSString getUserEmail];
-    m_goal                          = [m_database getLatestExerciseGoal:m_userEmailID]; // Get the latest goal
-    if ([m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // if goal is MUSCLE ISOLATION
-        m_monday.tag    = 0;
-        [self clickMonday:m_monday];
-        m_tuesday.tag    = 0;
-        [self clickTuesday:m_tuesday];
-        m_wednesday.tag    = 0;
-        [self clickWednesday:m_wednesday];
-        m_thursday.tag    = 0;
-        [self clickThursday:m_thursday];
-        m_friday.tag    = 0;
-        [self clickFriday:m_friday];
-        m_saturday.tag    = 0;
-        [self clickSaturday:m_saturday];
-        m_sunday.tag    = 0;
-        [self clickSunday:m_sunday];
+    self.m_userEmailID                   = [NSString getUserEmail];
+    self.m_goal                          = [self.m_database getLatestExerciseGoal:self.m_userEmailID]; // Get the latest goal
+    if ([self.m_goal isEqualToString:@"MUSCLE ISOLATION"]) { // if goal is MUSCLE ISOLATION
+        self.m_monday.tag    = 0;
+        [self clickMonday:self.m_monday];
+        self.m_tuesday.tag    = 0;
+        [self clickTuesday:self.m_tuesday];
+        self.m_wednesday.tag    = 0;
+        [self clickWednesday:self.m_wednesday];
+        self.m_thursday.tag    = 0;
+        [self clickThursday:self.m_thursday];
+        self.m_friday.tag    = 0;
+        [self clickFriday:self.m_friday];
+        self.m_saturday.tag    = 0;
+        [self clickSaturday:self.m_saturday];
+        self.m_sunday.tag    = 0;
+        [self clickSunday:self.m_sunday];
     }
 }
 
 - (void)helpButtonClicked
 {
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:1 forKey:@"WorkoutDays_Help"];
-    [userDefaults synchronize];
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults setInteger:1 forKey:@"WorkoutDays_Help"];
+    [self.userDefaults synchronize];
     
-    [m_helpPopUpButtonViewInWorkoutDaysview removeFromSuperview];
-    m_monday.userInteractionEnabled       = YES;
-    m_tuesday.userInteractionEnabled      = YES;
-    m_wednesday.userInteractionEnabled        = YES;
-    m_thursday.userInteractionEnabled     = YES;
-    m_friday.userInteractionEnabled       = YES;
-    m_saturday.userInteractionEnabled     = YES;
-    m_sunday.userInteractionEnabled       = YES;
-    m_mondayButton.userInteractionEnabled       = YES;
-    m_tuesdayButton.userInteractionEnabled      = YES;
-    m_wednesdayButton.userInteractionEnabled        = YES;
-    m_thursdayButton.userInteractionEnabled     = YES;
-    m_fridayButton.userInteractionEnabled       = YES;
-    m_saturdayButton.userInteractionEnabled     = YES;
-    m_sundayButton.userInteractionEnabled       = YES;
-    m_nextButton.userInteractionEnabled     = YES;
-    m_previousButton.userInteractionEnabled     = YES;
+    [self.m_helpPopUpButtonViewInWorkoutDaysview removeFromSuperview];
+    self.m_monday.userInteractionEnabled       = YES;
+    self.m_tuesday.userInteractionEnabled      = YES;
+    self.m_wednesday.userInteractionEnabled        = YES;
+    self.m_thursday.userInteractionEnabled     = YES;
+    self.m_friday.userInteractionEnabled       = YES;
+    self.m_saturday.userInteractionEnabled     = YES;
+    self.m_sunday.userInteractionEnabled       = YES;
+    self.m_mondayButton.userInteractionEnabled       = YES;
+    self.m_tuesdayButton.userInteractionEnabled      = YES;
+    self.m_wednesdayButton.userInteractionEnabled        = YES;
+    self.m_thursdayButton.userInteractionEnabled     = YES;
+    self.m_fridayButton.userInteractionEnabled       = YES;
+    self.m_saturdayButton.userInteractionEnabled     = YES;
+    self.m_sundayButton.userInteractionEnabled       = YES;
+    self.m_nextButton.userInteractionEnabled     = YES;
+    self.m_previousButton.userInteractionEnabled     = YES;
     self.backButton.userInteractionEnabled      = YES;
 }
 
@@ -411,33 +413,33 @@ UIButton *m_sundayTickButton;
     CGRect helpPopUpButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 568.0f);
-        m_helpPopUpButtonViewInWorkoutDaysview       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInWorkoutDaysview setBackgroundImage:[UIImage imageNamed:@"workoutdays_instruction_i5.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInWorkoutDaysview       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInWorkoutDaysview setBackgroundImage:[UIImage imageNamed:@"workoutdays_instruction_i5.png"] forState:UIControlStateNormal];
     }
     else {
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-        m_helpPopUpButtonViewInWorkoutDaysview       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInWorkoutDaysview setBackgroundImage:[UIImage imageNamed:@"workoutdays_instruction.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInWorkoutDaysview       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInWorkoutDaysview setBackgroundImage:[UIImage imageNamed:@"workoutdays_instruction.png"] forState:UIControlStateNormal];
     }
-    [self.view addSubview:m_helpPopUpButtonViewInWorkoutDaysview];
-    [m_helpPopUpButtonViewInWorkoutDaysview addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_helpPopUpButtonViewInWorkoutDaysview];
+    [self.m_helpPopUpButtonViewInWorkoutDaysview addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
-    m_monday.userInteractionEnabled       = YES;
-    m_tuesday.userInteractionEnabled      = YES;
-    m_wednesday.userInteractionEnabled        = YES;
-    m_thursday.userInteractionEnabled     = YES;
-    m_friday.userInteractionEnabled       = YES;
-    m_saturday.userInteractionEnabled     = YES;
-    m_sunday.userInteractionEnabled       = YES;
-    m_mondayButton.userInteractionEnabled       = YES;
-    m_tuesdayButton.userInteractionEnabled      = YES;
-    m_wednesdayButton.userInteractionEnabled        = YES;
-    m_thursdayButton.userInteractionEnabled     = YES;
-    m_fridayButton.userInteractionEnabled       = YES;
-    m_saturdayButton.userInteractionEnabled     = YES;
-    m_sundayButton.userInteractionEnabled       = YES;
-    m_nextButton.userInteractionEnabled     = YES;
-    m_previousButton.userInteractionEnabled     = YES;
+    self.m_monday.userInteractionEnabled       = YES;
+    self.m_tuesday.userInteractionEnabled      = YES;
+    self.m_wednesday.userInteractionEnabled        = YES;
+    self.m_thursday.userInteractionEnabled     = YES;
+    self.m_friday.userInteractionEnabled       = YES;
+    self.m_saturday.userInteractionEnabled     = YES;
+    self.m_sunday.userInteractionEnabled       = YES;
+    self.m_mondayButton.userInteractionEnabled       = YES;
+    self.m_tuesdayButton.userInteractionEnabled      = YES;
+    self.m_wednesdayButton.userInteractionEnabled        = YES;
+    self.m_thursdayButton.userInteractionEnabled     = YES;
+    self.m_fridayButton.userInteractionEnabled       = YES;
+    self.m_saturdayButton.userInteractionEnabled     = YES;
+    self.m_sundayButton.userInteractionEnabled       = YES;
+    self.m_nextButton.userInteractionEnabled     = YES;
+    self.m_previousButton.userInteractionEnabled     = YES;
     self.backButton.userInteractionEnabled      = YES;
     
 }
@@ -487,19 +489,19 @@ UIButton *m_sundayTickButton;
         m_firstButtonFrame           = CGRectMake(0.0f, 60.0f, 320.0f, 49.0f);
         m_firstTickButtonFrame       = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
-    m_monday                            = [[UIButton alloc] initWithFrame:m_firstButtonFrame];
-    [m_monday addTarget:self action:@selector(clickMonday:) forControlEvents:UIControlEventTouchUpInside];
-    m_monday.titleLabel.font            = [UIFont customFontWithSize:20];
-    [m_monday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_monday setTitle:@"       Monday" forState:UIControlStateNormal];
-    [m_monday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_monday];
-    m_monday.tag                        = 0;
+    self.m_monday                            = [[UIButton alloc] initWithFrame:m_firstButtonFrame];
+    [self.m_monday addTarget:self action:@selector(clickMonday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_monday.titleLabel.font            = [UIFont customFontWithSize:20];
+    [self.m_monday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_monday setTitle:@"       Monday" forState:UIControlStateNormal];
+    [self.m_monday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_monday];
+    self.m_monday.tag                        = 0;
     
-    m_mondayButton                  = [[UIButton alloc] initWithFrame:m_firstTickButtonFrame];
-    [m_mondayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_monday addSubview:m_mondayButton];
-    [m_mondayButton addTarget:self action:@selector(clickMonday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_mondayButton                  = [[UIButton alloc] initWithFrame:m_firstTickButtonFrame];
+    [self.m_mondayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_monday addSubview:self.m_mondayButton];
+    [self.m_mondayButton addTarget:self action:@selector(clickMonday:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect m_firstButtonSeperatorFrame;
 
@@ -524,19 +526,19 @@ UIButton *m_sundayTickButton;
         m_secondTickButtonFrame       = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
 
-    m_tuesday                           = [[UIButton alloc] initWithFrame:m_secondButtonFrame];
-    [m_tuesday addTarget:self action:@selector(clickTuesday:) forControlEvents:UIControlEventTouchUpInside];
-    m_tuesday.titleLabel.font           = [UIFont customFontWithSize:20];
-    [m_tuesday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_tuesday setTitle:@"       Tuesday" forState:UIControlStateNormal];
-    [m_tuesday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_tuesday];
-    m_tuesday.tag                       = 0;
+    self.m_tuesday                           = [[UIButton alloc] initWithFrame:m_secondButtonFrame];
+    [self.m_tuesday addTarget:self action:@selector(clickTuesday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_tuesday.titleLabel.font           = [UIFont customFontWithSize:20];
+    [self.m_tuesday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_tuesday setTitle:@"       Tuesday" forState:UIControlStateNormal];
+    [self.m_tuesday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_tuesday];
+    self.m_tuesday.tag                       = 0;
     
-    m_tuesdayButton                  = [[UIButton alloc] initWithFrame:m_secondTickButtonFrame];
-    [m_tuesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_tuesday addSubview:m_tuesdayButton];
-    [m_tuesdayButton addTarget:self action:@selector(clickTuesday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_tuesdayButton                  = [[UIButton alloc] initWithFrame:m_secondTickButtonFrame];
+    [self.m_tuesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_tuesday addSubview:self.m_tuesdayButton];
+    [self.m_tuesdayButton addTarget:self action:@selector(clickTuesday:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect m_secondButtonSeperatorFrame;
 
@@ -561,19 +563,19 @@ UIButton *m_sundayTickButton;
         m_thirdTickButtonFrame       = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
     
-    m_wednesday                         = [[UIButton alloc] initWithFrame:m_thirdButtonFrame];
-    [m_wednesday addTarget:self action:@selector(clickWednesday:) forControlEvents:UIControlEventTouchUpInside];
-    m_wednesday.titleLabel.font         = [UIFont customFontWithSize:20];
-    [m_wednesday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_wednesday setTitle:@"       Wednesday" forState:UIControlStateNormal];
-    [m_wednesday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_wednesday];
-    m_wednesday.tag                     = 0;
+    self.m_wednesday                         = [[UIButton alloc] initWithFrame:m_thirdButtonFrame];
+    [self.m_wednesday addTarget:self action:@selector(clickWednesday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_wednesday.titleLabel.font         = [UIFont customFontWithSize:20];
+    [self.m_wednesday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_wednesday setTitle:@"       Wednesday" forState:UIControlStateNormal];
+    [self.m_wednesday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_wednesday];
+    self.m_wednesday.tag                     = 0;
 
-    m_wednesdayButton                  = [[UIButton alloc] initWithFrame:m_thirdTickButtonFrame];
-    [m_wednesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_wednesday addSubview:m_wednesdayButton];
-    [m_wednesdayButton addTarget:self action:@selector(clickWednesday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_wednesdayButton                  = [[UIButton alloc] initWithFrame:m_thirdTickButtonFrame];
+    [self.m_wednesdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_wednesday addSubview:self.m_wednesdayButton];
+    [self.m_wednesdayButton addTarget:self action:@selector(clickWednesday:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect m_thirdButtonSeperatorFrame;
     if ([UIScreen mainScreen].bounds.size.height == 568) {
@@ -597,19 +599,19 @@ UIButton *m_sundayTickButton;
         m_fourthTickButtonFrame      = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
 
-    m_thursday                          = [[UIButton alloc] initWithFrame:m_fourthButtonFrame];
-    [m_thursday addTarget:self action:@selector(clickThursday:) forControlEvents:UIControlEventTouchUpInside];
-    m_thursday.titleLabel.font          = [UIFont customFontWithSize:20];
-    [m_thursday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_thursday setTitle:@"       Thursday" forState:UIControlStateNormal];
-    [m_thursday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_thursday];
-    m_thursday.tag                      = 0;
+    self.m_thursday                          = [[UIButton alloc] initWithFrame:m_fourthButtonFrame];
+    [self.m_thursday addTarget:self action:@selector(clickThursday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_thursday.titleLabel.font          = [UIFont customFontWithSize:20];
+    [self.m_thursday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_thursday setTitle:@"       Thursday" forState:UIControlStateNormal];
+    [self.m_thursday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_thursday];
+    self.m_thursday.tag                      = 0;
 
-    m_thursdayButton                  = [[UIButton alloc] initWithFrame:m_fourthTickButtonFrame];
-    [m_thursdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_thursday addSubview:m_thursdayButton];
-    [m_thursdayButton addTarget:self action:@selector(clickThursday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_thursdayButton                  = [[UIButton alloc] initWithFrame:m_fourthTickButtonFrame];
+    [self.m_thursdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_thursday addSubview:self.m_thursdayButton];
+    [self.m_thursdayButton addTarget:self action:@selector(clickThursday:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect m_fourthButtonSeperatorFrame;
     if ([UIScreen mainScreen].bounds.size.height == 568) {
@@ -634,19 +636,19 @@ UIButton *m_sundayTickButton;
         m_fifthTickButtonFrame      = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
 
-    m_friday                            = [[UIButton alloc] initWithFrame:m_fifthButtonFrame];
-    [m_friday addTarget:self action:@selector(clickFriday:) forControlEvents:UIControlEventTouchUpInside];
-    m_friday.titleLabel.font            = [UIFont customFontWithSize:20];
-    [m_friday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_friday setTitle:@"       Friday" forState:UIControlStateNormal];
-    [m_friday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_friday];
-    m_friday.tag                        = 0;
+    self.m_friday                            = [[UIButton alloc] initWithFrame:m_fifthButtonFrame];
+    [self.m_friday addTarget:self action:@selector(clickFriday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_friday.titleLabel.font            = [UIFont customFontWithSize:20];
+    [self.m_friday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_friday setTitle:@"       Friday" forState:UIControlStateNormal];
+    [self.m_friday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_friday];
+    self.m_friday.tag                        = 0;
     
-    m_fridayButton                  = [[UIButton alloc] initWithFrame:m_fifthTickButtonFrame];
-    [m_fridayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_friday addSubview:m_fridayButton];
-    [m_fridayButton addTarget:self action:@selector(clickFriday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_fridayButton                  = [[UIButton alloc] initWithFrame:m_fifthTickButtonFrame];
+    [self.m_fridayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_friday addSubview:self.m_fridayButton];
+    [self.m_fridayButton addTarget:self action:@selector(clickFriday:) forControlEvents:UIControlEventTouchUpInside];
 
     
     CGRect m_fifthButtonSeperatorFrame;
@@ -672,19 +674,19 @@ UIButton *m_sundayTickButton;
         m_sixthTickButtonFrame      = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
 
-    m_saturday                         = [[UIButton alloc] initWithFrame:m_sixthButtonFrame];
-    [m_saturday addTarget:self action:@selector(clickSaturday:) forControlEvents:UIControlEventTouchUpInside];
-    m_saturday.titleLabel.font         = [UIFont customFontWithSize:20];
-    [m_saturday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_saturday setTitle:@"       Saturday" forState:UIControlStateNormal];
-    [m_saturday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_saturday];
-    m_saturday.tag                     = 0;
+    self.m_saturday                         = [[UIButton alloc] initWithFrame:m_sixthButtonFrame];
+    [self.m_saturday addTarget:self action:@selector(clickSaturday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_saturday.titleLabel.font         = [UIFont customFontWithSize:20];
+    [self.m_saturday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_saturday setTitle:@"       Saturday" forState:UIControlStateNormal];
+    [self.m_saturday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_saturday];
+    self.m_saturday.tag                     = 0;
 
-    m_saturdayButton                  = [[UIButton alloc] initWithFrame:m_sixthTickButtonFrame];
-    [m_saturdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_saturday addSubview:m_saturdayButton];
-    [m_saturdayButton addTarget:self action:@selector(clickSaturday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_saturdayButton                  = [[UIButton alloc] initWithFrame:m_sixthTickButtonFrame];
+    [self.m_saturdayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_saturday addSubview:self.m_saturdayButton];
+    [self.m_saturdayButton addTarget:self action:@selector(clickSaturday:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect m_sixthButtonSeperatorFrame;
     if ([UIScreen mainScreen].bounds.size.height == 568) {
@@ -709,19 +711,19 @@ UIButton *m_sundayTickButton;
         m_seventhTickButtonFrame      = CGRectMake(250.0f, 7.0f, 50.0f, 41.0f);
     }
 
-    m_sunday                            = [[UIButton alloc] initWithFrame:m_seventhButtonFrame];
-    [m_sunday addTarget:self action:@selector(clickSunday:) forControlEvents:UIControlEventTouchUpInside];
-    m_sunday.titleLabel.font            = [UIFont customFontWithSize:20];
-    [m_sunday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [m_sunday setTitle:@"       Sunday" forState:UIControlStateNormal];
-    [m_sunday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [self.view addSubview:m_sunday];
-    m_sunday.tag                        = 0;
+    self.m_sunday                            = [[UIButton alloc] initWithFrame:m_seventhButtonFrame];
+    [self.m_sunday addTarget:self action:@selector(clickSunday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_sunday.titleLabel.font            = [UIFont customFontWithSize:20];
+    [self.m_sunday setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.m_sunday setTitle:@"       Sunday" forState:UIControlStateNormal];
+    [self.m_sunday setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self.view addSubview:self.m_sunday];
+    self.m_sunday.tag                        = 0;
 
-    m_sundayButton                  = [[UIButton alloc] initWithFrame:m_seventhTickButtonFrame];
-    [m_sundayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_sunday addSubview:m_sundayButton];
-    [m_sundayButton addTarget:self action:@selector(clickSunday:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_sundayButton                  = [[UIButton alloc] initWithFrame:m_seventhTickButtonFrame];
+    [self.m_sundayButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_sunday addSubview:self.m_sundayButton];
+    [self.m_sundayButton addTarget:self action:@selector(clickSunday:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect m_nextButtonFrame;
     if ([UIScreen mainScreen].bounds.size.height == 568) {
@@ -730,10 +732,10 @@ UIButton *m_sundayTickButton;
     else {
         m_nextButtonFrame            = CGRectMake(260.0f, 430.0f, 50.0f, 40.0f);
     }
-    m_nextButton                        = [[UIButton alloc] initWithFrame:m_nextButtonFrame];
-    [m_nextButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [m_nextButton addTarget:self action:@selector(exerciseDaysSelected:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:m_nextButton];
+    self.m_nextButton                        = [[UIButton alloc] initWithFrame:m_nextButtonFrame];
+    [self.m_nextButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [self.m_nextButton addTarget:self action:@selector(exerciseDaysSelected:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_nextButton];
     
     
     CGRect m_previousButtonFrame;
@@ -743,12 +745,12 @@ UIButton *m_sundayTickButton;
     else {
         m_previousButtonFrame            = CGRectMake(15.0f, 430.0f, 50.0f, 40.0f);
     }
-    m_previousButton                        = [[UIButton alloc] initWithFrame:m_previousButtonFrame];
-    [m_previousButton addTarget:self action:@selector(moveToPreviousViewController:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:m_previousButton];
+    self.m_previousButton                        = [[UIButton alloc] initWithFrame:m_previousButtonFrame];
+    [self.m_previousButton addTarget:self action:@selector(moveToPreviousViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_previousButton];
     
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults integerForKey:@"WorkoutDays_Help"]) {
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    if (![self.userDefaults integerForKey:@"WorkoutDays_Help"]) {
         // Add Help Pop Up
         [self createHelpPopUp];
     }
@@ -771,81 +773,81 @@ UIButton *m_sundayTickButton;
  */
 - (void)saveWorkoutPlanIntoDatabase
 {
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
-    if (!m_userEmailID) {
-        m_userEmailID               = [NSString getUserEmail];
+    if (!self.m_userEmailID) {
+        self.m_userEmailID               = [NSString getUserEmail];
     }
-    m_goal                          = [m_database getLatestExerciseGoal:m_userEmailID]; // Get the latest goal
+    self.m_goal                          = [self.m_database getLatestExerciseGoal:self.m_userEmailID]; // Get the latest goal
     
-    if (!m_workoutSelection) {
-        m_workoutSelection          = [WorkoutSelection sharedInstance];
+    if (!self.m_workoutSelection) {
+        self.m_workoutSelection          = [WorkoutSelection sharedInstance];
     }
-    
-    if (!m_workoutPlanManager) {
-        m_workoutPlanManager        = [WorkoutPlanManager sharedInstance];
+  
+    if (!self.m_workoutPlanManager) {
+        self.m_workoutPlanManager        = [WorkoutPlanManager sharedInstance];
     }
     
     // First remove any previous data in the workout plan
-    [m_workoutPlanManager deletePreviousWorkoutPlan];
+    [self.m_workoutPlanManager deletePreviousWorkoutPlan];
     
     NSMutableArray *daysArray       = [NSMutableArray mutableArrayObject];
 
-    if ([m_Monday isEqualToString:@"YES"]) {
+    if ([self.m_Monday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Monday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Monday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Monday"] ForTotalWorkOutDays:(int)self.m_totalNumberOfDaysSelected];
         FirstDayWorkoutPlanManager  *m_firstDayWorkoutPlanManager = [FirstDayWorkoutPlanManager sharedInstance];
-        [m_firstDayWorkoutPlanManager saveFirstDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_firstDayWorkoutPlanManager saveFirstDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
     
-    if ([m_Tuesday isEqualToString:@"YES"]) {
+    if ([self.m_Tuesday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Tuesday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Tuesday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Tuesday"] ForTotalWorkOutDays:(int)self.m_totalNumberOfDaysSelected];
         SecondDayWorkoutPlanManager  *m_secondDayWorkoutPlanManager = [SecondDayWorkoutPlanManager sharedInstance];
-        [m_secondDayWorkoutPlanManager saveSecondDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_secondDayWorkoutPlanManager saveSecondDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
     
-    if ([m_Wednesday isEqualToString:@"YES"]) {
+    if ([self.m_Wednesday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Wednesday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Wednesday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Wednesday"] ForTotalWorkOutDays:(int)self.m_totalNumberOfDaysSelected];
         ThirdDayWorkoutPlanManager  *m_thirdDayWorkoutPlanManager = [ThirdDayWorkoutPlanManager sharedInstance];
-        [m_thirdDayWorkoutPlanManager saveThirdDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_thirdDayWorkoutPlanManager saveThirdDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
     
-    if ([m_Thursday isEqualToString:@"YES"]) {
+    if ([self.m_Thursday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Thursday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Thursday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Thursday"] ForTotalWorkOutDays:(int)self.m_totalNumberOfDaysSelected];
         FourthDayWorkoutPlanManager  *m_fourthDayWorkoutPlanManager = [FourthDayWorkoutPlanManager sharedInstance];
-        [m_fourthDayWorkoutPlanManager saveFourthDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_fourthDayWorkoutPlanManager saveFourthDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
     
-    if ([m_Friday isEqualToString:@"YES"]) {
+    if ([self.m_Friday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Friday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Friday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Friday"] ForTotalWorkOutDays:(int) self.m_totalNumberOfDaysSelected];
         FifthDayWorkoutPlanManager  *m_fifthDayWorkoutPlanManager = [FifthDayWorkoutPlanManager sharedInstance];
-        [m_fifthDayWorkoutPlanManager saveFifthDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_fifthDayWorkoutPlanManager saveFifthDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
     
-    if ([m_Saturday isEqualToString:@"YES"]) {
+    if ([self.m_Saturday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Saturday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Saturday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Saturday"] ForTotalWorkOutDays:(int) self.m_totalNumberOfDaysSelected];
         SixthDayWorkoutPlanManager  *m_sixthDayWorkoutPlanManager = [SixthDayWorkoutPlanManager sharedInstance];
-        [m_sixthDayWorkoutPlanManager saveSixthDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_sixthDayWorkoutPlanManager saveSixthDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
     
-    if ([m_Sunday isEqualToString:@"YES"]) {
+    if ([self.m_Sunday isEqualToString:@"YES"]) {
         // index of daysSelected is the day number
         [daysArray addObject:@"Sunday"];
-        m_workoutArray                      = [m_workoutSelection workoutGoal:m_goal WithTheDay:(int)[daysArray indexOfObject:@"Sunday"] ForTotalWorkOutDays:(int)m_totalNumberOfDaysSelected];
+        self.m_workoutArray                      = [self.m_workoutSelection workoutGoal:self.m_goal WithTheDay:(int)[daysArray indexOfObject:@"Sunday"] ForTotalWorkOutDays:(int)self.m_totalNumberOfDaysSelected];
         SeventhDayWorkoutPlanManager  *m_seventhDayWorkoutPlanManager = [SeventhDayWorkoutPlanManager sharedInstance];
-        [m_seventhDayWorkoutPlanManager saveSeventhDayWorkoutPlanInDatabase:m_workoutArray];
+        [m_seventhDayWorkoutPlanManager saveSeventhDayWorkoutPlanInDatabase:self.m_workoutArray];
     }
 }
 

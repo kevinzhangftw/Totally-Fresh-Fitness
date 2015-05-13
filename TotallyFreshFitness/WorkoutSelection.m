@@ -11,13 +11,16 @@
 #import "IntermediateWorkoutSelection.h"
 #import "AdvancedWorkoutSelection.h"
 #import "Database.h"
+@interface WorkoutSelection()
+@property (strong, nonatomic)BeginnerWorkoutSelection *m_beginnerWorkoutSelection;
+@property (strong, nonatomic)IntermediateWorkoutSelection *m_intermediateWorkoutSelection;
+@property (strong, nonatomic)AdvancedWorkoutSelection *m_advancedWorkoutSelection;
+@property (strong, nonatomic)Database *m_database;
+@end
 
 @implementation WorkoutSelection
 
-BeginnerWorkoutSelection *m_beginnerWorkoutSelection;
-IntermediateWorkoutSelection *m_intermediateWorkoutSelection;
-AdvancedWorkoutSelection *m_advancedWorkoutSelection;
-Database *m_database;
+
 
 /*
  Singleton WorkoutSelection object
@@ -51,28 +54,28 @@ Database *m_database;
     // Load up the array with data
     NSMutableArray  *workoutArray      = nil;
     
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
-    NSMutableArray *exerciseLevel            = [m_database getExerciseLevel:[NSString getUserEmail]];
+    NSMutableArray *exerciseLevel            = [self.m_database getExerciseLevel:[NSString getUserEmail]];
     
     if ([[exerciseLevel objectAtIndex:0] isEqualToString:@"BEGINNER"]) {
-        if (!m_beginnerWorkoutSelection) {
-            m_beginnerWorkoutSelection       = [BeginnerWorkoutSelection sharedInstance];
+        if (!self.m_beginnerWorkoutSelection) {
+            self.m_beginnerWorkoutSelection       = [BeginnerWorkoutSelection sharedInstance];
         }
-        workoutArray         = [m_beginnerWorkoutSelection beginnerWorkoutGoal:goal WithTheDay:day ForTotalWorkOutDays:totalNumberOfDays];
+        workoutArray         = [self.m_beginnerWorkoutSelection beginnerWorkoutGoal:goal WithTheDay:day ForTotalWorkOutDays:totalNumberOfDays];
     }
     else if([[exerciseLevel objectAtIndex:0]  isEqualToString:@"INTERMEDIATE"]) {
-        if (!m_intermediateWorkoutSelection) {
-            m_intermediateWorkoutSelection   = [IntermediateWorkoutSelection sharedInstance];
+        if (!self.m_intermediateWorkoutSelection) {
+            self.m_intermediateWorkoutSelection   = [IntermediateWorkoutSelection sharedInstance];
         }
-        workoutArray         = [m_intermediateWorkoutSelection intermediateWorkoutGoal:goal WithTheDay:day ForTotalWorkOutDays:totalNumberOfDays];
+        workoutArray         = [self.m_intermediateWorkoutSelection intermediateWorkoutGoal:goal WithTheDay:day ForTotalWorkOutDays:totalNumberOfDays];
     }
     else if([[exerciseLevel objectAtIndex:0]  isEqualToString:@"ADVANCED"]) {
-        if (!m_advancedWorkoutSelection) {
-            m_advancedWorkoutSelection       = [AdvancedWorkoutSelection sharedInstance];
+        if (!self.m_advancedWorkoutSelection) {
+            self.m_advancedWorkoutSelection       = [AdvancedWorkoutSelection sharedInstance];
         }
-        workoutArray         = [m_advancedWorkoutSelection advancedWorkoutGoal:goal WithTheDay:day ForTotalWorkOutDays:totalNumberOfDays];
+        workoutArray         = [self.m_advancedWorkoutSelection advancedWorkoutGoal:goal WithTheDay:day ForTotalWorkOutDays:totalNumberOfDays];
     }
     
     return workoutArray;
