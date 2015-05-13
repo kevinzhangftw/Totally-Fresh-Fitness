@@ -10,14 +10,17 @@
 #import "Database.h"
 #import "MealPlanSelection.h"
 
-// Database class object
-Database *m_database;
+@interface MealGroceryList()
+
+@property (nonatomic, strong)Database *m_database;
 // MealPlanSelection class object
-MealPlanSelection *m_mealPlanSelection;
+@property (nonatomic, strong)MealPlanSelection *m_mealPlanSelection;
 // Food items in the meal plan
-NSMutableArray *m_mealPlanList;
+@property (nonatomic, strong)NSMutableArray *m_mealPlanList;
 // Food items in the grocery list
-NSMutableArray *m_groceryList;
+@property (nonatomic, strong)NSMutableArray *m_groceryList;
+
+@end
 
 @implementation MealGroceryList
 
@@ -43,15 +46,15 @@ NSMutableArray *m_groceryList;
     // capatilized to match food name
     foodName                    = [foodName capitalizedString];
     BOOL isFoodExisting      = NO;
-    if (!m_groceryList) {
-        m_groceryList           = [NSMutableArray mutableArrayObject];
+    if (!self.m_groceryList) {
+        self.m_groceryList           = [NSMutableArray mutableArrayObject];
     }
-    if (!m_database) {
-        m_database              = [Database alloc];
+    if (!self.m_database) {
+        self.m_database              = [Database alloc];
     }
-    m_groceryList               = [m_database getGroceryList:[NSString getUserEmail]];
+    self.m_groceryList               = [self.m_database getGroceryList:[NSString getUserEmail]];
     // Check if the index can be got by using foodName
-    for (NSString *foodItem in m_groceryList) {
+    for (NSString *foodItem in self.m_groceryList) {
         if ([foodItem isEqualToString:foodName]) {
             isFoodExisting   = YES;
             break;
@@ -66,16 +69,16 @@ NSMutableArray *m_groceryList;
 - (BOOL)checkifMealAlreadyExistInMealPlan:(NSString *)foodName
 {
     BOOL isMealExisting;
-    if (!m_mealPlanList) {
-        m_mealPlanList           = [NSMutableArray mutableArrayObject];
+    if (!self.m_mealPlanList) {
+        self.m_mealPlanList           = [NSMutableArray mutableArrayObject];
     }
-    if (!m_database) {
-        m_database               = [Database alloc];
+    if (!self.m_database) {
+        self.m_database               = [Database alloc];
     }
-    m_mealPlanList               = [m_database getMealPlan:[NSString getUserEmail]];
+    self.m_mealPlanList               = [self.m_database getMealPlan:[NSString getUserEmail]];
     
     // Check if the index can be got by using foodName
-    NSUInteger index             = [m_mealPlanList indexOfObject: foodName];
+    NSUInteger index             = [self.m_mealPlanList indexOfObject: foodName];
     if(index == NSNotFound) { // food doesn't exist
         isMealExisting          = NO;
     }
@@ -96,10 +99,10 @@ NSMutableArray *m_groceryList;
     if ([foodName length] != 0) {
         foodName                = [foodName capitalizedString];
         if (![self checkIfMealAlreadyExistInGroceryList:foodName]) { // food doesn't exist in the grocery list
-            if (!m_database) {
-                m_database          = [Database alloc];
+            if (!self.m_database) {
+                self.m_database          = [Database alloc];
             }
-            updateStatus            = [m_database insertIntoGroceryEmail_Id:[NSString getUserEmail] Date:date food:foodName];
+            updateStatus            = [self.m_database insertIntoGroceryEmail_Id:[NSString getUserEmail] Date:date food:foodName];
         }
     }
     return updateStatus;
@@ -113,10 +116,10 @@ NSMutableArray *m_groceryList;
             [self addToGroceryList:foodItem];
         }
     }
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
-    NSMutableArray *groceryList         = [m_database getGroceryList:[NSString getUserEmail]];
+    NSMutableArray *groceryList         = [self.m_database getGroceryList:[NSString getUserEmail]];
     return groceryList;
 }
 /*
@@ -128,10 +131,10 @@ NSMutableArray *m_groceryList;
     NSDate *date                = [NSDate date];
     
     if ([foodName length] != 0) {
-        if (!m_database) {
-            m_database          = [Database alloc];
+        if (!self.m_database) {
+            self.m_database          = [Database alloc];
         }
-        updateStatus            = [m_database insertIntoMealPlanEmail_Id:[NSString getUserEmail] Date:date Meal:foodName Quantity:quantity];
+        updateStatus            = [self.m_database insertIntoMealPlanEmail_Id:[NSString getUserEmail] Date:date Meal:foodName Quantity:quantity];
     }
     return updateStatus;
 }

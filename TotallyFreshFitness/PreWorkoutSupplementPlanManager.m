@@ -7,17 +7,19 @@
 //
 
 #import "PreWorkoutSupplementPlanManager.h"
+@interface PreWorkoutSupplementPlanManager()
+// Database object
+@property (strong, nonatomic)Database *m_database;
+// Supplement name
+@property (strong, nonatomic)NSString *m_supplementName;
+// Quantity
+@property (strong, nonatomic)NSString *m_quantity;
+// User email
+@property (strong, nonatomic)NSString *m_user_email;
+@end
 
 @implementation PreWorkoutSupplementPlanManager
 
-// Database object
-Database *m_database;
-// Supplement name
-NSString *m_supplementName;
-// Quantity
-NSString *m_quantity;
-// User email
-NSString *m_user_email;
 
 /*
  Singleton PreWorkoutSupplementPlanManager object
@@ -37,34 +39,34 @@ NSString *m_user_email;
  */
 - (void)getSupplementAndQuantityFromPlistDictionaryAndSaveIntoDatabase:(NSMutableDictionary *)dictionary
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     // Get all the key first
     NSArray *keys                       = [dictionary allKeys];
     NSInteger numberOfItems                   = [keys count];
     for (int i = 0; i < numberOfItems; i++) {
         if (([[keys objectAtIndex:i] length] != 0) || [keys objectAtIndex:i] != NULL) {
-            m_supplementName                  = [keys objectAtIndex:i]; // Add supplement name
+            self.m_supplementName                  = [keys objectAtIndex:i]; // Add supplement name
         }
         
         if (([dictionary objectForKey:[keys objectAtIndex:i]] != 0) || [dictionary objectForKey:[keys objectAtIndex:i]] != NULL) {
-            m_quantity                  = [dictionary objectForKey:[keys objectAtIndex:i]]; // Add quantity
+            self.m_quantity                  = [dictionary objectForKey:[keys objectAtIndex:i]]; // Add quantity
         }
-        [m_database insertIntoSupplementPreWorkout:m_supplementName Quantity:m_quantity forUser:m_user_email];
+        [self.m_database insertIntoSupplementPreWorkout:self.m_supplementName Quantity:self.m_quantity forUser:self.m_user_email];
     }
 }
 
 // Add supplement plan into database
 - (void)savePreWorkoutSupplementPlanInDatabase:(NSMutableDictionary *)supplementDictionary
 {
-    if (!m_database) {
-        m_database                       = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                       = [Database alloc];
     }
-    m_user_email                         = [NSString getUserEmail];
+    self.m_user_email                         = [NSString getUserEmail];
     
     // Delete previous supplement plan, if any
-    [m_database deleteSupplementPreWorkoutforUser:m_user_email];
+    [self.m_database deleteSupplementPreWorkoutforUser:self.m_user_email];
     
     [self getSupplementAndQuantityFromPlistDictionaryAndSaveIntoDatabase:supplementDictionary];
 }

@@ -25,6 +25,104 @@
 
 @interface MealViewController ()
 
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// FoodViewController class object
+@property (strong, nonatomic)FoodProfileViewController *m_foodProfileViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// SwitchPlanItemViewController class object
+@property (strong, nonatomic)SwitchPlanItemViewController *m_switchPlanItemViewController;
+// SupplementProfileViewController class object
+@property (strong, nonatomic)SupplementProfileViewController *m_supplementProfileViewController;
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// Database class object
+@property (strong, nonatomic)Database *m_database;
+// MealPlanSelectin class object
+@property (strong, nonatomic)MealPlanSelection *m_mealPlanSelection;
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+// MealGroceryList class object
+@property (strong, nonatomic)MealGroceryList *m_mealGroceryList;
+// Supplement Check Instance object
+@property (strong, nonatomic)SupplementCheck *m_supplementCheck;
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+
+// Meal plan array
+@property (strong, nonatomic)NSArray *m_mealPlanArray;
+// Get calorie plist
+@property (strong, nonatomic)NSMutableArray *m_calorieArray;
+// Section Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_currentDictionary;
+// Breakfast Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_breakFastDictionary;
+// First snack Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_firstSnackDictionary;
+// Lunch Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_lunchDictionary;
+// Second snack Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_secondSnackDictionary;
+// Dinner Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_dinnerDictionary;
+// Third Snack Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_thirdSnackDictionary;
+// Total Calorie Dictionary
+@property (strong, nonatomic)NSMutableDictionary *m_totalCalorieDictionary;
+// Food list Mutable images array
+@property (strong, nonatomic)NSMutableArray *m_foodListImagesArray;
+// Food list Mutable names array
+@property (strong, nonatomic)NSMutableArray *m_foodListNamesArray;
+// Total Calorie Mutable Value array
+@property (strong, nonatomic)NSMutableArray *m_totalCalorieValueArray;
+// Total number of items in the breakfast dictionary
+@property (nonatomic)int m_numberOfItemsInBreakFast;
+// Total number of items in the first snack dictionary
+@property (nonatomic)int m_numberOfItemsInFirstSnack;
+// Total number of items in the lunch dictionary
+@property (nonatomic)int m_numberOfItemsInLunch;
+// Total number of items in the second snack dictionary
+@property (nonatomic)int m_numberOfItemsInSecondSnack;
+// Total number of items in the dinner dictionary
+@property (nonatomic)int m_numberOfItemsInDinner;
+// Total number of items in the third snack dictionary
+@property (nonatomic)int m_numberOfItemsInThirdSnack;
+// Total number of items in the total calorie dictionary
+@property (nonatomic)int m_numberOfItemsInTotalCalorie;
+// Total number of items in all dictionaries in a calorie array
+@property (nonatomic)int m_totalDictionaryInACaloriePlist;
+// Grocery list array;
+@property (strong, nonatomic)NSMutableArray *m_groceryListArray;
+// Image array for Grocery List
+@property (strong, nonatomic)NSMutableArray *m_imagesForGroceryListArray;
+// Row Check box array
+@property (strong, nonatomic)NSMutableArray *m_checkBoxArray;
+// To avoid redisplay an already active view
+@property (strong, nonatomic)NSString *m_checkWhichMealButtonWasClicked;
+// Meal Table is Meal Plan or Meal List
+@property (strong, nonatomic)NSString *m_mealPlanOrFoodListOnMealTable;
+// User email from database
+@property (strong, nonatomic)NSString *m_userEmail;
+// Gender of user
+@property (strong, nonatomic)NSString *m_gender;
+// NSMutableArray of cells
+@property (strong, nonatomic)NSMutableArray *m_arrayOfCells;
+// If switch or disclosure
+@property (nonatomic)BOOL isDisclosure;
+
+// Help pop up button
+@property (strong, nonatomic)UIButton *m_helpPopUpButtonViewInMealView;
+// NSUserDefault
+@property (strong, nonatomic)NSUserDefaults *userDefaults;
+
 // Move to previous View
 - (IBAction)goBack:(id)sender;
 // Move to CalenderViewController
@@ -79,104 +177,6 @@
 	UILabel *_crossLabel;
 }
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// FoodViewController class object
-FoodProfileViewController *m_foodProfileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// SwitchPlanItemViewController class object
-SwitchPlanItemViewController *m_switchPlanItemViewController;
-// SupplementProfileViewController class object
-SupplementProfileViewController *m_supplementProfileViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// Database class object
-Database *m_database;
-// MealPlanSelectin class object
-MealPlanSelection *m_mealPlanSelection;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// MealGroceryList class object
-MealGroceryList *m_mealGroceryList;
-// Supplement Check Instance object
-SupplementCheck *m_supplementCheck;
-MealViewController *m_mealViewController;
-
-// Meal plan array
-NSArray *m_mealPlanArray;
-// Get calorie plist
-NSMutableArray *m_calorieArray;
-// Section Dictionary
-NSMutableDictionary *m_currentDictionary;
-// Breakfast Dictionary
-NSMutableDictionary *m_breakFastDictionary;
-// First snack Dictionary
-NSMutableDictionary *m_firstSnackDictionary;
-// Lunch Dictionary
-NSMutableDictionary *m_lunchDictionary;
-// Second snack Dictionary
-NSMutableDictionary *m_secondSnackDictionary;
-// Dinner Dictionary
-NSMutableDictionary *m_dinnerDictionary;
-// Third Snack Dictionary
-NSMutableDictionary *m_thirdSnackDictionary;
-// Total Calorie Dictionary
-NSMutableDictionary *m_totalCalorieDictionary;
-// Food list Mutable images array
-NSMutableArray *m_foodListImagesArray;
-// Food list Mutable names array
-NSMutableArray *m_foodListNamesArray;
-// Total Calorie Mutable Value array
-NSMutableArray *m_totalCalorieValueArray;
-// Total number of items in the breakfast dictionary
-int m_numberOfItemsInBreakFast;
-// Total number of items in the first snack dictionary
-int m_numberOfItemsInFirstSnack;
-// Total number of items in the lunch dictionary
-int m_numberOfItemsInLunch;
-// Total number of items in the second snack dictionary
-int m_numberOfItemsInSecondSnack;
-// Total number of items in the dinner dictionary
-int m_numberOfItemsInDinner;
-// Total number of items in the third snack dictionary
-int m_numberOfItemsInThirdSnack;
-// Total number of items in the total calorie dictionary
-int m_numberOfItemsInTotalCalorie;
-// Total number of items in all dictionaries in a calorie array
-int m_totalDictionaryInACaloriePlist;
-// Grocery list array;
-NSMutableArray *m_groceryListArray;
-// Image array for Grocery List
-NSMutableArray *m_imagesForGroceryListArray;
-// Row Check box array
-NSMutableArray *m_checkBoxArray;
-// To avoid redisplay an already active view
-NSString *m_checkWhichMealButtonWasClicked;
-// Meal Table is Meal Plan or Meal List
-NSString *m_mealPlanOrFoodListOnMealTable;
-// User email from database
-NSString *m_userEmail;
-// Gender of user
-NSString *m_gender;
-// NSMutableArray of cells
-NSMutableArray *m_arrayOfCells;
-// If switch or disclosure
-bool isDisclosure;
-
-// Help pop up button
-UIButton *m_helpPopUpButtonViewInMealView;
-// NSUserDefault
-NSUserDefaults *userDefaults;
-
 @synthesize controlsImageView;
 @synthesize mealPlanSectionButton;
 @synthesize groceryListSectionButton;
@@ -210,11 +210,11 @@ NSUserDefaults *userDefaults;
  */
 - (IBAction)goBack:(id)sender
 {
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
     
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
     
 }
@@ -225,12 +225,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
     
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -239,11 +239,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToFoodProfileViewController:(id)sender
 {    
-    if (!m_foodProfileViewController) {
-        m_foodProfileViewController     = [FoodProfileViewController sharedInstance];
+    if (!self.m_foodProfileViewController) {
+        self.m_foodProfileViewController     = [FoodProfileViewController sharedInstance];
     }
-    id instanceObject                   = m_foodProfileViewController;
-    [self moveToView:m_foodProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_foodProfileViewController;
+    [self moveToView:self.m_foodProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -251,12 +251,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                   = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -265,11 +265,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -277,13 +277,13 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -292,12 +292,12 @@ NSUserDefaults *userDefaults;
  */
 - (void)movetoSwitchPlanItemViewController:(id)sender
 {
-    if (!m_switchPlanItemViewController) {
-        m_switchPlanItemViewController      = [SwitchPlanItemViewController sharedInstance];
+    if (!self.m_switchPlanItemViewController) {
+        self.m_switchPlanItemViewController      = [SwitchPlanItemViewController sharedInstance];
     }
-    id instanceObject                       = m_switchPlanItemViewController;
-    m_switchPlanItemViewController.view.tag = 1;
-    [self moveToView:m_switchPlanItemViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_switchPlanItemViewController;
+    self.m_switchPlanItemViewController.view.tag = 1;
+    [self moveToView:self.m_switchPlanItemViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -305,11 +305,11 @@ NSUserDefaults *userDefaults;
  */
 - (void)moveToSupplementProfileViewController:(id)sender
 {
-    if (!m_supplementProfileViewController) {
-        m_supplementProfileViewController         = [SupplementProfileViewController sharedInstance];
+    if (!self.m_supplementProfileViewController) {
+        self.m_supplementProfileViewController         = [SupplementProfileViewController sharedInstance];
     }
-    id instanceObject               = m_supplementProfileViewController;
-    [self moveToView:m_supplementProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_supplementProfileViewController;
+    [self moveToView:self.m_supplementProfileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -326,12 +326,12 @@ NSUserDefaults *userDefaults;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController                = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                = [RootViewController sharedInstance];
     }
     
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -340,26 +340,26 @@ NSUserDefaults *userDefaults;
 - (void)getGroceryList
 {
     // clean the arrays first
-    m_groceryListArray                  = nil;
-    m_imagesForGroceryListArray         = nil;
+    self.m_groceryListArray                  = nil;
+    self.m_imagesForGroceryListArray         = nil;
 
-    m_groceryListArray                  = [NSMutableArray mutableArrayObject];
-    m_imagesForGroceryListArray         = [NSMutableArray mutableArrayObject];
+    self.m_groceryListArray                  = [NSMutableArray mutableArrayObject];
+    self.m_imagesForGroceryListArray         = [NSMutableArray mutableArrayObject];
 
-    if (!m_database) {
-        m_database                      = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                      = [Database alloc];
     }
-    if (!m_userEmail) {
-        m_userEmail                     = [NSString getUserEmail];
+    if (!self.m_userEmail) {
+        self.m_userEmail                     = [NSString getUserEmail];
     }
     // Get the grocery list from the database
-    m_groceryListArray                  = [m_database getGroceryList:m_userEmail];
-    for (NSString *groceryItemName in m_groceryListArray) {
+    self.m_groceryListArray                  = [self.m_database getGroceryList:self.m_userEmail];
+    for (NSString *groceryItemName in self.m_groceryListArray) {
         // Find the food image from the food list names
         NSString *groceryItemNameString              = [NSString findImageForMealPlan:groceryItemName];
         if ((groceryItemNameString != NULL) && ([groceryItemNameString length] != 0)) {
             // Add to the grocery images array
-            [m_imagesForGroceryListArray addObject:groceryItemNameString];
+            [self.m_imagesForGroceryListArray addObject:groceryItemNameString];
         }
     }
 }
@@ -371,15 +371,15 @@ NSUserDefaults *userDefaults;
 {
 
 
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
     
-    if ((sender == self.mealPlanSectionButton) && ([m_checkWhichMealButtonWasClicked isEqualToString:@"Grocery List"])) {
-        m_checkWhichMealButtonWasClicked        = @"Meal Plan";
+    if ((sender == self.mealPlanSectionButton) && ([self.m_checkWhichMealButtonWasClicked isEqualToString:@"Grocery List"])) {
+        self.m_checkWhichMealButtonWasClicked        = @"Meal Plan";
         self.controlsImageView.image            = [UIImage imageNamed:@"tfn_Mealplan_active.png"];
         self.groceryTableView.hidden            = YES;
-        [m_transition performTransitionFromLeft:self.mealTableView];
+        [self.m_transition performTransitionFromLeft:self.mealTableView];
         self.mealTableView.hidden               = NO;
 
         // Reload the data
@@ -388,11 +388,11 @@ NSUserDefaults *userDefaults;
         [self.mealTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 
     }
-    else if((sender == self.groceryListSectionButton) && ([m_checkWhichMealButtonWasClicked isEqualToString:@"Meal Plan"])) {
-        m_checkWhichMealButtonWasClicked        = @"Grocery List";
+    else if((sender == self.groceryListSectionButton) && ([self.m_checkWhichMealButtonWasClicked isEqualToString:@"Meal Plan"])) {
+        self.m_checkWhichMealButtonWasClicked        = @"Grocery List";
         self.controlsImageView.image            = [UIImage imageNamed:@"tfn_GL_active.png"];
         self.mealTableView.hidden               = YES;
-        [m_transition performTransitionFromRight:self.groceryTableView];
+        [self.m_transition performTransitionFromRight:self.groceryTableView];
         self.groceryTableView.hidden            = NO;
 
         // Reload the data
@@ -424,16 +424,16 @@ NSUserDefaults *userDefaults;
  */
 - (void)getFoodListNames
 {
-    if (!m_mealPlanSelection) {
-        m_mealPlanSelection                 = [MealPlanSelection  sharedInstance];
+    if (!self.m_mealPlanSelection) {
+        self.m_mealPlanSelection                 = [MealPlanSelection  sharedInstance];
     }
-    m_foodListNamesArray                = [NSMutableArray mutableArrayObject];
-    m_foodListImagesArray               = [NSMutableArray mutableArrayObject];
+    self.m_foodListNamesArray                = [NSMutableArray mutableArrayObject];
+    self.m_foodListImagesArray               = [NSMutableArray mutableArrayObject];
     
     // Load up the food list array from the plist
-    m_foodListNamesArray                    = [m_mealPlanSelection loadUpPlist:@"Food Items"];
+    self.m_foodListNamesArray                    = [self.m_mealPlanSelection loadUpPlist:@"Food Items"];
     // Get the food list images array from the food list name
-    m_foodListImagesArray                   = [self loadUpImagesFromFoodListNames:m_foodListNamesArray];
+    self.m_foodListImagesArray                   = [self loadUpImagesFromFoodListNames:self.m_foodListNamesArray];
 }
 
 /*
@@ -441,7 +441,7 @@ NSUserDefaults *userDefaults;
  */
 - (void)getFoodDetails
 {
-    m_mealPlanArray         = [NSMutableArray loadUpMealPlan];
+    self.m_mealPlanArray         = [NSMutableArray loadUpMealPlan];
 }
 
 /*
@@ -483,7 +483,7 @@ NSUserDefaults *userDefaults;
     NSIndexPath *indexPath      = [self.groceryTableView indexPathForRowAtPoint:touchPoint];
 //
     NSNumber *row               = [NSNumber numberWithInteger:indexPath.row];
-    [m_checkBoxArray addObject:row];
+    [self.m_checkBoxArray addObject:row];
 
     if (row) {
         [self tableView:self.groceryTableView accessoryButtonTappedForRowWithIndexPath:indexPath];
@@ -509,11 +509,11 @@ NSUserDefaults *userDefaults;
 
 - (void)helpButtonClicked
 {
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:1 forKey:@"SwitchMealPlanItem_Help"];
-    [userDefaults synchronize];
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults setInteger:1 forKey:@"SwitchMealPlanItem_Help"];
+    [self.userDefaults synchronize];
     
-    [m_helpPopUpButtonViewInMealView removeFromSuperview];
+    [self.m_helpPopUpButtonViewInMealView removeFromSuperview];
 }
 
 - (void)createHelpPopUp
@@ -521,16 +521,16 @@ NSUserDefaults *userDefaults;
     CGRect helpPopUpButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         helpPopUpButtonFrame     =   CGRectMake(0.0f, 0.0f, 320.0f, 568.0f);
-        m_helpPopUpButtonViewInMealView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInMealView setBackgroundImage:[UIImage imageNamed:@"substitute_meal_instruction_i5.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInMealView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInMealView setBackgroundImage:[UIImage imageNamed:@"substitute_meal_instruction_i5.png"] forState:UIControlStateNormal];
     }
     else {
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-        m_helpPopUpButtonViewInMealView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInMealView setBackgroundImage:[UIImage imageNamed:@"substitute_meal_instruction.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInMealView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInMealView setBackgroundImage:[UIImage imageNamed:@"substitute_meal_instruction.png"] forState:UIControlStateNormal];
     }
-    [self.view addSubview:m_helpPopUpButtonViewInMealView];
-    [m_helpPopUpButtonViewInMealView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_helpPopUpButtonViewInMealView];
+    [self.m_helpPopUpButtonViewInMealView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -548,7 +548,7 @@ NSUserDefaults *userDefaults;
     // Do any additional setup after loading the view from its nib.
     
     
-    m_checkBoxArray                         = [NSMutableArray mutableArrayObject];
+    self.m_checkBoxArray                         = [NSMutableArray mutableArrayObject];
 
     // adjust view and tableview size for iphone5
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -578,11 +578,11 @@ NSUserDefaults *userDefaults;
     [self.indicatorView startAnimating];
         
     // The default view is "Meal Plan"
-    m_checkWhichMealButtonWasClicked        = @"Meal Plan";
+    self.m_checkWhichMealButtonWasClicked        = @"Meal Plan";
     self.controlsImageView.image            = [UIImage imageNamed:@"tfn_Mealplan_active.png"];
     
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults integerForKey:@"SwitchMealPlanItem_Help"]) {
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    if (![self.userDefaults integerForKey:@"SwitchMealPlanItem_Help"]) {
         // Add Help Pop Up
         [self createHelpPopUp];
     }
@@ -590,22 +590,22 @@ NSUserDefaults *userDefaults;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (!m_database) {
-        m_database                          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                          = [Database alloc];
     }
-    m_userEmail                             = [NSString getUserEmail];
+    self.m_userEmail                             = [NSString getUserEmail];
     
-    m_mealPlanOrFoodListOnMealTable         = @"Meal Plan";
+    self.m_mealPlanOrFoodListOnMealTable         = @"Meal Plan";
     
-    if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) {
+    if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) {
         // Get food details
         [self getFoodDetails];
 
-        if (!m_arrayOfCells) {
-            m_arrayOfCells                  = [NSMutableArray mutableArrayObject];
+        if (!self.m_arrayOfCells) {
+            self.m_arrayOfCells                  = [NSMutableArray mutableArrayObject];
         }
     }
-    else if([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) {
+    else if([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) {
         // Load up the food list names
         [self getFoodListNames];
     }
@@ -637,7 +637,7 @@ NSUserDefaults *userDefaults;
         headerView              = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
         UILabel *label          = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
         
-        if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+        if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
 
             if (section == 0) {
                 label.text        = @"  Breakfast Shake                                             Sub";
@@ -661,7 +661,7 @@ NSUserDefaults *userDefaults;
                 label.text        = @"  Total Calories";
             }
         }
-        else if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan, show the food list
+        else if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan, show the food list
             label.text        = @"  Food Items";
         }
         
@@ -684,10 +684,10 @@ NSUserDefaults *userDefaults;
 {
     int numberOfSections    = 0;
     if (tableView == mealTableView) {
-        if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+        if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
             numberOfSections        = 6;
         }
-        else if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan, show the food list
+        else if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan, show the food list
             numberOfSections        = 1;
         }
     }
@@ -701,20 +701,20 @@ NSUserDefaults *userDefaults;
 {
     NSInteger numberOfRowsInSection       = 0;
     if (tableView == mealTableView) { // if the section is Meal Plan
-        if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+        if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
             if(section == 6) {
                 return numberOfRowsInSection    = 1;
             }
             else {
-                return numberOfRowsInSection    = [[[m_mealPlanArray objectAtIndex:section] objectAtIndex:0] count];
+                return numberOfRowsInSection    = [[[self.m_mealPlanArray objectAtIndex:section] objectAtIndex:0] count];
             }
         }
-        else if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan, show the food list
-            return numberOfRowsInSection        = [m_foodListNamesArray count];
+        else if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan, show the food list
+            return numberOfRowsInSection        = [self.m_foodListNamesArray count];
         }
     }
     else if(tableView == groceryTableView) { // if the section is grocery list
-        return numberOfRowsInSection            = [m_groceryListArray count];
+        return numberOfRowsInSection            = [self.m_groceryListArray count];
     }
        
     return numberOfRowsInSection;
@@ -744,7 +744,7 @@ NSUserDefaults *userDefaults;
     }
     ((UILabel *)[cell viewWithTag:2]).text              = [keyArray objectAtIndex:indexPath.row];
 
-    if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+    if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
         if ([[valueArray objectAtIndex:indexPath.row] isEqualToString:@"Empty Space"]) {
             ((UILabel *)[cell viewWithTag:3]).text      = @"";
         }
@@ -767,8 +767,8 @@ NSUserDefaults *userDefaults;
     [button setBackgroundImage:[UIImage imageNamed:@"grocery_unselected.png"] forState:UIControlStateNormal];
 
     // loop through selected row to make them checked
-    if ([m_checkBoxArray count] > 0) {
-        for (NSNumber *row in m_checkBoxArray) {
+    if ([self.m_checkBoxArray count] > 0) {
+        for (NSNumber *row in self.m_checkBoxArray) {
             if([row integerValue] == indexPath.row) {
                 // If the row was already checked, give checkedbox background image
                 [button setBackgroundImage:[UIImage imageNamed:@"grocery_selected.png"] forState:UIControlStateNormal];
@@ -779,8 +779,8 @@ NSUserDefaults *userDefaults;
     
     UIImage *cellImage                                  = nil;
 
-    if ([m_imagesForGroceryListArray count] > 0) { // so that accessing the empty array doesn't crash the app
-        cellImage                                       = [UIImage imageNamed:[m_imagesForGroceryListArray objectAtIndex:indexPath.row]];     // Find the right image
+    if ([self.m_imagesForGroceryListArray count] > 0) { // so that accessing the empty array doesn't crash the app
+        cellImage                                       = [UIImage imageNamed:[self.m_imagesForGroceryListArray objectAtIndex:indexPath.row]];     // Find the right image
     }
     ((UIImageView *)[cell viewWithTag:1]).image         = cellImage;
     if (!cellImage) { // If the there is no image displayed then, there isn't any food item for that
@@ -793,7 +793,7 @@ NSUserDefaults *userDefaults;
         cell.accessoryType                              = UITableViewCellAccessoryNone;
         [cell setUserInteractionEnabled:YES];
     }
-    ((UILabel *)[cell viewWithTag:2]).text              = [m_groceryListArray objectAtIndex:indexPath.row];
+    ((UILabel *)[cell viewWithTag:2]).text              = [self.m_groceryListArray objectAtIndex:indexPath.row];
 }
 
 
@@ -803,16 +803,16 @@ NSUserDefaults *userDefaults;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath onTableView:tableView
 {
     if (tableView == mealTableView) { // set up cell for Meal plan
-        if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+        if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
 
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:[[m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:2]];
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0] AndKeyArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:1] AndValueArray:[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:2]];
         }
-        else if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has a purchased a meal plan
-            [self cellContents:cell atIndexPath:indexPath WithImageArray:m_foodListImagesArray AndKeyArray:m_foodListNamesArray AndValueArray:nil];
+        else if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has a purchased a meal plan
+            [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_foodListImagesArray AndKeyArray:self.m_foodListNamesArray AndValueArray:nil];
         }
     }
     else if(tableView == groceryTableView) { // Set the cell for grocery list
-        [self cellContents:cell atIndexPath:indexPath WithImageArray:m_imagesForGroceryListArray AndKeyArray:m_groceryListArray];
+        [self cellContents:cell atIndexPath:indexPath WithImageArray:self.m_imagesForGroceryListArray AndKeyArray:self.m_groceryListArray];
     }
 }
 
@@ -870,7 +870,7 @@ NSUserDefaults *userDefaults;
             mealPlanTextLabel.tag                     = 2; // Need to add outside the if statment
             [cell.contentView addSubview:mealPlanTextLabel];
 
-            if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+            if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
                 //  Position the calorie text label
                 UILabel *theDetailTextLabel           = [[UILabel alloc] initWithFrame:CGRectMake(85, 45, 150, 20)];
                 theDetailTextLabel.font               = [UIFont customFontWithSize:10];
@@ -942,8 +942,8 @@ NSUserDefaults *userDefaults;
         selectedSupplement      = nil;
     }
     
-    if (!m_supplementCheck) {
-        m_supplementCheck           = [SupplementCheck sharedInstance];
+    if (!self.m_supplementCheck) {
+        self.m_supplementCheck           = [SupplementCheck sharedInstance];
     }
     
     if (self.selectedImage) {
@@ -955,30 +955,30 @@ NSUserDefaults *userDefaults;
     }
     
     if (tableView == mealTableView) {
-        if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
+        if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Meal Plan"]) { // User has a purchased a meal plan
             // assign image for the next view
-            selectedSupplement         = [[[m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row];
+            selectedSupplement         = [[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row];
             
-            if ([m_supplementCheck checkSupplementItemExist:selectedSupplement]) { // if the selected item is supplement
+            if ([self.m_supplementCheck checkSupplementItemExist:selectedSupplement]) { // if the selected item is supplement
                 [NSString setSupplementImageName:selectedSupplement];
                 [self moveToSupplementProfileViewController:self];
             }
             else {
                 // assign image for the next view
-                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[[[m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row]];
+                self.selectedImage         = [[NSString alloc ] initWithFormat:@"%@",[[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:0]  objectAtIndex:indexPath.row]];
                 // Move to FoodProfileViewController
                 [self moveToFoodProfileViewController:indexPath];
             }
         }
-        else if ([m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan
-            self.selectedImage              = [[NSString alloc ] initWithFormat:@"%@",[m_foodListImagesArray objectAtIndex:indexPath.row]];
+        else if ([self.m_mealPlanOrFoodListOnMealTable isEqualToString:@"Food List"]) { // User has not purchased a meal plan
+            self.selectedImage              = [[NSString alloc ] initWithFormat:@"%@",[self.m_foodListImagesArray objectAtIndex:indexPath.row]];
             // Move to FoodProfileViewController
             [self moveToFoodProfileViewController:indexPath];
         }
     }
     else if(tableView == groceryTableView) {
         // assign image from grocery list images
-        self.selectedImage        = [m_imagesForGroceryListArray  objectAtIndex:indexPath.row];
+        self.selectedImage        = [self.m_imagesForGroceryListArray  objectAtIndex:indexPath.row];
         // Move to FoodProfileViewController
         [self moveToFoodProfileViewController:indexPath];
     }
@@ -1006,12 +1006,12 @@ NSUserDefaults *userDefaults;
         if (indexPath.section == 0) {
             if (tableView == self.mealTableView) {
                 // assign food item for the next view
-                self.foodSelectedToEdit         = [[NSString alloc ] initWithFormat:@"%@",[[[m_mealPlanArray objectAtIndex:0] objectAtIndex:1]  objectAtIndex:indexPath.row]];
+                self.foodSelectedToEdit         = [[NSString alloc ] initWithFormat:@"%@",[[[self.m_mealPlanArray objectAtIndex:0] objectAtIndex:1]  objectAtIndex:indexPath.row]];
             }
         }
         else {
             // assign food item for the next view
-            self.foodSelectedToEdit         = [[NSString alloc ] initWithFormat:@"%@",[[[m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:1]  objectAtIndex:indexPath.row]];
+            self.foodSelectedToEdit         = [[NSString alloc ] initWithFormat:@"%@",[[[self.m_mealPlanArray objectAtIndex:indexPath.section] objectAtIndex:1]  objectAtIndex:indexPath.row]];
         }
         
         [NSString setFoodItemToSwitch:self.foodSelectedToEdit];

@@ -13,6 +13,88 @@
 
 @interface ProgressViewController ()
 
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MealViewContrioller class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+//// MealViewController class object
+//@property (strong, nonatomic)MealViewController *m_mealViewController;
+//// MusicTracksViewController class object
+//@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// Database class object
+@property (strong, nonatomic)Database *m_database;
+// Weight data
+@property (strong, nonatomic)NSMutableArray *m_weightArray;
+// Number of images to display
+@property (nonatomic)int m_numberOfImages;
+// Week decrementor
+@property (nonatomic)int m_decrementWeek;
+// Report data
+@property (strong, nonatomic)NSMutableArray *m_weeklyReportData;
+// End date for weekly work report
+@property (strong, nonatomic)NSDate *m_weekEndDate;
+// Start date for weekly work report
+@property (strong, nonatomic)NSDate *m_weekStartDate;
+// Total number of items in work report
+@property (nonatomic)int m_totalNumberOfItemsInDataForGraph;
+// Selected weight
+@property (nonatomic)int m_selectedWeight;
+// Before the first label TimeWeight
+@property (nonatomic)CGRect m_beforeFirstFrame;
+// First Label TimeWeight
+@property (nonatomic)CGRect m_firstFrame;
+// Second Label TimeWeight
+@property (nonatomic)CGRect m_secondFrame;
+// Third Label TimeWeight
+@property (nonatomic)CGRect m_thirdFrame;
+// After the Third Label TimeWeight
+@property (nonatomic)CGRect m_afterThirdFrame;
+// Check if before first Label value is less zero
+@property (nonatomic)int m_beforeFirstWeightLabel;
+// To set NSDate to day
+@property (strong, nonatomic)NSDateFormatter *m_dateFormatter;
+// NSCalender
+@property (strong, nonatomic)NSCalendar *m_calendar;
+// Today
+@property (strong, nonatomic)NSDate *m_today;
+// NSDate Componenets
+@property (strong, nonatomic)NSDateComponents *m_components;
+// For getting the increment on each week
+@property (strong, nonatomic)NSDateComponents *m_dayComponent;
+@property (strong, nonatomic)NSCalendar *m_theCalendar;
+// Set date components
+@property (strong, nonatomic)NSDateComponents *m_setDateComponents;
+// Month Day
+@property (strong, nonatomic)NSDate* m_monthDate;
+// Month string
+@property (strong, nonatomic)NSString *m_monthString;
+
+@property (strong, nonatomic)UIImageView *reportTimeWeightRepImageView;
+@property (strong, nonatomic)UIImageView *reportTimeWeightImageViewMask;
+@property (strong, nonatomic)UILabel *weightColorLabel;
+@property (strong, nonatomic)UILabel *weightTextLabel;
+@property (strong, nonatomic)UILabel *dateLabel;
+@property (strong, nonatomic)UIButton *reportButton;
+@property (strong, nonatomic)UILabel *beforeFirstWeightLabel;
+@property (strong, nonatomic)UILabel *firstWeightLabel;
+@property (strong, nonatomic)UILabel *secondWeightLabel;
+@property (strong, nonatomic)UILabel *thirdWeightLabel;
+@property (strong, nonatomic)UILabel *afterThirdWeightLabel;
+@property (strong, nonatomic)UIButton *m_minusTimeWeightRepButton;
+@property (strong, nonatomic)UIButton *m_plusTimeWeightRepButton;
+
 // Move to RootViewController
 - (IBAction)moveToRootViewController:(id)sender;
 // Move to MealViewController
@@ -55,87 +137,7 @@
 @synthesize messageButton;
 @synthesize activityIndicator;
 
-// RootViewController class object
-RootViewController *m_rootViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewContrioller class object
-MealViewController *m_mealViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// Database class object
-Database *m_database;
-// Weight data
-NSMutableArray *m_weightArray;
-// Number of images to display
-int m_numberOfImages;
-// Week decrementor
-int m_decrementWeek;
-// Report data
-NSMutableArray *m_weeklyReportData;
-// End date for weekly work report
-NSDate *m_weekEndDate;
-// Start date for weekly work report
-NSDate *m_weekStartDate;
-// Total number of items in work report
-int m_totalNumberOfItemsInDataForGraph;
-// Selected weight
-int m_selectedWeight;
-// Before the first label TimeWeight
-CGRect m_beforeFirstFrame;
-// First Label TimeWeight
-CGRect m_firstFrame;
-// Second Label TimeWeight
-CGRect m_secondFrame;
-// Third Label TimeWeight
-CGRect m_thirdFrame;
-// After the Third Label TimeWeight
-CGRect m_afterThirdFrame;
-// Check if before first Label value is less zero
-int m_beforeFirstWeightLabel;
-// To set NSDate to day
-NSDateFormatter *m_dateFormatter;
-// NSCalender
-NSCalendar *m_calendar;
-// Today
-NSDate *m_today;
-// NSDate Componenets
-NSDateComponents *m_components;
-// For getting the increment on each week
-NSDateComponents *m_dayComponent;
-NSCalendar *m_theCalendar;
-// Set date components
-NSDateComponents *m_setDateComponents;
-// Month Day
-NSDate* m_monthDate;
-// Month string
-NSString *m_monthString;
 
-UIImageView *reportTimeWeightRepImageView;
-UIImageView *reportTimeWeightImageViewMask;
-UILabel *weightColorLabel;
-UILabel *weightTextLabel;
-UILabel *dateLabel;
-UIButton *reportButton;
-UILabel *beforeFirstWeightLabel;
-UILabel *firstWeightLabel;
-UILabel *secondWeightLabel;
-UILabel *thirdWeightLabel;
-UILabel *afterThirdWeightLabel;
-UIButton *m_minusTimeWeightRepButton;
-UIButton *m_plusTimeWeightRepButton;
 
 /*
  Singleton ProgressViewController object
@@ -154,11 +156,11 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController        = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController        = [RootViewController sharedInstance];
     }
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -167,10 +169,10 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 
 }
@@ -181,11 +183,11 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject               = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -193,11 +195,11 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -206,13 +208,13 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
     
-    id instanceObject                   = m_exerciseViewController;
+    id instanceObject                   = self.m_exerciseViewController;
     
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -221,11 +223,11 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject                       = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -234,13 +236,13 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -265,10 +267,10 @@ UIButton *m_plusTimeWeightRepButton;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -301,39 +303,39 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)setDate
 {
-    if (!m_calendar) {
-        m_calendar                = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    if (!self.m_calendar) {
+        self.m_calendar                = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
 
-    if (!m_today) {
-        m_today                   = [NSDate date];
+    if (!self.m_today) {
+        self.m_today                   = [NSDate date];
     }
     
     NSString * dateString;
     // Set Date components
-    if (!m_setDateComponents) {
-        m_setDateComponents              = [[NSDateComponents alloc] init];
-        m_setDateComponents              = [m_calendar components: NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+    if (!self.m_setDateComponents) {
+        self.m_setDateComponents              = [[NSDateComponents alloc] init];
+        self.m_setDateComponents              = [self.m_calendar components: NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
     }
 
-    NSInteger month                  = [m_setDateComponents month];
-    NSInteger year                   = [m_setDateComponents year];
-    NSInteger day                    = [m_setDateComponents day];
+    NSInteger month                  = [self.m_setDateComponents month];
+    NSInteger year                   = [self.m_setDateComponents year];
+    NSInteger day                    = [self.m_setDateComponents day];
     
     dateString                       = [NSString stringWithFormat: @"%ld", (long)month];
 
-    if (!m_dateFormatter) {
-        m_dateFormatter         = [[NSDateFormatter alloc] init];
+    if (!self.m_dateFormatter) {
+        self.m_dateFormatter         = [[NSDateFormatter alloc] init];
     }
-    [m_dateFormatter setDateFormat:@"MM"];
+    [self.m_dateFormatter setDateFormat:@"MM"];
     
-    m_monthDate                 = [m_dateFormatter dateFromString:dateString];
+    self.m_monthDate                 = [self.m_dateFormatter dateFromString:dateString];
     
-    [m_dateFormatter setDateFormat:@"MMMM"];
-    m_monthString               = [m_dateFormatter stringFromDate:m_monthDate];
+    [self.m_dateFormatter setDateFormat:@"MMMM"];
+    self.m_monthString               = [self.m_dateFormatter stringFromDate:self.m_monthDate];
     
     // Display the month and year
-    dateLabel.text              = [NSString stringWithFormat:@"%@ %ld/%ld", m_monthString, (long)day, (long)year];
+    self.dateLabel.text              = [NSString stringWithFormat:@"%@ %ld/%ld", self.m_monthString, (long)day, (long)year];
 }
 
 /*
@@ -342,11 +344,11 @@ UIButton *m_plusTimeWeightRepButton;
 - (void)initialLabelFrames
 {
     // Initial frames for the weight/time labels
-    m_beforeFirstFrame                 = beforeFirstWeightLabel.frame;
-    m_firstFrame                       = firstWeightLabel.frame;
-    m_secondFrame                      = secondWeightLabel.frame;
-    m_thirdFrame                       = thirdWeightLabel.frame;
-    m_afterThirdFrame                  = afterThirdWeightLabel.frame;
+    self.m_beforeFirstFrame                 = self.beforeFirstWeightLabel.frame;
+    self.m_firstFrame                       = self.firstWeightLabel.frame;
+    self.m_secondFrame                      = self.secondWeightLabel.frame;
+    self.m_thirdFrame                       = self.thirdWeightLabel.frame;
+    self.m_afterThirdFrame                  = self.afterThirdWeightLabel.frame;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -375,17 +377,17 @@ UIButton *m_plusTimeWeightRepButton;
     // Weight color label
     CGRect weightColorLabelFrame;
     weightColorLabelFrame                               = CGRectMake(250.0f, 70.0f, 12.0f, 12.0f);
-    weightColorLabel                                    = [[UILabel alloc] initWithFrame:weightColorLabelFrame];
-    weightColorLabel.backgroundColor                    = [UIColor redColor];
-    [self.view addSubview:weightColorLabel];
+    self.weightColorLabel                                    = [[UILabel alloc] initWithFrame:weightColorLabelFrame];
+    self.weightColorLabel.backgroundColor                    = [UIColor redColor];
+    [self.view addSubview:self.weightColorLabel];
     
     // Weight text label
     CGRect weightTextLabelFrame;
     weightTextLabelFrame                                = CGRectMake(265.0f, 66.0f, 50.0f, 20.0f);
-    weightTextLabel                                     = [[UILabel alloc] initWithFrame:weightTextLabelFrame];
-    weightTextLabel.font                                = [UIFont customFontWithSize:11];
-    [self.view addSubview:weightTextLabel];
-    weightTextLabel.text                                = @"Weight";
+    self.weightTextLabel                                     = [[UILabel alloc] initWithFrame:weightTextLabelFrame];
+    self.weightTextLabel.font                                = [UIFont customFontWithSize:11];
+    [self.view addSubview:self.weightTextLabel];
+    self.weightTextLabel.text                                = @"Weight";
     
     // Month and Date label
     CGRect dateLabelFrame;
@@ -395,11 +397,11 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         dateLabelFrame                                  = CGRectMake(0.0f, 250.0f, 320.0f, 20.0f);
     }
-    dateLabel                                           = [[UILabel alloc] initWithFrame:dateLabelFrame];
-    dateLabel.font                                      = [UIFont customFontWithSize:15];
-    dateLabel.textColor                                 = [UIColor darkGrayColor];
-    dateLabel.textAlignment                             = NSTextAlignmentCenter;
-    [self.view addSubview:dateLabel];
+    self.dateLabel                                           = [[UILabel alloc] initWithFrame:dateLabelFrame];
+    self.dateLabel.font                                      = [UIFont customFontWithSize:15];
+    self.dateLabel.textColor                                 = [UIColor darkGrayColor];
+    self.dateLabel.textAlignment                             = NSTextAlignmentCenter;
+    [self.view addSubview:self.dateLabel];
 
     // Weight, Time, Repitition ImageView
     CGRect reportWeightImageViewFrame;
@@ -409,11 +411,11 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         reportWeightImageViewFrame                      = CGRectMake(0.0f, 270.0f, 320.0f, 180.0f);
     }
-    reportTimeWeightRepImageView                        = [[UIImageView alloc] initWithFrame:reportWeightImageViewFrame];
-    reportTimeWeightRepImageView.userInteractionEnabled = YES;
-    reportTimeWeightRepImageView.multipleTouchEnabled   = YES;
-    reportTimeWeightRepImageView.image                  = [UIImage imageNamed:@"report_weight.png"];
-    [self.view addSubview:reportTimeWeightRepImageView];
+    self.reportTimeWeightRepImageView                        = [[UIImageView alloc] initWithFrame:reportWeightImageViewFrame];
+    self.reportTimeWeightRepImageView.userInteractionEnabled = YES;
+    self.reportTimeWeightRepImageView.multipleTouchEnabled   = YES;
+    self.reportTimeWeightRepImageView.image                  = [UIImage imageNamed:@"report_weight.png"];
+    [self.view addSubview:self.reportTimeWeightRepImageView];
     
     // Add TimeWeightImageViewMask for gesture recognizing
     CGRect reportTimeWeightImageViewMaskFrame;
@@ -423,9 +425,9 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         reportTimeWeightImageViewMaskFrame              = CGRectMake(0.0f, 296.0f, 320.0f, 50.0f);
     }
-    reportTimeWeightImageViewMask                       = [[UIImageView alloc] initWithFrame:reportTimeWeightImageViewMaskFrame];
-    reportTimeWeightImageViewMask.userInteractionEnabled= YES;
-    [self.view addSubview:reportTimeWeightImageViewMask];
+    self.reportTimeWeightImageViewMask                       = [[UIImageView alloc] initWithFrame:reportTimeWeightImageViewMaskFrame];
+    self.reportTimeWeightImageViewMask.userInteractionEnabled= YES;
+    [self.view addSubview:self.reportTimeWeightImageViewMask];
     self.weightLeftSwipeGesture                         = nil;
     self.weightRightSwipeGesture                        = nil;
     
@@ -433,13 +435,13 @@ UIButton *m_plusTimeWeightRepButton;
     UISwipeGestureRecognizer *timeWeightLeftSwipeGestureLocal                 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [timeWeightLeftSwipeGestureLocal setDirection:UISwipeGestureRecognizerDirectionLeft];
     self.weightLeftSwipeGesture             = timeWeightLeftSwipeGestureLocal;
-    [reportTimeWeightImageViewMask addGestureRecognizer:self.weightLeftSwipeGesture];
+    [self.reportTimeWeightImageViewMask addGestureRecognizer:self.weightLeftSwipeGesture];
     
     // Add right swipe gesture
     UISwipeGestureRecognizer *timeWeightRightSwipeGestureLocal                = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [timeWeightRightSwipeGestureLocal setDirection:UISwipeGestureRecognizerDirectionRight];
     self.weightRightSwipeGesture            = timeWeightRightSwipeGestureLocal;
-    [reportTimeWeightImageViewMask addGestureRecognizer:self.weightRightSwipeGesture];
+    [self.reportTimeWeightImageViewMask addGestureRecognizer:self.weightRightSwipeGesture];
 
     CGRect minusTimeWeightRepButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -448,10 +450,10 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         minusTimeWeightRepButtonFrame              = CGRectMake(0.0f, 286.0f, 33.0f, 157.0f);
     }
-    m_minusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:minusTimeWeightRepButtonFrame];
-    [self.view addSubview:m_minusTimeWeightRepButton];
-    [m_minusTimeWeightRepButton addTarget:self action:@selector(minusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view bringSubviewToFront:m_minusTimeWeightRepButton];
+    self.m_minusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:minusTimeWeightRepButtonFrame];
+    [self.view addSubview:self.m_minusTimeWeightRepButton];
+    [self.m_minusTimeWeightRepButton addTarget:self action:@selector(minusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:self.m_minusTimeWeightRepButton];
     
     CGRect plusTimeWeightRepButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -460,10 +462,10 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         plusTimeWeightRepButtonFrame              = CGRectMake(287.0f, 286.0f, 33.0f, 157.0f);
     }
-    m_plusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:plusTimeWeightRepButtonFrame];
-    [self.view addSubview:m_plusTimeWeightRepButton];
-    [m_plusTimeWeightRepButton addTarget:self action:@selector(plusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view bringSubviewToFront:m_plusTimeWeightRepButton];
+    self.m_plusTimeWeightRepButton                      = [[UIButton alloc] initWithFrame:plusTimeWeightRepButtonFrame];
+    [self.view addSubview:self.m_plusTimeWeightRepButton];
+    [self.m_plusTimeWeightRepButton addTarget:self action:@selector(plusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:self.m_plusTimeWeightRepButton];
 
     // Add Time Save Report Button
     CGRect reportTimeDoneButtonFrame;
@@ -473,15 +475,15 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         reportTimeDoneButtonFrame                  = CGRectMake(10.0f, 377.0f, 300.0f, 45.f);
     }
-    reportButton                                   = [[UIButton alloc] initWithFrame:reportTimeDoneButtonFrame];
-    [reportButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:reportButton];
+    self.reportButton                                   = [[UIButton alloc] initWithFrame:reportTimeDoneButtonFrame];
+    [self.reportButton addTarget:self action:@selector(saveReport:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.reportButton];
 
     // Default weight is 150 pnds
-    m_selectedWeight                             = 150;
+    self.m_selectedWeight                             = 150;
     
     // Assign values for the labels
-    m_beforeFirstWeightLabel                     = 148;
+    self.m_beforeFirstWeightLabel                     = 148;
     
     // before first time weight label
     CGRect beforeFirstTimeWeightLabelFrame;
@@ -491,15 +493,15 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         beforeFirstTimeWeightLabelFrame     = CGRectMake(20.0f, 315.0f, 40.0f, 20.0f);
     }
-    beforeFirstWeightLabel                  = [[UILabel alloc] initWithFrame:beforeFirstTimeWeightLabelFrame];
-    beforeFirstWeightLabel.font             = [UIFont customFontWithSize:20];
-    beforeFirstWeightLabel.backgroundColor  = [UIColor clearColor];
-    beforeFirstWeightLabel.textColor        = [UIColor darkGrayColor];
+    self.beforeFirstWeightLabel                  = [[UILabel alloc] initWithFrame:beforeFirstTimeWeightLabelFrame];
+    self.beforeFirstWeightLabel.font             = [UIFont customFontWithSize:20];
+    self.beforeFirstWeightLabel.backgroundColor  = [UIColor clearColor];
+    self.beforeFirstWeightLabel.textColor        = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    beforeFirstWeightLabel.textAlignment    = NSTextAlignmentCenter;
-    beforeFirstWeightLabel.hidden           = YES;
-    [self.view addSubview:beforeFirstWeightLabel];
-    beforeFirstWeightLabel.text             = @"148";
+    self.beforeFirstWeightLabel.textAlignment    = NSTextAlignmentCenter;
+    self.beforeFirstWeightLabel.hidden           = YES;
+    [self.view addSubview:self.beforeFirstWeightLabel];
+    self.beforeFirstWeightLabel.text             = @"148";
     
     // first time weight label
     CGRect firstTimeWeightLabelFrame;
@@ -509,14 +511,14 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         firstTimeWeightLabelFrame           = CGRectMake(65.0f, 315.0f, 40.0f, 20.0f);
     }
-    firstWeightLabel                        = [[UILabel alloc] initWithFrame:firstTimeWeightLabelFrame];
-    firstWeightLabel.font                   = [UIFont customFontWithSize:20];
-    firstWeightLabel.backgroundColor        = [UIColor clearColor];
-    firstWeightLabel.textColor              = [UIColor darkGrayColor];
+    self.firstWeightLabel                        = [[UILabel alloc] initWithFrame:firstTimeWeightLabelFrame];
+    self.firstWeightLabel.font                   = [UIFont customFontWithSize:20];
+    self.firstWeightLabel.backgroundColor        = [UIColor clearColor];
+    self.firstWeightLabel.textColor              = [UIColor darkGrayColor];
     // Helps when there is only a single digit value
-    firstWeightLabel.textAlignment          = NSTextAlignmentCenter;
-    [self.view addSubview:firstWeightLabel];
-    firstWeightLabel.text                   = @"149";
+    self.firstWeightLabel.textAlignment          = NSTextAlignmentCenter;
+    [self.view addSubview:self.firstWeightLabel];
+    self.firstWeightLabel.text                   = @"149";
     
     // second time weight label
     CGRect secondTimeWeightLabelFrame;
@@ -526,14 +528,14 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         secondTimeWeightLabelFrame          = CGRectMake(140.0f, 315.0f, 40.0f, 20.0f);
     }
-    secondWeightLabel                       = [[UILabel alloc] initWithFrame:secondTimeWeightLabelFrame];
-    secondWeightLabel.font                  = [UIFont customFontWithSize:20];
-    secondWeightLabel.backgroundColor       = [UIColor clearColor];
-    secondWeightLabel.textColor             = [UIColor redColor];
+    self.secondWeightLabel                       = [[UILabel alloc] initWithFrame:secondTimeWeightLabelFrame];
+    self.secondWeightLabel.font                  = [UIFont customFontWithSize:20];
+    self.secondWeightLabel.backgroundColor       = [UIColor clearColor];
+    self.secondWeightLabel.textColor             = [UIColor redColor];
     // Helps when there is only a single digit value
-    secondWeightLabel.textAlignment         = NSTextAlignmentCenter;
-    [self.view addSubview:secondWeightLabel];
-    secondWeightLabel.text                  = @"150";
+    self.secondWeightLabel.textAlignment         = NSTextAlignmentCenter;
+    [self.view addSubview:self.secondWeightLabel];
+    self.secondWeightLabel.text                  = @"150";
     
     // third time weight label
     CGRect thirdTimeWeightLabelFrame;
@@ -543,14 +545,14 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         thirdTimeWeightLabelFrame           = CGRectMake(210.0f, 315.0f, 40.0f, 20.0f);
     }
-    thirdWeightLabel                        = [[UILabel alloc] initWithFrame:thirdTimeWeightLabelFrame];
-    thirdWeightLabel.font                   = [UIFont customFontWithSize:20];
-    thirdWeightLabel.backgroundColor        = [UIColor clearColor];
-    thirdWeightLabel.textColor              = [UIColor darkGrayColor];
-    [self.view addSubview:thirdWeightLabel];
-    thirdWeightLabel.text                   = @"151";
+    self.thirdWeightLabel                        = [[UILabel alloc] initWithFrame:thirdTimeWeightLabelFrame];
+    self.thirdWeightLabel.font                   = [UIFont customFontWithSize:20];
+    self.thirdWeightLabel.backgroundColor        = [UIColor clearColor];
+    self.thirdWeightLabel.textColor              = [UIColor darkGrayColor];
+    [self.view addSubview:self.thirdWeightLabel];
+    self.thirdWeightLabel.text                   = @"151";
     // Helps when there is only a single digit value
-    thirdWeightLabel.textAlignment          = NSTextAlignmentCenter;
+    self.thirdWeightLabel.textAlignment          = NSTextAlignmentCenter;
     
     // before third time weight label
     CGRect afterThirdTimeWeightLabelFrame;
@@ -560,15 +562,15 @@ UIButton *m_plusTimeWeightRepButton;
     else {
         afterThirdTimeWeightLabelFrame      = CGRectMake(255.0f, 315.0f, 40.0f, 20.0f);
     }
-    afterThirdWeightLabel                   = [[UILabel alloc] initWithFrame:afterThirdTimeWeightLabelFrame];
-    afterThirdWeightLabel.font              = [UIFont customFontWithSize:20];
-    afterThirdWeightLabel.backgroundColor   = [UIColor clearColor];
-    afterThirdWeightLabel.textColor         = [UIColor darkGrayColor];
-    afterThirdWeightLabel.hidden            = YES;
-    [self.view addSubview:afterThirdWeightLabel];
-    afterThirdWeightLabel.text              = @"152";
+    self.afterThirdWeightLabel                   = [[UILabel alloc] initWithFrame:afterThirdTimeWeightLabelFrame];
+    self.afterThirdWeightLabel.font              = [UIFont customFontWithSize:20];
+    self.afterThirdWeightLabel.backgroundColor   = [UIColor clearColor];
+    self.afterThirdWeightLabel.textColor         = [UIColor darkGrayColor];
+    self.afterThirdWeightLabel.hidden            = YES;
+    [self.view addSubview:self.afterThirdWeightLabel];
+    self.afterThirdWeightLabel.text              = @"152";
     // Helps when there is only a single digit value
-    afterThirdWeightLabel.textAlignment     = NSTextAlignmentCenter;
+    self.afterThirdWeightLabel.textAlignment     = NSTextAlignmentCenter;
 
     // save initial label frames
     [self initialLabelFrames];
@@ -579,8 +581,8 @@ UIButton *m_plusTimeWeightRepButton;
     // start the activity indicator
     [self.activityIndicator startAnimating];
     
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
     
     [self setDate];
@@ -598,10 +600,10 @@ UIButton *m_plusTimeWeightRepButton;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     // To set NSDate to day
-    m_dateFormatter         = nil;
-    m_theCalendar           = nil;
+    self.m_dateFormatter         = nil;
+    self.m_theCalendar           = nil;
     // Set date components
-    m_setDateComponents     = nil;
+    self.m_setDateComponents     = nil;
 }
 
 /*
@@ -617,7 +619,7 @@ UIButton *m_plusTimeWeightRepButton;
                 theweight          += [[weeklyReportData objectAtIndex:i]   intValue];
             }
             int averageWeight                     = theweight/totalNumberOfItemsInDataForGraph;
-            [m_weightArray addObject:[NSNumber numberWithInt:averageWeight]];
+            [self.m_weightArray addObject:[NSNumber numberWithInt:averageWeight]];
         }
     }
 }
@@ -628,27 +630,27 @@ UIButton *m_plusTimeWeightRepButton;
 - (int)incrementByTheDayOfTheWeek:(NSInteger)weekday
 {
     if(weekday == 1) { // Today is the sunday of the week
-        m_decrementWeek         = -6;
+        self.m_decrementWeek         = -6;
     }
     else if (weekday == 2) { // Today is the monday of the week
-        m_decrementWeek         = -5;
+        self.m_decrementWeek         = -5;
     }
     else if(weekday == 3) { // Today is the tuesday of the week
-        m_decrementWeek         = -4;
+        self.m_decrementWeek         = -4;
     }
     else if(weekday == 4) { // Today is the wedday of the week
-        m_decrementWeek         = -3;
+        self.m_decrementWeek         = -3;
     }
     else if(weekday == 5) { // Today is the thursday of the week
-        m_decrementWeek         = -2;
+        self.m_decrementWeek         = -2;
     }
     else if(weekday == 6) { // Today is the fridaday of the week
-        m_decrementWeek         = -1;
+        self.m_decrementWeek         = -1;
     }
     else if(weekday == 7) { // Today is the saturday of the week
-        m_decrementWeek         = -0;
+        self.m_decrementWeek         = -0;
     }
-    return m_decrementWeek;
+    return self.m_decrementWeek;
 }
 
 
@@ -656,28 +658,28 @@ UIButton *m_plusTimeWeightRepButton;
 - (void)setupDateObjects
 {
     // Calender
-    if (!m_calendar) {
-        m_calendar                    = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    if (!self.m_calendar) {
+        self.m_calendar                    = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
     
     // Today
-    if (!m_today) {
-        m_today                       = [NSDate date];
+    if (!self.m_today) {
+        self.m_today                       = [NSDate date];
     }
     
     // Date Components
-    if (!m_components) {
-        m_components                  = [[NSDateComponents alloc] init];
-        m_components                  = [m_calendar components: NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:m_today];
+    if (!self.m_components) {
+        self.m_components                  = [[NSDateComponents alloc] init];
+        self.m_components                  = [self.m_calendar components: NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:self.m_today];
     }
     
     // For getting the increment on each week
-    if (!m_dayComponent) {
-        m_dayComponent                = [[NSDateComponents alloc] init];
+    if (!self.m_dayComponent) {
+        self.m_dayComponent                = [[NSDateComponents alloc] init];
     }
     
-    if (!m_theCalendar) {
-        m_theCalendar                 = [NSCalendar currentCalendar];
+    if (!self.m_theCalendar) {
+        self.m_theCalendar                 = [NSCalendar currentCalendar];
     }
 }
 
@@ -686,43 +688,43 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)getWeeklyReport
 {
-    if (!m_weekStartDate) {
-        m_weekStartDate               = [[NSDate date] init];
+    if (!self.m_weekStartDate) {
+        self.m_weekStartDate               = [[NSDate date] init];
     }
     
-    if (!m_weekEndDate) {
-        m_weekEndDate                 = [[NSDate alloc] init];
+    if (!self.m_weekEndDate) {
+        self.m_weekEndDate                 = [[NSDate alloc] init];
     }
     
-    NSInteger weekday               = [m_components weekday];
+    NSInteger weekday               = [self.m_components weekday];
     
-    if (!m_decrementWeek) {
+    if (!self.m_decrementWeek) {
         // clean up the week decrementor first
-        m_decrementWeek             = [self incrementByTheDayOfTheWeek:weekday];
+        self.m_decrementWeek             = [self incrementByTheDayOfTheWeek:weekday];
     }
     
     // Increment by 7 each time
-    m_dayComponent.day              = m_decrementWeek;
+   self. m_dayComponent.day              = self.m_decrementWeek;
     
-    m_weekEndDate                   = [m_theCalendar dateByAddingComponents:m_dayComponent toDate:m_weekEndDate options:0];
+    self.m_weekEndDate                   = [self.m_theCalendar dateByAddingComponents:self.m_dayComponent toDate:self.m_weekEndDate options:0];
     
     // drecrement by 7 days for the next week
-    m_decrementWeek                -= 7;
+    self.m_decrementWeek                -= 7;
     // Clean up the report data
-    m_weeklyReportData              = nil;
-    if (!m_weeklyReportData) {
-        m_weeklyReportData          = [NSMutableArray mutableArrayObject];
+    self.m_weeklyReportData              = nil;
+    if (!self.m_weeklyReportData) {
+        self.m_weeklyReportData          = [NSMutableArray mutableArrayObject];
     }
     
-    if ((m_weekStartDate) && (m_weekEndDate)) {
-        m_weeklyReportData          = [m_database getAverageExerciseReportForAWeek:[NSString getUserEmail] StartDate:m_weekStartDate EndDate:m_weekEndDate];
-        if (m_weeklyReportData != nil) {
+    if ((self.m_weekStartDate) && (self.m_weekEndDate)) {
+        self.m_weeklyReportData          = [self.m_database getAverageExerciseReportForAWeek:[NSString getUserEmail] StartDate:self.m_weekStartDate EndDate:self.m_weekEndDate];
+        if (self.m_weeklyReportData != nil) {
             // Get average of the data for the week
-            [self getAverageFromWeeklyData:m_weeklyReportData];
+            [self getAverageFromWeeklyData:self.m_weeklyReportData];
         }
     }
     // start week date for the next week
-    m_weekStartDate                 = m_weekEndDate;
+    self.m_weekStartDate                 = self.m_weekEndDate;
 }
 
 
@@ -732,17 +734,17 @@ UIButton *m_plusTimeWeightRepButton;
 - (void)loadDataForGraph
 {        
     // Initialize to store weight
-    m_weightArray                           = nil;
-    if (!m_weightArray) {
-        m_weightArray                       = [NSMutableArray mutableArrayObject];
+    self.m_weightArray                           = nil;
+    if (!self.m_weightArray) {
+        self.m_weightArray                       = [NSMutableArray mutableArrayObject];
     }
         
     // Clean up the week decrementor
-    m_decrementWeek                         = 0;
+    self.m_decrementWeek                         = 0;
     // Clean up the end week
-    m_weekEndDate                           = 0;
+    self.m_weekEndDate                           = 0;
     // Clean up the start week
-    m_weekStartDate                         = 0;
+    self.m_weekStartDate                         = 0;
     
     // Week's data
     for (int i = 0; i < 7; i++) {
@@ -755,7 +757,7 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)plusWeightby10:(id)sender
 {
-    [UILabel incrementBy10OnLabelOne:beforeFirstWeightLabel LabelTwo:firstWeightLabel  LabelThree:secondWeightLabel LabelFour:thirdWeightLabel LabelFive:afterThirdWeightLabel];
+    [UILabel incrementBy10OnLabelOne:self.beforeFirstWeightLabel LabelTwo:self.firstWeightLabel  LabelThree:self.secondWeightLabel LabelFour:self.thirdWeightLabel LabelFive:self.afterThirdWeightLabel];
 }
 
 /*
@@ -763,8 +765,8 @@ UIButton *m_plusTimeWeightRepButton;
  */
 - (void)minusWeightby10:(id)sender
 {
-    if ([secondWeightLabel.text intValue] > 5) {
-        [UILabel decrementBy10OnLabelOne:beforeFirstWeightLabel LabelTwo:firstWeightLabel  LabelThree:secondWeightLabel LabelFour:thirdWeightLabel LabelFive:afterThirdWeightLabel];
+    if ([self.secondWeightLabel.text intValue] > 5) {
+        [UILabel decrementBy10OnLabelOne:self.beforeFirstWeightLabel LabelTwo:self.firstWeightLabel  LabelThree:self.secondWeightLabel LabelFour:self.thirdWeightLabel LabelFive:self.afterThirdWeightLabel];
     }
 }
 
@@ -776,23 +778,23 @@ UIButton *m_plusTimeWeightRepButton;
     int value                               = [label.text intValue];
     
     if ([incrementOrDecrement isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_afterThirdFrame.origin.x) {
+        if (label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
                 value                       = value + 5;
         }
-        else if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            m_beforeFirstWeightLabel        = value;
+        else if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            self.m_beforeFirstWeightLabel        = value;
         }
     }
     else if([incrementOrDecrement isEqualToString:@"Right"]) {
-        if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
+        if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
                 value                       = value - 5;
-                m_beforeFirstWeightLabel    = value;
+                self.m_beforeFirstWeightLabel    = value;
         }
     }
     
     // Get the selected Weight or Time
-    if (label.frame.origin.x == m_secondFrame.origin.x) {
-        m_selectedWeight                    = [label.text intValue];
+    if (label.frame.origin.x == self.m_secondFrame.origin.x) {
+        self.m_selectedWeight                    = [label.text intValue];
     }
     
     return value;
@@ -807,28 +809,28 @@ UIButton *m_plusTimeWeightRepButton;
     [UIView setAnimationDuration: 0.25];
     
     if ([leftOrRight isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            label.frame            = m_afterThirdFrame;
+        if (label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            label.frame            = self.m_afterThirdFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_firstFrame.origin.x) {
-            label.frame            = m_beforeFirstFrame;
+        else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
+            label.frame            = self.m_beforeFirstFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_secondFrame.origin.x) {
-            label.frame            = m_firstFrame;
+        else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
+            label.frame            = self.m_firstFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_thirdFrame.origin.x) {
-            label.frame            = m_secondFrame;
+        else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
+            label.frame            = self.m_secondFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_afterThirdFrame.origin.x) {
-            label.frame            = m_thirdFrame;
+        else if(label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
+            label.frame            = self.m_thirdFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
@@ -839,28 +841,28 @@ UIButton *m_plusTimeWeightRepButton;
         label.text             = [NSString stringWithFormat:@"%d", [self incrementOrDecrement:@"Left" WeightTimeValue:label]];
     }
     else if ([leftOrRight isEqualToString:@"Right"]) {
-        if(label.frame.origin.x == m_beforeFirstFrame.origin.x) {
-            label.frame            = m_firstFrame;
+        if(label.frame.origin.x == self.m_beforeFirstFrame.origin.x) {
+            label.frame            = self.m_firstFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_firstFrame.origin.x) {
-            label.frame            = m_secondFrame;
+        else if(label.frame.origin.x == self.m_firstFrame.origin.x) {
+            label.frame            = self.m_secondFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_secondFrame.origin.x) {
-            label.frame            = m_thirdFrame;
+        else if(label.frame.origin.x == self.m_secondFrame.origin.x) {
+            label.frame            = self.m_thirdFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if(label.frame.origin.x == m_thirdFrame.origin.x) {
-            label.frame            = m_afterThirdFrame;
+        else if(label.frame.origin.x == self.m_thirdFrame.origin.x) {
+            label.frame            = self.m_afterThirdFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
-        else if (label.frame.origin.x == m_afterThirdFrame.origin.x) {
-            label.frame            = m_beforeFirstFrame;
+        else if (label.frame.origin.x == self.m_afterThirdFrame.origin.x) {
+            label.frame            = self.m_beforeFirstFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor darkGrayColor];
         }
@@ -877,15 +879,15 @@ UIButton *m_plusTimeWeightRepButton;
 - (void)animateWeightLabelsToLeft
 {
     // Animate the first label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:firstWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.firstWeightLabel];
     // Animate the second label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:secondWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.secondWeightLabel];
     // Animate the third label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:thirdWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.thirdWeightLabel];
     // Animate after third label
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:afterThirdWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.afterThirdWeightLabel];
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Left" TimeWeightLabel:beforeFirstWeightLabel];
+    [self animateLeftOrRight:@"Left" TimeWeightLabel:self.beforeFirstWeightLabel];
 }
 
 /*
@@ -894,15 +896,15 @@ UIButton *m_plusTimeWeightRepButton;
 - (void)animateWeightLabelsToRight
 {
     // Animate first label
-    [self animateLeftOrRight:@"Right" TimeWeightLabel:firstWeightLabel];
+    [self animateLeftOrRight:@"Right" TimeWeightLabel:self.firstWeightLabel];
     // Animate second label
-    [self animateLeftOrRight:@"Right" TimeWeightLabel:secondWeightLabel];
+    [self animateLeftOrRight:@"Right" TimeWeightLabel:self.secondWeightLabel];
     // Animate third label
-    [self animateLeftOrRight:@"Right" TimeWeightLabel:thirdWeightLabel];
+    [self animateLeftOrRight:@"Right" TimeWeightLabel:self.thirdWeightLabel];
     // Animate after third label
-    [self animateLeftOrRight:@"Right" TimeWeightLabel:afterThirdWeightLabel];
+    [self animateLeftOrRight:@"Right" TimeWeightLabel:self.afterThirdWeightLabel];
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Right" TimeWeightLabel:beforeFirstWeightLabel];
+    [self animateLeftOrRight:@"Right" TimeWeightLabel:self.beforeFirstWeightLabel];
     
 }
 
@@ -916,7 +918,7 @@ UIButton *m_plusTimeWeightRepButton;
     }
     else if (swipeRecognizer == self.weightRightSwipeGesture) {
         
-        if(m_beforeFirstWeightLabel >= 0) { // If before first label value is less than zero, do nothing
+        if(self.m_beforeFirstWeightLabel >= 0) { // If before first label value is less than zero, do nothing
             [self animateWeightLabelsToRight];
         }
     }
@@ -930,15 +932,15 @@ UIButton *m_plusTimeWeightRepButton;
     NSString *exerciseReportStatus            = @"";
             
     // Convert int weight time value into nsnumber
-    NSNumber *weight                          = [NSNumber numberWithInt:m_selectedWeight];
+    NSNumber *weight                          = [NSNumber numberWithInt:self.m_selectedWeight];
     
     if ((weight)) { // make sure that weight and rep of the first set is not empty
         if (weight != NULL) { // Make there is no null in the numbers
             
-            if (!m_database) {
-                m_database                    = [Database alloc];
+            if (!self.m_database) {
+                self.m_database                    = [Database alloc];
             }
-            exerciseReportStatus              = [m_database insertIntoExerciseReportWeight:weight Email_Id:[NSString getUserEmail]];
+            exerciseReportStatus              = [self.m_database insertIntoExerciseReportWeight:weight Email_Id:[NSString getUserEmail]];
         
             if ([exerciseReportStatus isEqualToString:@"inserted"]) {
                 [self displayMessage:@"Weight was successfully saved."];

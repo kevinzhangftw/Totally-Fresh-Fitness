@@ -34,6 +34,55 @@
 
 @interface RootViewController ()
 
+// ProfileViewController class object
+@property (strong, nonatomic)ProfileViewController *m_profileViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// MealViewController class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// SupplementPlanViewController class object
+@property (strong, nonatomic)SupplementPlanViewController *m_supplementPlanViewController;
+// ExerciseLevelViewController class object
+@property (strong, nonatomic)ExerciseLevelViewController *m_exerciseLevelViewController;
+// ProgressViewController class object
+@property (strong, nonatomic)ProgressViewController *m_progressViewController;
+// WorkOutDaysViewController class object
+@property (strong, nonatomic)WorkOutDaysViewController *m_workoutDaysViewController;
+// GoalsViewController class object
+@property (strong, nonatomic)GoalsViewController *m_goalsViewController;
+// MealPlanSelectin class object
+@property (strong, nonatomic)MealPlanSelection *m_mealPlanSelection;
+// Supplement Order View Controller
+@property (strong, nonatomic)SupplementOrderWebViewController *m_supplementOrderWebViewController;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+// Database class object
+@property (strong, nonatomic)Database *m_database;
+// ViewTransitions class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// ServerGateways class object
+@property (strong, nonatomic)TFNGateway *m_serverConnection;
+// ExerciseLevelViewController class object
+//@property (strong, nonatomic)ExerciseLevelViewController *m_exerciseLevelViewController;
+//Other Home View Controller
+@property (strong, nonatomic)HomeViewController *m_homeViewController;
+// User status log string
+@property (strong, nonatomic)NSString *m_logStatusString;
+// NSMutableArray of links
+@property (strong, nonatomic)NSMutableArray *m_linksArray;
+// Motivational quotes array
+@property (strong, nonatomic)NSMutableArray *m_motivationalQuotesArray;
+// Facebook compose sheet
+@property (strong, nonatomic)SLComposeViewController *m_facebookComploseSheet;
+// Social message
+@property (strong, nonatomic)NSString *m_socialMessage;
+
+@property (strong, nonatomic)MBProgressHUD *HUD;
+
 // Move to WorkOutDaysViewController's view
 - (void)moveToWorkOutDaysViewController;
 // Move to ProfileViewController
@@ -76,54 +125,7 @@
 
 @implementation RootViewController
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// SupplementPlanViewController class object
-SupplementPlanViewController *m_supplementPlanViewController;
-// ExerciseLevelViewController class object
-ExerciseLevelViewController *m_exerciseLevelViewController;
-// ProgressViewController class object
-ProgressViewController *m_progressViewController;
-// WorkOutDaysViewController class object
-WorkOutDaysViewController *m_workoutDaysViewController;
-// GoalsViewController class object
-GoalsViewController *m_goalsViewController;
-// MealPlanSelectin class object
-MealPlanSelection *m_mealPlanSelection;
-// Supplement Order View Controller
-SupplementOrderWebViewController *m_supplementOrderWebViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// Database class object
-Database *m_database;
-// ViewTransitions class object
-ViewTransitions *m_transition;
-// ServerGateways class object
-TFNGateway *m_serverConnection;
-// ExerciseLevelViewController class object
-ExerciseLevelViewController *m_exerciseLevelViewController;
-//Other Home View Controller
-HomeViewController *m_homeViewController;
-// User status log string
-NSString *m_logStatusString;
-// NSMutableArray of links
-NSMutableArray *m_linksArray;
-// Motivational quotes array
-NSMutableArray *m_motivationalQuotesArray;
-// Facebook compose sheet
-SLComposeViewController *m_facebookComploseSheet;
-// Social message
-NSString *m_socialMessage;
 
-MBProgressHUD *HUD;
 
 // Blog url to share
 static NSString *m_blogURLToShare;
@@ -170,12 +172,12 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToProfileViewController:(id)sender
 {    
-    if (!m_profileViewController) {
-        m_profileViewController     = [ProfileViewController sharedInstance];
+    if (!self.m_profileViewController) {
+        self.m_profileViewController     = [ProfileViewController sharedInstance];
     }
-    id instanceObject          = m_profileViewController;
-    m_profileViewController.view.tag= kProfileViewControllerChangedAtRoot;
-    [self moveToView:m_profileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject          = self.m_profileViewController;
+    self.m_profileViewController.view.tag= kProfileViewControllerChangedAtRoot;
+    [self moveToView:self.m_profileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -183,11 +185,11 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToExerciseViewController:(id)sender
 {
-    if (!m_exerciseViewController) {
-        m_exerciseViewController        = [ExerciseViewController sharedInstance];
+    if (!self.m_exerciseViewController) {
+        self.m_exerciseViewController        = [ExerciseViewController sharedInstance];
     }
-    id instanceObject               = m_exerciseViewController;
-    [self moveToView:m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_exerciseViewController;
+    [self moveToView:self.m_exerciseViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -196,11 +198,11 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToMealViewController:(id)sender
 {
-    if (!m_mealViewController) {
-        m_mealViewController        = [MealViewController sharedInstance];
+    if (!self.m_mealViewController) {
+        self.m_mealViewController        = [MealViewController sharedInstance];
     }
-    id instanceObject           = m_mealViewController;
-    [self moveToView:m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject           = self.m_mealViewController;
+    [self moveToView:self.m_mealViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 
 }
@@ -210,11 +212,11 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToCalenderViewController:(id)sender
 {
-    if (!m_calenderViewController) {
-        m_calenderViewController    = [CalenderViewController sharedInstance];
+    if (!self.m_calenderViewController) {
+        self.m_calenderViewController    = [CalenderViewController sharedInstance];
     }
-    id instanceObject               = m_calenderViewController;
-    [self moveToView:m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_calenderViewController;
+    [self moveToView:self.m_calenderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 
 }
@@ -224,11 +226,11 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToMusicTracksViewController:(id)sender
 {
-    if (!m_musicTracksViewController) {
-        m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
+    if (!self.m_musicTracksViewController) {
+        self.m_musicTracksViewController         = [MusicTracksViewController sharedInstance];
     }
-    id instanceObject               = m_musicTracksViewController;
-    [self moveToView:m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_musicTracksViewController;
+    [self moveToView:self.m_musicTracksViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 
 
@@ -239,13 +241,13 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToSupplementPlanViewController:(id)sender
 {
-    if (!m_supplementPlanViewController) {
-        m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
+    if (!self.m_supplementPlanViewController) {
+        self.m_supplementPlanViewController         = [SupplementPlanViewController sharedInstance];
     }
-    id instanceObject               = m_supplementPlanViewController;
-    m_supplementPlanViewController.view.tag     = 1;
+    id instanceObject               = self.m_supplementPlanViewController;
+    self.m_supplementPlanViewController.view.tag     = 1;
 
-    [self moveToView:m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementPlanViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 
     
@@ -256,11 +258,11 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToWorkOutDaysViewController
 {
-    if (!m_workoutDaysViewController) {
-        m_workoutDaysViewController         = [WorkOutDaysViewController  alloc];
+    if (!self.m_workoutDaysViewController) {
+        self.m_workoutDaysViewController         = [WorkOutDaysViewController  alloc];
     }
-    id instanceObject               = m_workoutDaysViewController;
-    [self moveToView:m_workoutDaysViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_workoutDaysViewController;
+    [self moveToView:self.m_workoutDaysViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -268,19 +270,19 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToGoalsViewController
 {
-    if (!m_goalsViewController) {
-        m_goalsViewController         = [GoalsViewController  alloc];
+    if (!self.m_goalsViewController) {
+        self.m_goalsViewController         = [GoalsViewController  alloc];
     }
-    id instanceObject               = m_goalsViewController;
-    [self moveToView:m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_goalsViewController;
+    [self moveToView:self.m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 - (IBAction)goToOtherHome:(id)sender {
     
-    if(!m_homeViewController){
-        m_homeViewController = [HomeViewController alloc];
+    if(!self.m_homeViewController){
+        self.m_homeViewController = [HomeViewController alloc];
     }
-    id instanceObject = m_homeViewController;
-    [self moveToView:m_homeViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject = self.m_homeViewController;
+    [self moveToView:self.m_homeViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -288,11 +290,11 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)moveToExerciseLevelViewController
 {
-    if (!m_exerciseLevelViewController) {
-        m_exerciseLevelViewController         = [ExerciseLevelViewController  alloc];
+    if (!self.m_exerciseLevelViewController) {
+        self.m_exerciseLevelViewController         = [ExerciseLevelViewController  alloc];
     }
-    id instanceObject               = m_exerciseLevelViewController;
-    [self moveToView:m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_exerciseLevelViewController;
+    [self moveToView:self.m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -310,12 +312,12 @@ TestMutableArray *m_testMutableArray;
 - (void)hasUserSelectedDaysGoalsAndLevels
 {
     // Do any additional setup after loading the view.
-    if (!m_database) {
-        m_database              = [Database alloc];
+    if (!self.m_database) {
+        self.m_database              = [Database alloc];
     }
-    if ([[m_database hasUserSelectedDays:[NSString getUserEmail] ] isEqualToString:@"YES"]) { // User has selected days once
-        if ([[m_database hasUserSelectedGoal:[NSString getUserEmail] ] isEqualToString:@"YES"]) { // User has selected goal once
-            if ([[m_database hasUserSelectedExerciseLevel:[NSString getUserEmail] ] isEqualToString:@"YES"]) { // User has selected level once
+    if ([[self.m_database hasUserSelectedDays:[NSString getUserEmail] ] isEqualToString:@"YES"]) { // User has selected days once
+        if ([[self.m_database hasUserSelectedGoal:[NSString getUserEmail] ] isEqualToString:@"YES"]) { // User has selected goal once
+            if ([[self.m_database hasUserSelectedExerciseLevel:[NSString getUserEmail] ] isEqualToString:@"YES"]) { // User has selected level once
                     // Stay on the RootViewController
             }
             else {
@@ -336,8 +338,8 @@ TestMutableArray *m_testMutableArray;
  */
 - (NSString *)getUserId
 {
-    if (!m_database) {
-        m_database      = [[Database alloc] init];
+    if (!self.m_database) {
+        self.m_database      = [[Database alloc] init];
     }
     
     NSString *user_ID   = [NSString getUserEmail];
@@ -349,12 +351,12 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)showProgressReport:(id)sender
 {
-    if (!m_progressViewController) {
-        m_progressViewController     = [ProgressViewController alloc];
+    if (!self.m_progressViewController) {
+        self.m_progressViewController     = [ProgressViewController alloc];
     }
-    id instanceObject                = m_progressViewController;
+    id instanceObject                = self.m_progressViewController;
     
-    [self moveToView:m_progressViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_progressViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -363,12 +365,12 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)showDifficultyLevel:(id)sender
 {
-    if (!m_exerciseLevelViewController) {
-        m_exerciseLevelViewController     = [ExerciseLevelViewController alloc];
+    if (!self.m_exerciseLevelViewController) {
+        self.m_exerciseLevelViewController     = [ExerciseLevelViewController alloc];
     }
-    id instanceObject                     = m_exerciseLevelViewController;
+    id instanceObject                     = self.m_exerciseLevelViewController;
     
-    [self moveToView:m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_exerciseLevelViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 
 }
 
@@ -386,13 +388,13 @@ TestMutableArray *m_testMutableArray;
  */
 - (void)showSupplementOrder:(id)sender
 {
-    if (!m_supplementOrderWebViewController) {
-        m_supplementOrderWebViewController         = [SupplementOrderWebViewController sharedInstance];
+    if (!self.m_supplementOrderWebViewController) {
+        self.m_supplementOrderWebViewController         = [SupplementOrderWebViewController sharedInstance];
     }
-    id instanceObject               = m_supplementOrderWebViewController;
+    id instanceObject               = self.m_supplementOrderWebViewController;
     [NSURL setSupplementOrderUrl:@"http://www.totalfitness.com/shop.html"];
     
-    [self moveToView:m_supplementOrderWebViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_supplementOrderWebViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     
 }
 
@@ -400,67 +402,67 @@ TestMutableArray *m_testMutableArray;
     NSURL *shareMessage = [[NSURL alloc] init];
     
     if (sender.tag == 1) {
-        shareMessage = [m_linksArray objectAtIndex:0];
+        shareMessage = [self.m_linksArray objectAtIndex:0];
     }
     else if(sender.tag == 2) {
-        shareMessage = [m_linksArray objectAtIndex:1];
+        shareMessage = [self.m_linksArray objectAtIndex:1];
     }
     else if(sender.tag == 3) {
-        shareMessage = [m_linksArray objectAtIndex:2];
+        shareMessage = [self.m_linksArray objectAtIndex:2];
     }
     else if(sender.tag == 4) {
-        shareMessage = [m_linksArray objectAtIndex:3];
+        shareMessage = [self.m_linksArray objectAtIndex:3];
     }
     else if(sender.tag == 5) {
-        shareMessage = [m_linksArray objectAtIndex:4];
+        shareMessage = [self.m_linksArray objectAtIndex:4];
     }
     else if(sender.tag == 6) {
-        shareMessage = [m_linksArray objectAtIndex:5];
+        shareMessage = [self.m_linksArray objectAtIndex:5];
     }
     else if(sender.tag == 7) {
-        shareMessage = [m_linksArray objectAtIndex:6];
+        shareMessage = [self.m_linksArray objectAtIndex:6];
     }
     else if(sender.tag == 8) {
-        shareMessage = [m_linksArray objectAtIndex:7];
+        shareMessage = [self.m_linksArray objectAtIndex:7];
     }
     else if(sender.tag == 9) {
-        shareMessage = [m_linksArray objectAtIndex:8];
+        shareMessage = [self.m_linksArray objectAtIndex:8];
     }
     else if(sender.tag == 10) {
-        shareMessage = [m_linksArray objectAtIndex:9];
+        shareMessage = [self.m_linksArray objectAtIndex:9];
     }
     else if(sender.tag == 11) {
-        shareMessage = [m_linksArray objectAtIndex:10];
+        shareMessage = [self.m_linksArray objectAtIndex:10];
     }
     else if(sender.tag == 12) {
-        shareMessage = [m_linksArray objectAtIndex:11];
+        shareMessage = [self.m_linksArray objectAtIndex:11];
     }
     else if(sender.tag == 13) {
-        shareMessage = [m_linksArray objectAtIndex:12];
+        shareMessage = [self.m_linksArray objectAtIndex:12];
     }
     else if(sender.tag == 14) {
-        shareMessage = [m_linksArray objectAtIndex:13];
+        shareMessage = [self.m_linksArray objectAtIndex:13];
     }
     else if(sender.tag == 15) {
-        shareMessage = [m_linksArray objectAtIndex:14];
+        shareMessage = [self.m_linksArray objectAtIndex:14];
     }
     else if(sender.tag == 16) {
-        shareMessage = [m_linksArray objectAtIndex:15];
+        shareMessage = [self.m_linksArray objectAtIndex:15];
     }
     else if(sender.tag == 17) {
-        shareMessage = [m_linksArray objectAtIndex:16];
+        shareMessage = [self.m_linksArray objectAtIndex:16];
     }
     else if(sender.tag == 18) {
-        shareMessage = [m_linksArray objectAtIndex:17];
+        shareMessage = [self.m_linksArray objectAtIndex:17];
     }
     else if(sender.tag == 19) {
-        shareMessage = [m_linksArray objectAtIndex:18];
+        shareMessage = [self.m_linksArray objectAtIndex:18];
     }
     else if(sender.tag == 20) {
-        shareMessage = [m_linksArray objectAtIndex:19];
+        shareMessage = [self.m_linksArray objectAtIndex:19];
     }
     else if(sender.tag == 21) {
-        shareMessage = [m_linksArray objectAtIndex:20];
+        shareMessage = [self.m_linksArray objectAtIndex:20];
     }
     
     return shareMessage;
@@ -854,14 +856,14 @@ TestMutableArray *m_testMutableArray;
     
 }
 -(void)showHUD{
-    HUD = [[MBProgressHUD alloc]initWithView:self.view];
-    [self.view addSubview:HUD];
+    self.HUD = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:self.HUD];
     
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.delegate = self;
-    HUD.labelText = @"Updating Exercises";
-    HUD.progress = 0.0;
-    [HUD showWhileExecuting:@selector(fetchJSON) onTarget:self withObject:nil animated:YES];
+    self.HUD.mode = MBProgressHUDModeIndeterminate;
+    self.HUD.delegate = self;
+    self.HUD.labelText = @"Updating Exercises";
+    self.HUD.progress = 0.0;
+    [self.HUD showWhileExecuting:@selector(fetchJSON) onTarget:self withObject:nil animated:YES];
 }
 
 -(void)fetchJSON{
@@ -901,7 +903,7 @@ TestMutableArray *m_testMutableArray;
                 
                 [operation start];
                 progress += 0.0013f;
-                HUD.progress = progress;
+                self.HUD.progress = progress;
                 usleep(100000);
             }
         }
@@ -1097,7 +1099,7 @@ TestMutableArray *m_testMutableArray;
     [self hasUserSelectedDaysGoalsAndLevels];
     
     // Initial every time
-    m_linksArray                                        = [NSMutableArray mutableArrayObject];
+    self.m_linksArray                                        = [NSMutableArray mutableArrayObject];
 
 
     
@@ -1168,10 +1170,10 @@ TestMutableArray *m_testMutableArray;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }

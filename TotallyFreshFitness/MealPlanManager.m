@@ -9,18 +9,22 @@
 #import "MealPlanManager.h"
 #import "Database.h"
 
+@interface MealPlanManager()
+
+@property (strong, nonatomic)Database *m_database;
+
+@property (strong, nonatomic)NSString *m_foodName;
+// Quantity
+@property (strong, nonatomic)NSString *m_quantity;
+// User email
+@property (strong, nonatomic)NSString *m_user_email;
+// Background Queue to create tables
+@property (strong, nonatomic)dispatch_queue_t m_coreDataBackgroundQueue;
+
+@end
+
 @implementation MealPlanManager
 
-// Database object
-Database *m_database;
-// Food name
-NSString *m_foodName;
-// Quantity
-NSString *m_quantity;
-// User email
-NSString *m_user_email;
-// Background Queue to create tables
-dispatch_queue_t m_coreDataBackgroundQueue;
 
 
 /*
@@ -41,8 +45,8 @@ dispatch_queue_t m_coreDataBackgroundQueue;
  */
 - (void)getFoodAndQuantityFromPlistDictionary:(NSMutableDictionary *)dictionary AndSaveIntoDatabase:(NSString *)insertIntoDatabase
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
 
     // Get all the key first
@@ -50,29 +54,29 @@ dispatch_queue_t m_coreDataBackgroundQueue;
     NSUInteger numberOfItems                   = [keys count];
     for (int i = 0; i < numberOfItems; i++) {
         if (([[keys objectAtIndex:i] length] != 0) || [keys objectAtIndex:i] != NULL) {
-            m_foodName                  = [keys objectAtIndex:i]; // Add food name
+            self.m_foodName                  = [keys objectAtIndex:i]; // Add food name
         }
         
         if (([dictionary objectForKey:[keys objectAtIndex:i]] != 0) || [dictionary objectForKey:[keys objectAtIndex:i]] != NULL) {
-            m_quantity                  = [dictionary objectForKey:[keys objectAtIndex:i]]; // Add quantity
+            self.m_quantity                  = [dictionary objectForKey:[keys objectAtIndex:i]]; // Add quantity
         }
         if ([insertIntoDatabase isEqualToString:@"insertIntoBreakfastFood"]) {
-            [m_database insertIntoBreakfastFood:m_foodName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoBreakfastFood:self.m_foodName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoFirstSnackFood"]) {
-            [m_database insertIntoFirstSnackFood:m_foodName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoFirstSnackFood:self.m_foodName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoLunchFood"]) {
-            [m_database insertIntoLunchFood:m_foodName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoLunchFood:self.m_foodName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoSecondSnackFood"]) {
-            [m_database insertIntoSecondSnackFood:m_foodName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoSecondSnackFood:self.m_foodName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoDinnerFood"]) {
-            [m_database insertIntoDinnerFood:m_foodName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoDinnerFood:self.m_foodName Quantity:self.m_quantity forUser:self.m_user_email];
         }
         else if([insertIntoDatabase isEqualToString:@"insertIntoThirdSnackFood"]) {
-            [m_database insertIntoThirdSnackFood:m_foodName Quantity:m_quantity forUser:m_user_email];
+            [self.m_database insertIntoThirdSnackFood:self.m_foodName Quantity:self.m_quantity forUser:self.m_user_email];
         }
     }
 }
@@ -83,18 +87,18 @@ dispatch_queue_t m_coreDataBackgroundQueue;
     // Each meal dictionary
     NSMutableDictionary *dictionary;
         
-    if (!m_database) {
-        m_database                       = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                       = [Database alloc];
     }
-    m_user_email                         = [NSString getUserEmail];
+    self.m_user_email                         = [NSString getUserEmail];
 
     // Delete previous meal plan, if any
-    [m_database deleteBreakfastforUser:m_user_email];
-    [m_database deleteFirstSnackforUser:m_user_email];
-    [m_database deleteLunchforUser:m_user_email];
-    [m_database deleteSecondSnackforUser:m_user_email];
-    [m_database deleteDinnerforUser:m_user_email];
-    [m_database deleteThirdSnackforUser:m_user_email];
+    [self.m_database deleteBreakfastforUser:self.m_user_email];
+    [self.m_database deleteFirstSnackforUser:self.m_user_email];
+    [self.m_database deleteLunchforUser:self.m_user_email];
+    [self.m_database deleteSecondSnackforUser:self.m_user_email];
+    [self.m_database deleteDinnerforUser:self.m_user_email];
+    [self.m_database deleteThirdSnackforUser:self.m_user_email];
     
     for (int i = 0; i < [calorieArray count]; i++) {
         
@@ -124,26 +128,26 @@ dispatch_queue_t m_coreDataBackgroundQueue;
 // Get meal plan from database
 - (NSMutableArray *)getMealPlanFromDatabase:(NSString *)mealFromDatabase
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     if ([mealFromDatabase isEqualToString:@"Breakfast"]) {
-        return [m_database getBreakfastforUser:m_user_email];
+        return [self.m_database getBreakfastforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"First Snack"]) {
-        return [m_database getFirstSnackforUser:m_user_email];
+        return [self.m_database getFirstSnackforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"Lunch"]) {
-        return [m_database getLunchforUser:m_user_email];
+        return [self.m_database getLunchforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"Second Snack"]) {
-        return [m_database getSecondSnackforUser:m_user_email];
+        return [self.m_database getSecondSnackforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"Dinner"]) {
-        return [m_database getDinnerforUser:m_user_email];
+        return [self.m_database getDinnerforUser:self.m_user_email];
     }
     else if ([mealFromDatabase isEqualToString:@"Third Snack"]) {
-        return [m_database getThirdSnackforUser:m_user_email];
+        return [self.m_database getThirdSnackforUser:self.m_user_email];
     }
     return nil;
 }

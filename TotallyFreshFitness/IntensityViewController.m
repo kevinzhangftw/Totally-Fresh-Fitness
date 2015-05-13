@@ -30,6 +30,35 @@
 - (NSString *)insertIntoBMREmail_Id:(NSString *)email_id Sex:(NSString *)sex Age:(NSNumber *)age Weight:(NSNumber *)weight Height:(NSNumber *)height BMR:(NSNumber *)bmr Date:(NSDate *)date Exercise_Mode:(NSString *)exercise_mode;
 - (IBAction)moveToPreviousViewController:(id)sender;
 
+@property (strong, nonatomic) Database *m_database;
+@property (strong, nonatomic) ProfileViewController *m_profileViewController;
+@property (strong, nonatomic) ExerciseViewController *m_exerciseViewController;
+@property (strong, nonatomic) MealViewController *m_mealViewController;
+@property (strong, nonatomic) CalenderViewController *m_calenderViewController;
+@property (strong, nonatomic) GoalsViewController *m_goalsViewController;
+@property (strong, nonatomic) MusicTracksViewController *m_musicTracksViewController;
+@property (strong, nonatomic) GenderViewController *m_genderViewController;
+@property (strong, nonatomic) ViewFactory *m_controllerViews;
+@property (strong, nonatomic) ViewTransitions *m_transition;
+@property (strong, nonatomic) MealPlanManager *m_mealPlanManager;
+@property (strong, nonatomic) MealPlanSelection *m_mealPlanSelection;
+@property (strong, nonatomic) NSMutableArray *m_exercise_Intensity_Images;
+@property (strong, nonatomic) NSMutableArray *m_exercise_Intensity_Active_Images;
+@property (strong, nonatomic) NSString *m_exerciseIntensity; //= @"";
+@property (strong, nonatomic) NSString *m_exerciseLightIntensity; //= @"light exercise";
+@property (strong, nonatomic) NSString *m_exerciseActiveIntensity; //= @"active exercise";
+@property (strong, nonatomic) NSString *m_exerciseBeastIntensity; //= @"beast exercise";
+@property (strong, nonatomic) NSString *m_userEmailID;
+@property (strong, nonatomic) NSMutableArray *m_calorieArray;
+@property (nonatomic) UILabel *bmrLabel;
+@property (strong, nonatomic) UIImageView *backgroundImageView;
+@property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
+@property (strong, nonatomic) UIButton *lightIntensityImageButton;
+@property (strong, nonatomic) UIButton *activeIntensityImageButton;
+@property (strong, nonatomic) UIButton *beastIntensityImageButton;
+@property (strong, nonatomic) UIButton *messageButton;
+@property (strong, nonatomic) UIButton *doneButton;
+
 @end
 
 @implementation IntensityViewController
@@ -39,59 +68,6 @@ static NSString *m_intensity_light_active                   = @"tfn-intensity_li
 static NSString *m_intensity_active_active                  = @"tfn-intensity_active_active";
 static NSString *m_intensity_beast_active                   = @"tfn-intensity_beast_active";
 
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewController class object
-MealViewController *m_mealViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// GoalsViewController class object
-GoalsViewController *m_goalsViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// GenderViewController class object
-GenderViewController *m_genderViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// Database class object
-Database *m_database;
-// Meal Plan class object
-MealPlanManager *m_mealPlanManager;
-// Meal Plan selection class object
-MealPlanSelection *m_mealPlanSelection;
-// Exercise intensity array
-NSMutableArray *m_exercise_Intensity_Images;
-// Exercise intensity array
-NSMutableArray *m_exercise_Intensity_Active_Images;
-// Exercise intensity
-NSString *m_exerciseIntensity                                = @"";
-// Exercise light intensity
-NSString *m_exerciseLightIntensity                           = @"light exercise";
-// Exercise active intensity
-NSString *m_exerciseActiveIntensity                          = @"active exercise";
-// Exercise beast intensity
-NSString *m_exerciseBeastIntensity                           = @"beast exercise";
-
-// User email id
-NSString *m_userEmailID;
-// Calorie array
-NSMutableArray *m_calorieArray;
-
-UILabel *bmrLabel;
-UIButton *doneButton;
-UIImageView *backgroundImageView;
-UIActivityIndicatorView *indicatorView;
-// Light Intensity Image Button
-UIButton *lightIntensityImageButton;
-// Active Intensity Image Button
-UIButton *activeIntensityImageButton;
-// Beast Intensity Image Button
-UIButton *beastIntensityImageButton;
-UIButton *messageButton;
 
 /*
  Singleton IntensityViewController object
@@ -110,10 +86,10 @@ UIButton *messageButton;
  */
 - (IBAction)moveToPreviousViewController:(id)sender
 {
-    if (!m_transition) {
-        m_transition                    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromRight:self.view.superview];
+    [self.m_transition performTransitionFromRight:self.view.superview];
     [self.view removeFromSuperview];
 }
 
@@ -131,11 +107,11 @@ UIButton *messageButton;
  */
 - (void)moveToGoalViewController:(id)sender
 {
-    if (!m_goalsViewController) {
-        m_goalsViewController           = [GoalsViewController sharedInstance];
+    if (!self.m_goalsViewController) {
+        self.m_goalsViewController           = [GoalsViewController sharedInstance];
     }
-    id instanceObject               = m_goalsViewController;
-    [self moveToView:m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_goalsViewController;
+    [self moveToView:self.m_goalsViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -143,12 +119,12 @@ UIButton *messageButton;
  */
 - (void)loadUpExerciseIntensityActiveImages
 {
-    if (!m_exercise_Intensity_Active_Images) {
-        m_exercise_Intensity_Active_Images             = [NSMutableArray mutableArrayObject];
+    if (!self.m_exercise_Intensity_Active_Images) {
+        self.m_exercise_Intensity_Active_Images             = [NSMutableArray mutableArrayObject];
     }
-    [m_exercise_Intensity_Active_Images addObject:m_intensity_light_active];
-    [m_exercise_Intensity_Active_Images addObject:m_intensity_active_active];
-    [m_exercise_Intensity_Active_Images addObject:m_intensity_beast_active];
+    [self.m_exercise_Intensity_Active_Images addObject:m_intensity_light_active];
+    [self.m_exercise_Intensity_Active_Images addObject:m_intensity_active_active];
+    [self.m_exercise_Intensity_Active_Images addObject:m_intensity_beast_active];
 }
 
 /*
@@ -156,18 +132,18 @@ UIButton *messageButton;
  */
 - (void)displayMessage:(NSString *)message
 {
-    messageButton.hidden   = NO;
+    self.messageButton.hidden   = NO;
     
-    [UIButton animateWithDuration:3.0f animations:^{messageButton.alpha = 5.0;} completion:nil];
+    [UIButton animateWithDuration:3.0f animations:^{self.messageButton.alpha = 5.0;} completion:nil];
     
-    [messageButton setTitle:message forState:UIControlStateNormal];
+    [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
-    [UIButton animateWithDuration:5.0f animations:^{messageButton.alpha = 0.0;} completion:nil];
+    [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
 
 /*
@@ -176,10 +152,10 @@ UIButton *messageButton;
 - (NSString *)insertIntoBMREmail_Id:(NSString *)email_id Sex:(NSString *)sex Age:(NSNumber *)age Weight:(NSNumber *)weight Height:(NSNumber *)height BMR:(NSNumber *)bmr Date:(NSDate *)date Exercise_Mode:(NSString *)exercise_mode
 {
     NSString *bmrStatus;
-    if (!m_database) {
-        m_database      = [Database alloc];
+    if (!self.m_database) {
+        self.m_database      = [Database alloc];
     }
-    bmrStatus           = [m_database insertIntoBMREmail_Id:email_id Sex:sex Age:age Weight:weight Height:height BMR:bmr Date:date Exercise_Mode:exercise_mode];
+    bmrStatus           = [self.m_database insertIntoBMREmail_Id:email_id Sex:sex Age:age Weight:weight Height:height BMR:bmr Date:date Exercise_Mode:exercise_mode];
     
     return bmrStatus;
 }
@@ -189,13 +165,13 @@ UIButton *messageButton;
  */
 - (void)calculateBMR
 {
-    if (!m_profileViewController) {
-        m_profileViewController             = [ProfileViewController sharedInstance];
+    if (!self.m_profileViewController) {
+        self.m_profileViewController             = [ProfileViewController sharedInstance];
     }
-    if (!m_genderViewController) {
-        m_genderViewController              = [GenderViewController sharedInstance];
+    if (!self.m_genderViewController) {
+        self.m_genderViewController              = [GenderViewController sharedInstance];
     }
-    bmrLabel.text                      = [NSString stringWithFormat:@"%d",[self calculateBMRSex:m_genderViewController.sex Weight:m_profileViewController.weight Age:m_profileViewController.age Height:m_profileViewController.height ExerciseIntensity:m_exerciseIntensity]];
+    self.bmrLabel.text                      = [NSString stringWithFormat:@"%d",[self calculateBMRSex:self.m_genderViewController.sex Weight:self.m_profileViewController.weight Age:self.m_profileViewController.age Height:self.m_profileViewController.height ExerciseIntensity:self.m_exerciseIntensity]];
 }
 
 // Done
@@ -204,37 +180,37 @@ UIButton *messageButton;
     NSString *exerciseIntensityStatus   = @"";
     NSDate *date                        = [NSDate date];
 
-    if (!m_profileViewController) {
-        m_profileViewController         = [ProfileViewController sharedInstance];
+    if (!self.m_profileViewController) {
+        self.m_profileViewController         = [ProfileViewController sharedInstance];
     }
     
-    if (!m_genderViewController) {
-        m_genderViewController          = [GenderViewController sharedInstance];
+    if (!self.m_genderViewController) {
+        self.m_genderViewController          = [GenderViewController sharedInstance];
     }
     
-    if (([m_exerciseIntensity length] != 0) && (m_exerciseIntensity != NULL)) { // Intensity is selected
+    if (([self.m_exerciseIntensity length] != 0) && (self.m_exerciseIntensity != NULL)) { // Intensity is selected
         
-        if ((m_profileViewController.age != 0) && (m_profileViewController.weight != 0) && (m_profileViewController.height != 0) && ([m_genderViewController.sex length] != 0) && (m_genderViewController.sex != NULL)) {
-            if (!m_database) {
-                m_database                  = [Database alloc];
+        if ((self.m_profileViewController.age != 0) && (self.m_profileViewController.weight != 0) && (self.m_profileViewController.height != 0) && ([self.m_genderViewController.sex length] != 0) && (self.m_genderViewController.sex != NULL)) {
+            if (!self.m_database) {
+                self.m_database                  = [Database alloc];
             }
             NSNumberFormatter *formatter    = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
             // Clean up the height format with ' for feet and ” for inches
-            NSString *heightString          = m_profileViewController.height;
+            NSString *heightString          = self.m_profileViewController.height;
             heightString                      = [[heightString componentsSeparatedByCharactersInSet:
                                                                        [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
                                                                       componentsJoinedByString:@""];
             // Convert to nsnumber for insert into database
             NSNumber *theHeight             = [formatter numberFromString:heightString];
-            NSNumber *theBMR                = [formatter numberFromString:bmrLabel.text];
+            NSNumber *theBMR                = [formatter numberFromString:self.bmrLabel.text];
 
             // Save BMR details in the database
-            exerciseIntensityStatus         = [m_database insertIntoBMREmail_Id:m_userEmailID Sex:m_genderViewController.sex Age:[NSNumber numberWithInt:m_profileViewController.age] Weight:[NSNumber numberWithInt:m_profileViewController.weight] Height:theHeight BMR:theBMR Date:date Exercise_Mode:m_exerciseIntensity];
+            exerciseIntensityStatus         = [self.m_database insertIntoBMREmail_Id:self.m_userEmailID Sex:self.m_genderViewController.sex Age:[NSNumber numberWithInt:self.m_profileViewController.age] Weight:[NSNumber numberWithInt:self.m_profileViewController.weight] Height:theHeight BMR:theBMR Date:date Exercise_Mode:self.m_exerciseIntensity];
             
-            [self saveMealPlanIntoDatabaseWithBMR:[bmrLabel.text intValue] ForGender:m_genderViewController.sex];
+            [self saveMealPlanIntoDatabaseWithBMR:[self.bmrLabel.text intValue] ForGender:self.m_genderViewController.sex];
             // So that we have new static gender
-            [NSString setGenderOfUser:m_genderViewController.sex];
+            [NSString setGenderOfUser:self.m_genderViewController.sex];
             // So that we have new static user email
             [NSString resetEmail];
             if ([exerciseIntensityStatus isEqualToString:@"live"]) { // If the insert is successful
@@ -261,61 +237,61 @@ UIButton *messageButton;
 {
 
 
-    if (sender == lightIntensityImageButton) {
-        if ([m_exerciseLightIntensity isEqualToString:@"light exercise"]) {
+    if (sender == self.lightIntensityImageButton) {
+        if ([self.m_exerciseLightIntensity isEqualToString:@"light exercise"]) {
             // assign the mode
-            m_exerciseLightIntensity               = @"light exercise active";
-            m_exerciseActiveIntensity              = @"active exercise";
-            m_exerciseBeastIntensity               = @"beast exercise";
-            m_exerciseIntensity                    = @"light exercise";
+            self.m_exerciseLightIntensity               = @"light exercise active";
+            self.m_exerciseActiveIntensity              = @"active exercise";
+            self.m_exerciseBeastIntensity               = @"beast exercise";
+            self.m_exerciseIntensity                    = @"light exercise";
             // set light intensity image
-            [lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:[m_exercise_Intensity_Active_Images objectAtIndex:0]] forState:UIControlStateNormal];
-            [activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            [beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:[self.m_exercise_Intensity_Active_Images objectAtIndex:0]] forState:UIControlStateNormal];
+            [self.activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
 
         }
         else {
             // assign the mode
-            m_exerciseLightIntensity               = @"light exercise";
+            self.m_exerciseLightIntensity               = @"light exercise";
             // set light intensity image
-            [lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
         }
     }
-    else if (sender == activeIntensityImageButton) {
-        if ([m_exerciseActiveIntensity isEqualToString:@"active exercise"]) {
+    else if (sender == self.activeIntensityImageButton) {
+        if ([self.m_exerciseActiveIntensity isEqualToString:@"active exercise"]) {
             // assign the mode
-            m_exerciseActiveIntensity               = @"active exercise active";
-            m_exerciseLightIntensity                = @"light exercise";
-            m_exerciseBeastIntensity                = @"beast exercise";
-            m_exerciseIntensity                     = @"active exercise";
-            [activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:[m_exercise_Intensity_Active_Images objectAtIndex:1]] forState:UIControlStateNormal];
-            [lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            [beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            self.m_exerciseActiveIntensity               = @"active exercise active";
+            self.m_exerciseLightIntensity                = @"light exercise";
+            self.m_exerciseBeastIntensity                = @"beast exercise";
+            self.m_exerciseIntensity                     = @"active exercise";
+            [self.activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:[self.m_exercise_Intensity_Active_Images objectAtIndex:1]] forState:UIControlStateNormal];
+            [self.lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
 
         }
         else {
             // assign the mode
-            m_exerciseActiveIntensity               = @"active exercise";
-            [activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            self.m_exerciseActiveIntensity               = @"active exercise";
+            [self.activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
         }
     }
-    else if (sender == beastIntensityImageButton) {
-        if ([m_exerciseBeastIntensity isEqualToString:@"beast exercise"]) {
+    else if (sender == self.beastIntensityImageButton) {
+        if ([self.m_exerciseBeastIntensity isEqualToString:@"beast exercise"]) {
             // assign the mode
-            m_exerciseBeastIntensity               = @"beast exercise active";
-            m_exerciseLightIntensity               = @"light exercise";
-            m_exerciseActiveIntensity              = @"active exercise";
-            m_exerciseIntensity                    = @"beast exercise";
+            self.m_exerciseBeastIntensity               = @"beast exercise active";
+            self.m_exerciseLightIntensity               = @"light exercise";
+            self.m_exerciseActiveIntensity              = @"active exercise";
+            self.m_exerciseIntensity                    = @"beast exercise";
             // set active intensity image
-            [beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:[m_exercise_Intensity_Active_Images objectAtIndex:2]] forState:UIControlStateNormal];
-            [activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            [lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:[self.m_exercise_Intensity_Active_Images objectAtIndex:2]] forState:UIControlStateNormal];
+            [self.activeIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.lightIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
         }
         else {
             // assign the mode
-            m_exerciseBeastIntensity               = @"beast exercise";
+            self.m_exerciseBeastIntensity               = @"beast exercise";
             // set active intensity image
-            [beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
+            [self.beastIntensityImageButton setBackgroundImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
         }
     }
 }
@@ -363,16 +339,16 @@ UIButton *messageButton;
         doneButtonFrame                   = CGRectMake(252.0f, 425.0f, 60.0f, 40.0f);
     }
     
-    backgroundImageView                   = [[UIImageView alloc] initWithFrame:backgroundImageViewFrame];
+    self.backgroundImageView                   = [[UIImageView alloc] initWithFrame:backgroundImageViewFrame];
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        backgroundImageView.image         = [UIImage imageNamed:@"intensity.png"];
+        self.backgroundImageView.image         = [UIImage imageNamed:@"intensity.png"];
     }
     else {
-        backgroundImageView.image         = [UIImage imageNamed:@"intensity.png"];
+        self.backgroundImageView.image         = [UIImage imageNamed:@"intensity.png"];
     }
-    backgroundImageView.userInteractionEnabled  = NO;
-    [self.view addSubview:backgroundImageView];
+    self.backgroundImageView.userInteractionEnabled  = NO;
+    [self.view addSubview:self.backgroundImageView];
     
     CGRect lightIntensityImageButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -381,9 +357,9 @@ UIButton *messageButton;
     else {
         lightIntensityImageButtonFrame              = CGRectMake(0.0f, 64.0f, 320.0f, 113.0f);
     }
-    lightIntensityImageButton                   = [[UIButton alloc] initWithFrame:lightIntensityImageButtonFrame];
-    [self.view addSubview:lightIntensityImageButton];
-    [lightIntensityImageButton addTarget:self action:@selector(selectExerciseIntensity:) forControlEvents:UIControlEventTouchUpInside];
+    self.lightIntensityImageButton                   = [[UIButton alloc] initWithFrame:lightIntensityImageButtonFrame];
+    [self.view addSubview:self.lightIntensityImageButton];
+    [self.lightIntensityImageButton addTarget:self action:@selector(selectExerciseIntensity:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect activeIntensityImageButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -392,9 +368,9 @@ UIButton *messageButton;
     else {
         activeIntensityImageButtonFrame              = CGRectMake(0.0f, 180.0f, 320.0f, 114.0f);
     }
-    activeIntensityImageButton             = [[UIButton alloc] initWithFrame:activeIntensityImageButtonFrame];
-    [self.view addSubview:activeIntensityImageButton];
-    [activeIntensityImageButton addTarget:self action:@selector(selectExerciseIntensity:) forControlEvents:UIControlEventTouchUpInside];
+    self.activeIntensityImageButton             = [[UIButton alloc] initWithFrame:activeIntensityImageButtonFrame];
+    [self.view addSubview:self.activeIntensityImageButton];
+    [self.activeIntensityImageButton addTarget:self action:@selector(selectExerciseIntensity:) forControlEvents:UIControlEventTouchUpInside];
 
     CGRect beastIntensityImageButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -403,31 +379,31 @@ UIButton *messageButton;
     else {
         beastIntensityImageButtonFrame              = CGRectMake(0.0f, 296.0f, 320.0f, 113.0f);
     }
-    beastIntensityImageButton              = [[UIButton alloc] initWithFrame:beastIntensityImageButtonFrame];
-    [self.view addSubview:beastIntensityImageButton];
-    [beastIntensityImageButton addTarget:self action:@selector(selectExerciseIntensity:) forControlEvents:UIControlEventTouchUpInside];
+    self.beastIntensityImageButton              = [[UIButton alloc] initWithFrame:beastIntensityImageButtonFrame];
+    [self.view addSubview:self.beastIntensityImageButton];
+    [self.beastIntensityImageButton addTarget:self action:@selector(selectExerciseIntensity:) forControlEvents:UIControlEventTouchUpInside];
     
     // load up the exercise intensity selected images
     [self loadUpExerciseIntensityActiveImages];
     
     CGRect messageButtonFrame             = CGRectMake(0.0f, 64.0f, 320.0f, 25.0f);
-    messageButton                         = [[UIButton alloc] initWithFrame:messageButtonFrame];
-    messageButton.backgroundColor         = [UIColor clearColor];
-    messageButton.titleLabel.textColor    = [UIColor darkGrayColor];
-    messageButton.titleLabel.font         = [UIFont customFontWithSize:13];
-    messageButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    messageButton.titleLabel.numberOfLines = 2;
-    messageButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [messageButton addTarget:self action:@selector(displayMessage:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:messageButton];
+    self.messageButton                         = [[UIButton alloc] initWithFrame:messageButtonFrame];
+    self.messageButton.backgroundColor         = [UIColor clearColor];
+    self.messageButton.titleLabel.textColor    = [UIColor darkGrayColor];
+    self.messageButton.titleLabel.font         = [UIFont customFontWithSize:13];
+    self.messageButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.messageButton.titleLabel.numberOfLines = 2;
+    self.messageButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.messageButton addTarget:self action:@selector(displayMessage:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.messageButton];
     
-    doneButton                            = [[UIButton alloc] initWithFrame:doneButtonFrame];
-    doneButton.userInteractionEnabled     = YES;
-    doneButton.hidden                     = NO;
-    doneButton.enabled                    = YES;
-    [doneButton becomeFirstResponder];
-    [self.view addSubview:doneButton];
-    [doneButton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
+    self.doneButton                            = [[UIButton alloc] initWithFrame:doneButtonFrame];
+    self.doneButton.userInteractionEnabled     = YES;
+    self.doneButton.hidden                     = NO;
+    self.doneButton.enabled                    = YES;
+    [self.doneButton becomeFirstResponder];
+    [self.view addSubview:self.doneButton];
+    [self.doneButton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect bmrLabelFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -436,12 +412,12 @@ UIButton *messageButton;
     else {
         bmrLabelFrame                   = CGRectMake(40.0f, 430.0f, 50.0f, 30.0f);
     }
-    bmrLabel                               = [[UILabel alloc] initWithFrame:bmrLabelFrame];
-    bmrLabel.backgroundColor               = [UIColor clearColor];
-    bmrLabel.textAlignment                 = NSTextAlignmentCenter;
-    bmrLabel.textColor                     = [UIColor redColor];
-    bmrLabel.font                          = [UIFont customFontWithSize:15];
-    [self.view addSubview:bmrLabel];
+    self.bmrLabel                               = [[UILabel alloc] initWithFrame:bmrLabelFrame];
+    self.bmrLabel.backgroundColor               = [UIColor clearColor];
+    self.bmrLabel.textAlignment                 = NSTextAlignmentCenter;
+    self.bmrLabel.textColor                     = [UIColor redColor];
+    self.bmrLabel.font                          = [UIFont customFontWithSize:15];
+    [self.view addSubview:self.bmrLabel];
 
 }
 
@@ -461,36 +437,36 @@ UIButton *messageButton;
 - (void)saveMealPlanIntoDatabaseWithBMR:(int)bmr ForGender:(NSString *)gender
 {
     // m_calorieArray to be displayed on the tableview
-    if(!m_calorieArray)
-        m_calorieArray              = [NSMutableArray mutableArrayObject];
+    if(!self.m_calorieArray)
+        self.m_calorieArray              = [NSMutableArray mutableArrayObject];
     
-    if (!m_mealPlanSelection) {
-        m_mealPlanSelection         = [MealPlanSelection sharedInstance];
+    if (!self.m_mealPlanSelection) {
+        self.m_mealPlanSelection         = [MealPlanSelection sharedInstance];
     }
     
-    m_calorieArray                  = [m_mealPlanSelection calorieSelection:bmr Gender:gender];
+    self.m_calorieArray                  = [self.m_mealPlanSelection calorieSelection:bmr Gender:gender];
 
 //    if (!m_mealPlanManager) {
 //        m_mealPlanManager           = [MealPlanManager sharedInstance];
 //    }
 //    [m_mealPlanManager saveMealPlanInDatabase:m_calorieArray];
     BreakFastPlanManager *m_breakFastPlanManager     = [BreakFastPlanManager sharedInstance];
-    [m_breakFastPlanManager saveBreakFastPlanInDatabase:[m_calorieArray objectAtIndex:0]];
+    [m_breakFastPlanManager saveBreakFastPlanInDatabase:[self.m_calorieArray objectAtIndex:0]];
     
     FirstSnackPlanManager *m_firstSnackPlanManager   = [FirstSnackPlanManager sharedInstance];
-    [m_firstSnackPlanManager saveFirstSnackPlanInDatabase:[m_calorieArray objectAtIndex:1]];
+    [m_firstSnackPlanManager saveFirstSnackPlanInDatabase:[self.m_calorieArray objectAtIndex:1]];
     
     LunchPlanManager *m_lunchPlanManager             = [LunchPlanManager sharedInstance];
-    [m_lunchPlanManager saveLunchPlanInDatabase:[m_calorieArray objectAtIndex:2]];
+    [m_lunchPlanManager saveLunchPlanInDatabase:[self.m_calorieArray objectAtIndex:2]];
     
     SecondSnackPlanManager *m_secondSnackPlanManager = [SecondSnackPlanManager sharedInstance];
-    [m_secondSnackPlanManager saveSecondSnackPlanInDatabase:[m_calorieArray objectAtIndex:3]];
+    [m_secondSnackPlanManager saveSecondSnackPlanInDatabase:[self.m_calorieArray objectAtIndex:3]];
     
     DinnerPlanManager *m_dinnerPlanManager           = [DinnerPlanManager sharedInstance];
-    [m_dinnerPlanManager saveDinnerPlanInDatabase:[m_calorieArray objectAtIndex:4]];
+    [m_dinnerPlanManager saveDinnerPlanInDatabase:[self.m_calorieArray objectAtIndex:4]];
     
     ThirdSnackPlanManager *m_thirdPlanManager        = [ThirdSnackPlanManager sharedInstance];
-    [m_thirdPlanManager saveThirdSnackPlanInDatabase:[m_calorieArray objectAtIndex:5]];
+    [m_thirdPlanManager saveThirdSnackPlanInDatabase:[self.m_calorieArray objectAtIndex:5]];
 }
 
 @end

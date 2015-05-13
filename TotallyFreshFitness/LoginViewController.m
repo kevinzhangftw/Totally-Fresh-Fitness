@@ -44,97 +44,95 @@
 // STTwitterOS instance
 @property (nonatomic, strong) STTwitterOS *twitterOS;
 
+// AppDelegate class object
+@property (nonatomic, strong)AppDelegate *m_appDelegate;
+// ProfileViewController class object
+@property (nonatomic, strong)ProfileViewController *m_profileViewController;
+// RootViewController class object
+@property (nonatomic, strong)RootViewController *m_rootViewController;
+// ViewFactory class object
+@property (nonatomic, strong)ViewFactory *m_controllerViews;
+// Database class object
+@property (nonatomic, strong)Database *m_database;
+// ViewTransition class object
+@property (nonatomic, strong)ViewTransitions *m_transition;
+// ServerGateway class object
+@property (nonatomic, strong)TFNGateway *m_serverConnection;
+//Register
+@property (nonatomic, strong)RegisterViewController *m_registerViewController;
+// All Email Ids
+@property (nonatomic, strong)NSMutableArray *m_emailIDsArray;
+// Initial y position of facebookbutton
+@property (nonatomic)int initialYOfFacebookButton;
+// move to RootViewController has already been called
+@property (nonatomic)BOOL m_rootViewControllerAlreadyCalled;
+// move to ProfileViewController has already been called
+@property (nonatomic)BOOL m_profileViewControllerAlreadyCalled;
+// User email id retreived from database
+@property (nonatomic, strong)NSString *m_userEmailID;
+// Terms and Condition Image View
+@property (nonatomic, strong)UIImageView *m_terms_And_Conditions_ImageView;
+// Terms and Condition Text View
+@property (nonatomic, strong)UITextView *m_terms_And_Conditions_TextView;
+// Click Terms and conditions button
+@property (nonatomic, strong)UIButton *m_click_Terms_And_Conditions;
+// Mode of registration
+@property (nonatomic, strong)NSString *m_mode_Of_Registration;
+// Cusumer key
+@property (nonatomic, strong)UIImageView *m_loginBackgroundImageView;
+@property (nonatomic, strong)UIView *m_signinBackgroundView;
+@property (nonatomic, strong)UIImageView *m_signinBackgroundImageView;
+//@property (nonatomic, strong)UIButton *m_facebookLoginButton;
+//@property (nonatomic, strong)UIButton *m_twitterLoginButton;
+@property (nonatomic, strong)UIButton *googlePlusLoginButton;
+@property (nonatomic, strong)UIButton *m_showSignInViewButton;
+@property (nonatomic, strong)UIButton *m_registerViewButton;
+@property (nonatomic, strong)UITextField *m_email_ID;
+@property (nonatomic, strong)UITextField *m_password;
+@property (nonatomic, strong)UIButton *m_signInButton;
+@property (nonatomic, strong)UIButton *m_registerButton;
+@property (nonatomic, strong)UIImageView *movingImageOneView;
+@property (nonatomic)CGRect movingImageTargetOne;
+@property (nonatomic)CGRect movingImageTargetOneInitial;
+@property (nonatomic)int movingImageTargetOneState;
+@property (nonatomic, strong)UIImageView *movingImageTwoView;
+@property (nonatomic)CGRect movingImageTargetTwo;
+@property (nonatomic)CGRect movingImageTargetTwoInitial;
+@property (nonatomic)int movingImageTargetTwoState;
+@property (nonatomic, strong)UIImageView *movingImageThreeView;
+@property (nonatomic)CGRect movingImageTargetThree;
+@property (nonatomic)CGRect movingImageTargetThreeInitial;
+@property (nonatomic)int movingImageTargetThreeState;
+@property (nonatomic, strong)UIImageView *movingImageFourView;
+@property (nonatomic)CGRect movingImageTargetFour;
+@property (nonatomic)CGRect movingImageTargetFourInitial;
+@property (nonatomic)int movingImageTargetFourState;
+@property (nonatomic, strong)UIImageView *movingImageFiveView;
+@property (nonatomic)CGRect movingImageTargetFive;
+@property (nonatomic)CGRect movingImageTargetFiveInitial;
+@property (nonatomic)int movingImageTargetFiveState;
+@property (nonatomic, strong)UIImageView *movingImageSixView;
+@property (nonatomic)CGRect movingImageTargetSix;
+@property (nonatomic)CGRect movingImageTargetSixInitial;
+@property (nonatomic)int movingImageTargetSixState;
+@property (nonatomic, strong)NSArray *movingImageXPositions;
+//@property (strong)UIPageControl *pageControl;
+@property (nonatomic, strong)UIView *socialButtonsView;
+@property (nonatomic, strong)UIView *motivationalQouteView;
+@property (nonatomic, strong)UIImageView *m_signin_fields;
+@property (nonatomic, strong)UIButton *m_downloadImages;
+@property (nonatomic)int i;
+@property (nonatomic, strong)MBProgressHUD *HUD;
+
 @end
 
 @implementation LoginViewController
 
-// AppDelegate class object
-AppDelegate *m_appDelegate;
-// ProfileViewController class object
-ProfileViewController *m_profileViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// Database class object
-Database *m_database;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// ServerGateway class object
-TFNGateway *m_serverConnection;
-//Register
-RegisterViewController *m_registerViewController;
-// All Email Ids
-NSMutableArray *m_emailIDsArray;
-// Initial y position of facebookbutton
-int initialYOfFacebookButton;
-// move to RootViewController has already been called
-bool m_rootViewControllerAlreadyCalled;
-// move to ProfileViewController has already been called
-bool m_profileViewControllerAlreadyCalled;
-// User email id retreived from database
-NSString *m_userEmailID;
-// Terms and Condition Image View
-UIImageView *m_terms_And_Conditions_ImageView;
-// Terms and Condition Text View
-UITextView *m_terms_And_Conditions_TextView;
-// Click Terms and conditions button
-UIButton *m_click_Terms_And_Conditions;
-// Mode of registration
-NSString *m_mode_Of_Registration;
-// Cusumer key
 static NSString * const m_consumer_key       = @"Tj1YiFQLaJJqfjexnBmgw";
 // Cusumer secret
 static NSString * const m_consumer_secret    = @"kS6kLMBi5zjUHDJA8pUFpawktEwofuN4it8ypdc2wv4";
 // Google Plus client id
 static NSString * const kClientId            = @"670642597699-5a6lm63qetdsqom5nve7orjc67v8sf1g.apps.googleusercontent.com";
-
-UIImageView *m_loginBackgroundImageView;
-UIView *m_signinBackgroundView;
-UIImageView *m_signinBackgroundImageView;
-UIButton *m_facebookLoginButton;
-UIButton *m_twitterLoginButton;
-UIButton *googlePlusLoginButton;
-UIButton *m_showSignInViewButton;
-UIButton *m_registerViewButton;
-UITextField *m_email_ID;
-UITextField *m_password;
-UIButton *m_signInButton;
-
-UIButton *m_registerButton;
-UIImageView *movingImageOneView;
-CGRect movingImageTargetOne;
-CGRect movingImageTargetOneInitial;
-int movingImageTargetOneState;
-UIImageView *movingImageTwoView;
-CGRect movingImageTargetTwo;
-CGRect movingImageTargetTwoInitial;
-int movingImageTargetTwoState;
-UIImageView *movingImageThreeView;
-CGRect movingImageTargetThree;
-CGRect movingImageTargetThreeInitial;
-int movingImageTargetThreeState;
-UIImageView *movingImageFourView;
-CGRect movingImageTargetFour;
-CGRect movingImageTargetFourInitial;
-int movingImageTargetFourState;
-UIImageView *movingImageFiveView;
-CGRect movingImageTargetFive;
-CGRect movingImageTargetFiveInitial;
-int movingImageTargetFiveState;
-UIImageView *movingImageSixView;
-CGRect movingImageTargetSix;
-CGRect movingImageTargetSixInitial;
-int movingImageTargetSixState;
-NSArray *movingImageXPositions;
-UIPageControl *pageControl;
-UIView *socialButtonsView;
-UIView *motivationalQouteView;
-UIImageView *m_signin_fields;
-UIButton *m_downloadImages;
-
-int i;
-MBProgressHUD *HUD;
 
 @synthesize messageButton;
 @synthesize userFacebookEmailID;
@@ -194,12 +192,12 @@ MBProgressHUD *HUD;
 
 -(void)moveToRegisterViewController:(id)sender{
     
-    if(!m_registerViewController){
-        m_registerViewController = [RegisterViewController sharedInstance];
+    if(!self.m_registerViewController){
+        self.m_registerViewController = [RegisterViewController sharedInstance];
     }
-    id instanceObject = m_registerViewController;
+    id instanceObject = self.m_registerViewController;
     
-    [self moveToView:m_registerViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    [self moveToView:self.m_registerViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -207,26 +205,26 @@ Hide sign in view
 */
 - (void)hideSigninView
 {
-    if (!m_transition) {
-        m_transition                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionDisappear:m_signinBackgroundImageView];
+    [self.m_transition performTransitionDisappear:self.m_signinBackgroundImageView];
     self.featuredScrollView.hidden                = NO;
     self.pageControl.hidden                       = YES;
-    m_facebookLoginButton.hidden                  = NO;
-    m_twitterLoginButton.hidden                   = NO;
-    m_loginBackgroundImageView.hidden             = NO;
+    self.m_facebookLoginButton.hidden                  = NO;
+    self.m_twitterLoginButton.hidden                   = NO;
+    self.m_loginBackgroundImageView.hidden             = NO;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         self.googlePlusLoginButtonOne.hidden      = NO;
     }
     else {
         self.googlePlusLoginButtonTwo.hidden      = NO;
     }
-    m_signinBackgroundImageView.hidden            = YES;
-    m_email_ID.hidden                             = YES;
-    m_password.hidden                             = YES;
-    m_registerButton.hidden                       = YES;
-    m_signInButton.hidden                         = YES;
+    self.m_signinBackgroundImageView.hidden            = YES;
+    self.m_email_ID.hidden                             = YES;
+    self.m_password.hidden                             = YES;
+    self.m_registerButton.hidden                       = YES;
+    self.m_signInButton.hidden                         = YES;
 }
 
 /*
@@ -234,16 +232,16 @@ Hide sign in view
  */
 - (void)showSigninView:(id)sender
 {
-    if (!m_transition) {
-        m_transition                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionAppear:m_signinBackgroundImageView];
-    m_signinBackgroundView.hidden                 = NO;
-    m_signinBackgroundImageView.hidden            = NO;
-    m_email_ID.hidden                             = NO;
-    m_password.hidden                             = NO;
-    m_registerButton.hidden                       = NO;
-    m_signInButton.hidden                         = NO;
+    [self.m_transition performTransitionAppear:self.m_signinBackgroundImageView];
+    self.m_signinBackgroundView.hidden                 = NO;
+    self.m_signinBackgroundImageView.hidden            = NO;
+    self.m_email_ID.hidden                             = NO;
+    self.m_password.hidden                             = NO;
+    self.m_registerButton.hidden                       = NO;
+    self.m_signInButton.hidden                         = NO;
     [self hideLoginDetails];
 }
 
@@ -258,10 +256,10 @@ Hide sign in view
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -271,10 +269,10 @@ Hide sign in view
  */
 - (NSString *) checkUserLogState
 {
-    if (!m_database) {
-        m_database                  = [[Database alloc] init];
+    if (!self.m_database) {
+        self.m_database                  = [[Database alloc] init];
     }
-    NSString *checkLoginString      = [[NSString alloc] initWithFormat:@"%@",[m_database checkUserLogInStatus]];
+    NSString *checkLoginString      = [[NSString alloc] initWithFormat:@"%@",[self.m_database checkUserLogInStatus]];
     
     return checkLoginString;
 }
@@ -285,18 +283,18 @@ Hide sign in view
 - (void)rootViewController:(id)sender
 {
     // Hide keypad
-    [m_email_ID resignFirstResponder];
-    [m_password resignFirstResponder];
+    [self.m_email_ID resignFirstResponder];
+    [self.m_password resignFirstResponder];
 
-    if (!m_rootViewController) {
-        m_rootViewController                    = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                    = [RootViewController sharedInstance];
     }
     
-    id instanceObject                               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
-    m_rootViewController.view.tag               = 20;
+    id instanceObject                               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    self.m_rootViewController.view.tag               = 20;
     // The method is now called, now don't call when facebook session changes
-    m_rootViewControllerAlreadyCalled           = TRUE;
+    self.m_rootViewControllerAlreadyCalled           = TRUE;
 }
 
 /*
@@ -305,17 +303,17 @@ Hide sign in view
 - (void)profileViewController:(id)sender
 {
     // Hide keypad
-    [m_email_ID resignFirstResponder];
-    [m_password resignFirstResponder];
+    [self.m_email_ID resignFirstResponder];
+    [self.m_password resignFirstResponder];
     
-    if (!m_profileViewController) {
-        m_profileViewController             = [ProfileViewController sharedInstance];
+    if (!self.m_profileViewController) {
+        self.m_profileViewController             = [ProfileViewController sharedInstance];
     }
-    id instanceObject                       = m_profileViewController;
-    m_profileViewController.view.tag        = 2;
-    [self moveToView:m_profileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                       = self.m_profileViewController;
+    self.m_profileViewController.view.tag        = 2;
+    [self moveToView:self.m_profileViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     // The method is now called, now don't call when facebook session changes
-    m_profileViewControllerAlreadyCalled    = TRUE;
+    self.m_profileViewControllerAlreadyCalled    = TRUE;
 }
 
 
@@ -335,14 +333,14 @@ Hide sign in view
         [self profileViewController:self];
     }
     else {
-        if (!m_database) {
-            m_database      = [Database alloc];
+        if (!self.m_database) {
+            self.m_database      = [Database alloc];
         }
-        if (!m_userEmailID) {
-            m_userEmailID   = [NSString getUserEmail];
+        if (!self.m_userEmailID) {
+            self.m_userEmailID   = [NSString getUserEmail];
             
         }
-        if ([m_database checkEmailIDInBMR:m_userEmailID]) { // Make sure that user has created a BMR detail first
+        if ([self.m_database checkEmailIDInBMR:self.m_userEmailID]) { // Make sure that user has created a BMR detail first
             // Present the home page
             [self rootViewController:self];
         }
@@ -360,21 +358,21 @@ Hide sign in view
 {
     NSString *status        = @"No";
     
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
-    status                  = [m_database insertIntoTermsAndConditionsToAccept:@"Yes"];
+    status                  = [self.m_database insertIntoTermsAndConditionsToAccept:@"Yes"];
     if ([status isEqualToString:@"inserted"]) {
-        if ([m_mode_Of_Registration isEqualToString:@"registerUser"]) {
+        if ([self.m_mode_Of_Registration isEqualToString:@"registerUser"]) {
             [self insertUserIntoDatabase];
         }
-        else if([m_mode_Of_Registration isEqualToString:@"registerUsingFacebook"]) {
+        else if([self.m_mode_Of_Registration isEqualToString:@"registerUsingFacebook"]) {
             [self loginWithFacebook];
         }
-        else if([m_mode_Of_Registration isEqualToString:@"registerUsingTwitter"]) {
+        else if([self.m_mode_Of_Registration isEqualToString:@"registerUsingTwitter"]) {
             [self loginWithTwitter];
         }
-        else if([m_mode_Of_Registration isEqualToString:@"registerUsingGooglePlus"]) {
+        else if([self.m_mode_Of_Registration isEqualToString:@"registerUsingGooglePlus"]) {
             [self loginWithGooglePlus];
         }
         // remove terms and conditions form
@@ -392,13 +390,13 @@ Hide sign in view
 - (void)hideLoginDetails
 {
     // hide the login details
-    m_showSignInViewButton.hidden                 = YES;
-    m_registerViewButton.hidden                   = YES;
+    self.m_showSignInViewButton.hidden                 = YES;
+    self.m_registerViewButton.hidden                   = YES;
     self.featuredScrollView.hidden                = YES;
     self.pageControl.hidden                       = YES;
-    m_facebookLoginButton.hidden                  = YES;
-    m_twitterLoginButton.hidden                   = YES;
-    m_loginBackgroundImageView.hidden             = YES;
+    self.m_facebookLoginButton.hidden                  = YES;
+    self.m_twitterLoginButton.hidden                   = YES;
+    self.m_loginBackgroundImageView.hidden             = YES;
     self.googlePlusLoginButtonOne.hidden          = YES;
     self.googlePlusLoginButtonTwo.hidden          = YES;
 }
@@ -409,13 +407,13 @@ Hide sign in view
 - (void)showLoginDetails
 {
     // show the login details
-    m_showSignInViewButton.hidden                 = NO;
-    m_registerViewButton.hidden                   = NO;
+   self. m_showSignInViewButton.hidden                 = NO;
+    self.m_registerViewButton.hidden                   = NO;
     self.featuredScrollView.hidden                = NO;
     self.pageControl.hidden                       = NO;
-    m_facebookLoginButton.hidden                  = NO;
-    m_twitterLoginButton.hidden                   = NO;
-    m_loginBackgroundImageView.hidden             = NO;
+    self.m_facebookLoginButton.hidden                  = NO;
+    self.m_twitterLoginButton.hidden                   = NO;
+    self.m_loginBackgroundImageView.hidden             = NO;
     self.googlePlusLoginButtonOne.hidden          = NO;
     self.googlePlusLoginButtonTwo.hidden          = NO;
 }
@@ -425,8 +423,8 @@ Hide sign in view
  */
 - (void)createTermsAndConditionsForms
 {
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
     
     [self hideLoginDetails];
@@ -438,34 +436,34 @@ Hide sign in view
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) {
         termsAndConditionsImageViewFrame                = CGRectMake(0.0f, 0.0f, 320.0f, 568.0f);
-        m_terms_And_Conditions_ImageView                = [[UIImageView alloc] initWithFrame:termsAndConditionsImageViewFrame];
-        m_terms_And_Conditions_ImageView.image          = [UIImage imageNamed:@"terms_condition_iPhone5.png"];
+        self.m_terms_And_Conditions_ImageView                = [[UIImageView alloc] initWithFrame:termsAndConditionsImageViewFrame];
+        self.m_terms_And_Conditions_ImageView.image          = [UIImage imageNamed:@"terms_condition_iPhone5.png"];
         termsAndConditionsTextViewFrame                 = CGRectMake(35.0f, 185.0f, 260.0f, 265.0f);
         termsAndConditionsClickButtonFrame              = CGRectMake(69.0f, 480.0f, 182.0f, 50.0f);
     }
     else { // if iphones other than iphone 5
         termsAndConditionsImageViewFrame                = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-        m_terms_And_Conditions_ImageView                = [[UIImageView alloc] initWithFrame:termsAndConditionsImageViewFrame];
-        m_terms_And_Conditions_ImageView.image          = [UIImage imageNamed:@"terms_condition_iPhone4.png"];
+       self. m_terms_And_Conditions_ImageView                = [[UIImageView alloc] initWithFrame:termsAndConditionsImageViewFrame];
+        self.m_terms_And_Conditions_ImageView.image          = [UIImage imageNamed:@"terms_condition_iPhone4.png"];
         termsAndConditionsTextViewFrame                 = CGRectMake(35.0f, 130.0f, 260.0f, 260.0f);
         termsAndConditionsClickButtonFrame              = CGRectMake(69.0f, 420.0f, 182.0f, 50.0f);
     }
     
-    [self.view addSubview:m_terms_And_Conditions_ImageView];
-    [m_transition performTransitionAppear:m_terms_And_Conditions_ImageView];
-    m_terms_And_Conditions_TextView                 = [[UITextView alloc] initWithFrame:termsAndConditionsTextViewFrame];
-    [self.view addSubview:m_terms_And_Conditions_TextView];
-    m_terms_And_Conditions_TextView.backgroundColor = [UIColor clearColor];
-    m_terms_And_Conditions_TextView.text            = termsAndConditionTextView.text;
-    m_terms_And_Conditions_TextView.textColor       = [UIColor whiteColor];
-    m_terms_And_Conditions_TextView.editable        = NO;
-    m_terms_And_Conditions_TextView.scrollEnabled   = YES;
-    [m_transition performTransitionAppear:m_terms_And_Conditions_TextView];
+    [self.view addSubview:self.m_terms_And_Conditions_ImageView];
+    [self.m_transition performTransitionAppear:self.m_terms_And_Conditions_ImageView];
+    self.m_terms_And_Conditions_TextView                 = [[UITextView alloc] initWithFrame:termsAndConditionsTextViewFrame];
+    [self.view addSubview:self.m_terms_And_Conditions_TextView];
+    self.m_terms_And_Conditions_TextView.backgroundColor = [UIColor clearColor];
+    self.m_terms_And_Conditions_TextView.text            = termsAndConditionTextView.text;
+    self.m_terms_And_Conditions_TextView.textColor       = [UIColor whiteColor];
+    self.m_terms_And_Conditions_TextView.editable        = NO;
+    self.m_terms_And_Conditions_TextView.scrollEnabled   = YES;
+    [self.m_transition performTransitionAppear:self.m_terms_And_Conditions_TextView];
     
-    m_click_Terms_And_Conditions                    = [[UIButton alloc] initWithFrame:termsAndConditionsClickButtonFrame];
-    [self.view addSubview:m_click_Terms_And_Conditions];
-    [m_click_Terms_And_Conditions addTarget:self action:@selector(acceptTermsAndConditions:) forControlEvents:UIControlEventTouchUpInside];
-    [m_transition performTransitionAppear:m_click_Terms_And_Conditions];
+    self.m_click_Terms_And_Conditions                    = [[UIButton alloc] initWithFrame:termsAndConditionsClickButtonFrame];
+    [self.view addSubview:self.m_click_Terms_And_Conditions];
+    [self.m_click_Terms_And_Conditions addTarget:self action:@selector(acceptTermsAndConditions:) forControlEvents:UIControlEventTouchUpInside];
+    [self.m_transition performTransitionAppear:self.m_click_Terms_And_Conditions];
 
 }
 
@@ -474,19 +472,19 @@ Hide sign in view
  */
 - (void)removeTermsAndConditionsForm
 {
-    if (!m_transition) {
-        m_transition                = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition                = [ViewTransitions sharedInstance];
     }
     
-    [m_transition performTransitionAppear:m_loginBackgroundImageView];
+    [self.m_transition performTransitionAppear:self.m_loginBackgroundImageView];
     // Show the background login image view
-    m_loginBackgroundImageView.hidden                     = NO;
-    m_signinBackgroundView.hidden                         = YES;
-    m_signinBackgroundImageView.hidden                    = YES;
+    self.m_loginBackgroundImageView.hidden                     = NO;
+    self.m_signinBackgroundView.hidden                         = YES;
+    self.m_signinBackgroundImageView.hidden                    = YES;
     self.featuredScrollView.hidden                        = YES;
-    [m_click_Terms_And_Conditions removeFromSuperview];
-    [m_terms_And_Conditions_ImageView removeFromSuperview];
-    [m_terms_And_Conditions_TextView removeFromSuperview];
+    [self.m_click_Terms_And_Conditions removeFromSuperview];
+    [self.m_terms_And_Conditions_ImageView removeFromSuperview];
+    [self.m_terms_And_Conditions_TextView removeFromSuperview];
 }
 
 /*
@@ -494,8 +492,8 @@ Hide sign in view
  */
 - (void)insertUserIntoDatabase
 {
-    if ([self validateEmail:m_email_ID.text]) { // Validate to be an Email Id
-        [self registerUserWithUsername:m_email_ID.text AndPassword:m_password.text];
+    if ([self validateEmail:self.m_email_ID.text]) { // Validate to be an Email Id
+        [self registerUserWithUsername:self.m_email_ID.text AndPassword:self.m_password.text];
     
     }
     else {
@@ -509,12 +507,12 @@ Hide sign in view
 - (void)registerUserWithUsername:(NSString *)usernameInput AndPassword:(NSString *)passwordInput
 {
     NSString *userStatus;
-    if ( !m_database ) {
-        m_database      = [ Database alloc ];
+    if ( !self.m_database ) {
+        self.m_database      = [ Database alloc ];
     }
     // if the string is not null or empty or nil or false
     if ((usernameInput != NULL && passwordInput != NULL) || (([usernameInput length] != 0) && [passwordInput length] != 0)) {// If the data has been retrieved
-        userStatus          = [[NSString alloc] initWithFormat:@"%@", [m_database insertIntoUserEmail_Id:usernameInput Password:passwordInput Log:@"in"]];
+        userStatus          = [[NSString alloc] initWithFormat:@"%@", [self.m_database insertIntoUserEmail_Id:usernameInput Password:passwordInput Log:@"in"]];
         
         if ([userStatus length] != 0) { // if inserted into database or check if already existing
             // move to root or profile view controller
@@ -538,17 +536,17 @@ Hide sign in view
 - (void)registerUser:(id)sender
 {
    NSString *userStatus;
-    if (((m_email_ID.text == NULL) || ([m_email_ID.text length] == 0)) || (m_password.text == NULL || ([m_password.text length] == 0))) {
+    if (((self.m_email_ID.text == NULL) || ([self.m_email_ID.text length] == 0)) || (self.m_password.text == NULL || ([self.m_password.text length] == 0))) {
         [self displayMessage:@"User Id field or Password field cannot be empty."];
     }
     else { // Textfields not empty
-        m_mode_Of_Registration              = @"registerUser";
+        self.m_mode_Of_Registration              = @"registerUser";
         
-        if (!m_database) {
-            m_database          = [Database alloc];
+        if (!self.m_database) {
+            self.m_database          = [Database alloc];
         }
         
-        if ([[m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
+        if ([[self.m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
 
             // register into database
             [self insertUserIntoDatabase];
@@ -558,8 +556,8 @@ Hide sign in view
         }
         if (userStatus == NULL || [userStatus length] == 0) {
             // Hide the keypad
-            [m_email_ID resignFirstResponder];
-            [m_password resignFirstResponder];
+            [self.m_email_ID resignFirstResponder];
+            [self.m_password resignFirstResponder];
         }
     }
 }
@@ -570,8 +568,8 @@ Hide sign in view
 {
     NSString *userStatus;
 
-    if (!m_appDelegate) {
-        m_appDelegate       = [[UIApplication sharedApplication] delegate];
+    if (!self.m_appDelegate) {
+        self.m_appDelegate       = [[UIApplication sharedApplication] delegate];
     }
     //DEBUG
 //    //  Log in when the button is clicked.
@@ -599,24 +597,24 @@ Hide sign in view
 {
     NSString *userStatus;
     
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     
-    if ([[m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
+    if ([[self.m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
         // login using facebook
         userStatus          = [self loginWithFacebook];
     }
     else {
         // register using facebook
-        m_mode_Of_Registration              = @"registerUsingFacebook";
+        self.m_mode_Of_Registration              = @"registerUsingFacebook";
 
         [self createTermsAndConditionsForms];
     }
     if (userStatus == NULL || [userStatus length] == 0) {
         // Hide the keypad
-        [m_email_ID resignFirstResponder];
-        [m_password resignFirstResponder];
+        [self.m_email_ID resignFirstResponder];
+        [self.m_password resignFirstResponder];
     }
 
 }
@@ -626,15 +624,15 @@ Hide sign in view
  */
 - (void)forgotPassword:(id)sender
 {    
-    if (!m_database) {
-        m_database                  = [Database alloc];
+    if (!self.m_database) {
+        self.m_database                  = [Database alloc];
     }
 
     // Get number of users
-    int numberOfUsers               = [m_database countNumberOfUsers];
+    int numberOfUsers               = [self.m_database countNumberOfUsers];
     // Retrive email ID(s)
-    if (!m_emailIDsArray) {
-        m_emailIDsArray             = [m_database getAllEmailIds];        
+    if (!self.m_emailIDsArray) {
+        self.m_emailIDsArray             = [self.m_database getAllEmailIds];
     }
     if (numberOfUsers < 1) {
         [self displayMessage:@"Please register by any of below methods."];
@@ -643,10 +641,10 @@ Hide sign in view
         [self hideSigninView];
     }
     else if (numberOfUsers == 1){ // If there is only one user, just send the password
-        if (!m_serverConnection) {
-            m_serverConnection      = [TFNGateway sharedInstance];
+        if (!self.m_serverConnection) {
+            self.m_serverConnection      = [TFNGateway sharedInstance];
         }
-        [m_serverConnection sendPasswordToUser:[m_emailIDsArray objectAtIndex:0]];
+        [self.m_serverConnection sendPasswordToUser:[self.m_emailIDsArray objectAtIndex:0]];
     }
     
 
@@ -670,16 +668,16 @@ Hide sign in view
 /* Login using twitter action */
 - (void)loginWithTwitterAction:(id)sender {
     
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     
-    if ([[m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
+    if ([[self.m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
         [self loginWithTwitter];
     }
     else {
         // register using facebook
-        m_mode_Of_Registration              = @"registerUsingTwitter";
+        self.m_mode_Of_Registration              = @"registerUsingTwitter";
         
         [self createTermsAndConditionsForms];
     }
@@ -729,22 +727,22 @@ Hide sign in view
  */
 - (void)animateMovingImageOne
 {
-    __block int movingImageTargetOneStateBlock  = movingImageTargetOneState;
+    __block int movingImageTargetOneStateBlock  = self.movingImageTargetOneState;
     [UIView animateWithDuration:25.0
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (movingImageTargetOneStateBlock == 0) {
                              movingImageTargetOneStateBlock = 1;
-                             movingImageOneView.frame   = movingImageTargetOne;
+                             self.movingImageOneView.frame   = self.movingImageTargetOne;
                          }
                          else {
                              movingImageTargetOneStateBlock = 0;
-                             movingImageOneView.frame    = movingImageTargetOneInitial;
+                             self.movingImageOneView.frame    = self.movingImageTargetOneInitial;
                          }
                      }
                      completion:^(BOOL finished){
-                         movingImageTargetOneState           = movingImageTargetOneStateBlock;
+                         self.movingImageTargetOneState           = movingImageTargetOneStateBlock;
                          [self animateMovingImageOne];
                      }];
 }
@@ -754,22 +752,22 @@ Hide sign in view
  */
 - (void)animateMovingImageTwo
 {
-    __block int movingImageTargetTwoStateBlock  = movingImageTargetTwoState;
+    __block int movingImageTargetTwoStateBlock  = self.movingImageTargetTwoState;
     [UIView animateWithDuration:25.0
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (movingImageTargetTwoStateBlock == 0) {
                              movingImageTargetTwoStateBlock = 1;
-                             movingImageTwoView.frame   = movingImageTargetTwo;
+                             self.movingImageTwoView.frame   = self.movingImageTargetTwo;
                          }
                          else {
                              movingImageTargetTwoStateBlock = 0;
-                             movingImageTwoView.frame   = movingImageTargetTwoInitial;
+                             self.movingImageTwoView.frame   = self.movingImageTargetTwoInitial;
                          }
                      }
                      completion:^(BOOL finished){
-                         movingImageTargetTwoState           = movingImageTargetTwoStateBlock;
+                         self.movingImageTargetTwoState           = movingImageTargetTwoStateBlock;
                          [self animateMovingImageTwo];
                      }];
 }
@@ -779,22 +777,22 @@ Hide sign in view
  */
 - (void)animateMovingImageThree
 {
-    __block int movingImageTargetThreeStateBlock  = movingImageTargetThreeState;
+    __block int movingImageTargetThreeStateBlock  = self.movingImageTargetThreeState;
     [UIView animateWithDuration:25.0
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (movingImageTargetThreeStateBlock == 0) {
                              movingImageTargetThreeStateBlock = 1;
-                             movingImageThreeView.frame   = movingImageTargetThree;
+                             self.movingImageThreeView.frame   = self.movingImageTargetThree;
                          }
                          else {
                              movingImageTargetThreeStateBlock = 0;
-                             movingImageThreeView.frame   = movingImageTargetThreeInitial;
+                             self.movingImageThreeView.frame   = self.movingImageTargetThreeInitial;
                          }
                      }
                      completion:^(BOOL finished){
-                         movingImageTargetThreeState           = movingImageTargetThreeStateBlock;
+                         self.movingImageTargetThreeState           = movingImageTargetThreeStateBlock;
                          [self animateMovingImageThree];
                      }];
 }
@@ -804,22 +802,22 @@ Hide sign in view
  */
 - (void)animateMovingImageFour
 {
-    __block int movingImageTargetFourStateBlock  = movingImageTargetFourState;
+    __block int movingImageTargetFourStateBlock  = self.movingImageTargetFourState;
     [UIView animateWithDuration:25.0
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (movingImageTargetFourStateBlock == 0) {
                              movingImageTargetFourStateBlock = 1;
-                             movingImageFourView.frame   = movingImageTargetFour;
+                             self.movingImageFourView.frame   = self.movingImageTargetFour;
                          }
                          else {
                              movingImageTargetFourStateBlock = 0;
-                             movingImageFourView.frame   = movingImageTargetFourInitial;
+                             self.movingImageFourView.frame   = self.movingImageTargetFourInitial;
                          }
                      }
                      completion:^(BOOL finished){
-                         movingImageTargetFourState           = movingImageTargetFourStateBlock;
+                         self.movingImageTargetFourState           = movingImageTargetFourStateBlock;
                          [self animateMovingImageFour];
                      }];
 }
@@ -829,22 +827,22 @@ Hide sign in view
  */
 - (void)animateMovingImageFive
 {
-    __block int movingImageTargetFiveStateBlock  = movingImageTargetFiveState;
+    __block int movingImageTargetFiveStateBlock  = self.movingImageTargetFiveState;
     [UIView animateWithDuration:25.0
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (movingImageTargetFiveStateBlock == 0) {
                              movingImageTargetFiveStateBlock = 1;
-                             movingImageFiveView.frame   = movingImageTargetFive;
+                             self.movingImageFiveView.frame   = self.movingImageTargetFive;
                          }
                          else {
                              movingImageTargetFiveStateBlock = 0;
-                             movingImageFiveView.frame   = movingImageTargetFiveInitial;
+                             self.movingImageFiveView.frame   = self.movingImageTargetFiveInitial;
                          }
                      }
                      completion:^(BOOL finished){
-                         movingImageTargetFiveState           = movingImageTargetFiveStateBlock;
+                         self.movingImageTargetFiveState           = movingImageTargetFiveStateBlock;
                          [self animateMovingImageFive];
                      }];
 }
@@ -854,22 +852,22 @@ Hide sign in view
  */
 - (void)animateMovingImageSix
 {
-    __block int movingImageTargetSixStateBlock  = movingImageTargetSixState;
+    __block int movingImageTargetSixStateBlock  = self.movingImageTargetSixState;
     [UIView animateWithDuration:25.0
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          if (movingImageTargetSixStateBlock == 0) {
                              movingImageTargetSixStateBlock = 1;
-                             movingImageSixView.frame   = movingImageTargetSix;
+                             self.movingImageSixView.frame   = self.movingImageTargetSix;
                          }
                          else {
                              movingImageTargetSixStateBlock = 0;
-                             movingImageSixView.frame   = movingImageTargetSixInitial;
+                             self.movingImageSixView.frame   = self.movingImageTargetSixInitial;
                          }
                      }
                      completion:^(BOOL finished){
-                         movingImageTargetSixState           = movingImageTargetSixStateBlock;
+                         self.movingImageTargetSixState           = movingImageTargetSixStateBlock;
                          [self animateMovingImageSix];
                      }];
 }
@@ -901,62 +899,62 @@ Hide sign in view
 {
 //    movingImageXPositions                           = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:10.0f], [NSNumber numberWithFloat:20.0f], [NSNumber numberWithFloat:30.0f],[NSNumber numberWithFloat:40.0f],[NSNumber numberWithFloat:50.0f],[NSNumber numberWithFloat:60.0f],[NSNumber numberWithFloat:70.0f],[NSNumber numberWithFloat:80.0f],[NSNumber numberWithFloat:90.0f],[NSNumber numberWithFloat:100.0f],[NSNumber numberWithFloat:110.0f],[NSNumber numberWithFloat:120.0f],[NSNumber numberWithFloat:130.0f],[NSNumber numberWithFloat:140.0f],[NSNumber numberWithFloat:150.0f],[NSNumber numberWithFloat:160.0f],[NSNumber numberWithFloat:170.0f],[NSNumber numberWithFloat:180.0f], [NSNumber numberWithFloat:180.0f], [NSNumber numberWithFloat:180.0f], [NSNumber numberWithFloat:190.0f], [NSNumber numberWithFloat:200.0f], [NSNumber numberWithFloat:210.0f], [NSNumber numberWithFloat:220.0f], [NSNumber numberWithFloat:230.0f], [NSNumber numberWithFloat:240.0f], [NSNumber numberWithFloat:250.0f], [NSNumber numberWithFloat:260.0f], [NSNumber numberWithFloat:270.0f], [NSNumber numberWithFloat:280.0f], [NSNumber numberWithFloat:290.0f], [NSNumber numberWithFloat:300.0f], [NSNumber numberWithFloat:310.0f], [NSNumber numberWithFloat:320.0f], [NSNumber numberWithFloat:-10.0f], [NSNumber numberWithFloat:-20.0f], [NSNumber numberWithFloat:-30.0f],[NSNumber numberWithFloat:-40.0f],[NSNumber numberWithFloat:-50.0f],[NSNumber numberWithFloat:-60.0f],[NSNumber numberWithFloat:-70.0f],[NSNumber numberWithFloat:-80.0f],[NSNumber numberWithFloat:-90.0f],[NSNumber numberWithFloat:-100.0f],[NSNumber numberWithFloat:-110.0f],[NSNumber numberWithFloat:-120.0f],[NSNumber numberWithFloat:-130.0f],[NSNumber numberWithFloat:-140.0f],[NSNumber numberWithFloat:-150.0f],[NSNumber numberWithFloat:-160.0f],[NSNumber numberWithFloat:-170.0f],[NSNumber numberWithFloat:-180.0f], [NSNumber numberWithFloat:-180.0f], [NSNumber numberWithFloat:-190.0f], [NSNumber numberWithFloat:-200.0f], [NSNumber numberWithFloat:-210.0f], [NSNumber numberWithFloat:-220.0f], [NSNumber numberWithFloat:-230.0f], [NSNumber numberWithFloat:-240.0f], [NSNumber numberWithFloat:-250.0f], [NSNumber numberWithFloat:-260.0f], [NSNumber numberWithFloat:-270.0f], [NSNumber numberWithFloat:-280.0f], [NSNumber numberWithFloat:-290.0f], [NSNumber numberWithFloat:-300.0f], [NSNumber numberWithFloat:-310.0f], [NSNumber numberWithFloat:-320.0f], nil];
     
-    movingImageTargetOne                             = CGRectMake(-490.0f, 20.0f, 852.0f, 105.0f);
+    self.movingImageTargetOne                             = CGRectMake(-490.0f, 20.0f, 852.0f, 105.0f);
     UIImage *movingImageOne                          = [UIImage imageNamed:@"moving image 1.png"];
-    movingImageOneView                               = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 852.0f, 105.0f)];
-    movingImageOneView.image                         = movingImageOne;
-    movingImageTargetOneInitial                      = movingImageOneView.frame;
-    [self.view addSubview:movingImageOneView];
-    if (!m_transition) {
-        m_transition            = [ViewTransitions sharedInstance];
+    self.movingImageOneView                               = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 852.0f, 105.0f)];
+    self.movingImageOneView.image                         = movingImageOne;
+    self.movingImageTargetOneInitial                      = self.movingImageOneView.frame;
+    [self.view addSubview:self.movingImageOneView];
+    if (!self.m_transition) {
+        self.m_transition            = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionAppearForMovingImages:movingImageOneView];
+    [self.m_transition performTransitionAppearForMovingImages:self.movingImageOneView];
     [self animateMovingImageOne];
     
-    movingImageTargetTwo                             = CGRectMake(-50.0f, 127.0f, 852.0f, 105.0f);
+    self.movingImageTargetTwo                             = CGRectMake(-50.0f, 127.0f, 852.0f, 105.0f);
     UIImage *movingImageTwo                          = [UIImage imageNamed:@"moving image 2.png"];
-    movingImageTwoView                               = [[UIImageView alloc] initWithFrame:CGRectMake(-490.0f, 127.0f, 852.0f, 105.0f)];
-    movingImageTwoView.image                         = movingImageTwo;
-    movingImageTargetTwoInitial                      = movingImageTwoView.frame;
-    [self.view addSubview:movingImageTwoView];
-    [m_transition performTransitionAppearForMovingImages:movingImageTwoView];
+    self.movingImageTwoView                               = [[UIImageView alloc] initWithFrame:CGRectMake(-490.0f, 127.0f, 852.0f, 105.0f)];
+    self.movingImageTwoView.image                         = movingImageTwo;
+    self.movingImageTargetTwoInitial                      = self.movingImageTwoView.frame;
+    [self.view addSubview:self.movingImageTwoView];
+    [self.m_transition performTransitionAppearForMovingImages:self.movingImageTwoView];
     [self animateMovingImageTwo];
     
-    movingImageTargetThree                             = CGRectMake(-490.0f, 234.0f, 812.0f, 105.0f);
+    self.movingImageTargetThree                             = CGRectMake(-490.0f, 234.0f, 812.0f, 105.0f);
     UIImage *movingImageThree                          = [UIImage imageNamed:@"moving image 3.png"];
-    movingImageThreeView                               = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 234.0f, 852.0f, 105.0f)];
-    movingImageThreeView.image                         = movingImageThree;
-    movingImageTargetThreeInitial                      = movingImageThreeView.frame;
-    [self.view addSubview:movingImageThreeView];
-    [m_transition performTransitionAppearForMovingImages:movingImageThreeView];
+    self.movingImageThreeView                               = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 234.0f, 852.0f, 105.0f)];
+    self.movingImageThreeView.image                         = movingImageThree;
+    self.movingImageTargetThreeInitial                      = self.movingImageThreeView.frame;
+    [self.view addSubview:self.movingImageThreeView];
+    [self.m_transition performTransitionAppearForMovingImages:self.movingImageThreeView];
     [self animateMovingImageThree];
     
-    movingImageTargetFour                             = CGRectMake(-50.0f, 341.0f, 852.0f, 105.0f);
+    self.movingImageTargetFour                             = CGRectMake(-50.0f, 341.0f, 852.0f, 105.0f);
     UIImage *movingImageFour                          = [UIImage imageNamed:@"moving image 1.png"];
-    movingImageFourView                               = [[UIImageView alloc] initWithFrame:CGRectMake(-490.0f, 341.0f, 852.0f, 105.0f)];
-    movingImageFourView.image                         = movingImageFour;
-    movingImageTargetFourInitial                      = movingImageFourView.frame;
-    [self.view addSubview:movingImageFourView];
-    [m_transition performTransitionAppearForMovingImages:movingImageFourView];
+    self.movingImageFourView                               = [[UIImageView alloc] initWithFrame:CGRectMake(-490.0f, 341.0f, 852.0f, 105.0f)];
+    self.movingImageFourView.image                         = movingImageFour;
+    self.movingImageTargetFourInitial                      = self.movingImageFourView.frame;
+    [self.view addSubview:self.movingImageFourView];
+    [self.m_transition performTransitionAppearForMovingImages:self.movingImageFourView];
     [self animateMovingImageFour];
     
-    movingImageTargetFive                             = CGRectMake(-490.0f, 448.0f, 852.0f, 105.0f);
+    self.movingImageTargetFive                             = CGRectMake(-490.0f, 448.0f, 852.0f, 105.0f);
     UIImage *movingImageFive                          = [UIImage imageNamed:@"moving image 2.png"];
-    movingImageFiveView                               = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 448.0f, 852.0f, 105.0f)];
-    movingImageFiveView.image                         = movingImageFive;
-    movingImageTargetFiveInitial                      = movingImageFiveView.frame;
-    [self.view addSubview:movingImageFiveView];
-    [m_transition performTransitionAppearForMovingImages:movingImageFiveView];
+    self.movingImageFiveView                               = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 448.0f, 852.0f, 105.0f)];
+    self.movingImageFiveView.image                         = movingImageFive;
+    self.movingImageTargetFiveInitial                      = self.movingImageFiveView.frame;
+    [self.view addSubview:self.movingImageFiveView];
+    [self.m_transition performTransitionAppearForMovingImages:self.movingImageFiveView];
     [self animateMovingImageFive];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        movingImageTargetSix                             = CGRectMake(0.0f, 555.0f, 852.0f, 105.0f);
+        self.movingImageTargetSix                             = CGRectMake(0.0f, 555.0f, 852.0f, 105.0f);
         UIImage *movingImageSix                          = [UIImage imageNamed:@"moving image 3.png"];
-        movingImageSixView                               = [[UIImageView alloc] initWithFrame:CGRectMake(-490.0f, 555.0f, 852.0f, 105.0f)];
-        movingImageSixView.image                         = movingImageSix;
-        movingImageTargetSixInitial                      = movingImageSixView.frame;
-        [self.view addSubview:movingImageSixView];
-        [m_transition performTransitionAppearForMovingImages:movingImageSixView];
+        self.movingImageSixView                               = [[UIImageView alloc] initWithFrame:CGRectMake(-490.0f, 555.0f, 852.0f, 105.0f)];
+        self.movingImageSixView.image                         = movingImageSix;
+        self.movingImageTargetSixInitial                      = self.movingImageSixView.frame;
+        [self.view addSubview:self.movingImageSixView];
+        [self.m_transition performTransitionAppearForMovingImages:self.movingImageSixView];
         [self animateMovingImageSix];
     }
 }
@@ -995,11 +993,11 @@ Hide sign in view
     else {
         facebookLoginButtonframe                    = CGRectMake(24.0f, 60.0f, 273.0f, 55.0f);
     }
-    [m_facebookLoginButton removeFromSuperview];
-    m_facebookLoginButton                           = [[UIButton alloc] initWithFrame:facebookLoginButtonframe];
-    [socialButtonsView addSubview:m_facebookLoginButton];
-    [m_facebookLoginButton addTarget:self action:@selector(loginToFacebook:) forControlEvents:UIControlEventTouchUpInside];
-    [m_facebookLoginButton setBackgroundImage:[UIImage imageNamed:@"facebook_login"] forState:UIControlStateNormal];
+    [self.m_facebookLoginButton removeFromSuperview];
+    self.m_facebookLoginButton                           = [[UIButton alloc] initWithFrame:facebookLoginButtonframe];
+    [self.socialButtonsView addSubview:self.m_facebookLoginButton];
+    [self.m_facebookLoginButton addTarget:self action:@selector(loginToFacebook:) forControlEvents:UIControlEventTouchUpInside];
+    [self.m_facebookLoginButton setBackgroundImage:[UIImage imageNamed:@"facebook_login"] forState:UIControlStateNormal];
     
     CGRect twitterLoginButtonframe;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1008,25 +1006,25 @@ Hide sign in view
     else {
         twitterLoginButtonframe                     = CGRectMake(169.0f, 131.0f, 130.0f, 55.0f);
     }
-    [m_twitterLoginButton removeFromSuperview];
-    m_twitterLoginButton                            = [[UIButton alloc] initWithFrame:twitterLoginButtonframe];
-    [socialButtonsView addSubview:m_twitterLoginButton];
-    [m_twitterLoginButton addTarget:self action:@selector(loginWithTwitterAction:) forControlEvents:UIControlEventTouchUpInside];
-    [m_twitterLoginButton setBackgroundImage:[UIImage imageNamed:@"twitter_login"] forState:UIControlStateNormal];
+    [self.m_twitterLoginButton removeFromSuperview];
+    self.m_twitterLoginButton                            = [[UIButton alloc] initWithFrame:twitterLoginButtonframe];
+    [self.socialButtonsView addSubview:self.m_twitterLoginButton];
+    [self.m_twitterLoginButton addTarget:self action:@selector(loginWithTwitterAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.m_twitterLoginButton setBackgroundImage:[UIImage imageNamed:@"twitter_login"] forState:UIControlStateNormal];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         [self.googlePlusLoginButtonOne removeFromSuperview];
         self.googlePlusLoginButtonOne = [GPPSignInButton buttonWithType:UIButtonTypeCustom];
         self.googlePlusLoginButtonOne.frame = CGRectMake(20.0f, 121.0f, 130.0f, 55.0f);
         [self.googlePlusLoginButtonOne setBackgroundImage:[UIImage imageNamed:@"google_plus_login"] forState:UIControlStateNormal];
-        [socialButtonsView addSubview:self.googlePlusLoginButtonOne];
+        [self.socialButtonsView addSubview:self.googlePlusLoginButtonOne];
     }
     else {
         [self.googlePlusLoginButtonTwo removeFromSuperview];
         self.googlePlusLoginButtonTwo = [GPPSignInButton buttonWithType:UIButtonTypeCustom];
         self.googlePlusLoginButtonTwo.frame = CGRectMake(20.0f, 133.0f, 130.0f, 55.0f);
         [self.googlePlusLoginButtonTwo setBackgroundImage:[UIImage imageNamed:@"google_plus_login"] forState:UIControlStateNormal];
-        [socialButtonsView addSubview:self.googlePlusLoginButtonTwo];
+        [self.socialButtonsView addSubview:self.googlePlusLoginButtonTwo];
     }
     
     
@@ -1036,19 +1034,19 @@ Hide sign in view
     motivationalQuote.numberOfLines                 = 4;
     motivationalQuote.textColor                     = [UIColor whiteColor];
     motivationalQuote.textAlignment                 = NSTextAlignmentCenter;
-    [motivationalQouteView addSubview:motivationalQuote];
-    [self.featuredScrollView addSubview:motivationalQouteView];
+    [self.motivationalQouteView addSubview:motivationalQuote];
+    [self.featuredScrollView addSubview:self.motivationalQouteView];
 }
 
 -(void)showHUD{
-    HUD = [[MBProgressHUD alloc]initWithView:self.view];
-    [self.view addSubview:HUD];
+    self.HUD = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:self.HUD];
     
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.delegate = self;
-    HUD.labelText = @"Initializing";
-    HUD.progress = 0.0;
-    [HUD showWhileExecuting:@selector(downloadAction) onTarget:self withObject:nil animated:YES];
+    self.HUD.mode = MBProgressHUDModeIndeterminate;
+    self.HUD.delegate = self;
+    self.HUD.labelText = @"Initializing";
+    self.HUD.progress = 0.0;
+    [self.HUD showWhileExecuting:@selector(downloadAction) onTarget:self withObject:nil animated:YES];
 }
 
 - (void)downloadAction {
@@ -1060,7 +1058,7 @@ Hide sign in view
     
     //NSData *jsonData = [NSData dataWithContentsOfURL:urlString];
     NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
-    i = 0;
+    self.i = 0;
     
     if(jsonData != nil){
         while(progress < 1.0f){
@@ -1088,9 +1086,9 @@ Hide sign in view
             }];
             
             [operation start];
-            i++;
+            self.i++;
             progress += 0.0013f;
-            HUD.progress = progress;
+            self.HUD.progress = progress;
             usleep(25000);
         }
         }
@@ -1101,8 +1099,8 @@ Hide sign in view
 
 - (void)hudWasHidden:(MBProgressHUD *)hud {
 	// Remove HUD from screen when the HUD was hidded
-	[HUD removeFromSuperview];
-	HUD = nil;
+	[self.HUD removeFromSuperview];
+	self.HUD = nil;
 }
 
 - (void)saveImage:(UIImage *)image withFilename:(NSString *)filename
@@ -1151,20 +1149,20 @@ Hide sign in view
     [self.featuredScrollView setContentSize:scrollViewContentSize];
 
     if([[UIScreen mainScreen] bounds].size.height == 568) {
-        socialButtonsView                  = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 200.0f)];
+        self.socialButtonsView                  = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 200.0f)];
     }
     else {
-        socialButtonsView                  = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 185.0f)];
+        self.socialButtonsView                  = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 185.0f)];
     }
-    [self.featuredScrollView addSubview:socialButtonsView];
+    [self.featuredScrollView addSubview:self.socialButtonsView];
 
     if([[UIScreen mainScreen] bounds].size.height == 568) {
-        motivationalQouteView              = [[UIView alloc] initWithFrame:CGRectMake(320.0f, 0.0f, 320.0f, 200.0f)];
+        self.motivationalQouteView              = [[UIView alloc] initWithFrame:CGRectMake(320.0f, 0.0f, 320.0f, 200.0f)];
     }
     else {
-        motivationalQouteView              = [[UIView alloc] initWithFrame:CGRectMake(320.0f, 0.0f, 320.0f, 185.0f)];
+        self.motivationalQouteView              = [[UIView alloc] initWithFrame:CGRectMake(320.0f, 0.0f, 320.0f, 185.0f)];
     }
-    [self.featuredScrollView addSubview:motivationalQouteView];
+    [self.featuredScrollView addSubview:self.motivationalQouteView];
     [self.featuredScrollView setPagingEnabled:YES];
     [self setupScrollView];
 
@@ -1192,24 +1190,24 @@ Hide sign in view
     else {
         m_signinBackgroundViewFrame                   = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
     }
-    m_signinBackgroundView                            = [[UIView alloc] initWithFrame:m_signinBackgroundViewFrame];
-    [self.view addSubview:m_signinBackgroundView];
-    m_signinBackgroundView.hidden                   = YES;
+    self.m_signinBackgroundView                            = [[UIView alloc] initWithFrame:m_signinBackgroundViewFrame];
+    [self.view addSubview:self.m_signinBackgroundView];
+    self.m_signinBackgroundView.hidden                   = YES;
 //    m_signinBackgroundView.backgroundColor            = [UIColor whiteColor];
     
     CGRect signinBackgroundImageViewframe;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         signinBackgroundImageViewframe              = CGRectMake(0, 0, 320.0f, 568.0f);
-        m_signinBackgroundImageView                   = [[UIImageView alloc] initWithFrame:signinBackgroundImageViewframe];
-        m_signinBackgroundImageView.image             = [UIImage imageNamed:@"signin_ready_i5.png"];
+        self.m_signinBackgroundImageView                   = [[UIImageView alloc] initWithFrame:signinBackgroundImageViewframe];
+       self. m_signinBackgroundImageView.image             = [UIImage imageNamed:@"signin_ready_i5.png"];
     }
     else {
         signinBackgroundImageViewframe              = CGRectMake(0, 0, 320.0f, 480.0f);
-        m_signinBackgroundImageView                   = [[UIImageView alloc] initWithFrame:signinBackgroundImageViewframe];
-        m_signinBackgroundImageView.image             = [UIImage imageNamed:@"signin_ready_i4.png"];
+       self. m_signinBackgroundImageView                   = [[UIImageView alloc] initWithFrame:signinBackgroundImageViewframe];
+       self. m_signinBackgroundImageView.image             = [UIImage imageNamed:@"signin_ready_i4.png"];
     }
-    [m_signinBackgroundView addSubview:m_signinBackgroundImageView];
-    m_signinBackgroundImageView.hidden                = YES;
+    [self.m_signinBackgroundView addSubview:self.m_signinBackgroundImageView];
+    self.m_signinBackgroundImageView.hidden                = YES;
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         self.messageButton                  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 320.0f, 30.0f)];
@@ -1217,7 +1215,7 @@ Hide sign in view
     else {
         self.messageButton                  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 70.0f, 320.0f, 30.0f)];
     }
-    [m_signinBackgroundView addSubview:self.messageButton];
+    [self.m_signinBackgroundView addSubview:self.messageButton];
     [self.messageButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchUpInside];
     self.messageButton.titleLabel.font  = [UIFont customFontWithSize:12];
     self.messageButton.titleLabel.textColor = [UIColor darkGrayColor];
@@ -1230,9 +1228,9 @@ Hide sign in view
         m_signin_fieldsFrame                          = CGRectMake(11.0f, 122.0f, 300.0f, 110.0f);
     }
     
-    m_signin_fields                                   = [[UIImageView alloc] initWithFrame:m_signin_fieldsFrame];
-    m_signin_fields.image                             = [UIImage imageNamed:@"signin_fields.png"];
-    [m_signinBackgroundView addSubview:m_signin_fields];
+    self.m_signin_fields                                   = [[UIImageView alloc] initWithFrame:m_signin_fieldsFrame];
+    self.m_signin_fields.image                             = [UIImage imageNamed:@"signin_fields.png"];
+    [self.m_signinBackgroundView addSubview:self.m_signin_fields];
     
     CGRect emailIDframe;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1241,12 +1239,12 @@ Hide sign in view
     else {
         emailIDframe                                  = CGRectMake(65.0f, 128.0f, 233.0f, 42.0f);
     }
-    m_email_ID                                        = [[UITextField alloc] initWithFrame:emailIDframe];
-    m_email_ID.font                                   = [UIFont customFontWithSize:15];
-    m_email_ID.autocorrectionType                     = UITextAutocorrectionTypeNo;
-    m_email_ID.placeholder = @"Email ID";
-    [m_signinBackgroundView addSubview:m_email_ID];
-    m_email_ID.hidden                                 = YES;
+    self.m_email_ID                                        = [[UITextField alloc] initWithFrame:emailIDframe];
+    self.m_email_ID.font                                   = [UIFont customFontWithSize:15];
+    self.m_email_ID.autocorrectionType                     = UITextAutocorrectionTypeNo;
+    self.m_email_ID.placeholder = @"Email ID";
+    [self.m_signinBackgroundView addSubview:self.m_email_ID];
+    self.m_email_ID.hidden                                 = YES;
     
     CGRect passwordframe;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1255,12 +1253,12 @@ Hide sign in view
     else {
         passwordframe                                 = CGRectMake(65.0f, 180.0f, 233.0f, 42.0f);
     }
-    m_password                                        = [[UITextField alloc] initWithFrame:passwordframe];
-    m_password.font                                   = [UIFont customFontWithSize:15];
-    m_password.placeholder = @"Password";
-    [m_signinBackgroundView addSubview:m_password];
-    m_password.secureTextEntry = YES;
-    m_password.hidden                                 = YES;
+    self.m_password                                        = [[UITextField alloc] initWithFrame:passwordframe];
+    self.m_password.font                                   = [UIFont customFontWithSize:15];
+    self.m_password.placeholder = @"Password";
+    [self.m_signinBackgroundView addSubview:self.m_password];
+    self.m_password.secureTextEntry = YES;
+    self.m_password.hidden                                 = YES;
 
     CGRect loginButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1269,11 +1267,11 @@ Hide sign in view
     else {
         loginButtonFrame               = CGRectMake(169.0f, 230.0f, 130.0f, 50.0f);
     }
-    m_signInButton                        = [[UIButton alloc] initWithFrame:loginButtonFrame];
-    [m_signInButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchUpInside];
-    m_signInButton.hidden                 = YES;
-    [m_signInButton setBackgroundImage:[UIImage imageNamed:@"login_button.png"] forState:UIControlStateNormal];
-    [m_signinBackgroundView addSubview:m_signInButton];
+    self.m_signInButton                        = [[UIButton alloc] initWithFrame:loginButtonFrame];
+    [self.m_signInButton addTarget:self action:@selector(registerUser:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_signInButton.hidden                 = YES;
+    [self.m_signInButton setBackgroundImage:[UIImage imageNamed:@"login_button.png"] forState:UIControlStateNormal];
+    [self.m_signinBackgroundView addSubview:self.m_signInButton];
     
     CGRect registerButtonFrame;
     if([[UIScreen mainScreen] bounds].size.height == 568){
@@ -1282,11 +1280,11 @@ Hide sign in view
     else{
         registerButtonFrame = CGRectMake(25, 230, 130, 50);
     }
-    m_registerButton = [[UIButton alloc] initWithFrame:registerButtonFrame];
-    m_registerButton.hidden = YES;
-    [m_registerButton addTarget:self action:@selector(moveToRegisterViewController:) forControlEvents:UIControlEventTouchUpInside];
-    m_registerButton.hidden = YES;
-    [m_registerButton setBackgroundImage:[UIImage imageNamed:@"register.png"] forState:UIControlStateNormal];
+    self.m_registerButton = [[UIButton alloc] initWithFrame:registerButtonFrame];
+    self.m_registerButton.hidden = YES;
+    [self.m_registerButton addTarget:self action:@selector(moveToRegisterViewController:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_registerButton.hidden = YES;
+    [self.m_registerButton setBackgroundImage:[UIImage imageNamed:@"register.png"] forState:UIControlStateNormal];
     //[m_signinBackgroundView addSubview:m_registerButton];
 }
 
@@ -1300,15 +1298,15 @@ Hide sign in view
     CGRect loginBackgroundImageViewframe;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         loginBackgroundImageViewframe               = CGRectMake(0, 0, 320.0f, 568.0f);
-        m_loginBackgroundImageView                    = [[UIImageView alloc] initWithFrame:loginBackgroundImageViewframe];
-        m_loginBackgroundImageView.image              = [UIImage imageNamed:@"login_iPhone5.png"];
+        self.m_loginBackgroundImageView                    = [[UIImageView alloc] initWithFrame:loginBackgroundImageViewframe];
+        self.m_loginBackgroundImageView.image              = [UIImage imageNamed:@"login_iPhone5.png"];
     }
     else {
         loginBackgroundImageViewframe               = CGRectMake(0, 0, 320.0f, 480.0f);
-        m_loginBackgroundImageView                    = [[UIImageView alloc] initWithFrame:loginBackgroundImageViewframe];
-        m_loginBackgroundImageView.image              = [UIImage imageNamed:@"login_iPhone4.png"];
+        self.m_loginBackgroundImageView                    = [[UIImageView alloc] initWithFrame:loginBackgroundImageViewframe];
+        self.m_loginBackgroundImageView.image              = [UIImage imageNamed:@"login_iPhone4.png"];
     }
-    [self.view addSubview:m_loginBackgroundImageView];
+    [self.view addSubview:self.m_loginBackgroundImageView];
     
     CGRect showSignInButtonframe;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1317,12 +1315,12 @@ Hide sign in view
     else {
         showSignInButtonframe                           = CGRectMake(220.0f, 410.0f, 50.0f, 30.0f);
     }
-    m_showSignInViewButton                                  = [[UIButton alloc] initWithFrame:showSignInButtonframe];
-    [m_showSignInViewButton setTitle:@"Sign In" forState:UIControlStateNormal];
-    m_showSignInViewButton.titleLabel.font                  = [UIFont customFontWithSize:15];
-    m_showSignInViewButton.titleLabel.textColor             = [UIColor whiteColor];
-    [m_showSignInViewButton addTarget:self action:@selector(showSigninView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:m_showSignInViewButton];
+    self.m_showSignInViewButton                                  = [[UIButton alloc] initWithFrame:showSignInButtonframe];
+    [self.m_showSignInViewButton setTitle:@"Sign In" forState:UIControlStateNormal];
+    self.m_showSignInViewButton.titleLabel.font                  = [UIFont customFontWithSize:15];
+    self.m_showSignInViewButton.titleLabel.textColor             = [UIColor whiteColor];
+    [self.m_showSignInViewButton addTarget:self action:@selector(showSigninView:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_showSignInViewButton];
     
     CGRect showRegisterButtonFrame;
     if([[UIScreen mainScreen] bounds].size.height == 568){
@@ -1331,12 +1329,12 @@ Hide sign in view
     else{
         showRegisterButtonFrame = CGRectMake(50.0f, 410.0f, 80.0f, 30.0f);
     }
-    m_registerViewButton = [[UIButton alloc] initWithFrame:showRegisterButtonFrame];
-    [m_registerViewButton setTitle:@"Get Started" forState:UIControlStateNormal];
-    m_registerViewButton.titleLabel.font = [UIFont customFontWithSize:15];
-    m_registerViewButton.titleLabel.textColor = [UIColor whiteColor];
-    [m_registerViewButton addTarget:self action:@selector(moveToRegisterViewController:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:m_registerViewButton];
+    self.m_registerViewButton = [[UIButton alloc] initWithFrame:showRegisterButtonFrame];
+    [self.m_registerViewButton setTitle:@"Get Started" forState:UIControlStateNormal];
+    self.m_registerViewButton.titleLabel.font = [UIFont customFontWithSize:15];
+    self.m_registerViewButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.m_registerViewButton addTarget:self action:@selector(moveToRegisterViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_registerViewButton];
 
     [self setUpSlides];
     
@@ -1398,8 +1396,8 @@ Hide sign in view
     // make it false to enable proper positioning
     objectsMoved                            = FALSE;
     // default of if the calenderviewcontroller or pofileviewcontroller is called are false
-    m_rootViewControllerAlreadyCalled       = FALSE;
-    m_profileViewControllerAlreadyCalled    = FALSE;
+    self.m_rootViewControllerAlreadyCalled       = FALSE;
+    self.m_profileViewControllerAlreadyCalled    = FALSE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -1464,11 +1462,11 @@ Hide sign in view
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error
 {
-    if (!m_database) {
-        m_database          = [Database alloc];
+    if (!self.m_database) {
+        self.m_database          = [Database alloc];
     }
     
-    if ([[m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
+    if ([[self.m_database checkIfTermsAndConditionsAccepted] isEqualToString:@"Yes"]) { // if terms and conditions is accepted
         if (error) {
             NSLog(@"Received error %@ and auth object %@",error, auth);
             return;
@@ -1476,7 +1474,7 @@ Hide sign in view
         [self loginWithGooglePlus];
     }
     else {
-        m_mode_Of_Registration          = @"registerUsingGooglePlus";
+        self.m_mode_Of_Registration          = @"registerUsingGooglePlus";
         [self createTermsAndConditionsForms];
     }
 }
@@ -1486,7 +1484,7 @@ Hide sign in view
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
-    if  (textField == m_email_ID) { 
+    if  (textField == self.m_email_ID) {
         if(self.view.frame.origin.y >= 0) {
             if (objectsMoved) {
             }
@@ -1496,7 +1494,7 @@ Hide sign in view
             }
         }
     }
-    else if(textField == m_password){ // Otherwise adjust the view
+    else if(textField == self.m_password){ // Otherwise adjust the view
         if(self.view.frame.origin.y >= 0) {
             if (objectsMoved) {
                 
@@ -1523,7 +1521,7 @@ Hide sign in view
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField // Hide keypad if it is password field's return key
 {
-    if(textField == m_email_ID) {
+    if(textField == self.m_email_ID) {
         [textField resignFirstResponder];
     }
     else {

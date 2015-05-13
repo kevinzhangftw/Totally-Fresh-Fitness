@@ -20,6 +20,151 @@
 
 @interface ProfileViewController ()
 
+// LoginViewController class object
+@property (strong, nonatomic)LoginViewController *m_loginViewController;
+// ExerciseViewController class object
+@property (strong, nonatomic)ExerciseViewController *m_exerciseViewController;
+// MealViewContrioller class object
+@property (strong, nonatomic)MealViewController *m_mealViewController;
+// CalenderViewController class object
+@property (strong, nonatomic)CalenderViewController *m_calenderViewController;
+// GoalsViewController class object
+@property (strong, nonatomic)GoalsViewController *m_goalsViewController;
+// MusicTracksViewController class object
+@property (strong, nonatomic)MusicTracksViewController *m_musicTracksViewController;
+// RootViewController class object
+@property (strong, nonatomic)RootViewController *m_rootViewController;
+// ViewFactory class object
+@property (strong, nonatomic)ViewFactory *m_controllerViews;
+// Database class object
+@property (strong, nonatomic)Database *m_database;
+// ViewTransition class object
+@property (strong, nonatomic)ViewTransitions *m_transition;
+// GenderViewController class object
+@property (strong, nonatomic)GenderViewController *m_genderViewController;
+// Done Button
+@property (strong, nonatomic)UIButton *m_doneButton;
+// Back Button
+@property (strong, nonatomic)UIButton *m_backButton;
+
+// Help pop up button
+@property (strong, nonatomic)UIButton *m_helpPopUpButtonViewInProfileView;
+// NSUserDefault
+@property (strong, nonatomic)NSUserDefaults *userDefaults;
+
+// Before the first label Height
+@property (nonatomic)CGRect m_beforeFirstHeightFrame;
+// First Label Height
+@property (nonatomic)CGRect m_firstHeightFrame;
+// Second Label Height
+@property (nonatomic)CGRect m_secondHeightFrame;
+// Third Label Height
+@property (nonatomic)CGRect m_thirdHeightFrame;
+// After the Third Label Height
+@property (nonatomic)CGRect m_afterThirdHeightFrame;
+// Before the first label Weight
+@property (nonatomic)CGRect m_beforeFirstWeightFrame;
+// First Label Weight
+@property (nonatomic)CGRect m_firstWeightFrame;
+// Second Label Weight
+@property (nonatomic)CGRect m_secondWeightFrame;
+// Third Label Weight
+@property (nonatomic)CGRect m_thirdWeightFrame;
+// After Third Label Weight
+@property (nonatomic)CGRect m_afterThirdWeightFrame;
+// Before the first label Age
+@property (nonatomic)CGRect m_beforeFirstAgeFrame;
+// First Label Age
+@property (nonatomic)CGRect m_firstAgeFrame;
+// Second Label Age
+@property (nonatomic)CGRect m_secondAgeFrame;
+// Third Label Age
+@property (nonatomic)CGRect m_thirdAgeFrame;
+// After the Third Label Age
+@property (nonatomic)CGRect m_afterThirdAgeFrame;
+
+// Feet number track
+@property (nonatomic)int m_feet_After_Third_Label;
+// Inch number track
+@property (nonatomic)int m_inches_After_Third_Label;
+// Feet before first label
+@property (nonatomic)int m_feet_Before_First_Label;
+// Inch before first label
+@property (nonatomic)int m_inches_Before_First_Label;
+// Exercise mode tag
+@property (strong, nonatomic)NSString *m_exercise_Mode;
+
+// User email id from database
+@property (strong, nonatomic)NSString *m_userEmailID;
+
+// Value for before first weight label
+@property (nonatomic)int m_beforeFirstWeightLabel;
+// Check if weight gesture has been used
+@property (strong, nonatomic)NSString *weightGestureUsed;
+// User status log string
+@property (strong, nonatomic)NSString *m_logStatusString;
+// Background Imageview
+@property (strong, nonatomic)UIImageView *backgroundImageView;
+
+// Weight imageview
+@property (strong, nonatomic)UIImageView *weightImageView;
+
+// Weight increment/decrement buttons
+@property (strong, nonatomic)UIButton *m_weightPlusButton;
+@property (strong, nonatomic)UIButton *m_weightMinusButton;
+
+// Weight Labels
+@property (strong, nonatomic)UILabel *beforeFirstWeightLabel;
+@property (strong, nonatomic)UILabel *firstWeightLabel;
+@property (strong, nonatomic)UILabel *secondWeightLabel;
+@property (strong, nonatomic)UILabel *thirdWeightLabel;
+@property (strong, nonatomic)UILabel *afterThirdWeightLabel;
+
+// Weight Label Frames
+@property (nonatomic)CGRect beforeFirstWeightLabelFrame;
+@property (nonatomic)CGRect firstWeightLabelFrame;
+@property (nonatomic)CGRect secondWeightLabelFrame;
+@property (nonatomic)CGRect thirdWeightLabelFrame;
+@property (nonatomic)CGRect afterThirdWeightLabelFrame;
+
+// Age imageview
+@property (strong, nonatomic)UIImageView *ageImageView;
+
+// Age increment/decrement buttons
+@property (strong, nonatomic)UIButton *m_agePlusButton;
+@property (strong, nonatomic)UIButton *m_ageMinusButton;
+
+// Weight Label Frames
+@property (nonatomic)CGRect beforeFirstAgeLabelFrame;
+@property (nonatomic)CGRect firstAgeLabelFrame;
+@property (nonatomic)CGRect secondAgeLabelFrame;
+@property (nonatomic)CGRect thirdAgeLabelFrame;
+@property (nonatomic)CGRect afterThirdAgeLabelFrame;
+
+// Age Labels
+@property (strong, nonatomic)UILabel *beforeFirstAgeLabel;
+@property (strong, nonatomic)UILabel *firstAgeLabel;
+@property (strong, nonatomic)UILabel *secondAgeLabel;
+@property (strong, nonatomic)UILabel *thirdAgeLabel;
+@property (strong, nonatomic)UILabel *afterThirdAgeLabel;
+
+// Height ImageView
+@property (strong, nonatomic)UIImageView *heightImageView;
+
+// Height Labels
+@property (strong, nonatomic)UILabel *beforeFirstHeightLabel;
+@property (strong, nonatomic)UILabel *firstHeightLabel;
+@property (strong, nonatomic)UILabel *secondHeightLabel;
+@property (strong, nonatomic)UILabel *thirdHeightLabel;
+@property (strong, nonatomic)UILabel *afterThirdHeightLabel;
+
+// Height Labels Frames
+@property (nonatomic)CGRect beforeFirstHeightLabelFrame;
+@property (nonatomic)CGRect firstHeightLabelFrame;
+@property (nonatomic)CGRect secondHeightLabelFrame;
+@property (nonatomic)CGRect thirdHeightLabelFrame;
+@property (nonatomic)CGRect afterThirdHeightLabelFrame;
+
 // Move to LoginViewController
 - (void)moveToLoginViewController:(id)sender;
 // Move to GenderViewController
@@ -61,150 +206,7 @@
 
 @implementation ProfileViewController
 
-// LoginViewController class object
-LoginViewController *m_loginViewController;
-// ExerciseViewController class object
-ExerciseViewController *m_exerciseViewController;
-// MealViewContrioller class object
-MealViewController *m_mealViewController;
-// CalenderViewController class object
-CalenderViewController *m_calenderViewController;
-// GoalsViewController class object
-GoalsViewController *m_goalsViewController;
-// MusicTracksViewController class object
-MusicTracksViewController *m_musicTracksViewController;
-// RootViewController class object
-RootViewController *m_rootViewController;
-// ViewFactory class object
-ViewFactory *m_controllerViews;
-// Database class object
-Database *m_database;
-// ViewTransition class object
-ViewTransitions *m_transition;
-// GenderViewController class object
-GenderViewController *m_genderViewController;
-// Done Button
-UIButton *m_doneButton;
-// Back Button
-UIButton *m_backButton;
 
-// Help pop up button
-UIButton *m_helpPopUpButtonViewInProfileView;
-// NSUserDefault
-NSUserDefaults *userDefaults;
-
-// Before the first label Height
-CGRect m_beforeFirstHeightFrame;
-// First Label Height
-CGRect m_firstHeightFrame;
-// Second Label Height
-CGRect m_secondHeightFrame;
-// Third Label Height
-CGRect m_thirdHeightFrame;
-// After the Third Label Height
-CGRect m_afterThirdHeightFrame;
-// Before the first label Weight
-CGRect m_beforeFirstWeightFrame;
-// First Label Weight
-CGRect m_firstWeightFrame;
-// Second Label Weight
-CGRect m_secondWeightFrame;
-// Third Label Weight
-CGRect m_thirdWeightFrame;
-// After Third Label Weight
-CGRect m_afterThirdWeightFrame;
-// Before the first label Age
-CGRect m_beforeFirstAgeFrame;
-// First Label Age
-CGRect m_firstAgeFrame;
-// Second Label Age
-CGRect m_secondAgeFrame;
-// Third Label Age
-CGRect m_thirdAgeFrame;
-// After the Third Label Age
-CGRect m_afterThirdAgeFrame;
-
-// Feet number track
-int m_feet_After_Third_Label;
-// Inch number track
-int m_inches_After_Third_Label;
-// Feet before first label
-int m_feet_Before_First_Label;
-// Inch before first label
-int m_inches_Before_First_Label;
-// Exercise mode tag
-NSString *m_exercise_Mode;
-
-// User email id from database
-NSString *m_userEmailID;
-
-// Value for before first weight label
-int m_beforeFirstWeightLabel;
-// Check if weight gesture has been used
-NSString *weightGestureUsed;
-// User status log string
-NSString *m_logStatusString;
-// Background Imageview
-UIImageView *backgroundImageView;
-
-// Weight imageview
-UIImageView *weightImageView;
-
-// Weight increment/decrement buttons
-UIButton *m_weightPlusButton;
-UIButton *m_weightMinusButton;
-
-// Weight Labels
-UILabel *beforeFirstWeightLabel;
-UILabel *firstWeightLabel;
-UILabel *secondWeightLabel;
-UILabel *thirdWeightLabel;
-UILabel *afterThirdWeightLabel;
-
-// Weight Label Frames
-CGRect beforeFirstWeightLabelFrame;
-CGRect firstWeightLabelFrame;
-CGRect secondWeightLabelFrame;
-CGRect thirdWeightLabelFrame;
-CGRect afterThirdWeightLabelFrame;
-
-// Age imageview
-UIImageView *ageImageView;
-
-// Age increment/decrement buttons
-UIButton *m_agePlusButton;
-UIButton *m_ageMinusButton;
-
-// Weight Label Frames
-CGRect beforeFirstAgeLabelFrame;
-CGRect firstAgeLabelFrame;
-CGRect secondAgeLabelFrame;
-CGRect thirdAgeLabelFrame;
-CGRect afterThirdAgeLabelFrame;
-
-// Age Labels
-UILabel *beforeFirstAgeLabel;
-UILabel *firstAgeLabel;
-UILabel *secondAgeLabel;
-UILabel *thirdAgeLabel;
-UILabel *afterThirdAgeLabel;
-
-// Height ImageView
-UIImageView *heightImageView;
-
-// Height Labels
-UILabel *beforeFirstHeightLabel;
-UILabel *firstHeightLabel;
-UILabel *secondHeightLabel;
-UILabel *thirdHeightLabel;
-UILabel *afterThirdHeightLabel;
-
-// Height Labels Frames
-CGRect beforeFirstHeightLabelFrame;
-CGRect firstHeightLabelFrame;
-CGRect secondHeightLabelFrame;
-CGRect thirdHeightLabelFrame;
-CGRect afterThirdHeightLabelFrame;
 
 @synthesize messageButton;
 @synthesize weight;
@@ -234,20 +236,20 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)moveToPreviousViewController:(id)sender
 {
-    if (!m_loginViewController) {
-        m_loginViewController        = [LoginViewController sharedInstance];
+    if (!self.m_loginViewController) {
+        self.m_loginViewController        = [LoginViewController sharedInstance];
     }
 
-    if (!m_rootViewController) {
-        m_rootViewController         = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController         = [RootViewController sharedInstance];
     }
-    if (m_loginViewController.view.tag == 1) {
-        id instanceObject                = m_loginViewController;
-        [self moveToView:m_loginViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    if (self.m_loginViewController.view.tag == 1) {
+        id instanceObject                = self.m_loginViewController;
+        [self moveToView:self.m_loginViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     }
-    else if(m_rootViewController.view.tag == 1){
-        id instanceObject                = m_rootViewController;
-        [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    else if(self.m_rootViewController.view.tag == 1){
+        id instanceObject                = self.m_rootViewController;
+        [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
     }
 }
 
@@ -256,11 +258,11 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)moveToLoginViewController:(id)sender
 {
-    if (!m_loginViewController) {
-        m_loginViewController        = [LoginViewController sharedInstance];
+    if (!self.m_loginViewController) {
+        self.m_loginViewController        = [LoginViewController sharedInstance];
     }
-    id instanceObject                = m_loginViewController;
-    [self moveToView:m_loginViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject                = self.m_loginViewController;
+    [self moveToView:self.m_loginViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 
@@ -278,11 +280,11 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)moveToGenderViewController:(id)sender
 {
-    if (!m_genderViewController) {
-        m_genderViewController       = [GenderViewController sharedInstance];
+    if (!self.m_genderViewController) {
+        self.m_genderViewController       = [GenderViewController sharedInstance];
     }
-    id instanceObject               = m_genderViewController;
-    [self moveToView:m_genderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_genderViewController;
+    [self moveToView:self.m_genderViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -290,12 +292,12 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (IBAction)moveToRootViewController:(id)sender
 {
-    if (!m_rootViewController) {
-        m_rootViewController                = [RootViewController sharedInstance];
+    if (!self.m_rootViewController) {
+        self.m_rootViewController                = [RootViewController sharedInstance];
     }
     
-    id instanceObject               = m_rootViewController;
-    [self moveToView:m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
+    id instanceObject               = self.m_rootViewController;
+    [self moveToView:self.m_rootViewController.view FromCurrentView:self.view ByRefreshing:instanceObject];
 }
 
 /*
@@ -303,14 +305,14 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (NSString *)getUserId
 {
-    if (!m_database) {
-        m_database        = [[Database alloc] init];
+    if (!self.m_database) {
+        self.m_database        = [[Database alloc] init];
     }
-    if (!m_userEmailID) {
-        m_userEmailID     = [NSString getUserEmail];
+    if (!self.m_userEmailID) {
+        self.m_userEmailID     = [NSString getUserEmail];
         
     }
-    return m_userEmailID;
+    return self.m_userEmailID;
 }
 
 /*
@@ -330,10 +332,10 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)logoutUserFromDatabase:(NSString *)user_Id
 {
-    if (!m_database) {
-        m_database      = [[Database alloc] init];
+    if (!self.m_database) {
+        self.m_database      = [[Database alloc] init];
     }
-    [m_database logOutUser:user_Id];
+    [self.m_database logOutUser:user_Id];
 }
 
 /*
@@ -341,8 +343,8 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)logOutUser
 {
-    if (!m_database) {
-        m_database      = [Database alloc];
+    if (!self.m_database) {
+        self.m_database      = [Database alloc];
     }
     
     [self logOutFromFacebook];
@@ -354,8 +356,8 @@ CGRect afterThirdHeightLabelFrame;
 // Logout of App
 - (void)logOutOfApp
 {
-    if (!m_controllerViews) {
-        m_controllerViews           = [ViewFactory sharedInstance];
+    if (!self.m_controllerViews) {
+        self.m_controllerViews           = [ViewFactory sharedInstance];
     }
     [self logOutUser];
 }
@@ -371,10 +373,10 @@ CGRect afterThirdHeightLabelFrame;
     
     [self.messageButton setTitle:message forState:UIControlStateNormal];
     
-    if (!m_transition) {
-        m_transition    = [ViewTransitions sharedInstance];
+    if (!self.m_transition) {
+        self.m_transition    = [ViewTransitions sharedInstance];
     }
-    [m_transition performTransitionFromBottom:self.messageButton];
+    [self.m_transition performTransitionFromBottom:self.messageButton];
     
     [UIButton animateWithDuration:5.0f animations:^{self.messageButton.alpha = 0.0;} completion:nil];
 }
@@ -402,12 +404,12 @@ CGRect afterThirdHeightLabelFrame;
 - (void)incrementHeightForBeforeFirstLabel
 {
     // need to simultaneously keep the count
-    if (m_inches_Before_First_Label < 11) {
-        m_inches_Before_First_Label++;
+    if (self.m_inches_Before_First_Label < 11) {
+        self.m_inches_Before_First_Label++;
     }
-    else if(m_inches_Before_First_Label == 11){
-        m_feet_Before_First_Label++;
-        m_inches_Before_First_Label     = 0;
+    else if(self.m_inches_Before_First_Label == 11){
+        self.m_feet_Before_First_Label++;
+        self.m_inches_Before_First_Label     = 0;
     }
 }
 
@@ -417,12 +419,12 @@ CGRect afterThirdHeightLabelFrame;
 - (void)decrementHeightForAfterThirdLabel
 {
     // Need to simultanouesly keep the count
-    if (m_inches_After_Third_Label == 0) {
-        m_feet_After_Third_Label--;
-        m_inches_After_Third_Label     = 11;
+    if (self.m_inches_After_Third_Label == 0) {
+        self.m_feet_After_Third_Label--;
+        self.m_inches_After_Third_Label     = 11;
     }
-    else if(m_inches_After_Third_Label > 0 ){
-        m_inches_After_Third_Label--;
+    else if(self.m_inches_After_Third_Label > 0 ){
+        self.m_inches_After_Third_Label--;
     }
 }
 
@@ -431,14 +433,14 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)incrementHeightAtAfterThirdLabelForDisplay
 {
-    if (m_inches_After_Third_Label < 11) { // if m_inches than 12 inches
+    if (self.m_inches_After_Third_Label < 11) { // if m_inches than 12 inches
         // make inches to zero
-        m_inches_After_Third_Label++;
+        self.m_inches_After_Third_Label++;
     }
-    else if(m_inches_After_Third_Label == 11){ // if more than 11 inches, make inch 0 and increment feet
+    else if(self.m_inches_After_Third_Label == 11){ // if more than 11 inches, make inch 0 and increment feet
         // increment the feet
-        m_feet_After_Third_Label++;
-        m_inches_After_Third_Label      = 0;
+        self.m_feet_After_Third_Label++;
+        self.m_inches_After_Third_Label      = 0;
     }
 }
 
@@ -447,13 +449,13 @@ CGRect afterThirdHeightLabelFrame;
  */
 -(void)decrementHeightAtBeforeFirstLabelForDisplay
 {
-    if (m_inches_Before_First_Label == 0) { // if inche is more than 11        
-        m_feet_Before_First_Label--;
-        m_inches_Before_First_Label    = 11;
+    if (self.m_inches_Before_First_Label == 0) { // if inche is more than 11
+        self.m_feet_Before_First_Label--;
+        self.m_inches_Before_First_Label    = 11;
     }
-    else if(m_inches_Before_First_Label > 0){
+    else if(self.m_inches_Before_First_Label > 0){
         // make inches to zero
-        m_inches_Before_First_Label--;
+        self.m_inches_Before_First_Label--;
     }
 }
 
@@ -463,7 +465,7 @@ CGRect afterThirdHeightLabelFrame;
 - (void)incrementOrDecrement:(NSString *)leftOrRight HeightValue:(UILabel *)label
 {
     if ([leftOrRight isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_afterThirdHeightFrame.origin.x) {
+        if (label.frame.origin.x == self.m_afterThirdHeightFrame.origin.x) {
             // Increment before first label to keep track of changing height values
             [self incrementHeightForBeforeFirstLabel];
             
@@ -472,7 +474,7 @@ CGRect afterThirdHeightLabelFrame;
         }
     }
     else if([leftOrRight isEqualToString:@"Right"]) {
-        if (label.frame.origin.x == m_beforeFirstHeightFrame.origin.x) {           
+        if (label.frame.origin.x == self.m_beforeFirstHeightFrame.origin.x) {
             // Decrement after fifth label keep track of the changing height values
             [self decrementHeightForAfterThirdLabel];
             
@@ -482,7 +484,7 @@ CGRect afterThirdHeightLabelFrame;
     }
 
     // Get the selected height
-    if (label.frame.origin.x == m_thirdHeightFrame.origin.x) {
+    if (label.frame.origin.x == self.m_thirdHeightFrame.origin.x) {
         self.height                      = label.text;
     }
 }
@@ -497,30 +499,30 @@ CGRect afterThirdHeightLabelFrame;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration: 0.25];
 
-        if (label.frame.origin.x == m_beforeFirstHeightFrame.origin.x) {
-            label.frame            = m_afterThirdHeightFrame;
+        if (label.frame.origin.x == self.m_beforeFirstHeightFrame.origin.x) {
+            label.frame            = self.m_afterThirdHeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
             // display height
-            label.text             = [NSString stringWithFormat:@"%d’ %d”",m_feet_After_Third_Label, m_inches_After_Third_Label];
+            label.text             = [NSString stringWithFormat:@"%d’ %d”",self.m_feet_After_Third_Label, self.m_inches_After_Third_Label];
         }
-        else if(label.frame.origin.x == m_firstHeightFrame.origin.x) {
-            label.frame            = m_beforeFirstHeightFrame;
+        else if(label.frame.origin.x == self.m_firstHeightFrame.origin.x) {
+            label.frame            = self.m_beforeFirstHeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_secondHeightFrame.origin.x) {
-            label.frame            = m_firstHeightFrame;
+        else if(label.frame.origin.x == self.m_secondHeightFrame.origin.x) {
+            label.frame            = self.m_firstHeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_thirdHeightFrame.origin.x) {
-            label.frame            = m_secondHeightFrame;
+        else if(label.frame.origin.x == self.m_thirdHeightFrame.origin.x) {
+            label.frame            = self.m_secondHeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_afterThirdHeightFrame.origin.x) {
-            label.frame            = m_thirdHeightFrame;
+        else if(label.frame.origin.x == self.m_afterThirdHeightFrame.origin.x) {
+            label.frame            = self.m_thirdHeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
@@ -533,30 +535,30 @@ CGRect afterThirdHeightLabelFrame;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration: 0.25];
 
-        if(label.frame.origin.x == m_beforeFirstHeightFrame.origin.x) {
-            label.frame            = m_firstHeightFrame;
+        if(label.frame.origin.x == self.m_beforeFirstHeightFrame.origin.x) {
+            label.frame            = self.m_firstHeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if (label.frame.origin.x == m_afterThirdHeightFrame.origin.x) {
-            label.frame            = m_beforeFirstHeightFrame;
+        else if (label.frame.origin.x == self.m_afterThirdHeightFrame.origin.x) {
+            label.frame            = self.m_beforeFirstHeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
             // display height
-            label.text             = [NSString stringWithFormat:@"%d’ %d”",m_feet_Before_First_Label, m_inches_Before_First_Label];
+            label.text             = [NSString stringWithFormat:@"%d’ %d”",self.m_feet_Before_First_Label, self.m_inches_Before_First_Label];
         }
-        else if(label.frame.origin.x == m_thirdHeightFrame.origin.x) {
-            label.frame            = m_afterThirdHeightFrame;
+        else if(label.frame.origin.x == self.m_thirdHeightFrame.origin.x) {
+            label.frame            = self.m_afterThirdHeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_secondHeightFrame.origin.x) {
-            label.frame            = m_thirdHeightFrame;
+        else if(label.frame.origin.x == self.m_secondHeightFrame.origin.x) {
+            label.frame            = self.m_thirdHeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_firstHeightFrame.origin.x) {
-            label.frame            = m_secondHeightFrame;
+        else if(label.frame.origin.x == self.m_firstHeightFrame.origin.x) {
+            label.frame            = self.m_secondHeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
@@ -574,22 +576,22 @@ CGRect afterThirdHeightLabelFrame;
     int value                               = [label.text intValue];
     
     if ([leftOrRight isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_afterThirdWeightFrame.origin.x) {
+        if (label.frame.origin.x == self.m_afterThirdWeightFrame.origin.x) {
             value                           = value + 5;
         }
-        else if (label.frame.origin.x == m_beforeFirstWeightFrame.origin.x) {
-            m_beforeFirstWeightLabel        = value;
+        else if (label.frame.origin.x == self.m_beforeFirstWeightFrame.origin.x) {
+            self.m_beforeFirstWeightLabel        = value;
         }
     }
     else if([leftOrRight isEqualToString:@"Right"]) {
-        if (label.frame.origin.x == m_beforeFirstWeightFrame.origin.x) {
+        if (label.frame.origin.x == self.m_beforeFirstWeightFrame.origin.x) {
             value                           = value - 5;
-            m_beforeFirstWeightLabel        = value;
+            self.m_beforeFirstWeightLabel        = value;
         }
     }
     
     // Get the selected Weight or Time
-    if (label.frame.origin.x == m_secondWeightFrame.origin.x) {
+    if (label.frame.origin.x == self.m_secondWeightFrame.origin.x) {
         self.weight                        = [label.text intValue];
     }
     
@@ -606,28 +608,28 @@ CGRect afterThirdHeightLabelFrame;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration: 0.25];
 
-        if (label.frame.origin.x == m_beforeFirstWeightFrame.origin.x) {
-            label.frame            = m_afterThirdWeightFrame;
+        if (label.frame.origin.x == self.m_beforeFirstWeightFrame.origin.x) {
+            label.frame            = self.m_afterThirdWeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_firstWeightFrame.origin.x) {
-            label.frame            = m_beforeFirstWeightFrame;
+        else if(label.frame.origin.x == self.m_firstWeightFrame.origin.x) {
+            label.frame            = self.m_beforeFirstWeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_secondWeightFrame.origin.x) {
-            label.frame            = m_firstWeightFrame;
+        else if(label.frame.origin.x == self.m_secondWeightFrame.origin.x) {
+            label.frame            = self.m_firstWeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_thirdWeightFrame.origin.x) {
-            label.frame            = m_secondWeightFrame;
+        else if(label.frame.origin.x == self.m_thirdWeightFrame.origin.x) {
+            label.frame            = self.m_secondWeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_afterThirdWeightFrame.origin.x) {
-            label.frame            = m_thirdWeightFrame;
+        else if(label.frame.origin.x == self.m_afterThirdWeightFrame.origin.x) {
+            label.frame            = self.m_thirdWeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
@@ -641,28 +643,28 @@ CGRect afterThirdHeightLabelFrame;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration: 0.25];
 
-        if(label.frame.origin.x == m_beforeFirstWeightFrame.origin.x) {
-            label.frame            = m_firstWeightFrame;
+        if(label.frame.origin.x == self.m_beforeFirstWeightFrame.origin.x) {
+            label.frame            = self.m_firstWeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_firstWeightFrame.origin.x) {
-            label.frame            = m_secondWeightFrame;
+        else if(label.frame.origin.x == self.m_firstWeightFrame.origin.x) {
+            label.frame            = self.m_secondWeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_secondWeightFrame.origin.x) {
-            label.frame            = m_thirdWeightFrame;
+        else if(label.frame.origin.x == self.m_secondWeightFrame.origin.x) {
+            label.frame            = self.m_thirdWeightFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if (label.frame.origin.x == m_thirdWeightFrame.origin.x) {
-            label.frame            = m_afterThirdWeightFrame;
+        else if (label.frame.origin.x == self.m_thirdWeightFrame.origin.x) {
+            label.frame            = self.m_afterThirdWeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if (label.frame.origin.x == m_afterThirdWeightFrame.origin.x) {
-            label.frame            = m_beforeFirstWeightFrame;
+        else if (label.frame.origin.x == self.m_afterThirdWeightFrame.origin.x) {
+            label.frame            = self.m_beforeFirstWeightFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
@@ -681,18 +683,18 @@ CGRect afterThirdHeightLabelFrame;
     int value                               = [label.text intValue];
     
     if ([leftOrRight isEqualToString:@"Left"]) {
-        if (label.frame.origin.x == m_afterThirdAgeFrame.origin.x) {
+        if (label.frame.origin.x == self.m_afterThirdAgeFrame.origin.x) {
             value                           = value + 5;
         }
     }
     else if([leftOrRight isEqualToString:@"Right"]) {
-        if (label.frame.origin.x == m_beforeFirstAgeFrame.origin.x) {
+        if (label.frame.origin.x == self.m_beforeFirstAgeFrame.origin.x) {
             value                           = value - 5;
         }
     }
     
     // Get the selected Weight or Time
-    if (label.frame.origin.x == m_secondAgeFrame.origin.x) {
+    if (label.frame.origin.x == self.m_secondAgeFrame.origin.x) {
         self.age                            = [label.text intValue];
     }
     
@@ -709,28 +711,28 @@ CGRect afterThirdHeightLabelFrame;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration: 0.25];
 
-        if (label.frame.origin.x == m_beforeFirstAgeFrame.origin.x) {
-            label.frame            = m_afterThirdAgeFrame;
+        if (label.frame.origin.x == self.m_beforeFirstAgeFrame.origin.x) {
+            label.frame            = self.m_afterThirdAgeFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_firstAgeFrame.origin.x) {
-            label.frame            = m_beforeFirstAgeFrame;
+        else if(label.frame.origin.x == self.m_firstAgeFrame.origin.x) {
+            label.frame            = self.m_beforeFirstAgeFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_secondAgeFrame.origin.x) {
-            label.frame            = m_firstAgeFrame;
+        else if(label.frame.origin.x == self.m_secondAgeFrame.origin.x) {
+            label.frame            = self.m_firstAgeFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_thirdAgeFrame.origin.x) {
-            label.frame            = m_secondAgeFrame;
+        else if(label.frame.origin.x == self.m_thirdAgeFrame.origin.x) {
+            label.frame            = self.m_secondAgeFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
-        else if(label.frame.origin.x == m_afterThirdAgeFrame.origin.x) {
-            label.frame            = m_thirdAgeFrame;
+        else if(label.frame.origin.x == self.m_afterThirdAgeFrame.origin.x) {
+            label.frame            = self.m_thirdAgeFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
@@ -743,28 +745,28 @@ CGRect afterThirdHeightLabelFrame;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration: 0.25];
 
-        if(label.frame.origin.x == m_beforeFirstAgeFrame.origin.x) {
-            label.frame            = m_firstAgeFrame;
+        if(label.frame.origin.x == self.m_beforeFirstAgeFrame.origin.x) {
+            label.frame            = self.m_firstAgeFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if (label.frame.origin.x == m_afterThirdAgeFrame.origin.x) {
-            label.frame            = m_beforeFirstAgeFrame;
+        else if (label.frame.origin.x == self.m_afterThirdAgeFrame.origin.x) {
+            label.frame            = self.m_beforeFirstAgeFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_thirdAgeFrame.origin.x) {
-            label.frame            = m_afterThirdAgeFrame;
+        else if(label.frame.origin.x == self.m_thirdAgeFrame.origin.x) {
+            label.frame            = self.m_afterThirdAgeFrame;
             label.hidden           = YES;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_secondAgeFrame.origin.x) {
-            label.frame            = m_thirdAgeFrame;
+        else if(label.frame.origin.x == self.m_secondAgeFrame.origin.x) {
+            label.frame            = self.m_thirdAgeFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor blackColor];
         }
-        else if(label.frame.origin.x == m_firstAgeFrame.origin.x) {
-            label.frame            = m_secondAgeFrame;
+        else if(label.frame.origin.x == self.m_firstAgeFrame.origin.x) {
+            label.frame            = self.m_secondAgeFrame;
             label.hidden           = NO;
             label.textColor        = [UIColor redColor];
         }
@@ -783,28 +785,28 @@ CGRect afterThirdHeightLabelFrame;
     if (swipeRecognizer == self.heightLeftSwipeGesture) {
         // Add to inches
         // Animate the first label
-        [self animateLeftOrRight:@"Left" HeightLabel:firstHeightLabel];
+        [self animateLeftOrRight:@"Left" HeightLabel:self.firstHeightLabel];
         // Animate the second label
-        [self animateLeftOrRight:@"Left" HeightLabel:secondHeightLabel];
+        [self animateLeftOrRight:@"Left" HeightLabel:self.secondHeightLabel];
         // Animate the third label
-        [self animateLeftOrRight:@"Left" HeightLabel:thirdHeightLabel];
+        [self animateLeftOrRight:@"Left" HeightLabel:self.thirdHeightLabel];
         // Animate the fourth label
-        [self animateLeftOrRight:@"Left" HeightLabel:afterThirdHeightLabel];
+        [self animateLeftOrRight:@"Left" HeightLabel:self.afterThirdHeightLabel];
         // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-        [self animateLeftOrRight:@"Left" HeightLabel:beforeFirstHeightLabel];
+        [self animateLeftOrRight:@"Left" HeightLabel:self.beforeFirstHeightLabel];
 
     }
     else if (swipeRecognizer == self.heightRightSwipeGesture) {
         // Animate first label
-        [self animateLeftOrRight:@"Right" HeightLabel:firstHeightLabel];
+        [self animateLeftOrRight:@"Right" HeightLabel:self.firstHeightLabel];
         // Animate second label
-        [self animateLeftOrRight:@"Right" HeightLabel:secondHeightLabel];
+        [self animateLeftOrRight:@"Right" HeightLabel:self.secondHeightLabel];
         // Animate third label
-        [self animateLeftOrRight:@"Right" HeightLabel:thirdHeightLabel];
+        [self animateLeftOrRight:@"Right" HeightLabel:self.thirdHeightLabel];
         // Animate fourth label
-        [self animateLeftOrRight:@"Right" HeightLabel:afterThirdHeightLabel];
+        [self animateLeftOrRight:@"Right" HeightLabel:self.afterThirdHeightLabel];
         // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-        [self animateLeftOrRight:@"Right" HeightLabel:beforeFirstHeightLabel];
+        [self animateLeftOrRight:@"Right" HeightLabel:self.beforeFirstHeightLabel];
 
     }
 }
@@ -814,7 +816,7 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)plusWeightby10:(id)sender
 {
-    [UILabel incrementBy10OnLabelOne:beforeFirstWeightLabel LabelTwo:firstWeightLabel  LabelThree:secondWeightLabel LabelFour:thirdWeightLabel LabelFive:afterThirdWeightLabel];
+    [UILabel incrementBy10OnLabelOne:self.beforeFirstWeightLabel LabelTwo:self.firstWeightLabel  LabelThree:self.secondWeightLabel LabelFour:self.thirdWeightLabel LabelFive:self.afterThirdWeightLabel];
 }
 
 /*
@@ -822,8 +824,8 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)minusWeightby10:(id)sender
 {
-    if ([secondWeightLabel.text intValue] > 5) {
-        [UILabel decrementBy10OnLabelOne:beforeFirstWeightLabel LabelTwo:firstWeightLabel  LabelThree:secondWeightLabel LabelFour:thirdWeightLabel LabelFive:afterThirdWeightLabel];
+    if ([self.secondWeightLabel.text intValue] > 5) {
+        [UILabel decrementBy10OnLabelOne:self.beforeFirstWeightLabel LabelTwo:self.firstWeightLabel  LabelThree:self.secondWeightLabel LabelFour:self.thirdWeightLabel LabelFive:self.afterThirdWeightLabel];
     }
 }
 
@@ -832,7 +834,7 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)plusAgeby10:(id)sender
 {
-    [UILabel incrementBy10OnLabelOne:beforeFirstAgeLabel LabelTwo:firstAgeLabel  LabelThree:secondAgeLabel LabelFour:thirdAgeLabel LabelFive:afterThirdAgeLabel];
+    [UILabel incrementBy10OnLabelOne:self.beforeFirstAgeLabel LabelTwo:self.firstAgeLabel  LabelThree:self.secondAgeLabel LabelFour:self.thirdAgeLabel LabelFive:self.afterThirdAgeLabel];
 }
 
 /*
@@ -840,8 +842,8 @@ CGRect afterThirdHeightLabelFrame;
  */
 - (void)minusAgeby10:(id)sender
 {
-    if ([secondAgeLabel.text intValue] > 10) {
-        [UILabel decrementBy10OnLabelOne:beforeFirstAgeLabel LabelTwo:firstAgeLabel  LabelThree:secondAgeLabel LabelFour:thirdAgeLabel LabelFive:afterThirdAgeLabel];
+    if ([self.secondAgeLabel.text intValue] > 10) {
+        [UILabel decrementBy10OnLabelOne:self.beforeFirstAgeLabel LabelTwo:self.firstAgeLabel  LabelThree:self.secondAgeLabel LabelFour:self.thirdAgeLabel LabelFive:self.afterThirdAgeLabel];
     }
 }
 
@@ -852,16 +854,16 @@ CGRect afterThirdHeightLabelFrame;
 - (void)animateWeightLabelsToLeft
 {
     // animate before second label
-    [self animateLeftOrRight:@"Left" WeightLabel:firstWeightLabel];
+    [self animateLeftOrRight:@"Left" WeightLabel:self.firstWeightLabel];
     // animate before third label
-    [self animateLeftOrRight:@"Left" WeightLabel:secondWeightLabel];
+    [self animateLeftOrRight:@"Left" WeightLabel:self.secondWeightLabel];
     // animate before third label
-    [self animateLeftOrRight:@"Left" WeightLabel:thirdWeightLabel];
+    [self animateLeftOrRight:@"Left" WeightLabel:self.thirdWeightLabel];
     // animate before fourth label
-    [self animateLeftOrRight:@"Left" WeightLabel:afterThirdWeightLabel];
+    [self animateLeftOrRight:@"Left" WeightLabel:self.afterThirdWeightLabel];
     
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Left" WeightLabel:beforeFirstWeightLabel];
+    [self animateLeftOrRight:@"Left" WeightLabel:self.beforeFirstWeightLabel];
 }
 
 /*
@@ -870,16 +872,16 @@ CGRect afterThirdHeightLabelFrame;
 - (void)animateWeightLabelsToRight
 {
     // animate before second label
-    [self animateLeftOrRight:@"Right" WeightLabel:firstWeightLabel];
+    [self animateLeftOrRight:@"Right" WeightLabel:self.firstWeightLabel];
     // animate before third label
-    [self animateLeftOrRight:@"Right" WeightLabel:secondWeightLabel];
+    [self animateLeftOrRight:@"Right" WeightLabel:self.secondWeightLabel];
     // animate before third label
-    [self animateLeftOrRight:@"Right" WeightLabel:thirdWeightLabel];
+    [self animateLeftOrRight:@"Right" WeightLabel:self.thirdWeightLabel];
     // animate before fourth label
-    [self animateLeftOrRight:@"Right" WeightLabel:afterThirdWeightLabel];
+    [self animateLeftOrRight:@"Right" WeightLabel:self.afterThirdWeightLabel];
     
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Right" WeightLabel:beforeFirstWeightLabel];
+    [self animateLeftOrRight:@"Right" WeightLabel:self.beforeFirstWeightLabel];
 }
 
 /*
@@ -901,15 +903,15 @@ CGRect afterThirdHeightLabelFrame;
 - (void)animateAgeLabelsToLeft
 {
     // Animate the first label
-    [self animateLeftOrRight:@"Left" AgeLabel:firstAgeLabel];
+    [self animateLeftOrRight:@"Left" AgeLabel:self.firstAgeLabel];
     // Animate the second label
-    [self animateLeftOrRight:@"Left" AgeLabel:secondAgeLabel];
+    [self animateLeftOrRight:@"Left" AgeLabel:self.secondAgeLabel];
     // Animate the third label
-    [self animateLeftOrRight:@"Left" AgeLabel:thirdAgeLabel];
+    [self animateLeftOrRight:@"Left" AgeLabel:self.thirdAgeLabel];
     // Animate after third label
-    [self animateLeftOrRight:@"Left" AgeLabel:afterThirdAgeLabel];
+    [self animateLeftOrRight:@"Left" AgeLabel:self.afterThirdAgeLabel];
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Left" AgeLabel:beforeFirstAgeLabel];
+    [self animateLeftOrRight:@"Left" AgeLabel:self.beforeFirstAgeLabel];
 }
 
 /*
@@ -918,15 +920,15 @@ CGRect afterThirdHeightLabelFrame;
 - (void)animateAgeLabelsToRight
 {
     // Animate the first label
-    [self animateLeftOrRight:@"Right" AgeLabel:firstAgeLabel];
+    [self animateLeftOrRight:@"Right" AgeLabel:self.firstAgeLabel];
     // Animate the second label
-    [self animateLeftOrRight:@"Right" AgeLabel:secondAgeLabel];
+    [self animateLeftOrRight:@"Right" AgeLabel:self.secondAgeLabel];
     // Animate the third label
-    [self animateLeftOrRight:@"Right" AgeLabel:thirdAgeLabel];
+    [self animateLeftOrRight:@"Right" AgeLabel:self.thirdAgeLabel];
     // Animate after third label
-    [self animateLeftOrRight:@"Right" AgeLabel:afterThirdAgeLabel];
+    [self animateLeftOrRight:@"Right" AgeLabel:self.afterThirdAgeLabel];
     // Animate before first label, do this last to get the value from the label to be used to check if it is zero
-    [self animateLeftOrRight:@"Right" AgeLabel:beforeFirstAgeLabel];
+    [self animateLeftOrRight:@"Right" AgeLabel:self.beforeFirstAgeLabel];
 }
 
 /*
@@ -966,78 +968,78 @@ CGRect afterThirdHeightLabelFrame;
     else {
         weightImageViewFrame                         = CGRectMake(50.0f, 339.0f, 225.0f, 57.0f);
     }
-    heightImageView                                     = [[UIImageView alloc] initWithFrame:weightImageViewFrame];
-    [self.view addSubview:heightImageView];
-    [heightImageView addGestureRecognizer:self.heightLeftSwipeGesture];
-    [heightImageView addGestureRecognizer:self.heightRightSwipeGesture];
-    heightImageView.userInteractionEnabled              = YES;
+    self.heightImageView                                     = [[UIImageView alloc] initWithFrame:weightImageViewFrame];
+    [self.view addSubview:self.heightImageView];
+    [self.heightImageView addGestureRecognizer:self.heightLeftSwipeGesture];
+    [self.heightImageView addGestureRecognizer:self.heightRightSwipeGesture];
+    self.heightImageView.userInteractionEnabled              = YES;
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        beforeFirstHeightLabelFrame                  = CGRectMake(30.0f, 414.0f, 50.0f, 35.0f);
+        self.beforeFirstHeightLabelFrame                  = CGRectMake(30.0f, 414.0f, 50.0f, 35.0f);
     }
     else {
-        beforeFirstHeightLabelFrame                  = CGRectMake(30.0f, 352.0f, 50.0f, 35.0f);
+        self.beforeFirstHeightLabelFrame                  = CGRectMake(30.0f, 352.0f, 50.0f, 35.0f);
     }
-    beforeFirstHeightLabel                              = [[UILabel alloc] initWithFrame:beforeFirstHeightLabelFrame];
-    beforeFirstHeightLabel.backgroundColor              = [UIColor clearColor];
-    beforeFirstHeightLabel.text                         = @"5' 4”";
-    beforeFirstWeightLabel.font                         = [UIFont customFontWithSize:19];
-    beforeFirstHeightLabel.textColor                    = [UIColor blackColor];
-    [self.view addSubview:beforeFirstHeightLabel];
-    beforeFirstHeightLabel.hidden                       = YES;
+    self.beforeFirstHeightLabel                              = [[UILabel alloc] initWithFrame:self.beforeFirstHeightLabelFrame];
+    self.beforeFirstHeightLabel.backgroundColor              = [UIColor clearColor];
+    self.beforeFirstHeightLabel.text                         = @"5' 4”";
+    self.beforeFirstWeightLabel.font                         = [UIFont customFontWithSize:19];
+    self.beforeFirstHeightLabel.textColor                    = [UIColor blackColor];
+    [self.view addSubview:self.beforeFirstHeightLabel];
+    self.beforeFirstHeightLabel.hidden                       = YES;
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        firstHeightLabelFrame                        = CGRectMake(85.0f, 414.0f, 50.0f, 35.0f);
+        self.firstHeightLabelFrame                        = CGRectMake(85.0f, 414.0f, 50.0f, 35.0f);
     }
     else{
-        firstHeightLabelFrame                        = CGRectMake(85.0f, 352.0f, 50.0f, 35.0f);
+        self.firstHeightLabelFrame                        = CGRectMake(85.0f, 352.0f, 50.0f, 35.0f);
     }
-    firstHeightLabel                                    = [[UILabel alloc] initWithFrame:firstHeightLabelFrame];
-    firstHeightLabel.backgroundColor                    = [UIColor clearColor];
-    firstHeightLabel.text                               = @"5' 5”";
-    firstHeightLabel.font                               = [UIFont customFontWithSize:19];
-    firstHeightLabel.textColor                          = [UIColor blackColor];
-    [self.view addSubview:firstHeightLabel];
+    self.firstHeightLabel                                    = [[UILabel alloc] initWithFrame:self.firstHeightLabelFrame];
+    self.firstHeightLabel.backgroundColor                    = [UIColor clearColor];
+    self.firstHeightLabel.text                               = @"5' 5”";
+    self.firstHeightLabel.font                               = [UIFont customFontWithSize:19];
+    self.firstHeightLabel.textColor                          = [UIColor blackColor];
+    [self.view addSubview:self.firstHeightLabel];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        secondHeightLabelFrame                       = CGRectMake(145.0f, 414.0f, 50.0f, 35.0f);
+        self.secondHeightLabelFrame                       = CGRectMake(145.0f, 414.0f, 50.0f, 35.0f);
     }
     else {
-        secondHeightLabelFrame                       = CGRectMake(145.0f, 352.0f, 50.0f, 35.0f);
+        self.secondHeightLabelFrame                       = CGRectMake(145.0f, 352.0f, 50.0f, 35.0f);
     }
-    secondHeightLabel                                   = [[UILabel alloc] initWithFrame:secondHeightLabelFrame];
-    secondHeightLabel.backgroundColor                   = [UIColor clearColor];
-    secondHeightLabel.text                              = @"5' 6”";
-    secondHeightLabel.font                              = [UIFont customFontWithSize:19];
-    secondHeightLabel.textColor                         = [UIColor redColor];
-    [self.view addSubview:secondHeightLabel];
+    self.secondHeightLabel                                   = [[UILabel alloc] initWithFrame:self.secondHeightLabelFrame];
+    self.secondHeightLabel.backgroundColor                   = [UIColor clearColor];
+    self.secondHeightLabel.text                              = @"5' 6”";
+    self.secondHeightLabel.font                              = [UIFont customFontWithSize:19];
+    self.secondHeightLabel.textColor                         = [UIColor redColor];
+    [self.view addSubview:self.secondHeightLabel];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        thirdHeightLabelFrame                        = CGRectMake(205.0f, 414.0f, 50.0f, 35.0f);
+        self.thirdHeightLabelFrame                        = CGRectMake(205.0f, 414.0f, 50.0f, 35.0f);
     }
     else {
-        thirdHeightLabelFrame                        = CGRectMake(205.0f, 352.0f, 50.0f, 35.0f);
+        self.thirdHeightLabelFrame                        = CGRectMake(205.0f, 352.0f, 50.0f, 35.0f);
     }
-    thirdHeightLabel                                    = [[UILabel alloc] initWithFrame:thirdHeightLabelFrame];
-    thirdHeightLabel.backgroundColor                    = [UIColor clearColor];
-    thirdHeightLabel.text                               = @"5' 7”";
-    thirdHeightLabel.font                               = [UIFont customFontWithSize:19];
-    thirdHeightLabel.textColor                          = [UIColor blackColor];
-    [self.view addSubview:thirdHeightLabel];
+    self.thirdHeightLabel                                    = [[UILabel alloc] initWithFrame:self.thirdHeightLabelFrame];
+    self.thirdHeightLabel.backgroundColor                    = [UIColor clearColor];
+    self.thirdHeightLabel.text                               = @"5' 7”";
+    self.thirdHeightLabel.font                               = [UIFont customFontWithSize:19];
+    self.thirdHeightLabel.textColor                          = [UIColor blackColor];
+    [self.view addSubview:self.thirdHeightLabel];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        afterThirdHeightLabelFrame                   = CGRectMake(264.0f, 414.0f, 50.0f, 35.0f);
+        self.afterThirdHeightLabelFrame                   = CGRectMake(264.0f, 414.0f, 50.0f, 35.0f);
     }
     else {
-        afterThirdHeightLabelFrame                   = CGRectMake(264.0f, 352.0f, 50.0f, 35.0f);
+        self.afterThirdHeightLabelFrame                   = CGRectMake(264.0f, 352.0f, 50.0f, 35.0f);
     }
-    afterThirdHeightLabel                               = [[UILabel alloc] initWithFrame:afterThirdHeightLabelFrame];
-    afterThirdHeightLabel.backgroundColor               = [UIColor clearColor];
-    afterThirdHeightLabel.text                          = @"5' 8”";
-    afterThirdHeightLabel.font                          = [UIFont customFontWithSize:19];
-    afterThirdHeightLabel.textColor                     = [UIColor blackColor];
-    [self.view addSubview:afterThirdHeightLabel];
-    afterThirdHeightLabel.hidden                        = YES;
+    self.afterThirdHeightLabel                               = [[UILabel alloc] initWithFrame:self.afterThirdHeightLabelFrame];
+    self.afterThirdHeightLabel.backgroundColor               = [UIColor clearColor];
+    self.afterThirdHeightLabel.text                          = @"5' 8”";
+    self.afterThirdHeightLabel.font                          = [UIFont customFontWithSize:19];
+    self.afterThirdHeightLabel.textColor                     = [UIColor blackColor];
+    [self.view addSubview:self.afterThirdHeightLabel];
+    self.afterThirdHeightLabel.hidden                        = YES;
 }
 
 /*
@@ -1053,11 +1055,11 @@ CGRect afterThirdHeightLabelFrame;
     else {
         weightImageViewFrame            = CGRectMake(0.0f, 116.0f, 320.0f, 57.0f);
     }
-    weightImageView                     = [[UIImageView alloc] initWithFrame:weightImageViewFrame];
-    [self.view addSubview:weightImageView];
-    [weightImageView addGestureRecognizer:self.weightLeftSwipeGesture];
-    [weightImageView addGestureRecognizer:self.weightRightSwipeGesture];
-    weightImageView.userInteractionEnabled  = YES;
+    self.weightImageView                     = [[UIImageView alloc] initWithFrame:weightImageViewFrame];
+    [self.view addSubview:self.weightImageView];
+    [self.weightImageView addGestureRecognizer:self.weightLeftSwipeGesture];
+    [self.weightImageView addGestureRecognizer:self.weightRightSwipeGesture];
+    self.weightImageView.userInteractionEnabled  = YES;
 
     CGRect weightMinusButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1066,9 +1068,9 @@ CGRect afterThirdHeightLabelFrame;
     else {
         weightMinusButtonFrame            = CGRectMake(0.0f, 116.0f, 33.0f, 57.0f);
     }
-    m_weightMinusButton                 = [[UIButton alloc] initWithFrame:weightMinusButtonFrame];
-    [self.view addSubview:m_weightMinusButton];
-    [m_weightMinusButton addTarget:self action:@selector(minusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_weightMinusButton                 = [[UIButton alloc] initWithFrame:weightMinusButtonFrame];
+    [self.view addSubview:self.m_weightMinusButton];
+    [self.m_weightMinusButton addTarget:self action:@selector(minusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect weightPlusButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1077,78 +1079,78 @@ CGRect afterThirdHeightLabelFrame;
     else {
         weightPlusButtonFrame            = CGRectMake(285.0f, 116.0f, 33.0f, 57.0f);
     }
-    m_weightPlusButton                 = [[UIButton alloc] initWithFrame:weightPlusButtonFrame];
-    [self.view addSubview:m_weightPlusButton];
-    [m_weightPlusButton addTarget:self action:@selector(plusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_weightPlusButton                 = [[UIButton alloc] initWithFrame:weightPlusButtonFrame];
+    [self.view addSubview:self.m_weightPlusButton];
+    [self.m_weightPlusButton addTarget:self action:@selector(plusWeightby10:) forControlEvents:UIControlEventTouchUpInside];
     
     // Add weight labels
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        beforeFirstWeightLabelFrame         = CGRectMake(23.0f, 135.0f, 50.0f, 30.0f);
+        self.beforeFirstWeightLabelFrame         = CGRectMake(23.0f, 135.0f, 50.0f, 30.0f);
     }
     else {
-        beforeFirstWeightLabelFrame         = CGRectMake(23.0f, 129.0f, 50.0f, 30.0f);
+        self.beforeFirstWeightLabelFrame         = CGRectMake(23.0f, 129.0f, 50.0f, 30.0f);
     }
-    beforeFirstWeightLabel              = [[UILabel alloc] initWithFrame:beforeFirstWeightLabelFrame];
-    beforeFirstWeightLabel.text         = @"123";
-    beforeFirstHeightLabel.textAlignment    = NSTextAlignmentCenter;
-    beforeFirstWeightLabel.font         = [UIFont customFontWithSize:20];
-    beforeFirstWeightLabel.backgroundColor    = [UIColor clearColor];
-    [self.view addSubview:beforeFirstWeightLabel];
-    beforeFirstWeightLabel.hidden       = YES;
+    self.beforeFirstWeightLabel              = [[UILabel alloc] initWithFrame:self.beforeFirstWeightLabelFrame];
+    self.beforeFirstWeightLabel.text         = @"123";
+    self.beforeFirstHeightLabel.textAlignment    = NSTextAlignmentCenter;
+    self.beforeFirstWeightLabel.font         = [UIFont customFontWithSize:20];
+    self.beforeFirstWeightLabel.backgroundColor    = [UIColor clearColor];
+    [self.view addSubview:self.beforeFirstWeightLabel];
+    self.beforeFirstWeightLabel.hidden       = YES;
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        firstWeightLabelFrame               = CGRectMake(60.0f, 135.0f, 50.0f, 30.0f);
+        self.firstWeightLabelFrame               = CGRectMake(60.0f, 135.0f, 50.0f, 30.0f);
     }
     else {
-        firstWeightLabelFrame               = CGRectMake(60.0f, 129.0f, 50.0f, 30.0f);
+        self.firstWeightLabelFrame               = CGRectMake(60.0f, 129.0f, 50.0f, 30.0f);
     }
-    firstWeightLabel                    = [[UILabel alloc] initWithFrame:firstWeightLabelFrame];
-    firstWeightLabel.text               = @"124";
-    firstWeightLabel.textAlignment      = NSTextAlignmentCenter;
-    firstWeightLabel.font               = [UIFont customFontWithSize:20];
-    firstWeightLabel.backgroundColor    = [UIColor clearColor];
-    [self.view addSubview:firstWeightLabel];
+    self.firstWeightLabel                    = [[UILabel alloc] initWithFrame:self.firstWeightLabelFrame];
+    self.firstWeightLabel.text               = @"124";
+    self.firstWeightLabel.textAlignment      = NSTextAlignmentCenter;
+    self.firstWeightLabel.font               = [UIFont customFontWithSize:20];
+    self.firstWeightLabel.backgroundColor    = [UIColor clearColor];
+    [self.view addSubview:self.firstWeightLabel];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        secondWeightLabelFrame              = CGRectMake(135.0f, 135.0f, 50.0f, 30.0f);
+        self.secondWeightLabelFrame              = CGRectMake(135.0f, 135.0f, 50.0f, 30.0f);
     }
     else {
-        secondWeightLabelFrame              = CGRectMake(135.0f, 129.0f, 50.0f, 30.0f);
+        self.secondWeightLabelFrame              = CGRectMake(135.0f, 129.0f, 50.0f, 30.0f);
     }
-    secondWeightLabel                   = [[UILabel alloc] initWithFrame:secondWeightLabelFrame];
-    secondWeightLabel.text              = @"125";
-    secondWeightLabel.textAlignment     = NSTextAlignmentCenter;
-    secondWeightLabel.textColor         = [UIColor redColor];
-    secondWeightLabel.font              = [UIFont customFontWithSize:20];
-    secondWeightLabel.backgroundColor   = [UIColor clearColor];
-    [self.view addSubview:secondWeightLabel];
+    self.secondWeightLabel                   = [[UILabel alloc] initWithFrame:self.secondWeightLabelFrame];
+    self.secondWeightLabel.text              = @"125";
+    self.secondWeightLabel.textAlignment     = NSTextAlignmentCenter;
+    self.secondWeightLabel.textColor         = [UIColor redColor];
+    self.secondWeightLabel.font              = [UIFont customFontWithSize:20];
+    self.secondWeightLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.secondWeightLabel];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        thirdWeightLabelFrame               = CGRectMake(213.0f, 135.0f, 50.0f, 30.0f);
+        self.thirdWeightLabelFrame               = CGRectMake(213.0f, 135.0f, 50.0f, 30.0f);
     }
     else {
-        thirdWeightLabelFrame               = CGRectMake(213.0f, 129.0f, 50.0f, 30.0f);
+        self.thirdWeightLabelFrame               = CGRectMake(213.0f, 129.0f, 50.0f, 30.0f);
     }
-    thirdWeightLabel                    = [[UILabel alloc] initWithFrame:thirdWeightLabelFrame];
-    thirdWeightLabel.text               = @"126";
-    thirdWeightLabel.textAlignment      = NSTextAlignmentCenter;
-    thirdWeightLabel.font               = [UIFont customFontWithSize:20];
-    thirdWeightLabel.backgroundColor    = [UIColor clearColor];
-    [self.view addSubview:thirdWeightLabel];
+    self.thirdWeightLabel                    = [[UILabel alloc] initWithFrame:self.thirdWeightLabelFrame];
+    self.thirdWeightLabel.text               = @"126";
+    self.thirdWeightLabel.textAlignment      = NSTextAlignmentCenter;
+    self.thirdWeightLabel.font               = [UIFont customFontWithSize:20];
+    self.thirdWeightLabel.backgroundColor    = [UIColor clearColor];
+    [self.view addSubview:self.thirdWeightLabel];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        afterThirdWeightLabelFrame   = CGRectMake(248.0f, 135.0f, 50.0f, 30.0f);
+        self.afterThirdWeightLabelFrame   = CGRectMake(248.0f, 135.0f, 50.0f, 30.0f);
     }
     else {
-        afterThirdWeightLabelFrame   = CGRectMake(248.0f, 129.0f, 50.0f, 30.0f);
+        self.afterThirdWeightLabelFrame   = CGRectMake(248.0f, 129.0f, 50.0f, 30.0f);
     }
-    afterThirdWeightLabel              	= [[UILabel alloc] initWithFrame:afterThirdWeightLabelFrame];
-    afterThirdWeightLabel.text          = @"127";
-    afterThirdWeightLabel.textAlignment = NSTextAlignmentCenter;
-    afterThirdWeightLabel.font          = [UIFont customFontWithSize:20];
-    afterThirdWeightLabel.backgroundColor   = [UIColor clearColor];
-    [self.view addSubview:afterThirdWeightLabel];
-    afterThirdWeightLabel.hidden        = YES;
+    self.afterThirdWeightLabel              	= [[UILabel alloc] initWithFrame:self.afterThirdWeightLabelFrame];
+    self.afterThirdWeightLabel.text          = @"127";
+    self.afterThirdWeightLabel.textAlignment = NSTextAlignmentCenter;
+    self.afterThirdWeightLabel.font          = [UIFont customFontWithSize:20];
+    self.afterThirdWeightLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.afterThirdWeightLabel];
+    self.afterThirdWeightLabel.hidden        = YES;
 }
 /*
  Add age labels
@@ -1163,11 +1165,11 @@ CGRect afterThirdHeightLabelFrame;
     else {
         ageImageViewFrame         = CGRectMake(0.0f, 229.0f, 320.0f, 57.0f);
     }
-    ageImageView                     = [[UIImageView alloc] initWithFrame:ageImageViewFrame];
-    [self.view addSubview:ageImageView];
-    [ageImageView addGestureRecognizer:self.ageLeftSwipeGesture];
-    [ageImageView addGestureRecognizer:self.ageRightSwipeGesture];
-    ageImageView.userInteractionEnabled  = YES;
+    self.ageImageView                     = [[UIImageView alloc] initWithFrame:ageImageViewFrame];
+    [self.view addSubview:self.ageImageView];
+    [self.ageImageView addGestureRecognizer:self.ageLeftSwipeGesture];
+    [self.ageImageView addGestureRecognizer:self.ageRightSwipeGesture];
+    self.ageImageView.userInteractionEnabled  = YES;
 
     CGRect ageMinusButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1176,9 +1178,9 @@ CGRect afterThirdHeightLabelFrame;
     else {
         ageMinusButtonFrame         = CGRectMake(0.0f, 229.0f, 33.0f, 57.0f);
     }
-    m_ageMinusButton                 = [[UIButton alloc] initWithFrame:ageMinusButtonFrame];
-    [self.view addSubview:m_ageMinusButton];
-    [m_ageMinusButton addTarget:self action:@selector(minusAgeby10:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_ageMinusButton                 = [[UIButton alloc] initWithFrame:ageMinusButtonFrame];
+    [self.view addSubview:self.m_ageMinusButton];
+    [self.m_ageMinusButton addTarget:self action:@selector(minusAgeby10:) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect agePlusButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
@@ -1187,78 +1189,78 @@ CGRect afterThirdHeightLabelFrame;
     else {
         agePlusButtonFrame            = CGRectMake(287.0f, 229.0f, 33.0f, 57.0f);
     }
-    m_agePlusButton                 = [[UIButton alloc] initWithFrame:agePlusButtonFrame];
-    [self.view addSubview:m_agePlusButton];
-    [m_agePlusButton addTarget:self action:@selector(plusAgeby10:) forControlEvents:UIControlEventTouchUpInside];
+    self.m_agePlusButton                 = [[UIButton alloc] initWithFrame:agePlusButtonFrame];
+    [self.view addSubview:self.m_agePlusButton];
+    [self.m_agePlusButton addTarget:self action:@selector(plusAgeby10:) forControlEvents:UIControlEventTouchUpInside];
 
     // Add weight labels
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        beforeFirstAgeLabelFrame         = CGRectMake(18.0f, 280.0f, 50.0f, 30.0f);
+        self.beforeFirstAgeLabelFrame         = CGRectMake(18.0f, 280.0f, 50.0f, 30.0f);
     }
     else {
-        beforeFirstAgeLabelFrame         = CGRectMake(18.0f, 245.0f, 50.0f, 30.0f);
+        self.beforeFirstAgeLabelFrame         = CGRectMake(18.0f, 245.0f, 50.0f, 30.0f);
     }
-    beforeFirstAgeLabel              = [[UILabel alloc] initWithFrame:beforeFirstAgeLabelFrame];
-    beforeFirstAgeLabel.text         = @"25";
-    beforeFirstAgeLabel.textAlignment = NSTextAlignmentCenter;
-    beforeFirstAgeLabel.font         = [UIFont customFontWithSize:20];
-    beforeFirstAgeLabel.backgroundColor   = [UIColor clearColor];
-    [self.view addSubview:beforeFirstAgeLabel];
-    beforeFirstAgeLabel.hidden       = YES;
+    self.beforeFirstAgeLabel              = [[UILabel alloc] initWithFrame:self.beforeFirstAgeLabelFrame];
+    self.beforeFirstAgeLabel.text         = @"25";
+    self.beforeFirstAgeLabel.textAlignment = NSTextAlignmentCenter;
+    self.beforeFirstAgeLabel.font         = [UIFont customFontWithSize:20];
+    self.beforeFirstAgeLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.beforeFirstAgeLabel];
+    self.beforeFirstAgeLabel.hidden       = YES;
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        firstAgeLabelFrame               = CGRectMake(68.0f, 280.0f, 50.0f, 30.0f);
+        self.firstAgeLabelFrame               = CGRectMake(68.0f, 280.0f, 50.0f, 30.0f);
     }
     else {
-        firstAgeLabelFrame               = CGRectMake(68.0f, 245.0f, 50.0f, 30.0f);
+        self.firstAgeLabelFrame               = CGRectMake(68.0f, 245.0f, 50.0f, 30.0f);
     }
-    firstAgeLabel                    = [[UILabel alloc] initWithFrame:firstAgeLabelFrame];
-    firstAgeLabel.text               = @"26";
-    firstAgeLabel.textAlignment = NSTextAlignmentCenter;
-    firstAgeLabel.font               = [UIFont customFontWithSize:20];
-    firstAgeLabel.backgroundColor    = [UIColor clearColor];
-    [self.view addSubview:firstAgeLabel];
+    self.firstAgeLabel                    = [[UILabel alloc] initWithFrame:self.firstAgeLabelFrame];
+    self.firstAgeLabel.text               = @"26";
+    self.firstAgeLabel.textAlignment = NSTextAlignmentCenter;
+    self.firstAgeLabel.font               = [UIFont customFontWithSize:20];
+    self.firstAgeLabel.backgroundColor    = [UIColor clearColor];
+    [self.view addSubview:self.firstAgeLabel];
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        secondAgeLabelFrame              = CGRectMake(135.0f, 280.0f, 50.0f, 30.0f);
+        self.secondAgeLabelFrame              = CGRectMake(135.0f, 280.0f, 50.0f, 30.0f);
     }
     else {
-        secondAgeLabelFrame              = CGRectMake(135.0f, 245.0f, 50.0f, 30.0f);
+        self.secondAgeLabelFrame              = CGRectMake(135.0f, 245.0f, 50.0f, 30.0f);
     }
-    secondAgeLabel                   = [[UILabel alloc] initWithFrame:secondAgeLabelFrame];
-    secondAgeLabel.text              = @"27";
-    secondAgeLabel.textAlignment = NSTextAlignmentCenter;
-    secondAgeLabel.textColor         = [UIColor redColor];
-    secondAgeLabel.font              = [UIFont customFontWithSize:20];
-    secondAgeLabel.backgroundColor   = [UIColor clearColor];
-    [self.view addSubview:secondAgeLabel];
+    self.secondAgeLabel                   = [[UILabel alloc] initWithFrame:self.secondAgeLabelFrame];
+    self.secondAgeLabel.text              = @"27";
+    self.secondAgeLabel.textAlignment = NSTextAlignmentCenter;
+    self.secondAgeLabel.textColor         = [UIColor redColor];
+    self.secondAgeLabel.font              = [UIFont customFontWithSize:20];
+    self.secondAgeLabel.backgroundColor   = [UIColor clearColor];
+    [self.view addSubview:self.secondAgeLabel];
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        thirdAgeLabelFrame               = CGRectMake(203.0f, 280.0f, 50.0f, 30.0f);
+        self.thirdAgeLabelFrame               = CGRectMake(203.0f, 280.0f, 50.0f, 30.0f);
     }
     else {
-        thirdAgeLabelFrame               = CGRectMake(203.0f, 245.0f, 50.0f, 30.0f);
+        self.thirdAgeLabelFrame               = CGRectMake(203.0f, 245.0f, 50.0f, 30.0f);
     }
-    thirdAgeLabel                    = [[UILabel alloc] initWithFrame:thirdAgeLabelFrame];
-    thirdAgeLabel.text               = @"28";
-    thirdAgeLabel.textAlignment = NSTextAlignmentCenter;
-    thirdAgeLabel.font               = [UIFont customFontWithSize:20];
-    thirdAgeLabel.backgroundColor    = [UIColor clearColor];
-    [self.view addSubview:thirdAgeLabel];
+    self.thirdAgeLabel                    = [[UILabel alloc] initWithFrame:self.thirdAgeLabelFrame];
+    self.thirdAgeLabel.text               = @"28";
+    self.thirdAgeLabel.textAlignment = NSTextAlignmentCenter;
+    self.thirdAgeLabel.font               = [UIFont customFontWithSize:20];
+    self.thirdAgeLabel.backgroundColor    = [UIColor clearColor];
+    [self.view addSubview:self.thirdAgeLabel];
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        afterThirdAgeLabelFrame   = CGRectMake(253.0f, 280.0f, 50.0f, 30.0f);
+        self.afterThirdAgeLabelFrame   = CGRectMake(253.0f, 280.0f, 50.0f, 30.0f);
     }
     else {
-        afterThirdAgeLabelFrame   = CGRectMake(253.0f, 245.0f, 50.0f, 30.0f);
+        self.afterThirdAgeLabelFrame   = CGRectMake(253.0f, 245.0f, 50.0f, 30.0f);
     }
-    afterThirdAgeLabel              	= [[UILabel alloc] initWithFrame:afterThirdAgeLabelFrame];
-    afterThirdAgeLabel.text          = @"29";
-    afterThirdAgeLabel.textAlignment = NSTextAlignmentCenter;
-    afterThirdAgeLabel.font          = [UIFont customFontWithSize:20];
-    afterThirdAgeLabel.backgroundColor  = [UIColor clearColor];
-    [self.view addSubview:afterThirdAgeLabel];
-    afterThirdAgeLabel.hidden        = YES;
+    self.afterThirdAgeLabel              	= [[UILabel alloc] initWithFrame:self.afterThirdAgeLabelFrame];
+    self.afterThirdAgeLabel.text          = @"29";
+    self.afterThirdAgeLabel.textAlignment = NSTextAlignmentCenter;
+    self.afterThirdAgeLabel.font          = [UIFont customFontWithSize:20];
+    self.afterThirdAgeLabel.backgroundColor  = [UIColor clearColor];
+    [self.view addSubview:self.afterThirdAgeLabel];
+    self.afterThirdAgeLabel.hidden        = YES;
 }
 
 /*
@@ -1267,15 +1269,15 @@ CGRect afterThirdHeightLabelFrame;
 - (void)assignHeightLabelFrames
 {
     // Before the first label Height
-    m_beforeFirstHeightFrame          = beforeFirstHeightLabel.frame;
+    self.m_beforeFirstHeightFrame          = self.beforeFirstHeightLabel.frame;
     // First Label Height
-    m_firstHeightFrame                = firstHeightLabel.frame;
+    self.m_firstHeightFrame                = self.firstHeightLabel.frame;
     // Second Label Height
-    m_secondHeightFrame               = secondHeightLabel.frame;
+    self.m_secondHeightFrame               = self.secondHeightLabel.frame;
     // Third Label Height
-    m_thirdHeightFrame                = thirdHeightLabel.frame;
+    self.m_thirdHeightFrame                = self.thirdHeightLabel.frame;
     // Fourth Label Height
-    m_afterThirdHeightFrame           = afterThirdHeightLabel.frame;
+    self.m_afterThirdHeightFrame           = self.afterThirdHeightLabel.frame;
 }
 
 /*
@@ -1284,15 +1286,15 @@ CGRect afterThirdHeightLabelFrame;
 - (void)assignWeightLabelFrames
 {
     // Before the first label Weight
-    m_beforeFirstWeightFrame          = beforeFirstWeightLabel.frame;
+    self.m_beforeFirstWeightFrame          = self.beforeFirstWeightLabel.frame;
     // First Label Weight
-    m_firstWeightFrame                = firstWeightLabel.frame;
+    self.m_firstWeightFrame                = self.firstWeightLabel.frame;
     // Second Label Weight
-    m_secondWeightFrame               = secondWeightLabel.frame;
+    self.m_secondWeightFrame               = self.secondWeightLabel.frame;
     // Third label weight
-    m_thirdWeightFrame                = thirdWeightLabel.frame;
+    self.m_thirdWeightFrame                = self.thirdWeightLabel.frame;
     // Third Label Weight
-    m_afterThirdWeightFrame           = afterThirdWeightLabel.frame;
+    self.m_afterThirdWeightFrame           = self.afterThirdWeightLabel.frame;
 }
 
 
@@ -1302,13 +1304,13 @@ CGRect afterThirdHeightLabelFrame;
 - (void)assignInitialHeightValues
 {
     // Default feet is 5 after fifth label
-    m_feet_After_Third_Label                      = 5;
+    self.m_feet_After_Third_Label                      = 5;
     // Defautl feet is 5 before first label
-    m_feet_Before_First_Label                     = 5;
+    self.m_feet_Before_First_Label                     = 5;
     // Default inches is 9 after fifth label
-    m_inches_After_Third_Label                    = 9;
+    self.m_inches_After_Third_Label                    = 9;
     // Default inches is 3 before first label
-    m_inches_Before_First_Label                   = 3;
+    self.m_inches_Before_First_Label                   = 3;
 }
 
 /*
@@ -1317,15 +1319,15 @@ CGRect afterThirdHeightLabelFrame;
 - (void)assignAgeLabelFrames
 {
     // before first age label
-    m_beforeFirstAgeFrame                 = beforeFirstAgeLabel.frame;
+    self.m_beforeFirstAgeFrame                 = self.beforeFirstAgeLabel.frame;
     // first age label
-    m_firstAgeFrame                       = firstAgeLabel.frame;
+    self.m_firstAgeFrame                       = self.firstAgeLabel.frame;
     // second age label
-    m_secondAgeFrame                      = secondAgeLabel.frame;
+    self.m_secondAgeFrame                      = self.secondAgeLabel.frame;
     // third age label
-    m_thirdAgeFrame                       = thirdAgeLabel.frame;
+    self.m_thirdAgeFrame                       = self.thirdAgeLabel.frame;
     // after third age label
-    m_afterThirdAgeFrame                  = afterThirdAgeLabel.frame;
+    self.m_afterThirdAgeFrame                  = self.afterThirdAgeLabel.frame;
 }
 
 //- (void)setWeightForSex:(NSString *)SEX
@@ -1371,11 +1373,11 @@ CGRect afterThirdHeightLabelFrame;
 
 - (void)helpButtonClicked
 {
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:1 forKey:@"BMR_Help"];
-    [userDefaults synchronize];
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults setInteger:1 forKey:@"BMR_Help"];
+    [self.userDefaults synchronize];
     
-    [m_helpPopUpButtonViewInProfileView removeFromSuperview];
+    [self.m_helpPopUpButtonViewInProfileView removeFromSuperview];
     self.homeButton.userInteractionEnabled      = YES;
 }
 
@@ -1384,16 +1386,16 @@ CGRect afterThirdHeightLabelFrame;
     CGRect helpPopUpButtonFrame;
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 568.0f);
-        m_helpPopUpButtonViewInProfileView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInProfileView setBackgroundImage:[UIImage imageNamed:@"bmr_instruction_i5.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInProfileView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInProfileView setBackgroundImage:[UIImage imageNamed:@"bmr_instruction_i5.png"] forState:UIControlStateNormal];
     }
     else {
         helpPopUpButtonFrame     = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-        m_helpPopUpButtonViewInProfileView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
-        [m_helpPopUpButtonViewInProfileView setBackgroundImage:[UIImage imageNamed:@"bmr_instruction.png"] forState:UIControlStateNormal];
+        self.m_helpPopUpButtonViewInProfileView       = [[UIButton alloc] initWithFrame:helpPopUpButtonFrame];
+        [self.m_helpPopUpButtonViewInProfileView setBackgroundImage:[UIImage imageNamed:@"bmr_instruction.png"] forState:UIControlStateNormal];
     }
-    [self.view addSubview:m_helpPopUpButtonViewInProfileView];
-    [m_helpPopUpButtonViewInProfileView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_helpPopUpButtonViewInProfileView];
+    [self.m_helpPopUpButtonViewInProfileView addTarget:self action:@selector(helpButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
     self.homeButton.userInteractionEnabled      = NO;
 }
@@ -1417,25 +1419,25 @@ CGRect afterThirdHeightLabelFrame;
         backButtonFrame                   = CGRectMake(15.0f, 425.0f, 60.0f, 40.0f);
     }
     
-    backgroundImageView                   = [[UIImageView alloc] initWithFrame:backgroundImageViewFrame];
+    self.backgroundImageView                   = [[UIImageView alloc] initWithFrame:backgroundImageViewFrame];
 
     if ([[UIScreen mainScreen] bounds].size.height == 568) { // the device is iPhone 5
-        backgroundImageView.image         = [UIImage imageNamed:@"createnew.png"];
+        self.backgroundImageView.image         = [UIImage imageNamed:@"createnew.png"];
     }
     else {
-        backgroundImageView.image         = [UIImage imageNamed:@"createnew_iphone4.png"];
+        self.backgroundImageView.image         = [UIImage imageNamed:@"createnew_iphone4.png"];
     }
-    backgroundImageView.userInteractionEnabled  = NO;
+    self.backgroundImageView.userInteractionEnabled  = NO;
 
-    [self.view addSubview:backgroundImageView];
+    [self.view addSubview:self.backgroundImageView];
     
-    m_doneButton                          = [[UIButton alloc] initWithFrame:doneButtonFrame];
-    [m_doneButton addTarget:self action:@selector(profileDone:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:m_doneButton];
+    self.m_doneButton                          = [[UIButton alloc] initWithFrame:doneButtonFrame];
+    [self.m_doneButton addTarget:self action:@selector(profileDone:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_doneButton];
     
-    m_backButton                          = [[UIButton alloc] initWithFrame:backButtonFrame];
-    [m_backButton addTarget:self action:@selector(moveToPreviousViewController:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:m_backButton];
+    self.m_backButton                          = [[UIButton alloc] initWithFrame:backButtonFrame];
+    [self.m_backButton addTarget:self action:@selector(moveToPreviousViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.m_backButton];
 
     [self.messageButton removeFromSuperview];
     self.messageButton.titleLabel.font          = [UIFont customFontWithSize:13];
@@ -1459,8 +1461,8 @@ CGRect afterThirdHeightLabelFrame;
     // Assign age frames for animation
     [self assignAgeLabelFrames];
     
-    userDefaults        = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults integerForKey:@"BMR_Help"]) {
+    self.userDefaults        = [NSUserDefaults standardUserDefaults];
+    if (![self.userDefaults integerForKey:@"BMR_Help"]) {
         // Add Help Pop Up
         [self createHelpPopUp];
     }
@@ -1472,15 +1474,15 @@ CGRect afterThirdHeightLabelFrame;
     // Create new active is the default top nav image
 //    [self.topNavigationBar setBackgroundImage:[UIImage imageNamed:@"topnav.png"] forState:UIControlStateNormal];
 
-    if (!m_database) {
-        m_database           = [Database alloc];
+    if (!self.m_database) {
+        self.m_database           = [Database alloc];
     }
-    m_userEmailID            = [NSString getUserEmail];
+    self.m_userEmailID            = [NSString getUserEmail];
 
 //    // Default sex selection is none
 //    self.sex                 = @"";
     // Default exercise mode is none
-    m_exercise_Mode          = @"";
+    self.m_exercise_Mode          = @"";
     
 //    // If the user email is already registered and registered under with one sex gender
 //    if (([[self sexOfAnExistingUser] length] != 0) && ([self sexOfAnExistingUser] != NULL) {
@@ -1504,8 +1506,8 @@ CGRect afterThirdHeightLabelFrame;
     // Default height is 5' 7”
     self.height        = @"5' 7”";
     
-    if (!m_loginViewController) {
-        m_loginViewController        = [LoginViewController sharedInstance];
+    if (!self.m_loginViewController) {
+        self.m_loginViewController        = [LoginViewController sharedInstance];
     }
     if ((super.view.tag == 1) || (super.view.tag == 2)) {
         self.homeButton.hidden      = YES;
